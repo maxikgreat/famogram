@@ -1,6 +1,8 @@
+import { BaseLayout } from '@/components/layouts/BaseLayout';
+
 export default function Home() {
   return (
-    <div>
+    <BaseLayout>
       <h1>This text must be responsive</h1>
       <h2>This text must be responsive</h2>
       <h3>This text must be responsive</h3>
@@ -9,6 +11,6 @@ export default function Home() {
       <h6>This text must be responsive</h6>
       <p>This text must be responsive</p>
       <span>This text must be responsive</span>
-    </div>
+    </BaseLayout>
   )
 }

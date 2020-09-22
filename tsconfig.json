@@ -9,6 +9,9 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"],
+      "@common/*": ["./components/common/*"],
+      "@layouts/*": ["./components/layouts/*"],
+      "@api/*": ["./pages/api/**/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
