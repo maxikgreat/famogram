@@ -2,7 +2,7 @@
 @import './mixins/respo-font.scss';
 
 
-html {
+html, body {
   @include respo-font(16, 30, 300, 1500);
 }
 
