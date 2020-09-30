@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^0.16.0",
     "axios": "^0.20.0",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
@@ -24,8 +25,10 @@
     "@types/express": "^4.17.8",
     "@types/node": "^14.11.1",
     "@types/react": "^16.9.49",
+    "dotenv-webpack": "^3.0.0",
     "nodemon": "^2.0.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3"
-  }
+  },
+  "author": "Maksym Vasylenko <maximvasylenko228322@gmail.com>"
 }
