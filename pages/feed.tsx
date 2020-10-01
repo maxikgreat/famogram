@@ -1,4 +1,4 @@
-import { BaseLayout } from '@components/layouts';
+import { BaseLayout } from '@/components/layouts';
 
 export default function Feed() {
   return (
