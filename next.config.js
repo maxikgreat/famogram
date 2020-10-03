@@ -1,4 +1,5 @@
-const path = require('path');
+// dotenv-webpack v3.0 doesn't work correctly with next
+
 const DotenvWebpack = require('dotenv-webpack');
 
 module.exports = {
