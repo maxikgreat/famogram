@@ -1,0 +1,28 @@
+main.home {
+  section.welcome {
+    display: flex;
+    flex: 1;
+
+    div {
+      display: flex;
+      flex: 0.5;
+      filter: grayscale(1)
+    }
+
+    .finder-hld {
+      background: url('/assets/images/welcome-1.jpg') no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    .bloger-hld {
+      background: url('/assets/images/welcome-5.jpg') no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  }
+}

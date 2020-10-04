@@ -8,9 +8,10 @@ import { Header, MobileSideBar } from '../common'
 
 interface BaseLayoutProps {
   children: ReactNode,
+  className: string,
 }
 
-export const BaseLayout = ({ children }: BaseLayoutProps) => {
+export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const router = useRouter();
 
@@ -42,7 +43,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
         setVisible={setMobileMenu}
         routes={renderRoutes()}
       />
-      <main>
+      <main id="main" className={className}>
         {children}
       </main>
     </>
