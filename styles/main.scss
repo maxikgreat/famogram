@@ -3,9 +3,12 @@
 
 // mixins
 @import './mixins/respo-font.scss';
+@import './mixins/background.scss';
+@import './mixins/box-shadow.scss';
 
 // components
 @import './components/header';
+@import './components/headers';
 
 // pages 
 @import './pages/index';
@@ -15,13 +18,10 @@ html, body {
   @include respo-font(16, 30, 300, 1500);
 }
 
-#main {
-  margin-top: 100px;
-}
-
 section {
   width: 100vw;
-  height: calc(100vh - 100px);
+  height: 100vh;
+  display: flex;
 }
 
 @import './respo';

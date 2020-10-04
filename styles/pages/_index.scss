@@ -1,28 +1,104 @@
 main.home {
-  section.welcome {
-    display: flex;
-    flex: 1;
-
-    div {
+  section.welcome-hld {
+    .bg {
+      position: absolute;
+      animation: slide 15s ease-in-out infinite alternate;
+      background-image: linear-gradient(-60deg, $accent 50%, $primary 50%);
+      bottom: 0;
+      left: -50%;
+      right: -50%;
+      top: 0;
+      opacity: .5;
+      z-index: -10;
+    }
+    
+    .bg2 {
+      animation-direction:alternate-reverse;
+      animation-duration:20s;
+    }
+    
+    .bg3 {
+      animation-duration:25s;
+    }
+    .welcome {
       display: flex;
-      flex: 0.5;
-      filter: grayscale(1)
-    }
+      margin-top: 100px;
+      div {
+        flex: 0.5;
+        position: relative;
+      }
 
-    .finder-hld {
-      background: url('/assets/images/welcome-1.jpg') no-repeat center center;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
+      h1 {
+        position: absolute;
+        &:nth-child(1) {
+          top: 0px;
+        } 
+        &:nth-child(2) {
+          top: 70px;
+        } 
+        &:nth-child(3) {
+          top: 140px;
+        } 
+      }
     }
+  }
+  section.choose-hld {
+    background: linear-gradient(-45deg, $black, $black);
+    @include background('/assets/images/choose-background.jpg');
+    .choose {
+      display: flex;
+      h2 {
+        position: absolute;
+        z-index: 10;
+      }
+  
+      h2.mode-center {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+  
+      h2.mode-title {
+        top: 70%;
+      }
+  
+      .mode {
+        cursor: pointer;
+        transition: .3s all ease-in-out;
+        display: flex;
+        flex: 0.5;
+        margin: 30px;
+        border-radius: 20px;
+        filter: grayscale(1) blur(3px);
+      }
+  
+      .mode-active {
+        cursor: auto;
+        filter: grayscale(0) blur(0px);
+      }
+  
+      .finder-hld {
+        @include background('/assets/images/welcome-1.jpg');
+      }
 
-    .bloger-hld {
-      background: url('/assets/images/welcome-5.jpg') no-repeat center center;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
+      .finder-hld.mode-active {
+        @include box-shadow($primary, 'large');
+      }
+  
+      .bloger-hld {
+        @include background('/assets/images/welcome-5.jpg');
+      }
+      .bloger-hld.mode-active {
+        @include box-shadow($secondary, 'large');
+      }
     }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
   }
 }

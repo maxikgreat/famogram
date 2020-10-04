@@ -1,0 +1,19 @@
+h1, h2, h3, h4, h5, h6 {
+  padding: 10px;
+}
+
+h1.round, h2.round, h3.round, h4.round, h5.round, h6.round {
+  border-radius: 20px;
+}
+
+h1.accent, h2.accent, h3.accent, h4.accent, h5.accent, h6.accent {
+  background-color: $accent;
+}
+
+h1.primary, h2.primary, h3.primary, h4.primary, h5.primary, h6.primary {
+  background-color: $primary;
+}
+
+h1.secondary, h2.secondary, h3.secondary, h4.secondary, h5.secondary, h6.secondary {
+  background-color: $secondary;
+}

@@ -1,0 +1,19 @@
+@mixin box-shadow($color, $size) {
+  @if $size == small {
+    -webkit-box-shadow: 3px 3px 0px 0px rgba($color, 0.75);
+    -moz-box-shadow: 3px 3px 0px 0px rgba($color, 0.75);
+    box-shadow: 3px 3px 0px 0px rgba($color, 0.75);
+  }
+
+  @if $size == medium {
+    -webkit-box-shadow: 7px 7px 0px 0px rgba($color, 0.75);
+    -moz-box-shadow: 7px 7px 0px 0px rgba($color, 0.75);
+    box-shadow: 7px 7px 0px 0px rgba($color, 0.75);
+  }
+
+  @if $size == large {
+    -webkit-box-shadow: 10px 10px 0px 0px rgba($color, 0.75);
+    -moz-box-shadow: 10px 10px 0px 0px rgba($color, 0.75);
+    box-shadow: 10px 10px 0px 0px rgba($color, 0.75);
+  }
+}
