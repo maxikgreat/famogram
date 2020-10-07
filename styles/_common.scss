@@ -1,0 +1,20 @@
+h1, h2, h3, h4, h5, h6 {
+  padding: 10px;
+  color: $white;
+}
+
+.skew {
+  transform: skew(-10deg);
+}
+
+.bg-accent {
+  background-color: $accent;
+}
+
+.bg-primary {
+  background-color: $primary;
+}
+
+.bg-secondary {
+  background-color: $secondary;
+}

@@ -12,7 +12,7 @@ export const Choose = ({ mode, setMode }: ChooseProps) => {
   return (
     <section className="choose-hld">
       <Container className="choose">
-        <h2 className="mode-center accent round">I want to...</h2>
+        <h2 className="mode-center accent skew">I want to...</h2>
         <div className={`${mode === 'finder' ? 'mode mode-active' : 'mode'} finder-hld`}
           onClick={() => setMode('finder')}
         >

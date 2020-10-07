@@ -1,9 +1,16 @@
 main.home {
   section.welcome-hld {
-    .bg {
+    // .bg-image {
+    //   position: absolute;
+    //   background-image: url('/assets/images/welcome-background.jpg');
+    //   width: 100vw;
+    //   height: 100vh;
+    //   z-index: -100;
+    // }
+    .bg-gradient {
       position: absolute;
       animation: slide 15s ease-in-out infinite alternate;
-      background-image: linear-gradient(-60deg, $accent 50%, $primary 50%);
+      background-image: linear-gradient(-80deg, rgba($accent, 0.75) 50%, rgba($primary, 0.75) 50%);
       bottom: 0;
       left: -50%;
       right: -50%;
@@ -13,16 +20,17 @@ main.home {
     }
     
     .bg2 {
-      animation-direction:alternate-reverse;
-      animation-duration:20s;
+      animation-direction: alternate-reverse;
+      animation-duration: 20s;
     }
     
     .bg3 {
-      animation-duration:25s;
+      animation-duration: 25s;
     }
     .welcome {
       display: flex;
       margin-top: 100px;
+      margin-bottom: 100px;
       div {
         flex: 0.5;
         position: relative;
@@ -30,15 +38,34 @@ main.home {
 
       h1 {
         position: absolute;
+        z-index: 100;
+        right: 0;
         &:nth-child(1) {
           top: 0px;
+          @include float(6s);
+          @include text-shadow($accent, 3px);
         } 
         &:nth-child(2) {
           top: 70px;
+          @include float(5.75s);
+          @include text-shadow($secondary, 3px);
         } 
         &:nth-child(3) {
           top: 140px;
+          @include float(5.5s);
+          @include text-shadow($primary, 3px);
         } 
+      }
+
+      .img-container {
+        border-radius: 20px;
+        transform: skew(-10deg);
+        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        overflow: hidden;
+        height: 100%;
+        img {
+          transform: skew(10deg) scale(1.25);
+        }
       }
     }
   }
