@@ -36,23 +36,23 @@ main.home {
         position: relative;
       }
 
-      h1 {
+      h2 {
         position: absolute;
         z-index: 100;
         right: 0;
         &:nth-child(1) {
           top: 0px;
-          @include float(6s);
+          @include float(6s, 0s);
           @include text-shadow($accent, 3px);
         } 
         &:nth-child(2) {
           top: 70px;
-          @include float(5.75s);
+          @include float(6s, 0.5s);
           @include text-shadow($secondary, 3px);
         } 
         &:nth-child(3) {
           top: 140px;
-          @include float(5.5s);
+          @include float(6s, 1s);
           @include text-shadow($primary, 3px);
         } 
       }

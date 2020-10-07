@@ -11,7 +11,7 @@ export const Welcome = () => {
       <Container className="welcome">
         <div></div>
         <div>
-          <h1 
+          <h2
             className="bg-accent skew" 
             // animate={{ x: 20 }}
             // transition={{ 
@@ -21,8 +21,8 @@ export const Welcome = () => {
             //   ease: 'easeInOut',
             //   delay: 0.33
             // }}
-          >Lorem</h1>
-          <h1 
+          >Lorem</h2>
+          <h2
             className="bg-secondary skew" 
             // animate={{ x: 20 }}
             // transition={{ 
@@ -32,8 +32,8 @@ export const Welcome = () => {
             //   ease: 'easeInOut',
             //   delay: 0.66
             // }}
-          >Ipsum</h1>
-          <h1 
+          >Ipsum</h2>
+          <h2
             className="bg-primary skew" 
             // animate={{ x: 20 }}
             // transition={{ 
@@ -43,7 +43,7 @@ export const Welcome = () => {
             //   ease: 'easeInOut',
             //   delay: 0.99
             // }}
-          >Vensa</h1>
+          >Vensa</h2>
           <div className="img-container">
             <img src="/assets/images/welcome1.jpg" />
           </div>
