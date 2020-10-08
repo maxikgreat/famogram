@@ -14,7 +14,7 @@ export const Welcome = () => {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, recusandae?
           </h1>
 
-          <Divider className="skew" />
+          <Divider className="divider-accent" />
           <button 
             className=""
           >discover</button>

@@ -1,0 +1,17 @@
+.divider {
+  height: 10px !important;
+}
+
+.divider {
+  &-accent {
+    background-color: rgba($accent, 0.25) !important;
+  }
+
+  &-primary {
+    background-color: rgba($accent, 0.25) !important;
+  }
+  
+  &-secondary {
+    background-color: rgba($accent, 0.25) !important;
+  }
+}
