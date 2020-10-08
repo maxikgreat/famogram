@@ -9,6 +9,8 @@ button {
   outline: none;
   padding: .75rem;
   transform: skew(-10deg);
+  color: $white;
+  font-weight: bold;
   &:hover{
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
     transform : translateY(-3px) skew(-10deg);
@@ -30,10 +32,34 @@ button {
     display: inline-block;
     z-index: -1;
     transition: all .5s;
-    background: #fff;
+    background: $white;
   }
   &:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
+  }
+}
+
+button.accent {
+  background-color: darken($accent, 5%);
+  text-shadow: 2px 2px 1px lighten($accent, 20%);
+  &::after{
+    background: $accent;
+  }
+} 
+
+button.primary {
+  background-color: darken($primary, 5%);
+  text-shadow: 2px 2px 1px lighten($primary, 20%);
+  &::after{
+    background: $primary;
+  }
+}
+
+button.secondary {
+  background-color: darken($secondary, 5%);
+  text-shadow: 2px 2px 1px lighten($secondary, 20%);
+  &::after{
+    background: $secondary;
   }
 }

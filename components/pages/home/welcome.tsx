@@ -13,10 +13,9 @@ export const Welcome = () => {
           <h1 className="ddd-accent">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, recusandae?
           </h1>
-
-          <Divider className="divider-accent" />
+          <Divider className="divider-primary skew" />
           <button 
-            className=""
+            className="secondary"
           >discover</button>
         </div>
         <div className="photo-hld">
@@ -26,7 +25,6 @@ export const Welcome = () => {
           <div className="img-container skew round shadow">
             <img src="/assets/images/welcome1.jpg" />
           </div>
-          
         </div>
       </Container>
     </section>
