@@ -1,12 +1,5 @@
 main.home {
   section.welcome-hld {
-    // .bg-image {
-    //   position: absolute;
-    //   background-image: url('/assets/images/welcome-background.jpg');
-    //   width: 100vw;
-    //   height: 100vh;
-    //   z-index: -100;
-    // }
     .bg-gradient {
       position: absolute;
       animation: slide 15s ease-in-out infinite alternate;
@@ -36,35 +29,42 @@ main.home {
         position: relative;
       }
 
-      h2 {
-        position: absolute;
-        z-index: 100;
-        right: 0;
-        &:nth-child(1) {
-          top: 0px;
-          @include float(6s, 0s);
-          @include text-shadow($accent, 3px);
-        } 
-        &:nth-child(2) {
-          top: 70px;
-          @include float(6s, 0.5s);
-          @include text-shadow($secondary, 3px);
-        } 
-        &:nth-child(3) {
-          top: 140px;
-          @include float(6s, 1s);
-          @include text-shadow($primary, 3px);
-        } 
+      .content-hld {
+        h1 {
+          font-size: 2.5rem;
+          font-style: italic;
+        }
       }
 
-      .img-container {
-        border-radius: 20px;
-        transform: skew(-10deg);
-        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-        overflow: hidden;
-        height: 100%;
-        img {
-          transform: skew(10deg) scale(1.25);
+      .photo-hld {
+        h2 {
+          padding: 10px;
+          position: absolute;
+          z-index: 100;
+          right: 0;
+          &:nth-child(1) {
+            top: 0px;
+            @include float(6s, 0s);
+            @include text-shadow($accent, 3px);
+          } 
+          &:nth-child(2) {
+            top: 70px;
+            @include float(6s, 0.5s);
+            @include text-shadow($secondary, 3px);
+          } 
+          &:nth-child(3) {
+            top: 140px;
+            @include float(6s, 1s);
+            @include text-shadow($primary, 3px);
+          } 
+        }
+  
+        .img-container {
+          overflow: hidden;
+          height: 100%;
+          img {
+            transform: skew(10deg) scale(1.25);
+          }
         }
       }
     }

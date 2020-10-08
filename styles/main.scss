@@ -1,6 +1,5 @@
 @import './reset';
 @import './vars';
-@import './common';
 
 // mixins
 @import './mixins/respo-font';
@@ -8,9 +7,14 @@
 @import './mixins/box-shadow';
 @import './mixins/text-shadow';
 @import './mixins/float';
+@import './mixins/ddd';
+
+// common classes
+@import './common';
 
 // components
 @import './components/header';
+@import './components/button';
 
 // pages 
 @import './pages/index';
