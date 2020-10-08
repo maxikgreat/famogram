@@ -1,9 +1,18 @@
 header {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   top: 0;
+  z-index: 10000;
+  transition: .2s all ease-in-out;
   .ui.text.menu {
-    margin-top: 0;
-    margin-bottom: 0;
+    transition: .2s all ease-in-out;
+  }
+}
+
+header.sticky {
+  background: $white;
+  .ui.text.menu {
+    transition: .5s all ease-in-out;
+    margin: 0;
   }
 }

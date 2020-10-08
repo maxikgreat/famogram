@@ -19,12 +19,23 @@ main.home {
     
     .bg3 {
       animation-duration: 25s;
+      &::before {
+        content: '';
+        @include background('/assets/images/welcome-background.jpg');
+        transform: skew(-10deg) scale(1.25);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -100;
+      }
     }
     .welcome {
       display: flex;
-      margin-top: 100px;
-      margin-bottom: 100px;
-      div {
+      margin-top: 125px;
+      margin-bottom: 75px;
+      > div {
         flex: 0.5;
         position: relative;
       }
@@ -34,6 +45,18 @@ main.home {
           padding-right: 10px;
           font-size: 2.25rem;
           font-style: italic;
+        }
+        .action-hld {
+          position: relative;
+          button {
+            z-index: 10;
+          }
+          .img-discover {
+            position: absolute;
+            top: -115px;
+            right: 0;
+            width: 400px;
+          }
         }
       }
 
