@@ -10,6 +10,7 @@ main.home {
       top: 0;
       opacity: .5;
       z-index: -10;
+      filter: blur(5px);
     }
     
     .bg2 {
@@ -41,6 +42,13 @@ main.home {
       }
 
       .content-hld {
+        .img-instagram {
+          position: absolute;
+          top: 10%;
+          left: 45%;
+          z-index: -10;
+          width: 200px;
+        }
         h1 {
           padding-right: 10px;
           font-size: 2.25rem;
@@ -51,11 +59,18 @@ main.home {
           button {
             z-index: 10;
           }
-          .img-discover {
+          img {
             position: absolute;
-            top: -115px;
+            top: -105px;
             right: 0;
             width: 400px;
+          }
+
+          .img-discover {
+            width: 450px;
+            top: -125px;
+            transform-origin: bottom center;
+            animation: shake-animation 4.72s ease infinite;
           }
         }
       }
@@ -82,8 +97,9 @@ main.home {
             @include text-shadow($primary, 3px);
           } 
         }
-  
+
         .img-container {
+          position: relative;
           overflow: hidden;
           height: 100%;
           img {
@@ -151,5 +167,32 @@ main.home {
   }
   100% {
     transform:translateX(25%);
+  }
+}
+
+@keyframes shake-animation {
+  0% { 
+    transform: rotate(3deg)
+  }
+  1.78571% {
+    transform: rotate(-3deg)
+  }
+  3.57143% { 
+    transform: rotate(3deg)
+  }
+  5.35714% { 
+    transform: rotate(-3deg)
+  }
+  7.14286% { 
+    transform: rotate(3deg)
+  }
+  8.92857% {
+    transform: rotate(-3deg)
+  }
+  10.71429% { 
+    transform: rotate(0deg)
+  }
+  100% { 
+    transform: rotate(-3deg)
   }
 }

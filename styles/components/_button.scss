@@ -43,24 +43,36 @@ button {
 button.accent {
   background-color: darken($accent, 5%);
   text-shadow: 2px 2px 1px lighten($accent, 20%);
+  border: 3px solid lighten($accent, 25%);
   &::after{
     background: $accent;
+  }
+  &:hover {
+    border-width: 5px;
   }
 } 
 
 button.primary {
   background-color: darken($primary, 5%);
   text-shadow: 2px 2px 1px lighten($primary, 20%);
+  border: 3px solid lighten($primary, 25%);
   &::after{
     background: $primary;
+  }
+  &:hover {
+    border-width: 5px;
   }
 }
 
 button.secondary {
   background-color: darken($secondary, 5%);
   text-shadow: 2px 2px 1px lighten($secondary, 20%);
+  border: 3px solid lighten($secondary, 25%);
   &::after{
     background: $secondary;
+  }
+  &:hover {
+    border-width: 5px;
   }
 }
 
