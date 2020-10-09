@@ -1,5 +1,6 @@
-import { Menu, Icon, Container } from 'semantic-ui-react';
+import { Menu, Icon, Container, Divider } from 'semantic-ui-react';
 import { MobileView, BrowserView } from "react-device-detect";
+import Router from 'next/router';
 
 interface HeaderProps {
   setVisible: (isVisible: boolean) => void,
@@ -12,13 +13,19 @@ export const Header = ({ setVisible, routes }: HeaderProps) => (
       <Menu
         text
         as="nav"
+        className="skew"
       >
-        <Menu.Item
-          name="Famogram"
-          className="nav-brand"
-        />
+        <Menu.Item>
+          <div 
+            className="logo-hld"
+            onClick={() => Router.push('/')}
+          >
+            <span className="logo">Hativi</span>
+          </div>
+        </Menu.Item>
           <BrowserView renderWithFragment>
             {routes}
+            <Divider className="divider-primary" />
           </BrowserView>
           <MobileView renderWithFragment>
             <Menu.Item

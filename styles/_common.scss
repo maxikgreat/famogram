@@ -7,15 +7,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-accent {
-  background-color: $accent;
+  background-color: $accent !important;
 }
 
 .bg-primary {
-  background-color: $primary;
+  background-color: $primary !important;
 }
 
 .bg-secondary {
-  background-color: $secondary;
+  background-color: $secondary !important;
 }
 
 .shadow {

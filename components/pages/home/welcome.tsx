@@ -18,7 +18,6 @@ export const Welcome = () => {
             <button 
               className="secondary huge"
             >discover</button>
-            <img src="/assets/images/icons/discover-background.png" className="img-discover-background" alt="Discover" />
             <img src="/assets/images/icons/discover.png" className="img-discover" alt="Discover" />
           </div>
         </div>

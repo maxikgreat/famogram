@@ -6,13 +6,31 @@ header {
   transition: .2s all ease-in-out;
   .ui.text.menu {
     transition: .2s all ease-in-out;
+    .item {
+      transition: .2s all ease-in-out;
+      color: $white;
+      font-weight: bold;
+      margin-right: 10px;
+      font-size: 1.25rem;
+    }
   }
 }
 
 header.sticky {
-  background: $white;
+  background: $primary;
+  transition: .2s all ease-in-out;
   .ui.text.menu {
-    transition: .5s all ease-in-out;
+    transition: .2s all ease-in-out;
     margin: 0;
+    .item {
+      transition: .2s all ease-in-out;
+      font-size: 1rem;
+      .logo-hld {
+        span {
+          transition: .2s all ease-in-out;
+          font-size: 2rem;
+        }
+      }
+    }
   }
 }

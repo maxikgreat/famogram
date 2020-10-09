@@ -16,14 +16,14 @@ export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
   const router = useRouter();
 
   const renderRoutes = (): JSX.Element[] => {
-    return ['/', '/feed'].map(route => (
+    return ['/feed', '/login'].map(route => (
       <Link 
         key={route.toString()}
         href={route}
       >
         <Menu.Item
-          className="special-text-small"
-          name={route === '/' ? 'Home' : route}
+          className="bg-accent"
+          name={route}
           active={router.pathname === route}
         />
       </Link>
