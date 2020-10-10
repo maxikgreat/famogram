@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <BaseLayout className="home">
       <Welcome />
-      <Choose mode={mode} setMode={setMode} />
+      {/* <Choose mode={mode} setMode={setMode} /> */}
     </BaseLayout>
   )
 }

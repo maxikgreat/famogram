@@ -11,10 +11,43 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
+  main.home section.welcome-hld {
+    img.img-discover {
+      left: 40%;
+    }
+    .welcome {
+      .photo-hld {
+        position: absolute;
+        z-index: -10;
+        margin: 2rem;
+        .img-container {
+          height: 70vh;
+          filter: blur(5px);
+        } 
+      }
+    }
+  }
   
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
-
+  main.home section.welcome-hld {
+    img.img-discover {
+      left: 30%;
+    }
+    .welcome {
+      margin-top: 100px;
+      .photo-hld {
+        h2 {
+          &:nth-child(2) {
+            top: 50px;
+          } 
+          &:nth-child(3) {
+            top: 100px;
+          } 
+        }
+      }
+    }
+  }
 }

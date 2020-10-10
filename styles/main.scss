@@ -24,6 +24,7 @@
 
 html, body {
   @include respo-font(16, 30, 300, 1500);
+  background-color: $primary;
 }
 
 main {
@@ -35,6 +36,8 @@ section {
   height: 100vh;
   display: flex;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 @import './respo';

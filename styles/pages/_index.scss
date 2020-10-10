@@ -1,5 +1,14 @@
 main.home {
   section.welcome-hld {
+    .img-discover {
+      position: absolute;
+      width: 450px;
+      bottom: -100px;
+      left: 200px;
+      transform-origin: bottom center;
+      animation: shake-animation 4.72s ease infinite;
+    }
+
     .bg-gradient {
       position: absolute;
       animation: slide 15s ease-in-out infinite alternate;
@@ -38,6 +47,7 @@ main.home {
       display: flex;
       margin-top: 125px;
       margin-bottom: 75px;
+      position: relative;
       > div {
         flex: 0.5;
         position: relative;
@@ -67,13 +77,6 @@ main.home {
             top: -105px;
             right: -40px;
             width: 400px;
-          }
-
-          .img-discover {
-            width: 450px;
-            top: -125px;
-            transform-origin: bottom center;
-            animation: shake-animation 4.72s ease infinite;
           }
         }
       }

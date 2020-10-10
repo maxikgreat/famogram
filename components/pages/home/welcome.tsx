@@ -18,7 +18,6 @@ export const Welcome = () => {
             <button 
               className="secondary huge"
             >discover</button>
-            <img src="/assets/images/icons/discover.png" className="img-discover" alt="Discover" />
           </div>
         </div>
         <div className="photo-hld">
@@ -30,6 +29,7 @@ export const Welcome = () => {
           </div>
         </div>
       </Container>
+      <img src="/assets/images/icons/discover.png" className="img-discover" alt="Discover" />
     </section>
   )
 };
