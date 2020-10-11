@@ -28,7 +28,9 @@ html, body {
 }
 
 main {
-  overflow: hidden;
+  height: 100vh;
+  overflow-x: hidden;
+  perspective: 2px;
 }
 
 section {

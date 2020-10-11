@@ -1,10 +1,9 @@
-import { ReactNode, useState } from 'react';
-import { MobileView } from "react-device-detect";
+import { ReactNode } from 'react';
 import { Menu } from 'semantic-ui-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { Header, MobileSideBar } from '../common'
+import { Header } from '../common'
 
 interface BaseLayoutProps {
   children: ReactNode,
@@ -12,7 +11,6 @@ interface BaseLayoutProps {
 }
 
 export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
-  const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const router = useRouter();
 
   const renderRoutes = (): JSX.Element[] => {
@@ -32,17 +30,7 @@ export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
 
   return (
     <>
-      <MobileView renderWithFragment>
-        <MobileSideBar
-          visible={mobileMenu}
-          setVisible={setMobileMenu}
-          routes={renderRoutes()}
-        />
-      </MobileView>
-      <Header
-        setVisible={setMobileMenu}
-        routes={renderRoutes()}
-      />
+      <Header routes={renderRoutes()} />
       <main id="main" className={className}>
         {children}
       </main>

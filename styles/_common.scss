@@ -7,14 +7,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-accent {
+  padding: 10px;
   background-color: $accent !important;
 }
 
 .bg-primary {
+  padding: 10px;
   background-color: $primary !important;
 }
 
 .bg-secondary {
+  padding: 10px;
   background-color: $secondary !important;
 }
 
@@ -38,4 +41,22 @@ h1, h2, h3, h4, h5, h6 {
   &-secondary {
     @include ddd($secondary);
   }
+}
+
+.parallax::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  transform: translateZ(-1px) scale(1.7);
+  z-index: -1;
+}
+
+.parallax-one::after {
+  @include background('/assets/images/chose.png');
+  background-size: 50%;
+  background-position-x: 100%;
 }

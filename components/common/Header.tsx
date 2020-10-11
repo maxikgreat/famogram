@@ -1,13 +1,11 @@
-import { Menu, Icon, Container, Divider } from 'semantic-ui-react';
-import { MobileView, BrowserView } from "react-device-detect";
+import { Menu, Container } from 'semantic-ui-react';
 import Router from 'next/router';
 
 interface HeaderProps {
-  setVisible: (isVisible: boolean) => void,
   routes: JSX.Element[],
 }
 
-export const Header = ({ setVisible, routes }: HeaderProps) => (
+export const Header = ({ routes }: HeaderProps) => (
   <header>
     <Container>
       <Menu
@@ -23,19 +21,7 @@ export const Header = ({ setVisible, routes }: HeaderProps) => (
             <span className="logo">Hativi</span>
           </div>
         </Menu.Item>
-          <BrowserView renderWithFragment>
-            {routes}
-            <Divider className="divider-primary" />
-          </BrowserView>
-          <MobileView renderWithFragment>
-            <Menu.Item
-              as="div"
-              position="right"
-              onClick={() => setVisible(true)}
-            >
-              <Icon name="bars" size="large" />
-            </Menu.Item>
-          </MobileView>
+          {routes}
       </Menu>
     </Container>
   </header>

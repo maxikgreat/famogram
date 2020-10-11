@@ -1,4 +1,5 @@
-import '@/vanilla/stickyHeader';
+import '@/functions/observer';
+import '@/functions/stickyHeader';
 import type { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar';
 

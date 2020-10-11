@@ -1,27 +1,29 @@
-import { Container } from 'semantic-ui-react';
+import { Container, Divider } from 'semantic-ui-react';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
+import { observe } from '@/functions/observer';
 import { Mode } from '@/types';
 
-interface ChooseProps {
-  mode: Mode,
-  setMode: (value: Mode) => void,
-}
+export const Choose = () => {
+  // const sectionRef = useRef()
+  // @ts-ignore
+  // const { scrollYProgress } = useElementScroll(sectionRef); 
+  useEffect(() =>{
+    observe('.content-hld.hidden');
+  }, []);
 
-export const Choose = ({ mode, setMode }: ChooseProps) => {
   return (
-    <section className="choose-hld">
+    <section className="choose-hld parallax parallax-one">
       <Container className="choose">
-        <h2 className="mode-center accent skew">I want to...</h2>
-        <div className={`${mode === 'finder' ? 'mode mode-active' : 'mode'} finder-hld`}
-          onClick={() => setMode('finder')}
-        >
-          <h2 className="mode-title primary">to be advertised</h2>
-        </div>
-        <div className={`${mode === 'bloger' ? 'mode mode-active' : 'mode'} bloger-hld`}
-          onClick={() => setMode('bloger')}
-        >
-          <h2 className="mode-title secondary">to advertise</h2>
+        <motion.h2 className="bg-accent">I want to...</motion.h2>
+        <div className="content-hld hidden">
+          <div>
+            <h1>LEFT Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, veritatis.</h1>
+          </div>
+          <div>
+            <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, totam.</h1>
+          </div>
         </div>
       </Container>
     </section>
