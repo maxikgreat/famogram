@@ -118,7 +118,7 @@ main.home {
     .choose {
       display: flex;
       margin-top: 75px;
-      h2 {
+      > h2 {
         position: absolute;
         @include float(6s, 0s);
         @include text-shadow($accent, 3px);
@@ -127,28 +127,45 @@ main.home {
         flex: 1;
         display: flex;
         margin-top: 75px;
-        > div {
-          transition: .5s all cubic-bezier(.79,.26,.09,.89);
+        > div.card {
+          transition: 1s all cubic-bezier(.79,.26,.09,.89);
           opacity: 1;
           display: flex;
-          flex: 0.5;
+          flex-direction: column;
+          flex: 1;
           justify-content: center;
           align-items: center;
-          transform: translate(0, 0);
-          h1 {
-            color: #000;
+          transform: translate (0, 0);
+          margin: 20px;
+          overflow: hidden;
+          .card-img-hld {
+            display: flex;
+            flex: 0.4;
+            overflow: hidden;
+            height: 100%;
+            img {
+              transform: skew(10deg);
+            }
+          }
+
+          .card-content-hld {
+            display: flex;
+            padding: 20px;
+            flex: 0.6;
+            h1 {
+              color: #000;
+            }
           }
         }
       }
       .content-hld.hidden {
         > div {
-          
           opacity: 0;
           &:nth-child(1) {
-            transform: translate(10%, -30%);
+            transform: translateY(-30%);
           }
           &:nth-child(2) {
-            transform: translate(-10%, 30%);
+            transform: translateY(30%);
           }
         }
       }
