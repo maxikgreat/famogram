@@ -2,7 +2,7 @@ button {
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
-  transition: all .5s;
+  transition: all .3s;
   background-color: $white;
   border-radius: 20px;
   border: 0;
@@ -17,7 +17,7 @@ button {
   }
   &:active{
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform: translateY(-1px) kew(-10deg);
+    transform: translateY(-1px) skew(-10deg);
   }
   &::after{
     content:"";
@@ -31,7 +31,7 @@ button {
     border-radius: 20px;
     display: inline-block;
     z-index: -1;
-    transition: all .5s;
+    transition: all .3s;
     background: $white;
   }
   &:hover::after {

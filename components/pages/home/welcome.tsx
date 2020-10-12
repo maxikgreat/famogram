@@ -5,11 +5,9 @@ export const Welcome = () => {
   return (
     <section className="welcome-hld">
       <div className="bg-gradient"></div>
-      <div className="bg-gradient bg2"></div>
-      <div className="bg3"></div>
+      <div className="bg-img"></div>
       <Container className="welcome">
         <div className="content-hld">
-          <img src="/assets/images/icons/insta.png" className="img-instagram skew" />
           <h1 className="ddd-accent">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, recusandae?
           </h1>
@@ -29,7 +27,7 @@ export const Welcome = () => {
           </div>
         </div>
       </Container>
-      <img src="/assets/images/icons/discover.png" className="img-discover" alt="Discover" />
+      {/* <img src="/assets/images/icons/discover.png" className="img-discover" alt="Discover" /> */}
     </section>
   )
 };

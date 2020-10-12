@@ -6,7 +6,7 @@ export const observe = (elementSelector: string): void => {
     if (element) {
       const observer = new IntersectionObserver((entries) => {
         element.classList.toggle('hidden', !entries[0].isIntersecting);
-      }, { threshold: [0.4] });
+      }, { threshold: [0.5] });
       observer.observe(element);
     }
   }

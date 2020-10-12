@@ -2,7 +2,7 @@ main.home {
   section.welcome-hld {
     .img-discover {
       position: absolute;
-      width: 450px;
+      width: 150px;
       bottom: -100px;
       left: 200px;
       transform-origin: bottom center;
@@ -11,25 +11,18 @@ main.home {
 
     .bg-gradient {
       position: absolute;
-      animation: slide 15s ease-in-out infinite alternate;
-      background-image: linear-gradient(-80deg, rgba($accent, 0.85) 50%, rgba(darken($primary, 5%), 0.85) 50%);
+      animation: slide 8s ease-in-out infinite alternate;
+      background-image: linear-gradient(-60deg, rgba($white, 0) 0%, $primary 60%);
       bottom: 0;
       left: -50%;
       right: -50%;
       top: 0;
-      opacity: .5;
+      opacity: 1;
       z-index: -10;
-      filter: blur(5px);
-    }
-    
-    .bg2 {
-      animation-direction: alternate-reverse;
-      animation-duration: 20s;
-    }
-    
-    .bg3 {
+    } 
+
+    .bg-img {
       position: relative;
-      animation-duration: 25s;
       &::before {
         content: '';
         @include background('/assets/images/welcome-background.jpg');
@@ -137,14 +130,13 @@ main.home {
           flex: 1;
           transform: translate (0, 0);
           margin: 20px;
+          overflow: hidden;
           .card-img-hld {
             position: relative;
             display: flex;
-            flex: 0.4;
+            flex: 0.5;
             height: 100%;
             overflow: hidden;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
             h2 {
               position: absolute;
               z-index: 1;
@@ -165,9 +157,16 @@ main.home {
           .card-content-hld {
             display: flex;
             padding: 20px;
-            flex: 0.6;
-            h1 {
-              color: #000;
+            flex: 0.5;
+            flex-direction: column;
+            justify-content: space-between;
+            .card-content-list {
+              font-size: 1.1rem;
+              margin: 0 20px 0 20px;
+              list-style-image: url('/assets/images/icons/pineapple.svg');
+            }
+            button {
+              transform: skew(0deg);
             }
           }
         }
@@ -198,24 +197,24 @@ main.home {
 
 @keyframes shake-animation {
   0% { 
-    transform: rotate(3deg)
+    transform: rotate(6deg)
   }
   5% { 
-    transform: rotate(-3deg)
+    transform: rotate(0deg)
   }
   10% { 
-    transform: rotate(3deg)
+    transform: rotate(6deg)
   }
   15% {
-    transform: rotate(-3deg)
+    transform: rotate(0deg)
   }
   20% {
-    transform: rotate(3deg);
+    transform: rotate(6deg);
   }
   25% {
-    transform: rotate(-3deg);
+    transform: rotate(0deg);
   }
   100% { 
-    transform: rotate(3deg)
+    transform: rotate(6deg)
   }
 }
