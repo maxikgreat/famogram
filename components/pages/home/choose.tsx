@@ -10,11 +10,13 @@ const mode = {
     name: 'Finder',
     title: 'to advertise',
     imgSrc: '/assets/images/chose-finder.jpg',
+    color: 'primary',
   },
   bloger: {
     name: 'Bloger',
     title: 'to be advertised',
-    imgSrc: '/assets/images/chose-finder.jpg',
+    imgSrc: '/assets/images/chose-bloger.jpg',
+    color: 'accent',
   }
 }
 
@@ -22,15 +24,17 @@ interface CardProps {
   name: string,
   title: string,
   imgSrc: string,
+  color: string,
 }
 
-const Card = ({ name, title, imgSrc }: CardProps) => (
-  <div className="card shadow">
+const Card = ({ name, title, imgSrc, color }: CardProps) => (
+  <div className="card shadow round">
     <div className="card-img-hld">
+      <h2 className={`bg-${color}`}>{title}</h2>
       <img src={imgSrc} alt={name} />
     </div>
-    <div className="card-content-hld">
-      <h1>LEFT Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, veritatis.</h1>
+    <div className={`card-content-hld bg-${color}`}>
+      <p style={{ color: '#000'}}>LEFT Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, veritatis.</p>
     </div>
   </div>
 );
@@ -47,8 +51,8 @@ export const Choose = () => {
       <Container className="choose">
         <motion.h2 className="bg-accent">I want to...</motion.h2>
         <div className="content-hld hidden skew">
-          <Card name={finder.name} title={finder.title} imgSrc={finder.imgSrc} />
-          <Card name={bloger.name} title={bloger.title} imgSrc={bloger.imgSrc} />
+          <Card name={finder.name} title={finder.title} imgSrc={finder.imgSrc} color={finder.color} />
+          <Card name={bloger.name} title={bloger.title} imgSrc={bloger.imgSrc} color={bloger.color} />
         </div>
       </Container>
     </section>

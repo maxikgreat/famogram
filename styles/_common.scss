@@ -54,9 +54,3 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateZ(-1px) scale(1.7);
   z-index: -1;
 }
-
-.parallax-one::after {
-  @include background('/assets/images/chose.png');
-  background-size: 50%;
-  background-position-x: 100%;
-}

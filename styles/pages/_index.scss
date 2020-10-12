@@ -114,7 +114,9 @@ main.home {
     }
   }
   section.choose-hld {
-    background-color: $white;
+    &::after {
+      @include background('/assets/images/chose-background.jpg');
+    }
     .choose {
       display: flex;
       margin-top: 75px;
@@ -133,18 +135,30 @@ main.home {
           display: flex;
           flex-direction: column;
           flex: 1;
-          justify-content: center;
-          align-items: center;
           transform: translate (0, 0);
           margin: 20px;
-          overflow: hidden;
           .card-img-hld {
+            position: relative;
             display: flex;
             flex: 0.4;
-            overflow: hidden;
             height: 100%;
+            overflow: hidden;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            h2 {
+              position: absolute;
+              z-index: 1;
+              bottom: 0;
+            }
+            h2.bg-primary {
+              @include text-shadow($primary, 3px);
+            }
+            h2.bg-accent {
+              @include text-shadow($accent, 3px);
+            }
             img {
-              transform: skew(10deg);
+              transform: skew(10deg) scale(1.2);
+              object-fit: cover;
             }
           }
 
