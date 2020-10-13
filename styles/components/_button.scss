@@ -47,9 +47,6 @@ button.accent {
   &::after{
     background: $accent;
   }
-  &:hover {
-    border-width: 5px;
-  }
 } 
 
 button.primary {
@@ -59,9 +56,6 @@ button.primary {
   &::after{
     background: $primary;
   }
-  &:hover {
-    border-width: 5px;
-  }
 }
 
 button.secondary {
@@ -70,9 +64,6 @@ button.secondary {
   border: 3px solid lighten($secondary, 25%);
   &::after{
     background: $secondary;
-  }
-  &:hover {
-    border-width: 5px;
   }
 }
 

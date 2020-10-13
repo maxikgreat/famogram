@@ -162,8 +162,19 @@ main.home {
             justify-content: space-between;
             .card-content-list {
               font-size: 1.1rem;
-              margin: 0 20px 0 20px;
-              list-style-image: url('/assets/images/icons/pineapple.svg');
+              // margin: 0 20px 0 20px;
+              // list-style-image: url('/assets/images/icons/pineapple.svg');
+              li {
+                display: flex;
+                align-items: center;
+                > img {
+                  width: 25px;
+                  height: 25px;
+                  display: inline;
+                  margin-right: 10px;
+                  fill: $white;
+                }
+              } 
             }
             button {
               transform: skew(0deg);

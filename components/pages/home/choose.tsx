@@ -37,12 +37,13 @@ const Card = ({ name, title, imgSrc, color, action }: CardProps) => (
       <img src={imgSrc} alt={name} />
     </div>
     <div className={`card-content-hld bg-${color}`}>
-      <ul className="card-content-list">
-        <li>Lorem, ipsum.</li>
-        <li>Lorem ipsum dolor sit amet.</li>
-        <li>Lorem.</li>
-        <li>Lorem ipsum dolor sit.</li>
+      <ul className={`card-content-list text text-${color}`}>
+        <li><img src="/assets/images/icons/pineapple.svg" />Lorem, ipsum.</li>
+        <li><img src="/assets/images/icons/pineapple.svg" />Lorem ipsum dolor sit amet.</li>
+        <li><img src="/assets/images/icons/pineapple.svg" />Lorem.</li>
+        <li><img src="/assets/images/icons/pineapple.svg" />Lorem ipsum dolor sit.</li>
       </ul>
+      <Divider className={`divider-${color}`} />
       <button className={color}>{action}</button>
     </div>
   </div>

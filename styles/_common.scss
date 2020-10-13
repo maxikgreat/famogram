@@ -54,3 +54,19 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateZ(-1px) scale(1.7);
   z-index: -1;
 }
+
+.text {
+  color: $white;
+}
+
+.text-accent {
+  @include text-shadow($accent, 3px);
+}
+
+.text-primary {
+  @include text-shadow($primary, 3px);
+}
+
+.text-secondary {
+  @include text-shadow($secondary, 3px);
+}
