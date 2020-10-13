@@ -43,7 +43,6 @@ const Card = ({ name, title, imgSrc, color, action }: CardProps) => (
         <li><img src="/assets/images/icons/pineapple.svg" />Lorem.</li>
         <li><img src="/assets/images/icons/pineapple.svg" />Lorem ipsum dolor sit.</li>
       </ul>
-      <Divider className={`divider-${color}`} />
       <button className={color}>{action}</button>
     </div>
   </div>

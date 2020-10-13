@@ -107,12 +107,13 @@ main.home {
     }
   }
   section.choose-hld {
+    height: 80vh;
     &::after {
       @include background('/assets/images/chose-background.jpg');
     }
     .choose {
       display: flex;
-      margin-top: 75px;
+      margin-top: 50px;
       > h2 {
         position: absolute;
         @include float(6s, 0s);
@@ -156,23 +157,19 @@ main.home {
 
           .card-content-hld {
             display: flex;
-            padding: 20px;
+            padding: 10px;
             flex: 0.5;
             flex-direction: column;
             justify-content: space-between;
             .card-content-list {
-              font-size: 1.1rem;
-              // margin: 0 20px 0 20px;
-              // list-style-image: url('/assets/images/icons/pineapple.svg');
               li {
                 display: flex;
                 align-items: center;
                 > img {
                   width: 25px;
                   height: 25px;
-                  display: inline;
+                  display: inline-block;
                   margin-right: 10px;
-                  fill: $white;
                 }
               } 
             }
@@ -193,6 +190,17 @@ main.home {
           }
         }
       }
+    }
+  }
+  section.advantages-hld {
+    height: 80vh;
+    display: flex;
+    justify-content: flex-end;
+    @include background('/assets/images/advantages-background.jpg');
+    .advantages {
+      display: flex;
+      flex: 0.5;
+      background-color: rgba(0,0,0,0.5);
     }
   }
 }
