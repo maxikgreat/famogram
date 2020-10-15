@@ -195,12 +195,30 @@ main.home {
   section.advantages-hld {
     height: 80vh;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
     @include background('/assets/images/advantages-background.jpg');
-    .advantages {
+    .opt {
       display: flex;
-      flex: 0.5;
-      background-color: rgba(0,0,0,0.5);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 50px;
+      padding: 20px 0 20px 0;
+      color: $white;
+      @include text-shadow($accent, 3px);
+      background: rgba(0,0,0,0.25);
+      img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  section.next-hld {
+    height: 80vh;
+    &::after {
+      @include background('/assets/images/next-background.jpg');
     }
   }
 }

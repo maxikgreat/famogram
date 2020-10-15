@@ -56,7 +56,7 @@ export const Choose = () => {
   const { finder, bloger } = mode;
 
   return (
-    <section className="choose-hld parallax parallax-one">
+    <section className="choose-hld parallax">
       <Container className="choose">
         <motion.h2 className="bg-accent">I want to...</motion.h2>
         <div className="content-hld hidden skew">
