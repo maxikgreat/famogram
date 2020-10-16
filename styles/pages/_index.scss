@@ -212,13 +212,42 @@ main.home {
         width: 150px;
         height: 150px;
         margin-bottom: 20px;
+        // transform: skew(10deg);
       }
     }
   }
   section.next-hld {
     height: 80vh;
+    flex: 1;
+    justify-content: flex-end;
     &::after {
       @include background('/assets/images/next-background.jpg');
+    }
+    .part {
+      display: flex;
+      flex: 0.6;
+      align-items: center;
+      background-color: rgba(0,0,0,0.75);
+      transform: translateX(10%) skew(-10deg);
+      padding: 20px;
+    }
+  }
+
+  section.footer-hld {
+    height: 30vh;
+    display: flex;
+    flex: 1;
+    .half {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      justify-content: center;
+      &:nth-child(1) {
+        flex: 0.7;
+      }
+      &:nth-child(2) {
+        flex: 0.3;
+      }
     }
   }
 }

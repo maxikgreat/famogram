@@ -1,5 +1,5 @@
 import { BaseLayout } from '@/components/layouts';
-import { Welcome, Choose, Advantages, Next } from '@pagesComponents/home';
+import { Welcome, Choose, Advantages, Next, Footer } from '@pagesComponents/home';
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
       <Choose />
       <Advantages />
       <Next />
+      <Footer />
     </BaseLayout>
   )
 }
