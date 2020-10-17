@@ -6,17 +6,36 @@ main.wall {
     }
     .filter {
       margin-top: 125px;
+      display: flex;
+      flex-direction: row;
+      div {
+        display: flex;
+        flex: 0.5;
+        align-items: center;
+        padding: 5px;
+        &:nth-child(1) {
+          justify-content: flex-end;
+        }
+      }
     }
   }
   section.listing-hld {
+    height: auto;
     .listing {
       display: flex;
       flex-direction: row;
       .categories-hld, .people-hld {
-        display: flex;
         flex: 0.5;
+        padding: 20px;
+      }
+      .person-hld {
+        display: flex;
+        border-bottom: 2px solid $accent;
+        padding: 10px 0 10px 0;
+        img {
+          width: 100px;
+        }
       }
     }
-    
   }
 }

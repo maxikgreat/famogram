@@ -1,0 +1,10 @@
+.ui.input > input {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  border-bottom: 4px solid $primary;
+  &:active, &:focus {
+    background: transparent;
+  }
+}
