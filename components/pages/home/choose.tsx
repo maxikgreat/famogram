@@ -50,7 +50,7 @@ const Card = ({ name, title, imgSrc, color, action }: CardProps) => (
 
 export const Choose = () => {
   useEffect(() =>{
-    observe('.content-hld.hidden');
+    // observe('.content-hld.hidden');
   }, []);
 
   const { finder, bloger } = mode;
@@ -59,7 +59,7 @@ export const Choose = () => {
     <section className="choose-hld parallax">
       <Container className="choose">
         <motion.h2 className="bg-accent">I want to...</motion.h2>
-        <div className="content-hld hidden skew">
+        <div className="content-hld skew">
           <Card {...finder} />
           <Card {...bloger} />
         </div>

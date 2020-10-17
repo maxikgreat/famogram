@@ -1,8 +1,8 @@
 import { BaseLayout } from '@/components/layouts';
 
-export default function Feed() {
+export default function Wall() {
   return (
-    <BaseLayout>
+    <BaseLayout className="wall">
       <h1>This text must be responsive</h1>
       <h2>This text must be responsive</h2>
       <h3>This text must be responsive</h3>

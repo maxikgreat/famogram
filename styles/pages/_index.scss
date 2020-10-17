@@ -247,6 +247,9 @@ main.home {
       }
       &:nth-child(2) {
         flex: 0.3;
+        .logo {
+          font-size: 2.5rem;
+        }
       }
     }
   }

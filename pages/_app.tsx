@@ -1,20 +1,25 @@
 import '@/functions/observer';
-import '@/functions/stickyHeader';
 import type { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar';
+import { useEffect } from 'react';
 
+import { stickyHeader } from '@/functions/stickyHeader';
 import 'semantic-ui-css/semantic.min.css';
 import '@/styles/main.scss';
 
 
 const App = ({ Component, pageProps }: AppProps) => {
+  useEffect(() => {
+    stickyHeader();
+  }, [Component]);
+
   return (
     <>
       <NextNprogress
-        color="#eb4ecb"
+        color="#d1506a"
         startPosition={0.3}
         stopDelayMs={200}
-        height={3}
+        height={4}
         options={{ showSpinner: false }}
       />
       <Component {...pageProps} />

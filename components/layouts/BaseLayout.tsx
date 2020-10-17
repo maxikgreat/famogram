@@ -14,7 +14,7 @@ export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
   const router = useRouter();
 
   const renderRoutes = (): JSX.Element[] => {
-    return ['/feed', '/login'].map(route => (
+    return ['/wall', '/login'].map(route => (
       <Link 
         key={route.toString()}
         href={route}
