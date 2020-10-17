@@ -1,0 +1,22 @@
+main.wall {
+  section.filter-hld {
+    height: 75vh;
+    &::after {
+      @include background('/assets/images/wall.jpg');
+    }
+    .filter {
+      margin-top: 125px;
+    }
+  }
+  section.listing-hld {
+    .listing {
+      display: flex;
+      flex-direction: row;
+      .categories-hld, .people-hld {
+        display: flex;
+        flex: 0.5;
+      }
+    }
+    
+  }
+}

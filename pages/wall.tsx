@@ -1,16 +1,25 @@
+import { Container } from 'semantic-ui-react';
+
 import { BaseLayout } from '@/components/layouts';
 
 export default function Wall() {
   return (
     <BaseLayout className="wall">
-      <h1>This text must be responsive</h1>
-      <h2>This text must be responsive</h2>
-      <h3>This text must be responsive</h3>
-      <h4>This text must be responsive</h4>
-      <h5>This text must be responsive</h5>
-      <h6>This text must be responsive</h6>
-      <p>This text must be responsive</p>
-      <span>This text must be responsive</span>
+       <section className="filter-hld parallax">
+        <Container className="filter">
+          <h1>Hello</h1>
+        </Container>
+      </section>
+      <section className="listing-hld parallax">
+        <Container className="listing">
+          <div className="categories-hld">
+            <h2>Categories</h2>
+          </div>
+          <div className="people-hld">
+            <h2>People</h2>
+          </div>
+        </Container>
+      </section>
     </BaseLayout>
   )
 }

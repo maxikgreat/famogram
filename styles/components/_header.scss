@@ -3,6 +3,7 @@ header {
   width: 100vw;
   top: 0;
   z-index: 10000;
+  background: transparent;
   transition: .2s all ease-in-out;
   .ui.text.menu {
     transition: .2s all ease-in-out;
@@ -12,6 +13,10 @@ header {
       font-weight: bold;
       margin-right: 10px;
       font-size: 1.25rem;
+    }
+    .active {
+      color: $white !important;
+      @include text-shadow($accent, 3px);
     }
   }
 }
