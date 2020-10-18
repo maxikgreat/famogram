@@ -3,9 +3,44 @@
   border: none;
   border-radius: 0;
   padding: 0;
-  border-bottom: 4px solid $primary;
+  color: $white;
+  border-bottom: 4px solid $white;
   &:active, &:focus {
     background: transparent;
+    color: $white;
+    border-color: $white;
+  }
+}
+
+.ui.input.accent > input {
+  border-bottom: 4px solid $accent;
+  color: $accent;
+  @include text-shadow($accent, 2px);
+  &:active, &:focus {
+    border-color: $accent;
+    color: $accent;
+    @include text-shadow($accent, 2px);
+  }
+}
+
+.ui.input.primary > input {
+  border-bottom: 4px solid $primary;
+  color: $primary;
+  @include text-shadow($primary, 2px);
+  &:active, &:focus {
     border-color: $primary;
+    color: $primary;
+    @include text-shadow($primary, 2px);
+  }
+}
+
+.ui.input.secondary > input {
+  border-bottom: 4px solid $secondary;
+  color: $secondary;
+  @include text-shadow($secondary, 2px);
+  &:active, &:focus {
+    border-color: $secondary;
+    color: $secondary;
+    @include text-shadow($secondary, 2px);
   }
 }

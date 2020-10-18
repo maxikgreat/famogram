@@ -39,6 +39,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.parallax-element {
+  transform: translateZ(-1px) scale(1.7);
+}
+
 .parallax::after {
   content: '';
   position: absolute;
