@@ -8,16 +8,15 @@ button {
   border: 0;
   outline: none;
   padding: .75rem;
-  transform: skew(-10deg);
   color: $white;
   font-weight: bold;
   &:hover{
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform : translateY(-3px) skew(-10deg);
+    transform : translateY(-3px);
   }
   &:active{
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform: translateY(-1px) skew(-10deg);
+    transform: translateY(-1px);
   }
   &::after{
     content:"";

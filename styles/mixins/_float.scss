@@ -2,21 +2,21 @@
   padding: 10px;
   z-index: 100;
   box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-  transform: translatey(0px) skew(-10deg);
+  transform: translatey(0px);
   animation: float $time $delay ease-in-out infinite;
 
   @keyframes float {
     0% {
       box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-      transform: translatey(0px) skew(-10deg) unquote($extra);
+      transform: translatey(0px) unquote($extra);
     }
     50% {
       box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-      transform: translatey(-20px) skew(-10deg) unquote($extra);
+      transform: translatey(-20px) unquote($extra);
     }
     100% {
       box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-      transform: translatey(0px) skew(-10deg) unquote($extra);
+      transform: translatey(0px) unquote($extra);
     }
   }
 }

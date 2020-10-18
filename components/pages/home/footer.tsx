@@ -1,6 +1,6 @@
 
 export const Footer = () => (
-  <section className="footer-hld skew">
+  <section className="footer-hld">
     <div className="half">
       <h2>Footer</h2>
     </div>

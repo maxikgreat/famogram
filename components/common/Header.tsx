@@ -8,11 +8,7 @@ interface HeaderProps {
 export const Header = ({ routes }: HeaderProps) => (
   <header>
     <Container>
-      <Menu
-        text
-        as="nav"
-        className="skew"
-      >
+      <Menu text as="nav">
         <Menu.Item>
           <div 
             className="logo-hld"

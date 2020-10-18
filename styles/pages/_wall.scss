@@ -18,6 +18,14 @@ main.wall {
         }
       }
     }
+    h2 {
+      position: absolute;
+      left: 50%;
+      bottom: 15%;
+      transform: translateX(-50%);
+      @include float(6s, 0s);
+      @include text-shadow($accent, 3px);
+    }
   }
   section.listing-hld {
     height: auto;

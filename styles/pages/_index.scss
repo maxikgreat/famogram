@@ -26,7 +26,6 @@ main.home {
       &::before {
         content: '';
         @include background('/assets/images/welcome-background.jpg');
-        transform: skew(-10deg) scale(1.25);
         position: absolute;
         top: 0;
         left: 0;
@@ -99,9 +98,6 @@ main.home {
           position: relative;
           overflow: hidden;
           height: 100%;
-          img {
-            transform: skew(10deg) scale(1.25);
-          }
         }
       }
     }
@@ -150,7 +146,6 @@ main.home {
               @include text-shadow($accent, 3px);
             }
             img {
-              transform: skew(10deg) scale(1.2);
               object-fit: cover;
             }
           }
@@ -172,9 +167,6 @@ main.home {
                   margin-right: 10px;
                 }
               } 
-            }
-            button {
-              transform: skew(0deg);
             }
           }
         }
@@ -212,7 +204,6 @@ main.home {
         width: 150px;
         height: 150px;
         margin-bottom: 20px;
-        // transform: skew(10deg);
       }
     }
   }
@@ -228,7 +219,7 @@ main.home {
       flex: 0.6;
       align-items: center;
       background-color: rgba(0,0,0,0.75);
-      transform: translateX(10%) skew(-10deg);
+      transform: translateX(10%);
       padding: 20px;
     }
   }
