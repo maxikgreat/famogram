@@ -1,8 +1,12 @@
 import { Input, Icon } from 'semantic-ui-react';
 
-import { Categories as CategoriesEnum } from '@/types';
+import { Category as CategoryType, categories } from '@/types';
 
-export const Categories = () => {
+interface CategoriesProps {
+  pickCategory: (category: CategoryType) => void,
+};
+
+export const Categories = ({ pickCategory }: CategoriesProps) => {
   return (
     <div className="categories-hld">
       <h2 className="bg-accent text-accent">pick category</h2>
@@ -13,8 +17,8 @@ export const Categories = () => {
         </Input>
       </div>
       <ul className="listing">
-        {Object.keys(CategoriesEnum).map(category => (
-          <li>
+        {categories.map((category) => (
+          <li onClick={() => pickCategory(category)}>
             <div 
               className="category-bg"
               style={{ backgroundImage: `url('/assets/images/categories/${category.replace(/ |,|\/|-/g, '')}.jpg')`}}

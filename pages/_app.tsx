@@ -4,6 +4,7 @@ import NextNprogress from 'nextjs-progressbar';
 import { useEffect } from 'react';
 
 import { stickyHeader } from '@/functions/stickyHeader';
+import 'animate.css';
 import 'semantic-ui-css/semantic.min.css';
 import '@/styles/main.scss';
 
