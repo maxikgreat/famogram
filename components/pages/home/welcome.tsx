@@ -1,5 +1,4 @@
 import { Container, Button, Divider } from 'semantic-ui-react';
-import { motion } from 'framer-motion';
 
 export const Welcome = () => {
   return (

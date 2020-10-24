@@ -1,4 +1,11 @@
+.ui.input {
+  width: 100%;
+  overflow: hidden;
+}
+
 .ui.input > input {
+  width: 100%;
+  overflow: hidden;
   background: transparent;
   border: none;
   border-radius: 0;

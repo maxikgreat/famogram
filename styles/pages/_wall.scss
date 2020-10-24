@@ -23,68 +23,97 @@ main.wall {
       @include text-shadow($accent, 3px);
     }
   }
-  section.listing-hld {
+  section.stepper-hld {
+    display: flex;
+    flex: 1;
     height: auto;
+    .column {
+      display: flex;
+      flex-direction: column;
+      &:nth-child(1) {
+        width: 100%;
+      }
+      &:nth-child(2) {
+        width: 0%;
+        display: none;
+      }
+      &:nth-child(3) {
+        width: 0%
+        display: none;
+      }
+    }
     h2 {
       width: 100%;
     }
-    .categories-hld {
+    .search-hld {
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      flex: 1;
-      align-items: flex-end;
-      h2 {
-        text-align: right;
+      justify-content: flex-start;
+      i {
+        color: $white;
       }
-      .search-hld {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        i {
-          color: $white;
-        }
-      }
+    }
 
-      .listing {
-        list-style: none;
-        width: 100%;
-        li {
-          position: relative;
-          height: 200px;
-          display: flex;
-          justify-content: flex-end;
-          align-items: flex-end;
-          color: $white;
-          cursor: pointer;
-          overflow: hidden;
-          .category-bg {
-            transition: .2s all ease-in-out;
-            @include background('/assets/'); // rewrite in render listing
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            filter: grayscale(0.5);
-          }
-          h3 {
-            z-index: 1;
-            text-align: right;
-          }
-          &:hover {
-            .category-bg {
-              transform: scale(1.05);
-              filter: grayscale(0);
-            }
-          }
+    .categories-hld {
+      background-color: $accent;
+      // transition: 1.5s all cubic-bezier(.79,.26,.09,.89);
+      // display: flex;
+      // flex-direction: column;
+      // flex: 1;
+      // align-items: flex-start;
+      // background-color: $accent;
+      // width: 100%;
+      // h2 {
+      //   text-align: left;
+      // }
+    }
+
+    // .categories-hld.picked {
+    //   width: 33%;
+    //   flex: 0.33;
+    //   .listing {
+    //     li {
+    //       h3 {
+    //         text-align: left;
+    //         left: 0%;
+    //         transform: none;
+    //       }
+    //     }
+    //   }
+    // }
+
+    .people-hld {
+      background-color: $primary;
+      // display: flex;
+      // flex-direction: column;
+      // flex: 0;
+      // align-items: flex-start;
+      // background-color: $primary;
+    }
+
+    .bloger-hld {
+      background-color: $secondary;
+      // display: flex;
+      // flex: 0;
+    }
+
+    .listing {
+      list-style: none;
+      width: 100%;
+      li {
+        position: relative;
+        height: 200px;
+        color: $white;
+        cursor: pointer;
+        h3 {
+          transition: 1.5s all cubic-bezier(.79,.26,.09,.89);
+          position: absolute;
+          min-width: 300px;
+          z-index: 1;
+          left: 100%;
+          transform: translateX(-100%);
         }
       }
     }
-    // .person-hld {
-    //   display: flex;
-    //   border-bottom: 2px solid $accent;
-    //   padding: 10px 0 10px 0;
-    //   img {
-    //     width: 100px;
-    //   }
-    // }
   }
 }

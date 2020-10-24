@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container } from 'semantic-ui-react';
 
-import { Categories } from './';
+import { Categories, People, Bloger } from './';
 import { Category as CategoryType } from '@/types';
 
 export const Stepper = () => {
@@ -15,12 +15,19 @@ export const Stepper = () => {
   });
 
   const pickCategoryHandler = (category: CategoryType) => 
-    setStepper(prevState => ({ ...prevState, category }));
+    setStepper(prevState => prevState.category 
+      ? ({ ...prevState, category: null })
+      : ({ ...prevState, category })
+    );
 
   return (
-    <section className="listing-hld parallax">
-      <Categories pickCategory={pickCategoryHandler} />
-      {/* <People /> */}
+    <section className="stepper-hld">
+      <Categories
+        category={stepper.category}
+        pickCategory={pickCategoryHandler}
+      />
+      <People />
+      <Bloger />
     </section>
   )
 };
