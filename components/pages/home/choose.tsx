@@ -1,5 +1,4 @@
 import { Container, Divider } from 'semantic-ui-react';
-import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
 import { observe } from '@/functions/observer';
@@ -58,7 +57,7 @@ export const Choose = () => {
   return (
     <section className="choose-hld parallax">
       <Container className="choose">
-        <motion.h2 className="bg-accent">I want to...</motion.h2>
+        <h2 className="bg-accent">I want to...</h2>
         <div className="content-hld">
           <Card {...finder} />
           <Card {...bloger} />

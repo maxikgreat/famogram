@@ -1,4 +1,6 @@
-@import './reset';
+// ui kit
+@import './uikit/main.scss';
+
 @import './vars';
 
 // mixins
@@ -9,15 +11,8 @@
 @import './mixins/float';
 @import './mixins/ddd';
 
-// common classes
-@import './common';
-
 // components
-@import './components/header';
-@import './components/button';
-@import './components/divider';
 @import './components/logo';
-@import './components/input';
 
 // pages 
 @import './pages/index';
@@ -25,23 +20,21 @@
 
 
 html, body {
-  @include respo-font(16, 30, 300, 1500);
+  // @include respo-font(16, 30, 300, 1500);
   background-color: $primary;
 }
 
-main {
-  height: 100vh;
-  overflow-x: hidden;
-  perspective: 2px;
-}
+// main {
+//   height: 100vh;
+//   overflow-x: hidden;
+//   perspective: 2px;
+// }
 
-section {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-
-@import './respo';
+// section {
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   overflow: hidden;
+//   position: relative;
+//   z-index: 1;
+// }
