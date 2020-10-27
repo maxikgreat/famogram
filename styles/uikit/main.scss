@@ -1,8 +1,9 @@
-// vars
-@import './variables';
-
 // mixins
 @import './mixins';
+@import './functions';
+
+// vars
+@import './variables';
 
 // components
 @import
@@ -24,7 +25,6 @@
 './form-select',
 './form-text',
 './forms',
-'./functions',
 './grid',
 './helpers',
 './images',

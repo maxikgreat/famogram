@@ -2711,7 +2711,7 @@ caption, .caption, .component-list.strength li > span, .gradient-with-caption p,
     border-color: $white;
     background: transparent;
     &:checked[type="checkbox"] {
-      background-image: url(../images/icons/checkmark.svg);
+      background-image: url(/assets/images/icons/checkmark.svg);
       background-color: $white;
       background-repeat: no-repeat;
       background-position: center center;
@@ -2874,7 +2874,7 @@ caption, .caption, .component-list.strength li > span, .gradient-with-caption p,
     background-color: $transparent;
   }
   &.custom-checkbox .custom-control-input:checked ~ .custom-control-label:after {
-    background-image: url(../images/icons/checkmark.svg);
+    background-image: url(/assets/images/icons/checkmark.svg);
   }
   .custom-control-input:checked ~ .custom-control-label:before {
     background-color: $white;
@@ -3116,7 +3116,7 @@ textarea.form-control {
 }
 /* 2. 16. 6. Fabrx Select CSS  */
 select {
-  background-image: url(../images/icons/down-arrow.svg);
+  background-image: url(/assets/images/icons/down-arrow.svg);
   background-repeat: no-repeat;
   background-position: right 15px center;
 }
@@ -3839,7 +3839,7 @@ span.flatpickr-weekday {
       width: 40px;
       height: 48px;
       margin: 0 auto 20px;
-      background-image: url(../images/icons/files.svg);
+      background-image: url(/assets/images/icons/files.svg);
       background-repeat: no-repeat;
       background-position: 50% 50%;
       background-size: contain;
@@ -4534,15 +4534,15 @@ hr {
 }
 .has-rating {
   &:not(:checked) > label {
-    background: url(../images/icons/star.svg);
+    background: url(/assets/images/icons/star.svg);
     background-repeat: no-repeat;
     background-size: cover;
     &:hover {
-      background: url(../images/icons/star-fill.svg);
+      background: url(/assets/images/icons/star-fill.svg);
       background-repeat: no-repeat;
       background-size: cover;
       ~ label {
-        background: url(../images/icons/star-fill.svg);
+        background: url(/assets/images/icons/star-fill.svg);
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -4551,12 +4551,12 @@ hr {
   > {
     input:checked {
       + label:hover, ~ label:hover {
-        background: url(../images/icons/star-fill.svg);
+        background: url(/assets/images/icons/star-fill.svg);
         background-repeat: no-repeat;
         background-size: cover;
         opacity: 0.8;
         ~ label {
-          background: url(../images/icons/star-fill.svg);
+          background: url(/assets/images/icons/star-fill.svg);
           background-repeat: no-repeat;
           background-size: cover;
           opacity: 0.8;
@@ -4564,13 +4564,13 @@ hr {
       }
     }
     label:hover ~ input:checked ~ label {
-      background: url(../images/icons/star-fill.svg);
+      background: url(/assets/images/icons/star-fill.svg);
       background-repeat: no-repeat;
       background-size: cover;
       opacity: 0.8;
     }
     input:checked ~ label {
-      background: url(../images/icons/star-fill.svg);
+      background: url(/assets/images/icons/star-fill.svg);
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -4578,15 +4578,15 @@ hr {
 }
 .has-hearts {
   &:not(:checked) > label {
-    background: url(../images/icons/heart.svg);
+    background: url(/assets/images/icons/heart.svg);
     background-repeat: no-repeat;
     background-size: cover;
     &:hover {
-      background: url(../images/icons/heart-fill.svg);
+      background: url(/assets/images/icons/heart-fill.svg);
       background-repeat: no-repeat;
       background-size: cover;
       ~ label {
-        background: url(../images/icons/heart-fill.svg);
+        background: url(/assets/images/icons/heart-fill.svg);
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -4595,12 +4595,12 @@ hr {
   > {
     input:checked {
       + label:hover, ~ label:hover {
-        background: url(../images/icons/heart-fill.svg);
+        background: url(/assets/images/icons/heart-fill.svg);
         background-repeat: no-repeat;
         background-size: cover;
         opacity: 0.8;
         ~ label {
-          background: url(../images/icons/heart-fill.svg);
+          background: url(/assets/images/icons/heart-fill.svg);
           background-repeat: no-repeat;
           background-size: cover;
           opacity: 0.8;
@@ -4608,20 +4608,20 @@ hr {
       }
     }
     label:hover ~ input:checked ~ label {
-      background: url(../images/icons/heart-fill.svg);
+      background: url(/assets/images/icons/heart-fill.svg);
       background-repeat: no-repeat;
       background-size: cover;
       opacity: 0.8;
     }
     input:checked ~ label {
-      background: url(../images/icons/heart-fill.svg);
+      background: url(/assets/images/icons/heart-fill.svg);
       background-repeat: no-repeat;
       background-size: cover;
     }
   }
 }
 .fabrx-ratings-white:not(:checked) > label {
-  background: url(../images/icons/star-fill-white.svg);
+  background: url(/assets/images/icons/star-fill-white.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -5624,7 +5624,7 @@ hr {
 }
 /* 5. 8. Fabrx Background CSS  */
 .fabrx-bg {
-  background-image: url(../images/placeholders/placeholder-62.jpg);
+  background-image: url(/assets/images/placeholders/placeholder-62.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
