@@ -1,4 +1,3 @@
-import '@/functions/observer';
 import type { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar';
 import { useEffect } from 'react';
@@ -7,8 +6,6 @@ import { stickyHeader } from '@/functions/stickyHeader';
 
 // libraries css 
 import 'animate.css';
-// TODO: delete semantic
-import 'semantic-ui-css/semantic.min.css';
 import '@/styles/main.scss';
 
 

@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { Menu } from 'semantic-ui-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -13,24 +12,24 @@ interface BaseLayoutProps {
 export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
   const router = useRouter();
 
-  const renderRoutes = (): JSX.Element[] => {
-    return ['/wall', '/template'].map(route => (
-      <Link 
-        key={route.toString()}
-        href={route}
-      >
-        <Menu.Item
-          className="bg-accent"
-          name={route}
-          active={router.pathname === route}
-        />
-      </Link>
-    ))
-  };
+  // const renderRoutes = (): JSX.Element[] => {
+  //   return ['/wall', '/template'].map(route => (
+  //     <Link 
+  //       key={route.toString()}
+  //       href={route}
+  //     >
+  //       <Menu.Item
+  //         className="bg-accent"
+  //         name={route}
+  //         active={router.pathname === route}
+  //       />
+  //     </Link>
+  //   ))
+  // };
 
   return (
     <>
-      <Header routes={renderRoutes()} />
+      <Header />
       <main id="main" className={className}>
         {children}
       </main>

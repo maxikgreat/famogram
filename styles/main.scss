@@ -1,8 +1,6 @@
 // ui kit
 @import './uikit/main.scss';
 
-@import './vars';
-
 // mixins
 @import './mixins/respo-font';
 @import './mixins/background';
@@ -21,7 +19,7 @@
 
 html, body {
   // @include respo-font(16, 30, 300, 1500);
-  background-color: $primary;
+  // background-color: $primary;
 }
 
 // main {
