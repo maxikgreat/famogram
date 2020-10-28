@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { Header } from '../common'
+import { Header, Footer } from '../common'
 
 interface BaseLayoutProps {
   children: ReactNode,
@@ -33,6 +33,7 @@ export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
       <main id="main" className={className}>
         {children}
       </main>
+      <Footer />
     </>
   )
 }

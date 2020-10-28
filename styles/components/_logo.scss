@@ -1,15 +1,6 @@
-.logo-hld {
-  background: linear-gradient(90deg, $secondary 20%, $accent 50%, $primary 80%);
-  background-size: 600% 600%;
-
-  -webkit-animation: gradient 5s ease infinite;
-  -moz-animation: gradient 5s ease infinite;
-  animation: gradient 5s ease infinite;
-}
-
 .logo {
   cursor: pointer;
-  background: linear-gradient(270deg, $secondary 20%, $accent 50%, $primary 80%);
+  background: linear-gradient(270deg, $accent 30%, $primary 70%);
   background-size: 600% 600%;
 
   -webkit-animation: gradient 5s ease infinite;

@@ -4,7 +4,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link rel="stylesheet" href="css/animation.css"/>
+        </Head>
         <body>
           <Main />
           <NextScript />

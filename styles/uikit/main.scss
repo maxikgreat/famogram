@@ -17,7 +17,6 @@
 './close',
 './containers',
 './dropdown',
-'./fabrx-variables',
 './form-check',
 './form-control',
 './form-file',
@@ -72,5 +71,6 @@
 
 // layout
 @import 
+'./fabrx-variables',
 './fabrx-styles.scss',
 './fabrx-dark-layout.scss';
