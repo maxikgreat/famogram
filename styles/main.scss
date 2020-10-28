@@ -34,3 +34,11 @@ section {
   overflow: hidden;
   position: relative;
 }
+
+.ddd-primary {
+  @include ddd($primary);
+}
+
+.ddd-accent {
+  @include ddd($accent);
+}
