@@ -12,21 +12,23 @@
 // components
 @import './components/logo';
 @import './components/stars';
+@import './components/parallax';
 
 // pages 
 @import './pages/index';
 
 
-html, body {
-  // @include respo-font(16, 30, 300, 1500);
-  // background-color: $primary;
+body {
+
 }
 
-// main {
-//   height: 100vh;
-//   overflow-x: hidden;
-//   perspective: 2px;
-// }
+main {
+  // if you want parallax move header && footer to main
+  // height: 100vh;
+  // overflow-x: hidden;
+  // overflow-y: auto;
+  // perspective: 2px;
+}
 
 section {
   width: 100vw;
