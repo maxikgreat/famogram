@@ -14,15 +14,17 @@ export const Stepper = () => {
           tabs.current.item(0).classList.add('active');
 
           tabsContent.current.item(i).classList.remove('active', 'show');
-          tabsContent.current.item(0).classList.add('active', 'show');
+          tabsContent.current.item(0).classList.add('active');
+          setTimeout(() => tabsContent.current.item(0).classList.add('show'), 100);
           break;
         }
         if (tabs.current.item(i).classList.contains('active')) {
           tabs.current.item(i).classList.remove('active');
           tabs.current.item(i + 1).classList.add('active');
 
-          tabsContent.current.item(i).classList.remove('active', 'show');
-          tabsContent.current.item(i + 1).classList.add('active', 'show');
+          tabsContent.current.item(i).classList.remove('active','show');
+          tabsContent.current.item(i + 1).classList.add('active');
+          setTimeout(() => tabsContent.current.item(i + 1).classList.add('show'), 100);
           break;
         }
       }
@@ -35,7 +37,7 @@ export const Stepper = () => {
     <section className="fabrx-section mt-5">
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-12 wow fadeInLeft">
             <ul className="nav nav-tabs bg-transparent nav-tabs-line nav-tags-stack nav-justified fabrx-justified">
               <li className="nav-item">
                 <a className="nav-link" data-toggle="tab" href="#FeatureOne1">
@@ -80,7 +82,7 @@ export const Stepper = () => {
           </div>
         </div>
         <div className="row mt-4 mb-0 mb-md-4">
-          <div className="col-md-12 mt-2">
+          <div className="col-md-12 mt-2 wow fadeInRight">
             <div className="tab-content" id="myTabContentb">
               <div className="tab-pane fade" id="FeatureOne1" role="tabpanel">
                 <div className="card shadow-40">
