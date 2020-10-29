@@ -1,5 +1,5 @@
 import { BaseLayout } from '@/components/layouts';
-import { Hero, Stepper, Price } from '@pagesComponents/home';
+import { Hero, Stepper, Price, Testimonials } from '@pagesComponents/home';
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <Hero />
       <Stepper />
       <Price />
+      <Testimonials />
     </BaseLayout>
   )
 }
