@@ -5,7 +5,7 @@ interface HeaderProps {
 }
 
 export const Header = () => (
-  <header className="fabrx-header bg-white mt-5 sticky-top">
+  <header className="fabrx-header bg-white mt-md-5 sticky-top">
     <div className="container">
       <nav className="navbar navbar-expand-lg has-header-inner">
         <Link href="/">
@@ -19,7 +19,9 @@ export const Header = () => (
         <div className="navbar-collapse collapse" id="menu-3">
           <ul className="navbar-nav ml-auto pt-3 pt-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="#0">Link</a>
+            <Link href="/wall">
+              <a className="nav-link">Wall</a>
+            </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#0">Link</a>
