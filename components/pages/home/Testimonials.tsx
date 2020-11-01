@@ -2,7 +2,7 @@ export const Testimonials = () => (
   <section className="fabrx-section bg-white mt-5">
     <div className="container">
       <div className="row">
-        <div className="col-lg-4 col-md-6 my-3">
+        <div className="col-lg-4 col-md-6 my-3 wow fadeInLeft">
           <div className="card rounded-6 shadow-40">
             <div className="card-body text-center pt-0">
               <div className="testimonial-author stack">
@@ -23,7 +23,7 @@ export const Testimonials = () => (
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-md-6 my-3">
+        <div className="col-lg-4 col-md-6 my-3 wow fadeInDown">
           <div className="card rounded-6 shadow-40">
             <div className="card-body text-center pt-0">
               <div className="testimonial-author stack">
@@ -44,7 +44,7 @@ export const Testimonials = () => (
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-md-6 my-3">
+        <div className="col-lg-4 col-md-6 my-3 wow fadeInRight">
           <div className="card rounded-6 shadow-40">
             <div className="card-body text-center pt-0">
               <div className="testimonial-author stack">

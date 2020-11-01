@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.16.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.20.0",
     "cross-env": "^7.0.2",
@@ -19,6 +22,7 @@
     "react-device-detect": "^1.13.1",
     "react-dom": "16.13.1",
     "react-parallax": "^3.0.3",
+    "react-responsive-masonry": "^2.1.0",
     "sass": "^1.26.11",
     "semantic-ui-css": "^2.4.1"
   },

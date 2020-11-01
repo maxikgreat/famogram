@@ -7,13 +7,6 @@ main.home {
       height: 100vh;
     }
   }
-
-  section.parallax-section {
-    height: 70vh;
-    &::after {
-      @include background('/assets/images/parallax-bg.jpg');
-    }
-  }
 }
 
 

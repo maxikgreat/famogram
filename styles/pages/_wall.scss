@@ -1,0 +1,13 @@
+main.wall {
+  section.picker-section {
+    height: 100vh;
+    .scroll-list {
+      overflow: scroll;
+      max-height: 550px;
+    }
+
+    .nav-link {
+      cursor: pointer;
+    }
+  }
+}
