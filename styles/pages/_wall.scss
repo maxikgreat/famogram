@@ -10,4 +10,9 @@ main.wall {
       cursor: pointer;
     }
   }
+  @include media-breakpoint-down(lg) {
+    section.picker-section {
+      height: auto;
+    }
+  }
 }

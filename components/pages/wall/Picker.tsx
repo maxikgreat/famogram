@@ -1,5 +1,5 @@
 // @ts-expect-error
-import Masonry from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useState, useMemo } from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,7 +22,7 @@ export const Picker = () => {
           category={filteredCategory}
         />
       ));
-  }
+  };
 
   const images = useMemo(() => {
     const images: JSX.Element[] = [];
@@ -37,7 +37,7 @@ export const Picker = () => {
   return (
     <section className="fabrx-section bg-white mt-5 picker-section">
       <div className="container">
-        <div className="row py-0 py-md-5">
+        <div className="row py-0">
           <div className="col-lg-4">
             <h2>Categories</h2>
             <Input
@@ -52,7 +52,23 @@ export const Picker = () => {
             </ul>
           </div>
           <div className="col-lg-8">
-            <h2>People</h2>
+            <div className="d-flex flex-row align-items-center justify-content-between">
+              <h2 className="d-inline-block mr-lg-5">People</h2>
+              <ul className="nav nav-tabs nav-tabs-no-bg nav-tabs-rounded nav-tabs-md p-0 mb-2 bg-transparent justify-content-end">
+                <li className="nav-item">
+                  <a className="nav-link active" data-toggle="tab" href="#Active">Active</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" data-toggle="tab" href="#Inactive1">Inactive</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" data-toggle="tab" href="#Inactive2">Inactive</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" data-toggle="tab" href="#Inactive3">Inactive</a>
+                </li>
+              </ul>
+            </div>
             <Input
               name="account" 
               icon={faSearch} 
@@ -62,9 +78,11 @@ export const Picker = () => {
             />
             <div className="tab-content text-center mt-4 mt-md-5 mt-lg-0 scroll-list">
               <div className="tab-pane fade active show">
-                <Masonry columnsCount={3} gutter="20px">
-                  {images}
-                </Masonry>
+                <ResponsiveMasonry columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 3 }}>
+                  <Masonry gutter="20px">
+                    {images}
+                  </Masonry>
+                </ResponsiveMasonry>
               </div>
             </div>
           </div>
