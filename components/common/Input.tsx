@@ -15,7 +15,12 @@ interface IconProps {
   icon: IconProp,
 }
 
-const IconMemo = memo(({ icon }: IconProps) => <FontAwesomeIcon icon={icon} />)
+const IconMemo = memo(({ icon }: IconProps) => (
+  <FontAwesomeIcon
+    onClick={() => console.log('hello')} 
+    icon={icon} 
+  /> 
+))
 
 export const Input = ({ name, icon, placeholder, onChange, value }: InputProps) => {
   return (

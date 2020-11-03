@@ -1,9 +1,12 @@
-import type { AppProps } from 'next/app'
+import { FC } from 'react';
+import { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar';
+import { Provider } from 'react-redux';
 
+import { store } from '@/store';
 import '@/styles/main.scss';
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <NextNprogress
@@ -13,7 +16,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         height={4}
         options={{ showSpinner: false }}
       />
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }

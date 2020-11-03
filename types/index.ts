@@ -1,33 +1,4 @@
-import { SearchCategory } from "semantic-ui-react";
 
-export type Mode = 'finder' | 'bloger';
-
-export const categories = [
-  'Marketing',
-  'Agriculture',
-  'Arts and Entertainment',
-  'Automotive, Aircraft and Boat',
-  'Beauty, Cosmetic and Personal Care',
-  'Commercial and Industrial',
-  'Education',
-  'Finance',
-  'Food and Beverage',
-  'Hotel and Lodging',
-  'Legal',
-  'Local Service',
-  'Media/News Company',
-  'Medical and Health',
-  'Non-Government Organization',
-  'Nonprofit Organization',
-  'Public and Government Services',
-  'Real Estate',
-  'Science, Technology and Engineering',
-  'Shopping and Retail',
-  'Sports and Recreation',
-  'Travel and Transportation',
-] as const;
-
-export type Category = typeof categories[number];
 // 'Marketing' = 'Marketing',
 //   'Agriculture' = 'Agriculture',
 //   'Arts and Entertainment' = 'Arts and Entertainment',
@@ -84,3 +55,34 @@ export type Category = typeof categories[number];
 //   'Model' = 'Model',
 //   'Writer' = 'Writer'
 // };
+
+export const categories = [
+  'Marketing',
+  'Agriculture',
+  'Arts and Entertainment',
+  'Automotive, Aircraft and Boat',
+  'Beauty, Cosmetic and Personal Care',
+  'Commercial and Industrial',
+  'Education',
+  'Finance',
+  'Food and Beverage',
+  'Hotel and Lodging',
+  'Legal',
+  'Local Service',
+  'Media/News Company',
+  'Medical and Health',
+  'Non-Government Organization',
+  'Nonprofit Organization',
+  'Public and Government Services',
+  'Real Estate',
+  'Science, Technology and Engineering',
+  'Shopping and Retail',
+  'Sports and Recreation',
+  'Travel and Transportation',
+] as const;
+
+export type Category = typeof categories[number];
+
+export interface State {
+  tick: string,
+}
