@@ -28,7 +28,23 @@ export const Picker = () => {
     const images: JSX.Element[] = [];
 
     for (let i = 0; i < 20; i++) {
-      images.push(<img height={Math.floor(Math.random() * 300) + 100} style={{ objectFit: 'cover' }} src="../assets/images/vectors/vector-45.png" alt="Vector" />);
+      images.push(
+        <div className="card shadow-40">
+          <div className="badge badge-primary badge-absolute lg">Tag</div>
+          <img height={Math.floor(Math.random() * 300) + 100} style={{ objectFit: 'cover' }} src="../assets/images/vectors/vector-45.png" alt="Vector" />
+          <div className="card-body">
+            <div className="row align-items-end no-gutters">
+              <div className="col-7">
+                <small className="card-subtitle text-secondary">Electronics</small>
+                <h6 className="card-title font-weight-normal mb-0">Moog Synthesizer</h6>
+              </div>
+              <div className="col-5">
+                <h6 className="font-weight-bold mb-0 text-right text-center">$468.00</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     }
 
     return images;
@@ -78,7 +94,7 @@ export const Picker = () => {
             />
             <div className="tab-content text-center mt-4 mt-md-5 mt-lg-0 scroll-list">
               <div className="tab-pane fade active show">
-                <ResponsiveMasonry columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 3 }}>
+                <ResponsiveMasonry columnsCountBreakPoints={{ 250: 1, 350: 2, 750: 3, 900: 3 }}>
                   <Masonry gutter="20px">
                     {images}
                   </Masonry>
