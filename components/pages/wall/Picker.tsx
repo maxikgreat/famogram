@@ -7,15 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Input } from '@/components/common';
 import { Category as CategoryType, categories } from '@/types'
 import { Category } from './';
-import { RootState } from "@/store/rootReducer";
-import { dec, inc, incMore } from "@/store/counter";
 
 export const Picker = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryType>(categories[0]);
   const [searchCategory, setSearchCategory] = useState<string>('');
-
-  const counterValue = useSelector(({ counter }: RootState) => counter.value);
-  const dispatch = useDispatch();
 
   const renderCategories = () => {
     return categories
@@ -58,10 +53,6 @@ export const Picker = () => {
 
   return (
     <section className="fabrx-section bg-white mt-5 picker-section">
-      <button className="btn btn-primary" onClick={() => dispatch(inc())}>INC</button>
-      {counterValue}
-      <button className="btn btn-accent" onClick={() => dispatch(dec())}>DEC</button>
-      <button className="btn btn-accent" onClick={() => dispatch(incMore(10))}>DEC</button>
       <div className="container">
         <div className="row py-0">
           <div className="col-lg-4">

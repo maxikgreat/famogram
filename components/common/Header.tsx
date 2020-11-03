@@ -1,9 +1,5 @@
 import Link from 'next/link';
 
-interface HeaderProps {
-  routes: JSX.Element[],
-}
-
 export const Header = () => (
   <header className="fabrx-header bg-white mt-md-5 sticky-top">
     <div className="container">
@@ -19,25 +15,15 @@ export const Header = () => (
         <div className="navbar-collapse collapse" id="menu-3">
           <ul className="navbar-nav ml-auto pt-3 pt-lg-0">
             <li className="nav-item">
-            <Link href="/wall">
-              <a className="nav-link">Wall</a>
-            </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#0">Link</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#0">Link</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#0">Link</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#0">Link</a>
+              <Link href="/wall">
+                <a className="nav-link">Wall</a>
+              </Link>
             </li>
           </ul>
           <div className="fabrx-header-links ml-0 ml-lg-5">
-            <a href="#0" className="btn btn-primary">Button</a>
+           <Link href="/api/v1/login">
+              <a className="btn btn-primary">Login</a>
+            </Link>
           </div>
         </div>
       </nav>
