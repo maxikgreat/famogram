@@ -9,23 +9,28 @@ interface InputProps {
   placeholder: string,
   onChange: (event: ChangeEvent<HTMLInputElement>) => void,
   value: string,
+  className?: string,
+  right?: boolean,
 }
 
 interface IconProps {
   icon: IconProp,
 }
 
-const IconMemo = memo(({ icon }: IconProps) => (
-  <FontAwesomeIcon
-    onClick={() => console.log('hello')} 
-    icon={icon} 
-  /> 
-))
+const IconMemo = memo(({ icon }: IconProps) => <FontAwesomeIcon icon={icon} />);
 
-export const Input = ({ name, icon, placeholder, onChange, value }: InputProps) => {
+export const Input = ({ 
+  right = false,
+  name, 
+  icon, 
+  placeholder, 
+  onChange, 
+  value, 
+  className = 'form-control form-line-control',
+}: InputProps) => {
   return (
     <div className="form-group">
-      {icon && (
+      {icon && !right && (
         <label htmlFor={name} className="control-icon">
           <IconMemo icon={icon} />
         </label>
@@ -36,10 +41,15 @@ export const Input = ({ name, icon, placeholder, onChange, value }: InputProps) 
         type="text" 
         name={name}
         placeholder={placeholder} 
-        className="form-control form-line-control" 
+        className={className} 
         id={name} 
         value={value}
       />
+      {icon && right && (
+        <label htmlFor={name} className="control-icon">
+          <IconMemo icon={icon} />
+        </label>
+      )}
     </div>
   )
 };

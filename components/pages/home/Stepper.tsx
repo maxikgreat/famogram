@@ -12,7 +12,6 @@ export const Stepper = () => {
 
     let observer = new IntersectionObserver((entries) => { 
       if (entries[0].isIntersecting) {
-        console.log('trigger');
         timer = setInterval(() => {
           for (let i = 0; i < tabs.current.length; i++) {
             if (i === tabs.current.length - 1) {

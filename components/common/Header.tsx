@@ -26,6 +26,9 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
       <Link href="/wall">
         <a className="nav-link">Wall</a>
       </Link>
+      <Link href="/profile">
+        <a className="nav-link">Profile</a>
+      </Link>
       <Link href="/api/v1/logout">
         <a className="nav-link">Logout</a>
       </Link>
@@ -48,6 +51,11 @@ export const Header = ({ user, loading }: HeaderProps) => {
                 <li className="nav-item">
                   <Link href="/wall">
                     <a className="nav-link">Wall</a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/profile">
+                    <a className="nav-link">Profile</a>
                   </Link>
                 </li>
               </ul>
