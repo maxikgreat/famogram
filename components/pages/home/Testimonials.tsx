@@ -1,7 +1,7 @@
 export const Testimonials = () => (
   <section className="fabrx-section bg-white mt-5">
     <div className="container">
-      <div className="row">
+      <div className="row justify-content-center">
         <div className="col-lg-4 col-md-6 my-3 wow fadeInLeft">
           <div className="card rounded-6 shadow-40">
             <div className="card-body text-center pt-0">

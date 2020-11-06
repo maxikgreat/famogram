@@ -1,9 +1,7 @@
 import { ReactNode } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 import { Header, Footer } from '../common'
+import { useUser } from '@/hooks/useUser';
 
 interface BaseLayoutProps {
   children: ReactNode,
@@ -11,28 +9,11 @@ interface BaseLayoutProps {
 }
 
 export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
-  const router = useRouter();
-  const [counter, setCounter] = useState(0);
-
-  // const renderRoutes = (): JSX.Element[] => {
-  //   return ['/wall', '/template'].map(route => (
-  //     <Link 
-  //       key={route.toString()}
-  //       href={route}
-  //     >
-  //       <Menu.Item
-  //         className="bg-accent"
-  //         name={route}
-  //         active={router.pathname === route}
-  //       />
-  //     </Link>
-  //   ))
-  // };
-
+  const { user, loading } = useUser();
+  
   return (
     <>
-      <Header />
-      <div onClick={() => setCounter(counter => counter + 1)}>{counter}</div>
+      <Header user={user} loading={loading} />
       <main id="main" className={className}>
         {children}
       </main>

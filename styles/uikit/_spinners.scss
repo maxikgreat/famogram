@@ -19,9 +19,9 @@
 }
 
 .spinner-border-sm {
-  width: $spinner-width-sm;
-  height: $spinner-height-sm;
-  border-width: $spinner-border-width-sm;
+  width: $spinner-width-sm !important;
+  height: $spinner-height-sm !important;
+  border-width: $spinner-border-width-sm !important;
 }
 
 //

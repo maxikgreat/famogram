@@ -1,4 +1,11 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+
 import { initAuth0 } from '@auth0/nextjs-auth0';
+
+interface NextReqRes {
+  req: NextApiRequest,
+  res: NextApiResponse
+}
 
 export const auth0 = initAuth0({
   domain: process.env.AUTH0_DOMAIN,
@@ -14,3 +21,26 @@ export const auth0 = initAuth0({
     storeRefreshToken: true,
   },
 });
+
+export function withAuth<T>(
+  callback?: (...args: any) => any,
+) {
+  return async ({ req, res }: NextReqRes) => {
+    try {
+      const session = await auth0.getSession(req);
+      console.log(session);
+      return {
+        props: {
+          user: session?.user
+        }
+      }
+    } catch (err) {
+      return { 
+        redirect: {
+          destination: '/api/v1/login',
+          permanent: false
+        }
+      };
+    }
+  }
+} 
