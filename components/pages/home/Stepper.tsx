@@ -1,34 +1,49 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const Stepper = () => {
   const tabs = useRef<NodeListOf<Element>>(null!);
   const tabsContent = useRef<NodeListOf<Element>>(null!);
 
   useEffect(() => {
+    let timer: NodeJS.Timeout;
+
     tabs.current = document.querySelectorAll('a[data-toggle="tab"]');
-    tabsContent.current = document.querySelectorAll('div[role="tabpanel"]')
-    const timer = setInterval(() => {
-      for (let i = 0; i < tabs.current.length; i++) {
-        if (i === tabs.current.length - 1) {
-          tabs.current.item(i).classList.remove('active');
-          tabs.current.item(0).classList.add('active');
+    tabsContent.current = document.querySelectorAll('div[role="tabpanel"]');
 
-          tabsContent.current.item(i).classList.remove('active', 'show');
-          tabsContent.current.item(0).classList.add('active');
-          setTimeout(() => tabsContent.current.item(0).classList.add('show'), 100);
-          break;
-        }
-        if (tabs.current.item(i).classList.contains('active')) {
-          tabs.current.item(i).classList.remove('active');
-          tabs.current.item(i + 1).classList.add('active');
-
-          tabsContent.current.item(i).classList.remove('active','show');
-          tabsContent.current.item(i + 1).classList.add('active');
-          setTimeout(() => tabsContent.current.item(i + 1).classList.add('show'), 100);
-          break;
-        }
+    let observer = new IntersectionObserver((entries) => { 
+      if (entries[0].isIntersecting) {
+        console.log('trigger');
+        timer = setInterval(() => {
+          for (let i = 0; i < tabs.current.length; i++) {
+            if (i === tabs.current.length - 1) {
+              tabs.current.item(i).classList.remove('active');
+              tabs.current.item(0).classList.add('active');
+    
+              tabsContent.current.item(i).classList.remove('active', 'show');
+              tabsContent.current.item(0).classList.add('active');
+              setTimeout(() => tabsContent.current.item(0).classList.add('show'), 100);
+              break;
+            }
+            if (tabs.current.item(i).classList.contains('active')) {
+              tabs.current.item(i).classList.remove('active');
+              tabs.current.item(i + 1).classList.add('active');
+    
+              tabsContent.current.item(i).classList.remove('active','show');
+              tabsContent.current.item(i + 1).classList.add('active');
+              setTimeout(() => tabsContent.current.item(i + 1).classList.add('show'), 100);
+              break;
+            }
+          }
+        }, 3000);
+        observer.unobserve(tabsContent.current[0]);
       }
-    }, 3000);
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.99,
+    });
+
+    observer.observe(tabsContent.current[0]);
 
     return () => clearInterval(timer);
   }, []);
@@ -40,7 +55,7 @@ export const Stepper = () => {
           <div className="col-md-12 wow fadeInLeft">
             <ul className="nav nav-tabs bg-transparent nav-tabs-line nav-tags-stack nav-justified fabrx-justified">
               <li className="nav-item">
-                <a className="nav-link" data-toggle="tab" href="#FeatureOne1">
+                <a className="nav-link active" data-toggle="tab" href="#FeatureOne1">
                   <span className="fabrx-icon">
                     <svg data-name="Icon/Arrows/Chevron/Forward" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                       <path data-name="Icon Color" d="M2.182,24,0,21.818,9.818,12,0,2.182,2.182,0l12,12Z" transform="translate(5)" fill="#3f3b3b"></path>
@@ -53,7 +68,7 @@ export const Stepper = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" data-toggle="tab" href="#FeatureTwo1">
+                <a className="nav-link" data-toggle="tab" href="#FeatureTwo1">
                   <span className="fabrx-icon">
                     <svg data-name="Icon/Arrows/Chevron/Forward" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                       <path data-name="Icon Color" d="M2.182,24,0,21.818,9.818,12,0,2.182,2.182,0l12,12Z" transform="translate(5)" fill="#3f3b3b"></path>
@@ -83,8 +98,8 @@ export const Stepper = () => {
         </div>
         <div className="row mt-4 mb-0 mb-md-4">
           <div className="col-md-12 mt-2 wow fadeInRight">
-            <div className="tab-content" id="myTabContentb">
-              <div className="tab-pane fade" id="FeatureOne1" role="tabpanel">
+            <div className="tab-content">
+              <div className="tab-pane fade active show" id="FeatureOne1" role="tabpanel">
                 <div className="card shadow-40">
                   <div className="row align-items-center">
                     <div className="col-lg-7">
@@ -100,7 +115,7 @@ export const Stepper = () => {
                   </div>
                 </div>
               </div>
-              <div className="tab-pane fade active show" id="FeatureTwo1" role="tabpanel">
+              <div className="tab-pane fade" id="FeatureTwo1" role="tabpanel">
                 <div className="card shadow-40">
                   <div className="row align-items-center">
                     <div className="col-lg-7">
