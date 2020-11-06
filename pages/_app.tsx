@@ -1,11 +1,19 @@
-import { FC } from 'react';
+import { ExoticComponent, FC, Fragment, ReactNode } from 'react';
 import { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar';
 
 import { wrapper } from '@/store';
 import '@/styles/main.scss';
+import { NextComponentType } from 'next';
 
-const ReduxApp: FC<AppProps> = ({ Component, pageProps }) => {
+type ComponentWithLayout = NextComponentType &  { Layout: ExoticComponent };
+
+interface ExtendedAppProps extends AppProps {
+  Component: ComponentWithLayout
+}
+
+const ReduxApp: FC<ExtendedAppProps> = ({ Component, pageProps }) => {
+  const Layout = Component.Layout ? Component.Layout : Fragment;
   return (
     <>
       <NextNprogress
@@ -15,11 +23,11 @@ const ReduxApp: FC<AppProps> = ({ Component, pageProps }) => {
         height={4}
         options={{ showSpinner: false }}
       />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
 
 export default wrapper.withRedux(ReduxApp);
-
-

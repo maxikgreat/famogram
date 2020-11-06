@@ -11,5 +11,6 @@ export const auth0 = initAuth0({
   session: {
     cookieSecret: process.env.AUTH0_COOKIE_SECRET,
     storeAccessToken: true,
+    storeRefreshToken: true,
   },
 });

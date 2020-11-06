@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 import { Header, Footer } from '../common'
 
@@ -11,6 +12,7 @@ interface BaseLayoutProps {
 
 export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
   const router = useRouter();
+  const [counter, setCounter] = useState(0);
 
   // const renderRoutes = (): JSX.Element[] => {
   //   return ['/wall', '/template'].map(route => (
@@ -30,6 +32,7 @@ export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
   return (
     <>
       <Header />
+      <div onClick={() => setCounter(counter => counter + 1)}>{counter}</div>
       <main id="main" className={className}>
         {children}
       </main>

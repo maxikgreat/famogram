@@ -1,10 +1,14 @@
 import { BaseLayout } from '@/components/layouts';
 import { Picker } from '@/components/pages/wall';
 
-export default function Home() {
+export default function Wall() {
   return (
-    <BaseLayout className="wall">
+    // <BaseLayout className="wall">
+    <>
       <Picker />
-    </BaseLayout>
+    </>
+    // </BaseLayout>
   )
 }
+
+Wall.Layout = BaseLayout;

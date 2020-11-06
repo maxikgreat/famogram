@@ -4,10 +4,9 @@ import { auth0 } from '@/services/auth0';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    await auth0.handleCallback(req, res, { 
-      redirectTo: '/',
-    });
-  } catch (e) {
-    res.status(e.status || 400).end(e.message);
+    await auth0.handleLogout(req, res);
+  } catch (error) {
+    console.error(error);
+    res.status(error.status || 400).end(error.message);
   }
 }
