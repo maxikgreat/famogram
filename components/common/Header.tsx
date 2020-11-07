@@ -53,11 +53,6 @@ export const Header = ({ user, loading }: HeaderProps) => {
                     <a className="nav-link">Wall</a>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link href="/profile">
-                    <a className="nav-link">Profile</a>
-                  </Link>
-                </li>
               </ul>
             )}
             <div className="fabrx-header-links ml-0 ml-lg-5">

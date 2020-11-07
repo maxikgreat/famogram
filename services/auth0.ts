@@ -28,11 +28,9 @@ export function withAuth<T>(
   return async ({ req, res }: NextReqRes) => {
     try {
       const session = await auth0.getSession(req);
-      console.log(session);
+      if (!session) throw new Error('Unauthenticated');
       return {
-        props: {
-          user: session?.user
-        }
+        props: {}
       }
     } catch (err) {
       return { 
