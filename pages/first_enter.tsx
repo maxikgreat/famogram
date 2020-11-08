@@ -2,54 +2,36 @@ import { BaseLayout } from '@/components/layouts'
 
 export default function FirstEnter() {
   return (
-    <BaseLayout className="fist-enter">
+    <BaseLayout className="first-enter">
       <section className="fabrx-hero mt-5">
-        <div className="container">
-          <div class="stepper__row">
-            <div class="stepper--horizontal">
-              <div class="stepper--horizontal__circle">
-                <span class="stepper--horizontal__circle__text">
-                  1
-                </span>
+        <div className="container stepper-hld">
+          <div className="d-flex justify-content-between pt-4 pb-2">
+            <div className="d-flex align-items-center step-hld">
+              <div className="circle-hld">
+                <span className="h5 mb-0">1</span>
+                <svg height="100" width="100">
+                  <circle cx="50" cy="50" r="40" stroke="#f39933" stroke-width="3" fill="#212121" />
+                </svg>
               </div>
-              <div class="stepper--horizontal__details">
-                <h3 class="heading__three">
-                  Name of Step
-                </h3>
-                <p class="paragraph">
-                  Example of a horizontal stepper
-                </p>
-              </div>
+              <h2 className="h6 mb-0">Step lorem ipsum</h2>
             </div>
-            <div class="stepper--horizontal stepper--horizontal--disabled">
-              <div class="stepper--horizontal__circle">
-                <span class="stepper--horizontal__circle__text">
-                  2
-                </span>
+            <div className="d-flex align-items-center step-hld">
+              <div className="circle-hld">
+                <span className="h5 mb-0">2</span>
+                <svg height="100" width="100">
+                  <circle cx="50" cy="50" r="40" stroke="#f39933" stroke-width="3" fill="#212121" />
+                </svg>
               </div>
-              <div class="stepper--horizontal__details">
-                <h3 class="heading__three">
-                  Name of Step
-                </h3>
-                <p class="paragraph">
-                  Example of a horizontal stepper
-                </p>
-              </div>
+              <h2 className="h6 mb-0">Step lorem ipsum</h2>
             </div>
-            <div class="stepper--horizontal stepper--horizontal--disabled">
-              <div class="stepper--horizontal__circle">
-                <span class="stepper--horizontal__circle__text">
-                  3
-                </span>
+            <div className="d-flex align-items-center step-hld">
+              <div className="circle-hld">
+                <span className="h5 mb-0">3</span>
+                <svg height="100" width="100">
+                  <circle cx="50" cy="50" r="40" stroke="#f39933" stroke-width="3" fill="#212121" />
+                </svg>
               </div>
-              <div class="stepper--horizontal__details">
-                <h3 class="heading__three">
-                  Name of Step
-                </h3>
-                <p class="paragraph">
-                  Example of a horizontal stepper
-                </p>
-              </div>
+              <h2 className="h6 mb-0">Step lorem ipsum</h2>
             </div>
           </div>
         </div>
