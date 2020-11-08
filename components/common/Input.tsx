@@ -19,6 +19,7 @@ type RegisterProps = React.DetailedHTMLProps<
 };
 
 interface InputProps extends RegisterProps {
+  list?: string,
   name: string,
   icon?: IconProp,
   placeholder: string,
@@ -37,6 +38,7 @@ interface IconProps {
 const IconMemo = memo(({ icon }: IconProps) => <FontAwesomeIcon icon={icon} />);
 
 export const Input = ({ 
+  list,
   register,
   right = false,
   name, 
@@ -56,6 +58,7 @@ export const Input = ({
         </label>
       )}
       <input
+        list={list}
         ref={register ? register : null}
         onChange={onChange}
         autoComplete="off"

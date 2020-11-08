@@ -60,7 +60,7 @@ export const Header = ({ user, loading }: HeaderProps) => {
                 ? <div className="spinner-border spinner-border-sm spinner-fill" />
                 : user
                   ? <AvatarDropdown
-                      name={user.name}
+                      name={user.nickname}
                       photo={user.picture}
                     />
                   : <Link href="/api/v1/login">
