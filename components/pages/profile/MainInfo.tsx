@@ -5,11 +5,13 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { User } from '@/store/user/types';
 import { Category, categories } from '@/types';
 import { Input } from '@/components/common';
 import { MainInfoStateForm } from '@/pages/profile';
 
 interface MainInfoProps {
+  user: User,
   updateInfo: (data: MainInfoStateForm) => void,
 }
 

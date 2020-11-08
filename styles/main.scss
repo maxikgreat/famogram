@@ -13,10 +13,12 @@
 @import './components/logo';
 @import './components/stars';
 @import './components/parallax';
+@import './components/stepper';
 
 // pages 
 @import './pages/index';
 @import './pages/wall';
+@import './pages/profile';
 
 
 body {

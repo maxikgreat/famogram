@@ -30,7 +30,9 @@ export function withAuth<T>(
       const session = await auth0.getSession(req);
       if (!session) throw new Error('Unauthenticated');
       return {
-        props: {}
+        props: {
+          user: session.user
+        }
       }
     } catch (err) {
       return { 

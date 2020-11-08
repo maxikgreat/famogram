@@ -1,0 +1,61 @@
+.stepper__row {
+  width: 964px;
+  display: flex;
+  justify-content: space-between;
+}
+.stepper--horizontal {
+  display: flex;
+  position: relative;
+  &__circle {
+    background: url('http://res.cloudinary.com/dhwx8elvg/image/upload/v1499441107/step-circle-icon_zkr7qg.svg');
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    &__text {
+      align-self: center;
+      font-size: 18px;
+      font-weight: 500;
+      color: #388CF3;
+    }
+  }
+  &__details {
+    margin-left: 24px;
+    align-self: center;
+    .paragraph {
+      margin-top: 2px;
+    }
+  }
+  &:last-child{
+    &:after {
+      content: '';
+      display: none;
+    }
+  }
+  &:after {
+      content: url('http://res.cloudinary.com/dhwx8elvg/image/upload/v1499445091/stepper-line_nddqqf.svg');
+      position: absolute;
+      right: -42px;
+      top: 8px;
+    }
+}
+
+.stepper--horizontal--disabled {
+  .stepper--horizontal__circle {
+    background: url('http://res.cloudinary.com/dhwx8elvg/image/upload/v1499451438/step-circle-icon--disabled_xakuwy.svg');
+    opacity: 0.4;
+    &__text {
+      color: rgba(62, 78, 104, 0.7);
+    }
+  }
+  .stepper--horizontal__details {
+    .paragraph {
+      margin-top: 2px;
+      color: rgba(62, 78, 104, 0.8);
+    }
+    .heading__three {
+      color: rgba(62, 78, 104, 0.7);
+    }
+  }
+}
