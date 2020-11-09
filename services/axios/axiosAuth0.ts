@@ -7,11 +7,6 @@ const axiosAuth0 = axiosGlobal.create({
   responseType: 'json',
 });
 
-const axiosApi = axiosGlobal.create({
-  baseURL: 'http://localhost:3001',
-  responseType: 'json',
-});
-
 axiosAuth0.interceptors.response.use(
   response => response,
   async ({ response, config }) =>  {
@@ -32,4 +27,4 @@ axiosAuth0.interceptors.response.use(
 )
 
 
-export { axiosAuth0, axiosApi };
+export { axiosAuth0 };
