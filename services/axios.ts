@@ -1,9 +1,14 @@
-import axios from 'axios';
+import axiosGlobal from 'axios';
 
 import { auth0 } from '@/services/auth0';
 
-const axiosAuth0 = axios.create({
+const axiosAuth0 = axiosGlobal.create({
   baseURL: 'http://localhost:3000',
+  responseType: 'json',
+});
+
+const axiosApi = axiosGlobal.create({
+  baseURL: 'http://localhost:3001',
   responseType: 'json',
 });
 
@@ -27,4 +32,4 @@ axiosAuth0.interceptors.response.use(
 )
 
 
-export { axiosAuth0 };
+export { axiosAuth0, axiosApi };

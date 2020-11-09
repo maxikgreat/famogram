@@ -648,7 +648,7 @@ a {
     }
     &:hover {
       svg, svg * {
-        fill: $blue-700 !important;
+        fill: darken($primary, 10%) !important;
       }
     }
   }
@@ -4038,6 +4038,10 @@ span.flatpickr-weekday {
   .nav-item.show .nav-link, .nav-link.active {
     background-color: $transparent;
     border-color: $primary;
+  }
+
+  .nav-link.disabled {
+    border-color: $secondary;
   }
 }
 /* 29. 6. Fabrx Nav Tabs Medium CSS  */
