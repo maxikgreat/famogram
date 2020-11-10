@@ -28,7 +28,7 @@ interface InputProps extends RegisterProps {
   className?: string,
   right?: boolean,
   type?: string,
-  error?: FieldError,
+  error?: FieldError | string | null,
 }
 
 interface IconProps {
@@ -81,7 +81,7 @@ export const Input = ({
               <path data-name="Icon Color" d="M14.91,14.666H1.092a1.073,1.073,0,0,1-.982-.448,1.118,1.118,0,0,1,.1-1.118L7.13.649A1.061,1.061,0,0,1,8,0a1.062,1.062,0,0,1,.871.649L15.8,13.1a1.117,1.117,0,0,1,.094,1.117A1.071,1.071,0,0,1,14.91,14.666Zm-6.91-4A1.333,1.333,0,1,0,9.334,12,1.335,1.335,0,0,0,8,10.667ZM8,4a1.209,1.209,0,0,0-.871.422,1.211,1.211,0,0,0-.343.906L7.1,8.817A1.3,1.3,0,0,0,8.167,9.98.722.722,0,0,1,8,10h.4a1.317,1.317,0,0,1-.229-.02.937.937,0,0,0,.7-.77l.349-3.882a1.209,1.209,0,0,0-.342-.905A1.21,1.21,0,0,0,8,4Z" transform="translate(-0.001 0.667)" fill="#f46363"></path>
             </g>
           </svg>
-          <span>{error.message}</span>
+          <span>{typeof error === 'string' ? error : error.message}</span>
         </div>
       )}
     </div>

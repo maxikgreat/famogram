@@ -1,6 +1,5 @@
 import { useApiHandler } from './useApiHandler';
-// import { axiosApi } from '@/services/axios';
-import axios from 'axios';
+import { axiosApi as axios } from '@/services/axios';
 
 const checkAccount = (nickname: string) => axios.post('/api/v1/insta/check', { nickname });
 

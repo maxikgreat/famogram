@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AxiosPromise } from 'axios';
+import { AxiosPromise, AxiosResponse } from 'axios';
 
 // import { axiosApi } from '@/services/axios';
 
@@ -16,11 +16,11 @@ export function useApiHandler(apiCall: any): [
   const handler = async (data: any) => {
     setRequestState({ error: '', loading: true, data: null });
     try {
-      const response = await apiCall(data);
+      const response: AxiosResponse = await apiCall(data);
       setRequestState({ error: '', loading: false, data: response.data });
-      return Promise.resolve();
+      return Promise.resolve(response.data);
     } catch ({ response }) {
-      const error = (response && response.data) || 'Ooops, something went wrong!';
+      const error = response?.data?.message ?? 'Oooops, something went wrong'
       setRequestState({
         error,
         loading: false,

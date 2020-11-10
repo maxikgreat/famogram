@@ -16,7 +16,7 @@ axiosApi.interceptors.request.use(
         Accept: 'application/json',
         'Content-Type': 'application/json',
         'Accept-Language': 'application/json',
-      },
+      }
     };
 
     return config;
