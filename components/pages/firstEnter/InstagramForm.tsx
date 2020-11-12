@@ -23,11 +23,11 @@ export const InstagramForm: FC<InstagramFormProps> = ({
 
   const checkAccountHandler = () => {
     checkAccount(instagramAccount.value)
-      .then(data => console.log(data))
+      .then(user => setInstagramAccount(prevState => ({ ...prevState, user })))
   };
 
   return (
-    <div className="tab-pane fade active show" id="Instagram" role="tabpanel">
+    <div className={`tab-pane fade ${!instagramAccount.user && 'active show'}`} id="Instagram" role="tabpanel">
       <div className="row hero-caption pt-4 d-flex justify-content-end">
         <Input
           icon={faInstagram}

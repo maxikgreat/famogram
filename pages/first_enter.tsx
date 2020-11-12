@@ -11,8 +11,9 @@ export interface InstagramValueForm {
 }
 
 export interface CategoryValueForm {
-  value: Category | null,
+  value: string,
   error: string | null,
+  passed: boolean,
 }
 
 export interface PriceValueForm {
@@ -20,26 +21,31 @@ export interface PriceValueForm {
     story: string,
     post: string,
   },
-  error: string | null,
+  error: {
+    story: string | null,
+    post: string | null,
+  }
 }
 
 export default function FirstEnter() {
-  const [activeTab, setActiveTab] = useState(0);
-
   const [instagramAccount, setInstagramAccount] = useState<InstagramValueForm>({
     value: '',
     user: null
   });
   const [category, setCategory] = useState<CategoryValueForm>({
-    value: null,
+    value: '',
     error: null,
+    passed: false,
   });
   const [price, setPrice] = useState<PriceValueForm>({
     value: {
       story: '',
       post: '',
     },
-    error: null,
+    error: {
+      story: null,
+      post: null, 
+    },
   });
 
   const [checkAccount, checkAccountState] = useCheckAccount();
@@ -51,13 +57,13 @@ export default function FirstEnter() {
           <div className="pr-0 pt-0 pt-lg-3 pb-4 pb-md-5">
             <ul className="nav nav-tabs nav-tabs-md bg-transparent nav-tabs-line nav-justified">
               <li className="nav-item">
-                <a className="nav-link active" data-toggle="tab" href="#Instagram">1. Instagram</a>
+                <a className={`nav-link ${!instagramAccount.user && 'active'}`} data-toggle="tab" href="#Instagram">1. Instagram</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" data-toggle="tab" href="#Category">2. Category</a>
+                <a className={`nav-link ${(instagramAccount.user && !category.passed && 'active')} ${!instagramAccount.user && 'disabled'}`} data-toggle="tab" href="#Category">2. Category</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" data-toggle="tab" href="#Price">3. Price</a>
+                <a className={`nav-link ${category.passed ? 'active' : 'disabled'}`} data-toggle="tab" href="#Price">3. Price</a>
               </li>
             </ul>
             <div className="tab-content" id="myTabContent">
@@ -70,8 +76,16 @@ export default function FirstEnter() {
                   error: checkAccountState.error,
                 }}
               />
-              <CategoryForm />
-              <PriceForm />
+              <CategoryForm 
+                instagramUser={instagramAccount.user} 
+                category={category}
+                setCategory={setCategory}
+              />
+              <PriceForm
+                isCategoryPassed={category.passed}
+                price={price}
+                setPrice={setPrice}
+              />
             </div>
           </div>
         </div>
