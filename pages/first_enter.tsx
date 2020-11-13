@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
-import { Category, InstaUser } from '@/types'
+import { InstaUser } from '@/types'
 import { BaseLayout } from '@/components/layouts'
 import { CategoryForm, InstagramForm, PriceForm } from '@pagesComponents/firstEnter';
 import { useCheckAccount } from '@/hooks/useInstagram';
+import { withAuth } from '@/services/auth0';
 
 export interface InstagramValueForm {
   value: string,
@@ -21,6 +22,8 @@ export interface PriceValueForm {
     post: string,
   },
 }
+
+export const getServerSideProps = withAuth();
 
 export default function FirstEnter() {
   const [instagramAccount, setInstagramAccount] = useState<InstagramValueForm>({

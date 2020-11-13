@@ -1,8 +1,12 @@
+import { useEffect } from 'react';
+import Router from 'next/router';
+
 import { MainInfo } from '@pagesComponents/profile';
 import { BaseLayout } from "@/components/layouts";
-import { Category, categories } from '@/types';
+import { Category } from '@/types';
 import { withAuth } from '@/services/auth0';
 import { User } from '@/store/user/types';
+import { Redirect } from '@/components/common';
 
 export interface MainInfoStateForm {
   instagramAccount: string,
@@ -21,6 +25,8 @@ export default function Profile({ user }: ProfileProps) {
   const updateInfo = (data: MainInfoStateForm) => {
     console.log(data);
   } 
+
+  if (!user.user_metadata) return <Redirect url="/first_enter" />
 
   return (
     <BaseLayout className="profile">

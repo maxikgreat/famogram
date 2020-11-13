@@ -11,6 +11,7 @@ export interface User {
   email: string,
   email_verified: boolean,
   sub: string,
+  user_metadata: any | null,
 }
 
 export type UserState = User | null;

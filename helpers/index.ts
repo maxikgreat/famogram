@@ -5,4 +5,4 @@ export const isCategory = (value: string) => categories.includes(value as Catego
 export const isNumber = (string: string) => {
   if (!string) return true;
   return isNaN(Number(string));
-} 
+}
