@@ -12,7 +12,6 @@ export interface InstagramValueForm {
 
 export interface CategoryValueForm {
   value: string,
-  error: string | null,
   passed: boolean,
 }
 
@@ -21,10 +20,6 @@ export interface PriceValueForm {
     story: string,
     post: string,
   },
-  error: {
-    story: string | null,
-    post: string | null,
-  }
 }
 
 export default function FirstEnter() {
@@ -34,17 +29,12 @@ export default function FirstEnter() {
   });
   const [category, setCategory] = useState<CategoryValueForm>({
     value: '',
-    error: null,
     passed: false,
   });
   const [price, setPrice] = useState<PriceValueForm>({
     value: {
       story: '',
       post: '',
-    },
-    error: {
-      story: null,
-      post: null, 
     },
   });
 
