@@ -29,7 +29,6 @@ export function withAuth<T>(
     try {
       const session = await auth0.getSession(req);
       if (!session) throw new Error('Unauthenticated');
-      if (callback) callback(session.user.user_metadata);
       return {
         props: {
           user: session.user

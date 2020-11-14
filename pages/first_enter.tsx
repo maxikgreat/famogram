@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-import { InstaUser } from '@/types'
+import { Category, InstaUser } from '@/types'
 import { BaseLayout } from '@/components/layouts'
 import { CategoryForm, InstagramForm, PriceForm } from '@pagesComponents/firstEnter';
-import { useCheckAccount } from '@/hooks/useInstagram';
+import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
+import { User } from '@/store/user/types';
 
 export interface InstagramValueForm {
   value: string,
@@ -23,9 +24,13 @@ export interface PriceValueForm {
   },
 }
 
+interface FirstEnterProps {
+  user: User,
+}
+
 export const getServerSideProps = withAuth();
 
-export default function FirstEnter() {
+export default function FirstEnter({ user }: FirstEnterProps) {
   const [instagramAccount, setInstagramAccount] = useState<InstagramValueForm>({
     value: '',
     user: null
@@ -42,6 +47,21 @@ export default function FirstEnter() {
   });
 
   const [checkAccount, checkAccountState] = useCheckAccount();
+  const [updateMetadata, updateMetadataState] = useUpdateMetadata();
+
+  const finishHandler = () => {
+    const metadata = {
+      userId: user.sub,
+      user: instagramAccount.user as InstaUser,
+      category: category.value as Category,
+      price: {
+        story: Number(price.value.story),
+        post: Number(price.value.post),
+      }
+    }
+
+    updateMetadata(metadata);
+  }
   
   return (
     <BaseLayout className="first-enter">
@@ -78,6 +98,7 @@ export default function FirstEnter() {
                 isCategoryPassed={category.passed}
                 price={price}
                 setPrice={setPrice}
+                finishHandler={finishHandler}
               />
             </div>
           </div>

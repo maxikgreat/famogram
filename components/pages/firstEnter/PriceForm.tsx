@@ -9,9 +9,10 @@ interface PriceFormProps {
   isCategoryPassed: boolean,
   price: PriceValueForm,
   setPrice: Dispatch<SetStateAction<PriceValueForm>>,
+  finishHandler: () => void,
 }
 
-export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, price, setPrice }) => {
+export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, price, setPrice, finishHandler }) => {
 
   const onChange = (value: string, name: 'post' | 'story') => {
     let str = value;
@@ -49,7 +50,7 @@ export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, price, setPric
         <p>Fill price fields with digits. All prices will be in dollars</p>
         <button 
           className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end ${(isNumber(price.value.story) || isNumber(price.value.post)) && 'disabled'}`}
-          onClick={() => console.log('finish')}
+          onClick={finishHandler}
         >
           <span className="btn-text">Finish</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

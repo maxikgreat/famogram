@@ -100,3 +100,13 @@ export interface InstaUser {
   photoUrl: string,
   username: string,
 }
+
+export interface Metadata {
+  userId: string,
+  user: InstaUser,
+  category: Category,
+  price: {
+    story: number,
+    post: number,
+  }
+}

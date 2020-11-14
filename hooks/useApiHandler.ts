@@ -3,20 +3,20 @@ import { AxiosPromise, AxiosResponse } from 'axios';
 
 // import { axiosApi } from '@/services/axios';
 
-export function useApiHandler(apiCall: any): [
-  (data: any) => Promise<void>,
-  { loading: boolean, error: string, data: any }
+export function useApiHandler<D, R>(apiCall: (data: D) => AxiosPromise<R>): [
+  (data: D) => Promise<R>,
+  { loading: boolean, error: string, data: R | null }
 ]{
-  const [requestState, setRequestState] = useState<{ loading: boolean, error: string, data: any | null }>({
+  const [requestState, setRequestState] = useState<{ loading: boolean, error: string, data: R | null }>({
     loading: false,
     error: '',
     data: null,
   });
 
-  const handler = async (data: any) => {
+  const handler = async (data: D) => {
     setRequestState({ error: '', loading: true, data: null });
     try {
-      const response: AxiosResponse = await apiCall(data);
+      const response = await apiCall(data);
       setRequestState({ error: '', loading: false, data: response.data });
       return Promise.resolve(response.data);
     } catch ({ response }) {

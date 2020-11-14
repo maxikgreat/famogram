@@ -3,11 +3,12 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 import { Input } from '@/components/common';
 import { InstagramValueForm } from '@/pages/first_enter';
+import { InstaUser } from '@/types';
 
 interface InstagramFormProps {
   instagramAccount: InstagramValueForm,
   setInstagramAccount: Dispatch<SetStateAction<InstagramValueForm>>,
-  checkAccount: (data: string) => Promise<any>,
+  checkAccount: (data: string) => Promise<InstaUser>,
   checkAccountState: {
     loading: boolean,
     error: string | null,
