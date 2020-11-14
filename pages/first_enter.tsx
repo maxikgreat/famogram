@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-import { Category, InstaUser } from '@/types'
+import { Category, InstaUser, Metadata, User } from '@/types'
 import { BaseLayout } from '@/components/layouts'
 import { CategoryForm, InstagramForm, PriceForm } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
-import { User } from '@/store/user/types';
 
 export interface InstagramValueForm {
   value: string,
@@ -50,17 +49,19 @@ export default function FirstEnter({ user }: FirstEnterProps) {
   const [updateMetadata, updateMetadataState] = useUpdateMetadata();
 
   const finishHandler = () => {
-    const metadata = {
+    const data: {userId: string, metadata: Metadata } = {
       userId: user.sub,
-      user: instagramAccount.user as InstaUser,
-      category: category.value as Category,
-      price: {
-        story: Number(price.value.story),
-        post: Number(price.value.post),
+      metadata: {
+        user: instagramAccount.user as InstaUser,
+        category: category.value as Category,
+        price: {
+          story: Number(price.value.story),
+          post: Number(price.value.post),
+        }
       }
     }
 
-    updateMetadata(metadata);
+    updateMetadata(data);
   }
   
   return (

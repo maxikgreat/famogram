@@ -2,10 +2,9 @@ import { FC } from 'react';
 import { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar';
 
-import { wrapper } from '@/store';
 import '@/styles/main.scss';
 
-const ReduxApp: FC<AppProps> = ({ Component, pageProps }) => {
+const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <NextNprogress
@@ -20,4 +19,4 @@ const ReduxApp: FC<AppProps> = ({ Component, pageProps }) => {
   );
 }
 
-export default wrapper.withRedux(ReduxApp);
+export default App;
