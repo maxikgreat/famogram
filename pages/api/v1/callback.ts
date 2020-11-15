@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import { axiosAuth0 as axios } from '@/services/axios';
 import { auth0 } from '@/services/auth0';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

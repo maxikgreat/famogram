@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { User } from '@/store/user/types';
+import { User } from '@/types';
 interface HeaderProps {
   user?: User,
   loading: boolean,
@@ -61,7 +61,7 @@ export const Header = ({ user, loading }: HeaderProps) => {
                 : user
                   ? <AvatarDropdown
                       name={user.nickname}
-                      photo={user.picture}
+                      photo={user.user_metadata?.user.photoUrl ?? user.picture}
                     />
                   : <Link href="/api/v1/login">
                       <a className="btn btn-primary">Login</a>

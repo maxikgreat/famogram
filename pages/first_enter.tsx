@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import Router from 'next/router';
 
 import { Category, InstaUser, Metadata, User } from '@/types'
 import { BaseLayout } from '@/components/layouts'
+import { Redirect } from '@/components/common';
 import { CategoryForm, InstagramForm, PriceForm } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
@@ -25,11 +27,12 @@ export interface PriceValueForm {
 
 interface FirstEnterProps {
   user: User,
+  token: string,
 }
 
 export const getServerSideProps = withAuth();
 
-export default function FirstEnter({ user }: FirstEnterProps) {
+export default function FirstEnter({ user, token }: FirstEnterProps) {
   const [instagramAccount, setInstagramAccount] = useState<InstagramValueForm>({
     value: '',
     user: null
@@ -45,8 +48,8 @@ export default function FirstEnter({ user }: FirstEnterProps) {
     },
   });
 
-  const [checkAccount, checkAccountState] = useCheckAccount();
-  const [updateMetadata, updateMetadataState] = useUpdateMetadata();
+  const [checkAccount, checkAccountState] = useCheckAccount(token);
+  const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
 
   const finishHandler = () => {
     const data: {userId: string, metadata: Metadata } = {
@@ -61,8 +64,14 @@ export default function FirstEnter({ user }: FirstEnterProps) {
       }
     }
 
-    updateMetadata(data);
+    updateMetadata(data)
+      .then(() => {
+        // not handled correctly in auth0-nextjs library so thats the solution
+        if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
+      })
   }
+
+  if (user.user_metadata) return <Redirect url="/profile" />
   
   return (
     <BaseLayout className="first-enter">
@@ -100,6 +109,7 @@ export default function FirstEnter({ user }: FirstEnterProps) {
                 price={price}
                 setPrice={setPrice}
                 finishHandler={finishHandler}
+                updateMetadataState={updateMetadataState}
               />
             </div>
           </div>

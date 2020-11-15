@@ -10,9 +10,14 @@ interface PriceFormProps {
   price: PriceValueForm,
   setPrice: Dispatch<SetStateAction<PriceValueForm>>,
   finishHandler: () => void,
+  updateMetadataState: {
+    data: any,
+    loading: boolean,
+    error: string,
+  }
 }
 
-export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, price, setPrice, finishHandler }) => {
+export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, price, setPrice, finishHandler, updateMetadataState }) => {
 
   const onChange = (value: string, name: 'post' | 'story') => {
     let str = value;
@@ -52,10 +57,16 @@ export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, price, setPric
           className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end ${(isNumber(price.value.story) || isNumber(price.value.post)) && 'disabled'}`}
           onClick={finishHandler}
         >
-          <span className="btn-text">Finish</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
-          </svg>
+          {
+            updateMetadataState.loading 
+            ? <div className="spinner-border spinner-border-sm spinner-fill" />
+            : <>
+                <span className="btn-text">Finish</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                  <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
+                </svg>
+              </>
+          }
         </button>
       </div>
     </div>
