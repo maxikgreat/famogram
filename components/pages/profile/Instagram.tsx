@@ -5,18 +5,22 @@ import { faBusinessTime, faLock, faLockOpen } from '@fortawesome/free-solid-svg-
 
 interface InstagramProps {
   instaUser: InstaUser,
-  nickname: string,
+  // nickname: string,
 }
 
-export const Instagram: FC<InstagramProps> = ({ instaUser, nickname }) => {
+export const Instagram: FC<InstagramProps> = ({ instaUser }) => {
+  const shortLink = (): string => {
+    return `${instaUser.externalUrl.slice(0, 22)}...`;
+  };
+
   return (
     <div className="col-lg-6 col-md-12">
-      <div className="border rounded mt-4 d-flex">
+      <div className="border rounded d-flex flex-sm-row">
         <img src={instaUser.photoUrl} alt={instaUser.fullName} className="w-50" style={{ objectFit: 'cover' }} />
-        <div className="w-50 p-2 d-flex flex-column justify-content-evenly">
+        <div className="w-50 p-3 d-flex flex-column justify-content-evenly">
           <h6 className="text-primary">@{instaUser.username}</h6>
           <span>{instaUser.biography}</span>
-          <a href={instaUser.externalUrl} rel="noreferrer noopener" target="_blank" style={{ textDecoration: 'underline' }}>{instaUser.externalUrl}</a>
+          <a href={instaUser.externalUrl} rel="noreferrer noopener" target="_blank" style={{ textDecoration: 'underline' }}>{shortLink()}</a>
           <hr />
           <div>
             <div className="d-block">

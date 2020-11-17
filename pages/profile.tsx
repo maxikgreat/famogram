@@ -32,7 +32,6 @@ export default function Profile({ user, token }: ProfileProps) {
           <div className="row align-items-center">
             <Instagram 
               instaUser={user.user_metadata.user} 
-              nickname={user.nickname}
             />
             <MainInfo 
               updateInfo={updateInfo} 

@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { User } from '@/store/user/types';
+import { User } from '@/types';
 import { Category, categories } from '@/types';
 import { Input } from '@/components/common';
 import { MainInfoStateForm } from '@/pages/profile';
@@ -28,14 +28,20 @@ const validationSchema = yup.object<MainInfoStateForm>().shape({
     .matches(/^[0-9]+$/g, 'Price must be a number')
 });
 
-export const MainInfo: FC<MainInfoProps> = ({ updateInfo }) => {
+export const MainInfo: FC<MainInfoProps> = ({ updateInfo, user }) => {
   const { register, handleSubmit, errors } = useForm<MainInfoStateForm>({
     resolver: yupResolver(validationSchema),
+    defaultValues: user.user_metadata ? {
+      instagramAccount: user.user_metadata.user.username,
+      category: user.user_metadata.category,
+      pricePerPost: user.user_metadata.price.post.toString(),
+      pricePerStory: user.user_metadata.price.story.toString(),
+    } : undefined,
   });
 
   return (
     <div className="col-lg-6 col-md-12">
-      <form className="mt-4 py-2" onSubmit={handleSubmit(updateInfo)}>
+      <form onSubmit={handleSubmit(updateInfo)}>
         <div className="form-group">
           <Input
             register={register}
