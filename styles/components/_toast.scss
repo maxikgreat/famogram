@@ -1,0 +1,39 @@
+
+.Toastify__toast {
+  color: $primary;
+  border: 2px solid $primary;
+  background: $black;
+}
+
+.Toastify__toast--success {
+  color: $success;
+  border: 2px solid $success;
+}
+.Toastify__toast--warning {
+  color: $warning;
+  border: 2px solid $warning;
+}
+.Toastify__toast--error {
+  color: $danger;
+  border: 2px solid $danger;
+}
+
+.Toastify__toast-body {
+  color: $white;
+}
+
+.Toastify__progress-bar {
+  background: $primary;
+}
+
+.Toastify__progress-bar--success {
+  background: $success;
+}
+
+.Toastify__progress-bar--warning {
+  background: $warning;
+}
+
+.Toastify__progress-bar--error {
+  background: $danger;
+}

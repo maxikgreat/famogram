@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { User } from '@/types';
-import { Category, categories } from '@/types';
+import { categories } from '@/types';
 import { Input } from '@/components/common';
 import { MainInfoStateForm } from '@/pages/profile';
 

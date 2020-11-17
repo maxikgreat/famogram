@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 import { Instagram, MainInfo } from '@pagesComponents/profile';
 import { BaseLayout } from "@/components/layouts";
 import { Category, User } from '@/types';
@@ -20,7 +22,10 @@ export const getServerSideProps = withAuth();
 
 export default function Profile({ user, token }: ProfileProps) {
   const updateInfo = (data: MainInfoStateForm) => {
-    console.log(data);
+    console.log('data');
+    // toast(`So easy toast`, {
+    //   type: 'success'
+    // });
   } 
 
   if (!user.user_metadata) return <Redirect url="/first_enter" />
