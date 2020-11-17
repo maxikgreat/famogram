@@ -394,6 +394,7 @@ a {
     background-color: $primary;
     border-color: $primary;
     color: $white;
+    cursor: not-allowed;
   }
 }
 .btn-black {
@@ -3036,6 +3037,7 @@ textarea.form-control {
   margin-right: 5px;
 }
 .invalid-feedback {
+  margin-left: calc(1rem - 2px);
   img, svg {
     margin-right: 5px;
   }
@@ -3049,7 +3051,6 @@ textarea.form-control {
   position: absolute;
   top: 0;
   left: 0;
-  width: 30px;
   height: 48px;
   margin-bottom: 0;
   align-items: center;
@@ -3061,9 +3062,6 @@ textarea.form-control {
     min-width: 10px;
     padding: 10px;
     justify-content: center;
-  }
-  &:not(.btn) {
-    padding: 13px 0 13px 13px;
   }
   &.btn:not(.control-icon-right) + .form-control {
     padding-left: 65px;
@@ -3088,7 +3086,7 @@ textarea.form-control {
     }
   }
   &:not(.control-icon-right) + .form-control, + .control-icon-right + .form-control {
-    padding-left: 45px;
+    padding-left: 25px;
   }
   &.control-icon-caption:not(.btn) {
     width: auto;

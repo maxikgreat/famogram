@@ -4,6 +4,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import equal from 'deep-equal';
 
 import { User } from '@/types';
 import { categories } from '@/types';
@@ -19,7 +20,8 @@ const validationSchema = yup.object<MainInfoStateForm>().shape({
   instagramAccount: yup.string()
     .required('Account is required'),
   category: yup.string()
-    .required('Category is required'),
+    .required('Category is required')
+    .oneOf(categories, 'Pick category from list'),
   pricePerStory: yup.string()
     .required('Price is required')
     .matches(/^[0-9]+$/g, 'Price must be a number'),
@@ -29,7 +31,7 @@ const validationSchema = yup.object<MainInfoStateForm>().shape({
 });
 
 export const MainInfo: FC<MainInfoProps> = ({ updateInfo, user }) => {
-  const { register, handleSubmit, errors } = useForm<MainInfoStateForm>({
+  const { register, handleSubmit, errors, formState, watch } = useForm<MainInfoStateForm>({
     resolver: yupResolver(validationSchema),
     defaultValues: user.user_metadata ? {
       instagramAccount: user.user_metadata.user.username,
@@ -38,6 +40,25 @@ export const MainInfo: FC<MainInfoProps> = ({ updateInfo, user }) => {
       pricePerStory: user.user_metadata.price.story.toString(),
     } : undefined,
   });
+
+  const isPrevStateForm = () => {
+    if (!user.user_metadata) return null;
+    let prevStateFormUser: MainInfoStateForm = {
+      instagramAccount: user.user_metadata.user.username,
+      category: user.user_metadata.category,
+      pricePerPost: user.user_metadata.price.post.toString(),
+      pricePerStory: user.user_metadata.price.story.toString(),
+    };
+
+    const currentStateFormUser: MainInfoStateForm = {
+      instagramAccount: watch('instagramAccount'),
+      category: watch('category'),
+      pricePerPost: watch('pricePerPost'),
+      pricePerStory: watch('pricePerStory'),
+    }
+
+    return equal(prevStateFormUser, currentStateFormUser);
+  }
 
   return (
     <div className="col-lg-6 col-md-12">
@@ -89,7 +110,11 @@ export const MainInfo: FC<MainInfoProps> = ({ updateInfo, user }) => {
           </div>
           <small className="text-muted mb-3 d-block">Multiple users? we offer custom tailored packages including premium support and detailed analytics.</small>
         </div>
-        <button type="submit" className="btn btn-xl btn-primary btn-block">Create</button>
+        <button 
+          type="submit" 
+          className="btn btn-xl btn-primary btn-block"
+          disabled={isPrevStateForm() || !formState.isValid}
+        >Update</button>
       </form>
     </div>
   )

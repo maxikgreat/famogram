@@ -34,7 +34,7 @@ export default function Profile({ user, token }: ProfileProps) {
     <BaseLayout className="profile">
       <section className="fabrx-section bg-white mt-5">
         <div className="container">
-          <div className="row align-items-center">
+          <div className="row align-items-flex-start">
             <Instagram 
               instaUser={user.user_metadata.user} 
             />

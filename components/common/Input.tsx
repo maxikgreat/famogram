@@ -35,7 +35,13 @@ interface IconProps {
   icon: IconProp,
 }
 
-const IconMemo = memo(({ icon }: IconProps) => <FontAwesomeIcon icon={icon} />);
+const IconMemo = memo(({ icon }: IconProps) => 
+  <FontAwesomeIcon 
+    icon={icon} 
+    // @ts-expect-error
+    style={icon.iconName === 'instagram' ? { marginRight: '1px', transform: 'scale(1.2)' } : {}}
+  />
+);
 
 export const Input = ({ 
   list,
