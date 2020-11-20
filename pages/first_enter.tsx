@@ -4,7 +4,7 @@ import Router from 'next/router';
 import { Category, InstaUser, Metadata, User } from '@/types'
 import { BaseLayout } from '@/components/layouts'
 import { Redirect } from '@/components/common';
-import { CategoryPriceForm, InstagramForm, PriceForm } from '@pagesComponents/firstEnter';
+import { CategoryPriceForm, InfoForm, InstagramForm } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
 
@@ -21,6 +21,13 @@ export interface CategoryValueForm {
 export interface PriceValueForm {
   story: string,
   post: string,
+}
+
+export interface InfoValueForm {
+  desc: string,
+  contactEmail: string,
+  whatsApp: string,
+  facebook: string,
 }
 
 interface FirstEnterProps {
@@ -44,6 +51,13 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
     post: '',
   });
 
+  const [info, setInfo] = useState<InfoValueForm>({
+    desc: '',
+    contactEmail: '',
+    whatsApp: '',
+    facebook: '',
+  });
+
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
 
@@ -56,6 +70,12 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
         price: {
           story: Number(price.story),
           post: Number(price.post),
+        },
+        desc: info.desc,
+        contactEmail: info.contactEmail,
+        messengers: {
+          whatsApp: info.whatsApp,
+          facebook: info.facebook
         }
       }
     }
@@ -65,6 +85,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
         // not handled correctly in auth0-nextjs library so thats the solution
         if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
       })
+      .catch((error) => console.log(error))
   }
 
   // if (user.user_metadata) return <Redirect url="/profile" />
@@ -103,8 +124,10 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
                 price={price}
                 isCategoryPassed={category.passed}
               />
-              <PriceForm
+              <InfoForm
                 isCategoryPassed={category.passed}
+                info={info}
+                setInfo={setInfo}
                 finishHandler={finishHandler}
                 updateMetadataState={updateMetadataState}
               />

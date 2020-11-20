@@ -1,3 +1,3 @@
 export * from './InstagramForm';
-export * from './PriceForm';
+export * from './InfoForm';
 export * from './CategoryPriceForm';

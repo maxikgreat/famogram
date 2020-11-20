@@ -1,13 +1,15 @@
 import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
-import { faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 import { isNumber } from '@/helpers';
-import { PriceValueForm } from '@/pages/first_enter';
+import { InfoValueForm } from '@/pages/first_enter';
 import { Input } from '@/components/common';
 
 interface PriceFormProps {
   isCategoryPassed: boolean,
-  setPrice: Dispatch<SetStateAction<PriceValueForm>>,
+  info: InfoValueForm,
+  setInfo: Dispatch<SetStateAction<InfoValueForm>>,
   finishHandler: () => void,
   updateMetadataState: {
     data: any,
@@ -16,54 +18,77 @@ interface PriceFormProps {
   }
 }
 
-export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, finishHandler, updateMetadataState }) => {
+export const InfoForm: FC<PriceFormProps> = ({ 
+  isCategoryPassed, 
+  info,
+  setInfo,
+  finishHandler, 
+  updateMetadataState 
+}) => {
+
+  const onChange = (value: string, name: string) => {
+    setInfo(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+
+  const checkFormFill = () => {
+    let flag = true;
+    let key: keyof InfoValueForm;
+    for (key in info) {
+      if (!info[key]) flag = false;
+    }
+    return flag;
+  }
+
   return (
     <div className={`tab-pane fade ${isCategoryPassed && 'active show'}`} id="Price" role="tabpanel">
       <div className="row hero-caption pt-4">
         <div className="col-12">
           <Input
             multiple={true}
-            // icon={faHandHoldingUsd}
+            icon={faInfoCircle}
             name="desc"
             placeholder="Short description"
-            // value={price.value.story}
-            // onChange={({ target: { value }}) => onChange(value, 'story')}
+            value={info.desc}
+            onChange={({ target: { value, name }}) => onChange(value, name)}
           />
           <p>Tell about yourself with a couple sentences for... bla bla bla</p>
         </div>
         <div className="col-12">
           <Input
-            // icon={faHandHoldingUsd}
-            name="email"
+            icon={faEnvelope}
+            name="contactEmail"
             placeholder="Contact email"
-            // value={price.value.story}
-            // onChange={({ target: { value }}) => onChange(value, 'story')}
+            value={info.contactEmail}
+            onChange={({ target: { value, name }}) => onChange(value, name)}
           />
         </div>
         <div className="col-12 col-md-6">
           <Input
-            // icon={faHandHoldingUsd}
+            icon={faWhatsapp}
+            name="whatsApp"
+            placeholder="WhatsApp"
+            value={info.whatsApp}
+            onChange={({ target: { value, name }}) => onChange(value, name)}
+          />
+        </div>
+        <div className="col-12 col-md-6">
+          <Input
+            icon={faFacebook}
             name="facebook"
             placeholder="Facebook"
-            // value={price.value.story}
-            // onChange={({ target: { value }}) => onChange(value, 'story')}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <Input
-            // icon={faHandHoldingUsd}
-            name="whatsapp"
-            placeholder="WhatsApp"
-            // value={price.value.story}
-            // onChange={({ target: { value }}) => onChange(value, 'story')}
+            value={info.facebook}
+            onChange={({ target: { value, name }}) => onChange(value, name)}
           />
         </div>
         <div className="col-12">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, sed!</p>
         </div>
         <button 
-          className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end`}
-          // onClick={finishHandler}
+          className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end ${!checkFormFill() && 'disabled'}`}
+          onClick={finishHandler}
         >
           {
             updateMetadataState.loading 
