@@ -7,7 +7,6 @@ import { Input } from '@/components/common';
 
 interface PriceFormProps {
   isCategoryPassed: boolean,
-  price: PriceValueForm,
   setPrice: Dispatch<SetStateAction<PriceValueForm>>,
   finishHandler: () => void,
   updateMetadataState: {
@@ -17,45 +16,54 @@ interface PriceFormProps {
   }
 }
 
-export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, price, setPrice, finishHandler, updateMetadataState }) => {
-
-  const onChange = (value: string, name: 'post' | 'story') => {
-    let str = value;
-    if (str.includes(',')) str = str.replace(',', '.');
-    setPrice(prevState => ({ 
-      ...prevState,
-      value: {
-        ...price.value,
-        [name]: str,
-      }
-    }));
-  }
-
+export const PriceForm: FC<PriceFormProps> = ({ isCategoryPassed, finishHandler, updateMetadataState }) => {
   return (
     <div className={`tab-pane fade ${isCategoryPassed && 'active show'}`} id="Price" role="tabpanel">
       <div className="row hero-caption pt-4">
-        <div className="col-12 col-md-6">
+        <div className="col-12">
           <Input
-            icon={faHandHoldingUsd}
-            name="pricePerStory"
-            placeholder="Price per story"
-            value={price.value.story}
-            onChange={({ target: { value }}) => onChange(value, 'story')}
+            multiple={true}
+            // icon={faHandHoldingUsd}
+            name="desc"
+            placeholder="Short description"
+            // value={price.value.story}
+            // onChange={({ target: { value }}) => onChange(value, 'story')}
+          />
+          <p>Tell about yourself with a couple sentences for... bla bla bla</p>
+        </div>
+        <div className="col-12">
+          <Input
+            // icon={faHandHoldingUsd}
+            name="email"
+            placeholder="Contact email"
+            // value={price.value.story}
+            // onChange={({ target: { value }}) => onChange(value, 'story')}
           />
         </div>
         <div className="col-12 col-md-6">
           <Input
-            icon={faHandHoldingUsd}
-            name="pricePerPost"
-            placeholder="Price per post"
-            value={price.value.post}
-            onChange={({ target: { value }}) => onChange(value, 'post')}
+            // icon={faHandHoldingUsd}
+            name="facebook"
+            placeholder="Facebook"
+            // value={price.value.story}
+            // onChange={({ target: { value }}) => onChange(value, 'story')}
           />
         </div>
-        <p>Fill price fields with digits. All prices will be in dollars</p>
+        <div className="col-12 col-md-6">
+          <Input
+            // icon={faHandHoldingUsd}
+            name="whatsapp"
+            placeholder="WhatsApp"
+            // value={price.value.story}
+            // onChange={({ target: { value }}) => onChange(value, 'story')}
+          />
+        </div>
+        <div className="col-12">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, sed!</p>
+        </div>
         <button 
-          className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end ${(isNumber(price.value.story) || isNumber(price.value.post)) && 'disabled'}`}
-          onClick={finishHandler}
+          className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end`}
+          // onClick={finishHandler}
         >
           {
             updateMetadataState.loading 

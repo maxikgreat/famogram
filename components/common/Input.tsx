@@ -29,6 +29,7 @@ interface InputProps extends RegisterProps {
   right?: boolean,
   type?: string,
   error?: FieldError | string | null,
+  multiple?: boolean
 }
 
 interface IconProps {
@@ -55,6 +56,7 @@ export const Input = ({
   className = 'form-control form-line-control',
   type = 'text',
   error,
+  multiple
 }: InputProps) => {
   return (
     <div className="form-group">
@@ -64,6 +66,7 @@ export const Input = ({
         </label>
       )}
       <input
+        multiple={multiple}
         list={list}
         ref={register ? register : null}
         onChange={onChange}

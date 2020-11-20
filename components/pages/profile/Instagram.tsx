@@ -8,13 +8,11 @@ interface InstagramProps {
   instaUser: InstaUser,
 }
 
-export const Instagram: FC<InstagramProps> = ({ instaUser }) => {  
+export const Instagram: FC<InstagramProps> = ({instaUser}) => {  
   return (
-    <div className="col-lg-6 col-md-12 mb-5 mb-lg-0">
+    <div className="col-lg-6 col-md-12">
       <div className="d-flex flex-sm-row">
-        <div
-          className="w-50"
-        >
+        <div className="w-50">
           <img 
             src={instaUser.photoUrl} 
             alt={instaUser.fullName} 

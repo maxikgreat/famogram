@@ -30,15 +30,17 @@ export const InstagramForm: FC<InstagramFormProps> = ({
   return (
     <div className={`tab-pane fade ${!instagramAccount.user && 'active show'}`} id="Instagram" role="tabpanel">
       <div className="row hero-caption pt-4 d-flex justify-content-end">
-        <Input
-          icon={faInstagram}
-          name="instagramAccount"
-          placeholder="Instagram account"
-          value={instagramAccount.value}
-          onChange={({ target: { value }}) => setInstagramAccount(prevState => ({ ...prevState, value }))}
-          error={checkAccountState.error}
-        />
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae.</p>
+        <div className="col-12">
+          <Input
+            icon={faInstagram}
+            name="instagramAccount"
+            placeholder="Instagram account"
+            value={instagramAccount.value}
+            onChange={({ target: { value }}) => setInstagramAccount(prevState => ({ ...prevState, value }))}
+            error={checkAccountState.error}
+          />
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae.</p>
+        </div>
         <button 
           className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end ${(!instagramAccount.value) && 'disabled'}`}
           onClick={checkAccountHandler}

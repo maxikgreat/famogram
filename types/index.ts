@@ -121,5 +121,11 @@ export interface Metadata {
   price: {
     story: number,
     post: number,
+  },
+  desc: string,
+  contactEmail: string,
+  messengers: {
+    whatsApp: string,
+    facebook: string,
   }
 }

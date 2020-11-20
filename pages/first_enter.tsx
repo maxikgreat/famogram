@@ -4,7 +4,7 @@ import Router from 'next/router';
 import { Category, InstaUser, Metadata, User } from '@/types'
 import { BaseLayout } from '@/components/layouts'
 import { Redirect } from '@/components/common';
-import { CategoryForm, InstagramForm, PriceForm } from '@pagesComponents/firstEnter';
+import { CategoryPriceForm, InstagramForm, PriceForm } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
 
@@ -19,10 +19,8 @@ export interface CategoryValueForm {
 }
 
 export interface PriceValueForm {
-  value: {
-    story: string,
-    post: string,
-  },
+  story: string,
+  post: string,
 }
 
 interface FirstEnterProps {
@@ -42,10 +40,8 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
     passed: false,
   });
   const [price, setPrice] = useState<PriceValueForm>({
-    value: {
-      story: '',
-      post: '',
-    },
+    story: '',
+    post: '',
   });
 
   const [checkAccount, checkAccountState] = useCheckAccount(token);
@@ -58,8 +54,8 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
         user: instagramAccount.user as InstaUser,
         category: category.value as Category,
         price: {
-          story: Number(price.value.story),
-          post: Number(price.value.post),
+          story: Number(price.story),
+          post: Number(price.post),
         }
       }
     }
@@ -71,7 +67,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
       })
   }
 
-  if (user.user_metadata) return <Redirect url="/profile" />
+  // if (user.user_metadata) return <Redirect url="/profile" />
   
   return (
     <BaseLayout className="first-enter">
@@ -83,10 +79,10 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
                 <a className={`nav-link ${!instagramAccount.user && 'active'}`} data-toggle="tab" href="#Instagram">1. Instagram</a>
               </li>
               <li className="nav-item">
-                <a className={`nav-link ${(instagramAccount.user && !category.passed && 'active')} ${!instagramAccount.user && 'disabled'}`} data-toggle="tab" href="#Category">2. Category</a>
+                <a className={`nav-link ${(instagramAccount.user && !category.passed && 'active')} ${!instagramAccount.user && 'disabled'}`} data-toggle="tab" href="#Category">2. Category&Price</a>
               </li>
               <li className="nav-item">
-                <a className={`nav-link ${category.passed ? 'active' : 'disabled'}`} data-toggle="tab" href="#Price">3. Price</a>
+                <a className={`nav-link ${category.passed ? 'active' : 'disabled'}`} data-toggle="tab" href="#Price">3. Information</a>
               </li>
             </ul>
             <div className="tab-content" id="myTabContent">
@@ -99,15 +95,16 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
                   error: checkAccountState.error,
                 }}
               />
-              <CategoryForm 
+              <CategoryPriceForm 
                 instagramUser={instagramAccount.user} 
                 category={category}
                 setCategory={setCategory}
+                setPrice={setPrice}
+                price={price}
+                isCategoryPassed={category.passed}
               />
               <PriceForm
                 isCategoryPassed={category.passed}
-                price={price}
-                setPrice={setPrice}
                 finishHandler={finishHandler}
                 updateMetadataState={updateMetadataState}
               />
