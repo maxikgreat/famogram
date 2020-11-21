@@ -4,27 +4,31 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Input } from '@/components/common';
 import { InstagramValueForm } from '@/pages/first_enter';
 import { InstaUser } from '@/types';
+import { toast } from 'react-toastify';
 
 interface InstagramFormProps {
   instagramAccount: InstagramValueForm,
   setInstagramAccount: Dispatch<SetStateAction<InstagramValueForm>>,
   checkAccount: (data: string) => Promise<InstaUser>,
-  checkAccountState: {
-    loading: boolean,
-    error: string | null,
-  }
+  checkAccountLoading: boolean,
+  navTo: () => void
 }
 
 export const InstagramForm: FC<InstagramFormProps> = ({ 
   instagramAccount, 
   setInstagramAccount,
   checkAccount,
-  checkAccountState,
+  checkAccountLoading,
+  navTo
 }) => {
 
   const checkAccountHandler = () => {
     checkAccount(instagramAccount.value)
-      .then(user => setInstagramAccount(prevState => ({ ...prevState, user })))
+      .then(user => {
+        setInstagramAccount(prevState => ({ ...prevState, user }));
+        navTo();
+      })
+      .catch(error => toast(error, { type: 'error' }));
   };
 
   return (
@@ -37,7 +41,6 @@ export const InstagramForm: FC<InstagramFormProps> = ({
             placeholder="Instagram account"
             value={instagramAccount.value}
             onChange={({ target: { value }}) => setInstagramAccount(prevState => ({ ...prevState, value }))}
-            error={checkAccountState.error}
           />
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae.</p>
         </div>
@@ -46,7 +49,7 @@ export const InstagramForm: FC<InstagramFormProps> = ({
           onClick={checkAccountHandler}
         >
           {
-            checkAccountState.loading 
+            checkAccountLoading 
               ? <div className="spinner-border spinner-border-sm spinner-fill" />
               : <>
                   <span className="btn-text">Next</span>

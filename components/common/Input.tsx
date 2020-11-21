@@ -1,5 +1,5 @@
 import { ChangeEvent, memo } from 'react';
-import { ValidationRules, ValidationValueMessage, FieldError } from 'react-hook-form';
+import { FieldError } from 'react-hook-form';
 
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

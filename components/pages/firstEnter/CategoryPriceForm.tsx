@@ -8,24 +8,23 @@ import { InstaUser, categories } from '@/types';
 import { Input } from '@/components/common';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { CategoryValueForm } from '@/pages/first_enter';
-import { isNum } from 'react-toastify/dist/utils';
 
 interface CategoryFormProps {
   instagramUser: InstaUser | null,
   category: CategoryValueForm,
   setCategory: Dispatch<SetStateAction<CategoryValueForm>>,
-  isCategoryPassed: boolean,
   price: PriceValueForm,
   setPrice: Dispatch<SetStateAction<PriceValueForm>>,
+  navTo: () => void
 }
 
 export const CategoryPriceForm: FC<CategoryFormProps> = ({ 
   instagramUser, 
   category, 
   setCategory,
-  isCategoryPassed,
   price,
-  setPrice
+  setPrice,
+  navTo,
 }) => {
 
   const onChange = (value: string, name: 'post' | 'story') => {
@@ -37,11 +36,16 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
     }));
   }
 
+  const onClick = () => {
+    setCategory(prevState => ({ ...prevState, passed: true }));
+    navTo();
+  }
+
   const checkAllFieldsPassed = () => 
     isCategory(category.value) && (isNumber(price.story) && isNumber(price.post))
 
   return (
-    <div className={`tab-pane fade ${instagramUser && !category.passed && 'active show'}`} id="Category" role="tabpanel">
+    <div className={`tab-pane fade`} id="CategoryAndPrice" role="tabpanel">
       <div className="row hero-caption pt-4">
         <div className="col-12">
           <datalist id="categories">
@@ -77,7 +81,7 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
         <p>Fill price fields with digits. All prices will be in dollars</p>
         <button 
           className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end ${!checkAllFieldsPassed() && 'disabled'}`}
-          onClick={() => setCategory(prevState => ({ ...prevState, passed: true }))}
+          onClick={onClick}
         >
 
           <span className="btn-text">Next</span>

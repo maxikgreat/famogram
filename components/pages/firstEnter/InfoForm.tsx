@@ -1,8 +1,8 @@
-import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 import { faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
-import { isNumber } from '@/helpers';
+import { isEmail } from '@/helpers';
 import { InfoValueForm } from '@/pages/first_enter';
 import { Input } from '@/components/common';
 
@@ -39,11 +39,12 @@ export const InfoForm: FC<PriceFormProps> = ({
     for (key in info) {
       if (!info[key]) flag = false;
     }
+    if (!isEmail(info.contactEmail)) flag = false;
     return flag;
   }
 
   return (
-    <div className={`tab-pane fade ${isCategoryPassed && 'active show'}`} id="Price" role="tabpanel">
+    <div className={`tab-pane fade`} id="Info" role="tabpanel">
       <div className="row hero-caption pt-4">
         <div className="col-12">
           <Input
@@ -64,6 +65,7 @@ export const InfoForm: FC<PriceFormProps> = ({
             value={info.contactEmail}
             onChange={({ target: { value, name }}) => onChange(value, name)}
           />
+          <p>Enter valid email address or set email from profile</p>
         </div>
         <div className="col-12 col-md-6">
           <Input
