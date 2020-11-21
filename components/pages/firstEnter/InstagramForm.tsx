@@ -44,21 +44,24 @@ export const InstagramForm: FC<InstagramFormProps> = ({
           />
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae.</p>
         </div>
-        <button 
-          className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end ${(!instagramAccount.value) && 'disabled'}`}
-          onClick={checkAccountHandler}
-        >
-          {
-            checkAccountLoading 
-              ? <div className="spinner-border spinner-border-sm spinner-fill" />
-              : <>
-                  <span className="btn-text">Next</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                    <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
-                  </svg>
-                </>
-          }
-        </button>
+        <div className="d-flex justify-content-end">
+          <button 
+            className={`btn btn-link mt-2 mb-3 mb-md-0 ${(!instagramAccount.value) && 'disabled'}`}
+            onClick={checkAccountHandler}
+            style={{zIndex: 10}}
+          >
+            {
+              checkAccountLoading 
+                ? <div className="spinner-border spinner-border-sm spinner-fill" />
+                : <>
+                    <span className="btn-text">Next</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                      <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
+                    </svg>
+                  </>
+            }
+          </button>
+        </div>
       </div>
     </div>
   )

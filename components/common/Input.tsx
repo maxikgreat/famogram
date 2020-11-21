@@ -29,7 +29,9 @@ interface InputProps extends RegisterProps {
   right?: boolean,
   type?: string,
   error?: FieldError | string | null,
-  multiple?: boolean
+  multiple?: boolean,
+  textarea?: boolean,
+  label?: string | (() => JSX.Element)
 }
 
 interface IconProps {
@@ -56,33 +58,61 @@ export const Input = ({
   className = 'form-control form-line-control',
   type = 'text',
   error,
-  multiple
+  multiple,
+  textarea,
+  label
 }: InputProps) => {
   return (
     <div className="form-group">
       {icon && !right && (
-        <label htmlFor={name} className="control-icon">
+        <label htmlFor={name} className="control-icon" style={textarea ? {paddingBottom: '10px'} : {}}>
           <IconMemo icon={icon} />
         </label>
       )}
-      <input
-        multiple={multiple}
-        list={list}
-        ref={register ? register : null}
-        onChange={onChange}
-        autoComplete="off"
-        type={type}
-        name={name}
-        placeholder={placeholder} 
-        className={className} 
-        id={name} 
-        value={value}
-      />
+      {textarea
+        ? (
+          <textarea 
+            multiple={multiple}
+            list={list}
+            ref={register ? register : null}
+            // @ts-expect-error
+            onChange={onChange}
+            autoComplete="off"
+            type={type}
+            name={name}
+            placeholder={placeholder} 
+            className={className} 
+            id={name} 
+            value={value}
+          />
+        )
+        : (
+          <input
+            multiple={multiple}
+            list={list}
+            ref={register ? register : null}
+            onChange={onChange}
+            autoComplete="off"
+            type={type}
+            name={name}
+            placeholder={placeholder} 
+            className={className} 
+            id={name} 
+            value={value}
+          />
+        )
+      }
       {icon && right && (
         <label htmlFor={name} className="control-icon">
           <IconMemo icon={icon} />
         </label>
       )}
+      {label 
+        ? typeof label === 'string' 
+          ? <small>{label}</small> 
+          : label()
+        : null
+      }
       {error && (
         <div className="invalid-feedback">
           <svg xmlns="http://www.w3.org/2000/svg" width="16.001" height="16" viewBox="0 0 16.001 16">

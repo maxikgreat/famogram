@@ -49,7 +49,7 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
       <div className="row hero-caption pt-4">
         <div className="col-12">
           <datalist id="categories">
-            {categories.map(category => <option value={category} />)}
+            {categories.map(category => <option key={category} value={category} />)}
           </datalist>
           <Input
             list="categories"
@@ -79,16 +79,18 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
           />
         </div>
         <p>Fill price fields with digits. All prices will be in dollars</p>
-        <button 
-          className={`btn btn-link mt-2 mb-3 mb-md-0 d-flex justify-content-end ${!checkAllFieldsPassed() && 'disabled'}`}
-          onClick={onClick}
-        >
+        <div className="d-flex justify-content-end">
+          <button 
+            className={`btn btn-link mt-2 mb-3 mb-md-0 ${!checkAllFieldsPassed() && 'disabled'}`}
+            onClick={onClick}
+          >
 
-          <span className="btn-text">Next</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
-          </svg>
-        </button>
+            <span className="btn-text">Next</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   )

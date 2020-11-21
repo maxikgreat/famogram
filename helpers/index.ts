@@ -1,4 +1,5 @@
-import { categories, Category } from '@/types';
+import { MainInfoStateForm } from '@/pages/profile';
+import { categories, Category, InstaUser, Metadata } from '@/types';
 import * as yup from 'yup';
 
 export const isCategory = (value: string) => categories.includes(value as Category); 
@@ -21,4 +22,28 @@ export const renameKeys = (obj: any) => {
       delete obj[key];
     }
   }
+}
+
+export const normalizeData = (instaUser: InstaUser, formData: MainInfoStateForm): Metadata => {
+  const {
+    category, 
+    pricePerPost, 
+    pricePerStory, 
+    contactEmail, 
+    desc, 
+    whatsApp, 
+    facebook,
+  } = formData;
+
+  return ({
+    user: instaUser,
+    category: category as Category,
+    price: {
+      story: Number(pricePerStory),
+      post: Number(pricePerPost),
+    },
+    desc,
+    contactEmail,
+    messengers: { whatsApp, facebook }
+  })
 }
