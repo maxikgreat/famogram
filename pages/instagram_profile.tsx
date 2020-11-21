@@ -50,9 +50,14 @@ export default function Profile({ user, token }: ProfileProps) {
     <BaseLayout className="profile">
       <section className="fabrx-section bg-white mt-5">
         <div className="container">
-          <div className="row align-items-flex-start">
+          <div className="row align-items-flex-start position-relative">
             <Instagram 
               instaUser={user.user_metadata.user} 
+            />
+            <img 
+              src="./assets/images/vectors/vector-13.svg" 
+              className="position-absolute" 
+              style={{ opacity: 0.15 }}
             />
             <MainInfo 
               updateInfo={updateInfo} 

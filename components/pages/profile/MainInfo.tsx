@@ -9,7 +9,7 @@ import equal from 'deep-equal';
 import { User } from '@/types';
 import { categories } from '@/types';
 import { Input } from '@/components/common';
-import { MainInfoStateForm } from '@/pages/profile';
+import { MainInfoStateForm } from '@/pages/instagram_profile';
 
 // TODO SETTINGS CHANGE
 interface MainInfoProps {
@@ -96,7 +96,7 @@ export const MainInfo: FC<MainInfoProps> = ({updateInfo, user, loading}) => {
   return (
     <>
       <hr className="d-block d-lg-none bg-primary my-5 my-lg-0" style={{ height: '5px'}} />
-      <div className="col-lg-6 col-md-12">
+      <div className="col-lg-6 col-md-12" style={{ zIndex: 1 }}>
         <form onSubmit={handleSubmit(updateInfo)}>
           <h2>Main</h2>
           <div className="form-group">

@@ -10,7 +10,7 @@ interface InstagramProps {
 
 export const Instagram: FC<InstagramProps> = ({instaUser}) => {  
   return (
-    <div className="col-lg-6 col-md-12">
+    <div className="col-lg-6 col-md-12" style={{ zIndex: 1 }}>
       <h2>Instagram</h2>
       <div className="d-flex flex-sm-row pt-3">
         <div className="w-50">

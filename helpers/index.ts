@@ -1,4 +1,4 @@
-import { MainInfoStateForm } from '@/pages/profile';
+import { MainInfoStateForm } from '@/pages/instagram_profile';
 import { categories, Category, InstaUser, Metadata } from '@/types';
 import * as yup from 'yup';
 

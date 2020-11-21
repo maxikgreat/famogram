@@ -1,12 +1,12 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-
-import { Input } from '@/components/common';
-import { InstagramValueForm } from '@/pages/first_enter';
-import { InstaUser } from '@/types';
 import { toast } from 'react-toastify';
 
-interface InstagramFormProps {
+import { Input } from '@/components/common';
+import { InstaUser } from '@/types';
+import { InstagramValueForm } from './FirstInstagram';
+
+interface UsernameFormProps {
   instagramAccount: InstagramValueForm,
   setInstagramAccount: Dispatch<SetStateAction<InstagramValueForm>>,
   checkAccount: (data: string) => Promise<InstaUser>,
@@ -14,7 +14,7 @@ interface InstagramFormProps {
   navTo: () => void
 }
 
-export const InstagramForm: FC<InstagramFormProps> = ({ 
+export const UsernameForm: FC<UsernameFormProps> = ({ 
   instagramAccount, 
   setInstagramAccount,
   checkAccount,

@@ -23,11 +23,14 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
       </svg>
     </a>
     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
-      <Link href="/wall">
-        <a className="nav-link">Wall</a>
+      <Link href="/find_bloger">
+        <a className="nav-link">Find bloger</a>
       </Link>
-      <Link href="/profile">
-        <a className="nav-link">Profile</a>
+      <Link href="/instagram_profile">
+        <a className="nav-link">Instagram profile</a>
+      </Link>
+      <Link href="#">
+        <a className="nav-link disabled">Tiktok profile (soon)</a>
       </Link>
       <Link href="/api/v1/logout">
         <a className="nav-link">Logout</a>

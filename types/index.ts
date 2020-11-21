@@ -97,9 +97,8 @@ export const categories = [
 
 export type Category = typeof categories[number];
 
-export interface State {
-  tick: string,
-}
+
+export type Role = 'instagram' | 'tiktok' | 'influencer';
 
 export interface InstaUser {
   biography: string,
@@ -116,6 +115,17 @@ export interface InstaUser {
 }
 
 export interface Metadata {
+  instagram: InstagramMetadata,
+  contactInfo: {
+    contactEmail: string,
+    messengers: {
+      whatsApp: string,
+      facebook: string,
+    }
+  }
+}
+
+export interface InstagramMetadata {
   user: InstaUser,
   category: Category,
   price: {
@@ -123,9 +133,8 @@ export interface Metadata {
     post: number,
   },
   desc: string,
-  contactEmail: string,
-  messengers: {
-    whatsApp: string,
-    facebook: string,
-  }
+}
+
+export interface TittokMetadata {
+  user: string,
 }

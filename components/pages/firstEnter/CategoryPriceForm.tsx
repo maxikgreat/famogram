@@ -1,31 +1,31 @@
-import { FC, Dispatch, SetStateAction } from 'react';
-import { faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons';
-
-import { PriceValueForm } from '@/pages/first_enter';
+import { FC, useState } from 'react';
+import { faHandHoldingUsd, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { isCategory, isNumber } from '@/helpers';
-import { InstaUser, categories } from '@/types';
+import { categories, Category, InstagramMetadata, InstaUser } from '@/types';
 import { Input } from '@/components/common';
 import { faList } from '@fortawesome/free-solid-svg-icons';
-import { CategoryValueForm } from '@/pages/first_enter';
-
+export interface PriceValueForm {
+  story: string,
+  post: string,
+}
 interface CategoryFormProps {
-  instagramUser: InstaUser | null,
-  category: CategoryValueForm,
-  setCategory: Dispatch<SetStateAction<CategoryValueForm>>,
-  price: PriceValueForm,
-  setPrice: Dispatch<SetStateAction<PriceValueForm>>,
-  navTo: () => void
+  instaUser: InstaUser,
+  finishHandler: (data: InstagramMetadata) => void,
+  updateMetadataLoading: boolean,
 }
 
 export const CategoryPriceForm: FC<CategoryFormProps> = ({ 
-  instagramUser, 
-  category, 
-  setCategory,
-  price,
-  setPrice,
-  navTo,
+  instaUser,
+  finishHandler,
+  updateMetadataLoading
 }) => {
+  const [desc, setDesc] = useState('');
+  const [category, setCategory] = useState('');
+  const [price, setPrice] = useState<PriceValueForm>({
+    story: '',
+    post: '',
+  });
 
   const onChange = (value: string, name: 'post' | 'story') => {
     let str = value;
@@ -36,17 +36,22 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
     }));
   }
 
-  const onClick = () => {
-    setCategory(prevState => ({ ...prevState, passed: true }));
-    navTo();
-  }
-
   const checkAllFieldsPassed = () => 
-    isCategory(category.value) && (isNumber(price.story) && isNumber(price.post))
+    isCategory(category) && (isNumber(price.story) && isNumber(price.post)) && desc.length > 30
 
   return (
     <div className={`tab-pane fade`} id="CategoryAndPrice" role="tabpanel">
       <div className="row hero-caption pt-4">
+        <div className="col-12">
+          <Input
+            textarea={true}
+            name="desc"
+            placeholder="Short description"
+            icon={faInfoCircle}
+            onChange={({ target: { value }}) => setDesc(value)}
+          />
+        </div>
+        <p>Tell us a short story about your bla bla bla...<span className="text-primary">min. 30 characters</span></p>
         <div className="col-12">
           <datalist id="categories">
             {categories.map(category => <option key={category} value={category} />)}
@@ -56,10 +61,10 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
             name="category"
             placeholder="Category"
             icon={faList}
-            onChange={({ target: { value }}) => setCategory(prevState => ({ ...prevState, value }))}
+            onChange={({ target: { value }}) => setCategory(value)}
           />
         </div>
-        <p>To continue, pick category from existing one</p>
+        <p>To continue, pick category from <span className="text-primary">existing one</span></p>
         <div className="col-12 col-md-6">
           <Input
             icon={faHandHoldingUsd}
@@ -78,17 +83,31 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
             onChange={({ target: { value }}) => onChange(value, 'post')}
           />
         </div>
-        <p>Fill price fields with digits. All prices will be in dollars</p>
+        <p>Fill price fields <span className="text-primary">with digits.</span> All prices will be in dollars</p>
         <div className="d-flex justify-content-end">
           <button 
             className={`btn btn-link mt-2 mb-3 mb-md-0 ${!checkAllFieldsPassed() && 'disabled'}`}
-            onClick={onClick}
+            onClick={() => finishHandler({
+              user: instaUser,
+              desc,
+              category: category as Category,
+              price: {
+                story: Number(price.story),
+                post: Number(price.post),
+              },
+            })}
+            style={{zIndex: 10}}
           >
-
-            <span className="btn-text">Next</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-              <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
-            </svg>
+            {
+              updateMetadataLoading
+                ? <div className="spinner-border spinner-border-sm spinner-fill" />
+                : <>
+                    <span className="btn-text">Finish</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                      <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
+                    </svg>
+                  </>
+            }
           </button>
         </div>
       </div>
