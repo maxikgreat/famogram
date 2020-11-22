@@ -39,6 +39,8 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
   const checkAllFieldsPassed = () => 
     isCategory(category) && (isNumber(price.story) && isNumber(price.post)) && desc.length > 30
 
+  const charactersRemain = () => `${30 - desc.length} characters remain`;
+
   return (
     <div className={`tab-pane fade`} id="CategoryAndPrice" role="tabpanel">
       <div className="row hero-caption pt-4">
@@ -51,7 +53,15 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
             onChange={({ target: { value }}) => setDesc(value)}
           />
         </div>
-        <p>Tell us a short story about your bla bla bla...<span className="text-primary">min. 30 characters</span></p>
+        <p>Tell us a short story about your bla bla bla...
+          <span className="text-primary">
+            {
+              30 - desc.length > 0
+                ? charactersRemain()
+                : null
+            }
+          </span>
+        </p>
         <div className="col-12">
           <datalist id="categories">
             {categories.map(category => <option key={category} value={category} />)}

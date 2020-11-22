@@ -1,8 +1,8 @@
 import { toast } from 'react-toastify';
 
-import { Instagram, MainInfo } from '@pagesComponents/profile';
+import { Instagram, MainInfo } from '@/components/pages/instagramProfile';
 import { BaseLayout } from "@/components/layouts";
-import { Category, InstaUser, Metadata, User } from '@/types';
+import { Category, InstaUser, User } from '@/types';
 import { withAuth } from '@/services/auth0';
 import { Redirect } from '@/components/common';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
@@ -13,9 +13,6 @@ export interface MainInfoStateForm {
   pricePerStory: string,
   pricePerPost: string,
   desc: string,
-  contactEmail: string,
-  whatsApp: string,
-  facebook: string,
 }
 
 interface ProfileProps {
@@ -29,21 +26,34 @@ export default function Profile({ user, token }: ProfileProps) {
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
   
-  // const updateInfo = async (formData: MainInfoStateForm) => {
-  //   try {
-  //     let instaUser = user.user_metadata?.user as InstaUser;
-  //     if (formData.instagramAccount !== user.user_metadata?.user.username) {
-  //       instaUser = await checkAccount(formData.instagramAccount);
-  //     }
-  //     const metadata = normalizeData(instaUser, formData);
-  //     await updateMetadata({ userId: user.sub, metadata });
-  //     if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
-  //   } catch (error) {
-  //     toast(error, { type: 'error' });
-  //   }
-  // } 
+  const updateInfo = async (formData: MainInfoStateForm) => {
+    const { category, desc, pricePerStory, pricePerPost, instagramAccount } = formData;
+    try {
+      let instaUser = user.user_metadata?.instagram?.user as InstaUser;
+      if (instagramAccount !== user.user_metadata?.instagram?.user.username) {
+        instaUser = await checkAccount(instagramAccount);
+      }
+      await updateMetadata({ 
+        userId: user.sub, 
+        metadata: {
+          instagram: {
+            user: instaUser,
+            category: category as Category,
+            desc,
+            price: {
+              story: Number(pricePerStory),
+              post: Number(pricePerPost),
+            },
+          }
+        } 
+      })
+      if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
+    } catch (error) {
+      toast(error, { type: 'error' });
+    }
+  } 
 
-  if (!user.user_metadata) return <Redirect url="/first_enter" />
+  if (!user.user_metadata?.instagram) return <Redirect url="/first_enter" />
 
   return (
     <BaseLayout className="profile">
@@ -51,7 +61,7 @@ export default function Profile({ user, token }: ProfileProps) {
         <div className="container">
           <div className="row align-items-flex-start position-relative">
             <Instagram 
-              instaUser={user.user_metadata.user} 
+              instaUser={user.user_metadata.instagram.user as InstaUser} 
             />
             <img 
               src="./assets/images/vectors/vector-13.svg" 

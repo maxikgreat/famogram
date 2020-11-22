@@ -45,9 +45,8 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
 
   const finishHandler = (instaUserData: InstagramMetadata) => {
     const { contactEmail, whatsApp, facebook } = info;
-    const data: {userId: string, update: UpdateMetadata, metadata: Metadata } = {
+    const data: {userId: string, metadata: Metadata } = {
       userId: user.sub,
-      update: 'all',
       metadata: {
         instagram: instaUserData,
         contactInfo: {
@@ -68,7 +67,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
       .catch((error) => toast(error, { type: 'error' }));
   }
 
-  if (user.user_metadata) return <Redirect url="/find_bloger" />
+  if (user.user_metadata?.contactInfo) return <Redirect url="/find_bloger" />
   
   return (
     <BaseLayout className="first-enter">

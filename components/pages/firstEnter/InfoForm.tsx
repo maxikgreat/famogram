@@ -21,7 +21,6 @@ export const InfoForm: FC<PriceFormProps> = ({
   setInfo, 
   customEmailLabel
 }) => {
-
   const onChange = (value: string, name: string) => {
     setInfo(prevState => ({
       ...prevState,

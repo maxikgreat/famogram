@@ -2,11 +2,10 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useState, useMemo } from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { Input } from '@/components/common';
 import { Category as CategoryType, categories } from '@/types'
-import { Category } from './';
+import { Category } from '.';
 
 export const Picker = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryType>(categories[0]);

@@ -1,5 +1,5 @@
 import { BaseLayout } from '@/components/layouts';
-import { Picker } from '@/components/pages/wall';
+import { Picker } from '@/components/pages/findBloger';
 
 export default function Wall() {
   return (
