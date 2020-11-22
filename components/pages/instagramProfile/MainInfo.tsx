@@ -50,7 +50,7 @@ export const MainInfo: FC<MainInfoProps> = ({updateInfo, user, loading}) => {
   const isPrevStateForm = () => {
     if (!user.user_metadata?.instagram) return undefined;
     const {category, price, desc, user: instagramUser} = user.user_metadata.instagram;
-    let prevStateFormUser: MainInfoStateForm = {
+    const prevStateFormUser: MainInfoStateForm = {
       instagramAccount: instagramUser.username,
       category,
       pricePerPost: price.post.toString(),

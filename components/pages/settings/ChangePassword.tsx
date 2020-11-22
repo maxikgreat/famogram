@@ -9,16 +9,6 @@ export const ChangePassword = () => {
       <div className="form-group">
         <Input
           // register={register}
-          name="oldPass"
-          placeholder="Old password"
-          icon={faLock}
-          // error={errors.contactEmail}
-          // label="Contact email"
-        />
-      </div>
-      <div className="form-group">
-        <Input
-          // register={register}
           name="newPass"
           placeholder="New password"
           icon={faLock}

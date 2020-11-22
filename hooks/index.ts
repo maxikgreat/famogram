@@ -7,8 +7,14 @@ interface ExtendedMetadata {
   metadata: Metadata,
 }
 
+interface NewEmail {
+  userId: string,
+  newEmail: string,
+}
+
 const checkAccount = (nickname: string) => axios.post('/api/v1/insta/check', { nickname });
 const updateMetadata = (data: ExtendedMetadata) => axios.patch(`api/v1/auth0/user`, data);
+const updateEmail = (data: NewEmail) => axios.patch(`api/v1/auth0/user/email`, data);
 
 export const useCheckAccount = (token: string) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -19,3 +25,8 @@ export const useUpdateMetadata = (token: string) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
   return useApiHandler<ExtendedMetadata, any>(updateMetadata);
 } 
+
+export const useUpdateEmail = (token: string) => {
+  axios.defaults.headers.Authorization = `Bearer ${token}`;
+  return useApiHandler<NewEmail, any>(updateEmail);
+}

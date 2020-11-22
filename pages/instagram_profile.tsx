@@ -66,7 +66,7 @@ export default function Profile({ user, token }: ProfileProps) {
             <img 
               src="./assets/images/vectors/vector-13.svg" 
               className="position-absolute" 
-              style={{ opacity: 0.15 }}
+              style={{ opacity: 0.15, top: '15%' }}
             />
             <MainInfo 
               updateInfo={updateInfo} 
