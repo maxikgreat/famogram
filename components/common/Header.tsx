@@ -32,7 +32,7 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
       <Link href="#">
         <a className="nav-link disabled">Tiktok profile (soon)</a>
       </Link>
-      <Link href="/general">
+      <Link href="/settings">
         <a className="nav-link">Settings</a>
       </Link>
       <Link href="/api/v1/logout">
