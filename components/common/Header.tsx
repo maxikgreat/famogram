@@ -52,8 +52,8 @@ export const Header = ({ user, loading }: HeaderProps) => {
             {!user && (
               <ul className="navbar-nav ml-auto pr-3 pr-lg-0">
                 <li className="nav-item">
-                  <Link href="/wall">
-                    <a className="nav-link">Wall</a>
+                  <Link href="/find_bloger">
+                    <a className="nav-link">Find bloger</a>
                   </Link>
                 </li>
               </ul>
@@ -64,7 +64,7 @@ export const Header = ({ user, loading }: HeaderProps) => {
                 : user
                   ? <AvatarDropdown
                       name={user.nickname}
-                      photo={user.user_metadata?.user.photoUrl ?? user.picture}
+                      photo={user.user_metadata?.instagram?.user.photoUrl ?? user.picture}
                     />
                   : <Link href="/api/v1/login">
                       <a className="btn btn-primary">Login</a>

@@ -6,7 +6,6 @@ import { Category, InstaUser, Metadata, User } from '@/types';
 import { withAuth } from '@/services/auth0';
 import { Redirect } from '@/components/common';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
-import { normalizeData } from '@/helpers';
 
 export interface MainInfoStateForm {
   instagramAccount: string,
@@ -30,19 +29,19 @@ export default function Profile({ user, token }: ProfileProps) {
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
   
-  const updateInfo = async (formData: MainInfoStateForm) => {
-    try {
-      let instaUser = user.user_metadata?.user as InstaUser;
-      if (formData.instagramAccount !== user.user_metadata?.user.username) {
-        instaUser = await checkAccount(formData.instagramAccount);
-      }
-      const metadata = normalizeData(instaUser, formData);
-      await updateMetadata({ userId: user.sub, metadata });
-      if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
-    } catch (error) {
-      toast(error, { type: 'error' });
-    }
-  } 
+  // const updateInfo = async (formData: MainInfoStateForm) => {
+  //   try {
+  //     let instaUser = user.user_metadata?.user as InstaUser;
+  //     if (formData.instagramAccount !== user.user_metadata?.user.username) {
+  //       instaUser = await checkAccount(formData.instagramAccount);
+  //     }
+  //     const metadata = normalizeData(instaUser, formData);
+  //     await updateMetadata({ userId: user.sub, metadata });
+  //     if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
+  //   } catch (error) {
+  //     toast(error, { type: 'error' });
+  //   }
+  // } 
 
   if (!user.user_metadata) return <Redirect url="/first_enter" />
 

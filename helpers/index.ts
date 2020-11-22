@@ -23,27 +23,3 @@ export const renameKeys = (obj: any) => {
     }
   }
 }
-
-export const normalizeData = (instaUser: InstaUser, formData: MainInfoStateForm): Metadata => {
-  const {
-    category, 
-    pricePerPost, 
-    pricePerStory, 
-    contactEmail, 
-    desc, 
-    whatsApp, 
-    facebook,
-  } = formData;
-
-  return ({
-    user: instaUser,
-    category: category as Category,
-    price: {
-      story: Number(pricePerStory),
-      post: Number(pricePerPost),
-    },
-    desc,
-    contactEmail,
-    messengers: { whatsApp, facebook }
-  })
-}

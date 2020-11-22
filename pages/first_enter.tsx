@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Category, InstagramMetadata, InstaUser, Metadata, Role, User } from '@/types'
+import { InstagramMetadata, Metadata, Role, User } from '@/types'
 import { BaseLayout } from '@/components/layouts'
 import { Redirect } from '@/components/common';
 import { PickRole } from '@pagesComponents/firstEnter';
@@ -43,35 +43,32 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
     </p>
   )
 
-  const finishHandler = (data: InstagramMetadata) => {
-    console.log(data);
-    // const data: {userId: string, metadata: Metadata } = {
-    //   userId: user.sub,
-    //   metadata: {
-    //     user: instagramAccount.user as InstaUser,
-    //     category: category.value as Category,
-    //     price: {
-    //       story: Number(price.story),
-    //       post: Number(price.post),
-    //     },
-    //     desc: info.desc,
-    //     contactEmail: info.contactEmail,
-    //     messengers: {
-    //       whatsApp: info.whatsApp,
-    //       facebook: info.facebook
-    //     }
-    //   }
-    // }
+  const finishHandler = (instaUserData: InstagramMetadata) => {
+    const { contactEmail, whatsApp, facebook } = info;
+    const data: {userId: string, update: UpdateMetadata, metadata: Metadata } = {
+      userId: user.sub,
+      update: 'all',
+      metadata: {
+        instagram: instaUserData,
+        contactInfo: {
+          contactEmail,
+          messengers: {
+            whatsApp,
+            facebook
+          }
+        }
+      }
+    }
 
-    // updateMetadata(data)
-    //   .then(() => {
-    //     // not handled correctly in auth0-nextjs library so thats the solution
-    //     if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
-    //   })
-    //   .catch((error) => toast(error, { type: 'error' }));
+    updateMetadata(data)
+      .then(() => {
+        // not handled correctly in auth0-nextjs library so thats the solution
+        if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
+      })
+      .catch((error) => toast(error, { type: 'error' }));
   }
 
-  // if (user.user_metadata) return <Redirect url="/instagram_profile" />
+  if (user.user_metadata) return <Redirect url="/find_bloger" />
   
   return (
     <BaseLayout className="first-enter">

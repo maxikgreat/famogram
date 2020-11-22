@@ -2,13 +2,13 @@ import { useApiHandler } from './useApiHandler';
 import { axiosApi as axios } from '@/services/axios';
 import { InstaUser, Metadata } from '@/types';
 
-interface MetadataWithId {
+interface ExtendedMetadata {
   userId: string,
   metadata: Metadata,
 }
 
 const checkAccount = (nickname: string) => axios.post('/api/v1/insta/check', { nickname });
-const updateMetadata = (data: MetadataWithId) => axios.patch(`api/v1/auth0/user`, data);
+const updateMetadata = (data: ExtendedMetadata) => axios.patch(`api/v1/auth0/user`, data);
 
 export const useCheckAccount = (token: string) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -17,5 +17,5 @@ export const useCheckAccount = (token: string) => {
 
 export const useUpdateMetadata = (token: string) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
-  return useApiHandler<MetadataWithId, any>(updateMetadata);
+  return useApiHandler<ExtendedMetadata, any>(updateMetadata);
 } 
