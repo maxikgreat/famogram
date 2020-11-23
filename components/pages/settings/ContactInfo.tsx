@@ -87,7 +87,7 @@ export const ContactInfo: VFC<ContactInfoProps> = ({ user, contactInfo, updateCo
       <button 
         type="submit" 
         className="btn btn-xl btn-primary btn-block"
-        disabled={isPrevStateForm()}
+        disabled={isPrevStateForm() || loading}
       >
         {
           loading

@@ -2,10 +2,11 @@
 import { Redirect } from '@/components/common';
 import { BaseLayout } from '@/components/layouts';
 import { ContactInfo, ChangePassword, ChangeEmail } from '@/components/pages/settings';
-import { useUpdateEmail, useUpdateMetadata } from '@/hooks';
+import { useUpdateEmail, useUpdateMetadata, useUpdatePassword } from '@/hooks';
 import { withAuth } from '@/services/auth0';
 import { User } from '@/types';
 import { toast } from 'react-toastify';
+
 import { InfoValueForm } from './first_enter';
 
 interface SettingsProps {
@@ -21,6 +22,7 @@ export default function Settings({ user, token }: SettingsProps) {
 
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
   const [updateNewEmail, updateEmailState] = useUpdateEmail(token);
+  const [updatePassword, updatePasswordState] = useUpdatePassword(token);
 
   const updateContactInfo = (contactInfoData: InfoValueForm) => {
     const { contactEmail, whatsApp, facebook } = contactInfoData;
@@ -33,6 +35,7 @@ export default function Settings({ user, token }: SettingsProps) {
       }
     }})
       .then(() => {
+        toast('Contacts updated', {type: 'success'})
         if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
       })
       .catch((error) => toast(error, {type: 'error'}))
@@ -42,7 +45,21 @@ export default function Settings({ user, token }: SettingsProps) {
     const { newEmail } = emailData;
     updateNewEmail({ userId: user.sub, newEmail })
       .then(() => {
+        toast('Email updated', {type: 'success'})
         if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
+      })
+      .catch((error) => toast(error, {type: 'error'}))
+  }
+
+  const updatePass = () => {
+    updatePassword({
+      userId: user.sub,
+    })
+      .then(({ ticket }) => {
+        if (typeof window !== 'undefined') {
+          let win = window.open(ticket, '_blank');
+          win?.focus();
+        }
       })
       .catch((error) => toast(error, {type: 'error'}))
   }
@@ -71,7 +88,10 @@ export default function Settings({ user, token }: SettingsProps) {
                 updateEmail={updateEmail}
                 loading={updateEmailState.loading}
               />
-              <ChangePassword />
+              <ChangePassword 
+                loading={updatePasswordState.loading}
+                updatePass={updatePass}
+              />
             </div>
           </div>
         </div>

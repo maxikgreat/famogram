@@ -1,38 +1,29 @@
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 
 import { Input } from '@/components/common';
+import { VFC } from 'react';
 
-export const ChangePassword = () => {
+interface ChangePasswordProps {
+  loading: boolean,
+  updatePass: () => void
+}
+
+export const ChangePassword: VFC<ChangePasswordProps> = ({ loading, updatePass }) => {
   return (
-    <form>
-      <h2>New password</h2>
-      <div className="form-group">
-        <Input
-          // register={register}
-          name="newPass"
-          placeholder="New password"
-          icon={faLock}
-          // error={errors.whatsApp}
-          // label="WhatsApp"
-        />
-      </div>
-      <div className="form-group">
-        <Input
-          // register={register}
-          name="repeatPass"
-          placeholder="Repeat password"
-          icon={faLock}
-          // error={errors.facebook}
-          // label="Facebook"
-        />
-      </div>
-      <button 
+    <div className="d-flex align-items-end justify-content-between">
+      <h2 className="d-inline mb-0">New password</h2>
+      <button
           type="submit" 
-          className="btn btn-xl btn-primary btn-block"
-          // disabled={isPrevStateForm() || loading}
+          className="btn btn-sm btn-primary mb-2"
+          onClick={updatePass}
+          disabled={loading}
       >
-        Update
+        {
+          loading
+            ? <div className="spinner-border spinner-border-sm spinner-fill" />
+            : 'Generate link'
+        }
       </button>
-    </form>
+    </div>
   )
 }

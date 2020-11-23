@@ -32,13 +32,13 @@ export const ChangeEmail: VFC<ChangeEmailProps> = ({ user, updateEmail, loading 
           placeholder="some@example.com"
           icon={faEnvelope}
           error={errors.newEmail}
-          label="You need to re-log in with updated email"
+          label={() => <small><span className="text-primary">Note!</span> You need to re-log in with updated email</small>}
         />
       </div>
       <button 
         type="submit" 
         className="btn btn-xl btn-primary btn-block"
-        disabled={user.email === watch('newEmail')}
+        disabled={user.email === watch('newEmail') || loading}
       >
         {
           loading

@@ -47,7 +47,10 @@ export default function Profile({ user, token }: ProfileProps) {
           }
         } 
       })
-      if (typeof window !== 'undefined') window.location.href = '/api/v1/login';
+      if (typeof window !== 'undefined') {
+        toast('Data updated', {type: 'success'})
+        window.location.href = '/api/v1/login';
+      } 
     } catch (error) {
       toast(error, { type: 'error' });
     }
