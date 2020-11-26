@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import equal from 'deep-equal';
+import { isMobile } from 'react-device-detect';
 
 import { Input } from '@/components/common';
 import { InfoValueForm } from "@/pages/first_enter";
@@ -53,7 +54,7 @@ export const ContactInfo: VFC<ContactInfoProps> = ({ user, contactInfo, updateCo
 
   return (
     <form onSubmit={handleSubmit(updateContactInfo)} className="mb-5">
-      <h2>Contacts</h2>
+      <h3>Contacts</h3>
       <div className="form-group">
         <Input
           register={register}
@@ -84,17 +85,20 @@ export const ContactInfo: VFC<ContactInfoProps> = ({ user, contactInfo, updateCo
           label="Facebook"
         />
       </div>
-      <button 
-        type="submit" 
-        className="btn btn-xl btn-primary btn-block"
-        disabled={isPrevStateForm() || loading}
-      >
-        {
-          loading
-            ? <div className="spinner-border spinner-border-sm spinner-fill" />
-            : 'Update'
-        }
-      </button>
+      <div className="d-flex justify-content-center">
+        <button
+          type="submit"
+          className={`btn btn-btn-${isMobile ? 'md' : 'xl'} btn-primary btn-block`}
+          disabled={isPrevStateForm() || loading}
+          style={{zIndex: 10, width: isMobile ? '80%' : '100%'}}
+        >
+          {
+            loading
+              ? <div className="spinner-border spinner-border-sm spinner-fill" />
+              : 'Update'
+          }
+        </button>
+      </div>
     </form>
   )
 }

@@ -11,12 +11,13 @@ interface ChangePasswordProps {
 export const ChangePassword: VFC<ChangePasswordProps> = ({ loading, updatePass }) => {
   return (
     <div className="d-flex align-items-end justify-content-between">
-      <h2 className="d-inline mb-0">New password</h2>
+      <h3 className="d-inline mb-0">New password</h3>
       <button
-          type="submit" 
-          className="btn btn-sm btn-primary mb-2"
+          type="submit"
+          className="btn btn-sm btn-primary mb-1"
           onClick={updatePass}
           disabled={loading}
+          style={{zIndex: 10}}
       >
         {
           loading

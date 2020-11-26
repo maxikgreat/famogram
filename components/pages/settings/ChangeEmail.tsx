@@ -1,8 +1,9 @@
-import { useState, VFC } from 'react';
+import { VFC } from 'react';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { isMobile } from 'react-device-detect';
 
 import { Input } from '@/components/common';
 import { User } from '@/types';
@@ -24,7 +25,7 @@ export const ChangeEmail: VFC<ChangeEmailProps> = ({ user, updateEmail, loading 
 
   return (
     <form onSubmit={handleSubmit(updateEmail)} className="mb-5">
-      <h2>New email</h2>
+      <h3>New email</h3>
       <div className="form-group">
         <Input
           register={register}
@@ -35,17 +36,20 @@ export const ChangeEmail: VFC<ChangeEmailProps> = ({ user, updateEmail, loading 
           label={() => <small><span className="text-primary">Note!</span> You need to re-log in with updated email</small>}
         />
       </div>
-      <button 
-        type="submit" 
-        className="btn btn-xl btn-primary btn-block"
-        disabled={user.email === watch('newEmail') || loading}
-      >
-        {
-          loading
-            ? <div className="spinner-border spinner-border-sm spinner-fill" />
-            : 'Update'
-        }
-      </button>
+      <div className="d-flex justify-content-center">
+        <button
+          type="submit"
+          className={`btn btn-${isMobile ? 'md' : 'xl'} btn-primary btn-block center`}
+          disabled={user.email === watch('newEmail') || loading}
+          style={{zIndex: 10, width: isMobile ? '80%' : '100%'}}
+        >
+          {
+            loading
+              ? <div className="spinner-border spinner-border-sm spinner-fill" />
+              : 'Update'
+          }
+        </button>
+      </div>
     </form>
   )
 }

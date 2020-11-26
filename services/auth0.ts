@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { initAuth0 } from '@auth0/nextjs-auth0';
 
 import { renameKeys } from '@/helpers';
-import { axiosApi } from './axios';
 
 interface NextReqRes {
   req: NextApiRequest,
@@ -39,7 +38,7 @@ export function withAuth(
         }
       }
     } catch (err) {
-      return { 
+      return {
         redirect: {
           destination: '/api/v1/login',
           permanent: false
@@ -47,4 +46,4 @@ export function withAuth(
       };
     }
   }
-} 
+}

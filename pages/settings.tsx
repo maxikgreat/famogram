@@ -66,13 +66,13 @@ export default function Settings({ user, token }: SettingsProps) {
 
   return (
     <BaseLayout className="general">
-     <section className="fabrx-section bg-white mt-5">
+     <section className="fabrx-section bg-white mt-0 mt-md-5">
         <div className="container">
-          <div className="row align-items-flex-start position-relative">
+          <div className="row align-items-flex-start position-relative p-3 p-md-0">
             <div className="col-12 col-md-6">
-              <img 
-                src="./assets/images/vectors/vector-11.svg" 
-                className="position-absolute" 
+              <img
+                src="./assets/images/vectors/vector-11.svg"
+                className="position-absolute"
                 style={{ opacity: 0.15, height: '100%' }}
               />
             </div>
@@ -88,7 +88,7 @@ export default function Settings({ user, token }: SettingsProps) {
                 updateEmail={updateEmail}
                 loading={updateEmailState.loading}
               />
-              <ChangePassword 
+              <ChangePassword
                 loading={updatePasswordState.loading}
                 updatePass={updatePass}
               />

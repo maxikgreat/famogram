@@ -33,8 +33,8 @@ export default function Profile({ user, token }: ProfileProps) {
       if (instagramAccount !== user.user_metadata?.instagram?.user.username) {
         instaUser = await checkAccount(instagramAccount);
       }
-      await updateMetadata({ 
-        userId: user.sub, 
+      await updateMetadata({
+        userId: user.sub,
         metadata: {
           instagram: {
             user: instaUser,
@@ -45,34 +45,34 @@ export default function Profile({ user, token }: ProfileProps) {
               post: Number(pricePerPost),
             },
           }
-        } 
+        }
       })
       if (typeof window !== 'undefined') {
         toast('Data updated', {type: 'success'})
         window.location.href = '/api/v1/login';
-      } 
+      }
     } catch (error) {
       toast(error, { type: 'error' });
     }
-  } 
+  }
 
   if (!user.user_metadata?.instagram) return <Redirect url="/first_enter" />
 
   return (
     <BaseLayout className="profile">
-      <section className="fabrx-section bg-white mt-5">
+      <section className="fabrx-section bg-white mt-0 mt-md-3">
         <div className="container">
-          <div className="row align-items-flex-start position-relative">
-            <Instagram 
-              instaUser={user.user_metadata.instagram.user as InstaUser} 
+          <div className="row align-items-flex-start position-relative p-3 p-md-0">
+            <Instagram
+              instaUser={user.user_metadata.instagram.user as InstaUser}
             />
-            <img 
-              src="./assets/images/vectors/vector-13.svg" 
-              className="position-absolute" 
+            <img
+              src="./assets/images/vectors/vector-13.svg"
+              className="position-absolute"
               style={{ opacity: 0.15, top: '15%' }}
             />
-            <MainInfo 
-              updateInfo={updateInfo} 
+            <MainInfo
+              updateInfo={updateInfo}
               user={user}
               loading={checkAccountState.loading || updateMetadataState.loading}
             />

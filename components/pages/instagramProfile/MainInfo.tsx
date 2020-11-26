@@ -10,6 +10,7 @@ import { User } from '@/types';
 import { categories } from '@/types';
 import { Input } from '@/components/common';
 import { MainInfoStateForm } from '@/pages/instagram_profile';
+import {isMobile} from 'react-device-detect';
 
 // TODO SETTINGS CHANGE
 interface MainInfoProps {
@@ -74,7 +75,7 @@ export const MainInfo: FC<MainInfoProps> = ({updateInfo, user, loading}) => {
       <hr className="d-block d-lg-none bg-primary my-5 my-lg-0" style={{ height: '5px'}} />
       <div className="col-lg-6 col-md-12" style={{ zIndex: 1 }}>
         <form onSubmit={handleSubmit(updateInfo)}>
-          <h2>Main</h2>
+          <h3>Main</h3>
           <div className="form-group">
             <Input
               register={register}
@@ -121,7 +122,7 @@ export const MainInfo: FC<MainInfoProps> = ({updateInfo, user, loading}) => {
               />
             </div>
           </div>
-          <h2>Bio</h2>
+          <h3>Bio</h3>
           <div className="form-group">
             <Input
               textarea={true}
@@ -133,17 +134,20 @@ export const MainInfo: FC<MainInfoProps> = ({updateInfo, user, loading}) => {
               label="Short information about you"
             />
           </div>
-          <button 
-            type="submit" 
-            className="btn btn-xl btn-primary btn-block"
-            disabled={isPrevStateForm() || loading}
-          >
-            {
-              loading
-                ? <div className="spinner-border spinner-border-sm spinner-fill" />
-                : 'Update'
-            }
-          </button>
+          <div className="d-flex justify-content-center">
+            <button
+              type="submit"
+              className={`btn btn-${isMobile ? 'md' : 'xl'} btn-primary btn-block`}
+              disabled={isPrevStateForm() || loading}
+              style={{zIndex: 10, width: isMobile ? '80%' : '100%'}}
+            >
+              {
+                loading
+                  ? <div className="spinner-border spinner-border-sm spinner-fill" />
+                  : 'Update'
+              }
+            </button>
+          </div>
         </form>
       </div>
     </>
