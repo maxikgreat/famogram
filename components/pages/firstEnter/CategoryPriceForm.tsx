@@ -15,7 +15,7 @@ interface CategoryFormProps {
   updateMetadataLoading: boolean,
 }
 
-export const CategoryPriceForm: FC<CategoryFormProps> = ({ 
+export const CategoryPriceForm: FC<CategoryFormProps> = ({
   instaUser,
   finishHandler,
   updateMetadataLoading
@@ -30,13 +30,13 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
   const onChange = (value: string, name: 'post' | 'story') => {
     let str = value;
     if (str.includes(',')) str = str.replace(',', '.');
-    setPrice(prevState => ({ 
+    setPrice(prevState => ({
       ...prevState,
       [name]: str,
     }));
   }
 
-  const checkAllFieldsPassed = () => 
+  const checkAllFieldsPassed = () =>
     isCategory(category) && (isNumber(price.story) && isNumber(price.post)) && desc.length > 30
 
   const charactersRemain = () => `${30 - desc.length} characters remain`;
@@ -51,17 +51,20 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
             placeholder="Short description"
             icon={faInfoCircle}
             onChange={({ target: { value }}) => setDesc(value)}
+            label={() => (
+              <p>Tell us a short story about your bla bla bla...
+                <span className="text-primary">
+                  {
+                    30 - desc.length > 0
+                      ? charactersRemain()
+                      : null
+                  }
+                </span>
+              </p>
+            )}
           />
         </div>
-        <p>Tell us a short story about your bla bla bla...
-          <span className="text-primary">
-            {
-              30 - desc.length > 0
-                ? charactersRemain()
-                : null
-            }
-          </span>
-        </p>
+        
         <div className="col-12">
           <datalist id="categories">
             {categories.map(category => <option key={category} value={category} />)}
@@ -72,9 +75,9 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
             placeholder="Category"
             icon={faList}
             onChange={({ target: { value }}) => setCategory(value)}
+            label={() => <p>To continue, pick category from <span className="text-primary">existing one</span></p>}
           />
         </div>
-        <p>To continue, pick category from <span className="text-primary">existing one</span></p>
         <div className="col-12 col-md-6">
           <Input
             icon={faHandHoldingUsd}
@@ -93,9 +96,9 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
             onChange={({ target: { value }}) => onChange(value, 'post')}
           />
         </div>
-        <p>Fill price fields <span className="text-primary">with digits.</span> All prices will be in dollars</p>
+        <p style={{transform: 'translateY(-15px)'}}>Fill price fields <span className="text-primary">with digits.</span> All prices will be in dollars</p>
         <div className="d-flex justify-content-end">
-          <button 
+          <button
             className={`btn btn-link mt-2 mb-3 mb-md-0 ${!checkAllFieldsPassed() && 'disabled'}`}
             onClick={() => finishHandler({
               user: instaUser,

@@ -14,8 +14,8 @@ interface UsernameFormProps {
   navTo: () => void
 }
 
-export const UsernameForm: FC<UsernameFormProps> = ({ 
-  instagramAccount, 
+export const UsernameForm: FC<UsernameFormProps> = ({
+  instagramAccount,
   setInstagramAccount,
   checkAccount,
   checkAccountLoading,
@@ -41,17 +41,17 @@ export const UsernameForm: FC<UsernameFormProps> = ({
             placeholder="Instagram account"
             value={instagramAccount.value}
             onChange={({ target: { value }}) => setInstagramAccount(prevState => ({ ...prevState, value }))}
+            label={() => <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae.</p>}
           />
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae.</p>
         </div>
         <div className="d-flex justify-content-end">
-          <button 
+          <button
             className={`btn btn-link mt-2 mb-3 mb-md-0 ${(!instagramAccount.value) && 'disabled'}`}
             onClick={checkAccountHandler}
             style={{zIndex: 10}}
           >
             {
-              checkAccountLoading 
+              checkAccountLoading
                 ? <div className="spinner-border spinner-border-sm spinner-fill" />
                 : <>
                     <span className="btn-text">Next</span>
