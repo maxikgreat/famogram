@@ -3,18 +3,34 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/components/pages/instagramProfile/Instagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/instagramProfile/Instagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/instagramProfile/MainInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/instagramProfile/MainInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/settings/ChangeEmail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/settings/ChangeEmail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/settings/ChangePassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/settings/ChangePassword.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/components/_toggler.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/settings/ContactInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/settings/ContactInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/instagram_profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instagram_profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth0.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth0.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/first_enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/first_enter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +61,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606416832533</updated>
-      <workItem from="1606416833581" duration="3982000" />
+      <workItem from="1606416833581" duration="6401000" />
+      <workItem from="1606460757238" duration="31000" />
+      <workItem from="1606491336524" duration="8908000" />
     </task>
     <servers />
   </component>
@@ -54,6 +72,17 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="221" y="89" key="SettingsEditor" timestamp="1606417351166">
@@ -64,10 +93,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1606418271198" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606421500825">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606496788504">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606421500825" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606496788504" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
   </component>
 </project>

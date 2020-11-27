@@ -22,8 +22,8 @@ interface FirstEnterProps {
 export const getServerSideProps = withAuth();
 
 export default function FirstEnter({ user, token }: FirstEnterProps) {
+  const [toggler, setToggler] = useState(false);
   const [role, setRole] = useState<Role | null>(null);
-
   const [info, setInfo] = useState<InfoValueForm>({
     contactEmail: '',
     whatsApp: '',
@@ -36,7 +36,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   const customEmailLabel = () => (
     <p>
       Enter <span className="text-primary">valid</span>  email address or&nbsp;
-      <span 
+      <span
         onClick={() => setInfo(prevState => ({ ...prevState, contactEmail: user.email }))}
         style={{textDecoration: 'underline', cursor: 'pointer'}}
       >set email from profile</span>
@@ -71,17 +71,19 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   
   return (
     <BaseLayout className="first-enter">
-      <section className="fabrx-section bg-white mt-5">
+      <section className="fabrx-section bg-white mt-5 p-3 p-md-0">
         {
           !role
-          ? <PickRole 
-              setRole={setRole}   
+          ? <PickRole
+              toggler={toggler}
+              setToggler={setToggler}
+              setRole={setRole}
               info={info}
               setInfo={setInfo}
               customEmailLabel={customEmailLabel}
             />
           : role === 'instagram'
-            ? <FirstInstagram 
+            ? <FirstInstagram
                 checkAccount={checkAccount}
                 finishHandler={finishHandler}
                 checkAccountLoading={checkAccountState.loading}

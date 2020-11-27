@@ -88,7 +88,7 @@ export const ContactInfo: VFC<ContactInfoProps> = ({ user, contactInfo, updateCo
       <div className="d-flex justify-content-center">
         <button
           type="submit"
-          className={`btn btn-btn-${isMobile ? 'md' : 'xl'} btn-primary btn-block`}
+          className={`btn btn-${isMobile ? 'md' : 'xl'} btn-primary btn-block`}
           disabled={isPrevStateForm() || loading}
           style={{zIndex: 10, width: isMobile ? '80%' : '100%'}}
         >

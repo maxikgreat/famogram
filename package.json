@@ -29,6 +29,7 @@
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.11.0",
     "react-responsive-masonry": "^2.1.0",
+    "react-spring": "^8.0.27",
     "react-toastify": "^6.1.0",
     "sass": "^1.26.11",
     "swr": "^0.3.8",
