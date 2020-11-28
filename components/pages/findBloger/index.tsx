@@ -1,2 +1,3 @@
 export * from './Category';
-export * from './Picker';
+export * from './Categories';
+export * from './People';

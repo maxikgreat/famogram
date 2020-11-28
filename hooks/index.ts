@@ -1,6 +1,6 @@
 import { useApiHandler } from './useApiHandler';
 import { axiosApi as axios } from '@/services/axios';
-import { InstaUser, Metadata } from '@/types';
+import {InstaUser, Metadata, User} from '@/types';
 
 interface ExtendedMetadata {
   userId: string,
@@ -20,16 +20,17 @@ const checkAccount = (nickname: string) => axios.post('/api/v1/insta/check', { n
 const updateMetadata = (data: ExtendedMetadata) => axios.patch(`api/v1/auth0/user`, data);
 const updateEmail = (data: NewEmail) => axios.patch(`api/v1/auth0/user/email`, data);
 const updatePassword = (data: NewPassword) => axios.post(`api/v1/auth0/user/password`, data);
+const getBloggers = () => axios.get('api/v1/auth0/bloggers');
 
 export const useCheckAccount = (token: string) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
   return useApiHandler<string, InstaUser>(checkAccount);
-} 
+}
 
 export const useUpdateMetadata = (token: string) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
   return useApiHandler<ExtendedMetadata, any>(updateMetadata);
-} 
+}
 
 export const useUpdateEmail = (token: string) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -39,4 +40,9 @@ export const useUpdateEmail = (token: string) => {
 export const useUpdatePassword = (token: string) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
   return useApiHandler<NewPassword, { ticket: string }>(updatePassword);
+}
+
+export const useGetBloggers = (token: string) => {
+  axios.defaults.headers.Authorization = `Bearer ${token}`;
+  return useApiHandler<undefined, User[]>(getBloggers);
 }

@@ -23,11 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/CategoryPriceForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/CategoryPriceForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Category.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Picker.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/find_bloger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_bloger.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +66,7 @@
       <updated>1606416832533</updated>
       <workItem from="1606416833581" duration="6401000" />
       <workItem from="1606460757238" duration="31000" />
-      <workItem from="1606491336524" duration="10800000" />
+      <workItem from="1606491336524" duration="17472000" />
     </task>
     <servers />
   </component>
@@ -82,18 +88,22 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606510646698">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606510646698" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1606417351166">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606417351166" />
-    <state x="421" y="205" width="598" height="490" key="find.popup" timestamp="1606418271198">
+    <state x="421" y="205" width="598" height="490" key="find.popup" timestamp="1606510919520">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1606418271198" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606507265228">
+    <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1606510919520" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606557396062">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606507265228" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606557396062" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
   </component>
 </project>
