@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import '@/styles/main.scss';
+import 'react-accessible-accordion/dist/fancy-example.css';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (

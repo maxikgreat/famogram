@@ -23,9 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/components/pages/findBloger/BloggerItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/components/_accordion.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +63,7 @@
       <updated>1606416832533</updated>
       <workItem from="1606416833581" duration="6401000" />
       <workItem from="1606460757238" duration="31000" />
-      <workItem from="1606491336524" duration="19120000" />
+      <workItem from="1606491336524" duration="22150000" />
     </task>
     <servers />
   </component>
@@ -92,10 +97,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1606510919520" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606575082293">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606582801151">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606575082293" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606582801151" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
   </component>
 </project>
