@@ -5,6 +5,7 @@ import {Category, User} from '@/types';
 import {useGetBloggers} from '@/hooks';
 import {withAuth} from '@/services/auth0';
 import {toast} from 'react-toastify';
+import {CategoriesMobile} from '@pagesComponents/findBloger/CategoriesMobile';
 
 interface WallProps {
   user: User,
@@ -25,12 +26,13 @@ export default function Wall({ user, token }: WallProps) {
     <BaseLayout className="wall">
       <section className="fabrx-section bg-white mt-5 picker-section">
         <div className="container">
-          <div className="row py-0">
+          <div className="row py-0 p-3 p-md-0">
             <Categories
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
               getBloggersState={getBloggersState}
             />
+            <CategoriesMobile />
             <People
               getBloggersState={getBloggersState}
             />
