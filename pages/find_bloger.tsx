@@ -20,7 +20,7 @@ export default function Wall({ user, token }: WallProps) {
     getBloggers(undefined)
       .catch((error) => toast(error, { type: 'error' }))
   }, []);
-  const [activeCategory, setActiveCategory] = useState<Category | null>(null);
+  const [activeCategory, setActiveCategory] = useState<Category[]>([]);
   
   return (
     <BaseLayout className="wall">
@@ -32,7 +32,10 @@ export default function Wall({ user, token }: WallProps) {
               setActiveCategory={setActiveCategory}
               getBloggersState={getBloggersState}
             />
-            <CategoriesMobile />
+            <CategoriesMobile
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
+            />
             <People
               getBloggersState={getBloggersState}
             />

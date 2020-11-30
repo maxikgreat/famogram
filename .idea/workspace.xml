@@ -23,18 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/common/Error.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/pages/findBloger/CategoriesMobile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/components/_react-select.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/BloggerItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/BloggerItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/CategoriesMobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/CategoriesMobile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Category.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/find_bloger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_bloger.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/_accordion.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_accordion.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/_react-select.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_react-select.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +46,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
@@ -67,7 +62,10 @@
       <updated>1606416832533</updated>
       <workItem from="1606416833581" duration="6401000" />
       <workItem from="1606460757238" duration="31000" />
-      <workItem from="1606491336524" duration="39482000" />
+      <workItem from="1606491336524" duration="39602000" />
+      <workItem from="1606678414888" duration="1312000" />
+      <workItem from="1606720346370" duration="23000" />
+      <workItem from="1606762686831" duration="3926000" />
     </task>
     <servers />
   </component>
@@ -87,6 +85,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606510646698">
