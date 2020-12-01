@@ -12,7 +12,7 @@ interface WallProps {
   token: string,
 }
 
-export interface CategoryMobile {
+export interface ICategory {
   label: Category,
   value :Category,
 }
@@ -25,8 +25,17 @@ export default function Wall({ user, token }: WallProps) {
     getBloggers(undefined)
       .catch((error) => toast(error, { type: 'error' }))
   }, []);
-  const [activeCategory, setActiveCategory] = useState<Category[]>([]);
-  const [activeCategoryMobile, setActiveCategoryMobile] = useState<CategoryMobile[]>([]);
+  const [activeCategory, setActiveCategory] = useState<ICategory[]>([]);
+  
+  const filterBloggers = () => {
+    if (activeCategory.length === 0) return getBloggersState.data;
+    const filtered: User[] = [];
+    activeCategory.find(({ value: categoryValue }) => {
+      const finded = getBloggersState.data?.find((user) => categoryValue === user.user_metadata?.instagram?.category);
+      if (finded) filtered.push(finded);
+    })
+    return filtered;
+  }
   
   return (
     <BaseLayout className="wall">
@@ -39,11 +48,13 @@ export default function Wall({ user, token }: WallProps) {
               getBloggersState={getBloggersState}
             />
             <CategoriesMobile
-              activeCategoryMobile={activeCategoryMobile}
-              setActiveCategoryMobile={setActiveCategoryMobile}
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
             />
             <People
-              getBloggersState={getBloggersState}
+              loading={getBloggersState.loading}
+              error={getBloggersState.error}
+              bloggers={filterBloggers()}
             />
           </div>
         </div>
