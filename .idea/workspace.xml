@@ -24,11 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/findBloger/CategoriesMobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/CategoriesMobile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Category.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/find_bloger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_bloger.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/_react-select.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_react-select.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,9 @@
       <workItem from="1606491336524" duration="39602000" />
       <workItem from="1606678414888" duration="1312000" />
       <workItem from="1606720346370" duration="23000" />
-      <workItem from="1606762686831" duration="3926000" />
+      <workItem from="1606762686831" duration="4203000" />
+      <workItem from="1606806624438" duration="444000" />
+      <workItem from="1606845912207" duration="3076000" />
     </task>
     <servers />
   </component>

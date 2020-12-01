@@ -12,6 +12,11 @@ interface WallProps {
   token: string,
 }
 
+export interface CategoryMobile {
+  label: Category,
+  value :Category,
+}
+
 export const getServerSideProps = withAuth();
 
 export default function Wall({ user, token }: WallProps) {
@@ -21,6 +26,7 @@ export default function Wall({ user, token }: WallProps) {
       .catch((error) => toast(error, { type: 'error' }))
   }, []);
   const [activeCategory, setActiveCategory] = useState<Category[]>([]);
+  const [activeCategoryMobile, setActiveCategoryMobile] = useState<CategoryMobile[]>([]);
   
   return (
     <BaseLayout className="wall">
@@ -33,8 +39,8 @@ export default function Wall({ user, token }: WallProps) {
               getBloggersState={getBloggersState}
             />
             <CategoriesMobile
-              activeCategory={activeCategory}
-              setActiveCategory={setActiveCategory}
+              activeCategoryMobile={activeCategoryMobile}
+              setActiveCategoryMobile={setActiveCategoryMobile}
             />
             <People
               getBloggersState={getBloggersState}
