@@ -67,7 +67,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
       .catch((error) => toast(error, { type: 'error' }));
   }
 
-  // if (user.user_metadata?.contactInfo) return <Redirect url="/find_bloger" />
+  if (user.user_metadata?.contactInfo) return <Redirect url="/find_bloger" />
   
   return (
     <BaseLayout className="first-enter">

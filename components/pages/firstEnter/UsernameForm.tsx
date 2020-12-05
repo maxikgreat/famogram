@@ -23,6 +23,7 @@ export const UsernameForm: FC<UsernameFormProps> = ({
 }) => {
 
   const checkAccountHandler = () => {
+    console.log(process.env);
     checkAccount(instagramAccount.value)
       .then(user => {
         setInstagramAccount(prevState => ({ ...prevState, user }));
