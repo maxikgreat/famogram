@@ -4,7 +4,10 @@ const DotenvWebpack = require('dotenv-webpack');
 
 module.exports = {
   webpack: config => {
-    config.plugins.push(new DotenvWebpack({ silent: true }));
+    config.plugins.push(new DotenvWebpack({
+      silent: true,
+      path: process.env.NODE_ENV === 'production' ? './.env.production' : './.env',
+    }));
     return config;
   },
   sassOptions: {
