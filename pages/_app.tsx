@@ -10,7 +10,7 @@ import '@/styles/main.scss';
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
-     <ToastContainer
+      <ToastContainer
         draggable
         pauseOnHover
         pauseOnFocusLoss

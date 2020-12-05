@@ -1,9 +1,7 @@
 import axiosGlobal from 'axios';
 
-import { auth0 } from '@/services/auth0';
-
 const axiosApi = axiosGlobal.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: process.env.API_URL,
   responseType: 'json',
 });
 

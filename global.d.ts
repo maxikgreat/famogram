@@ -11,6 +11,7 @@ declare global {
       AUTH0_COOKIE_SECRET: string,
       AUTH0_AUDIENCE: string,
       API_URL: string,
+      BASE_URL: string,
     }
   }
 }

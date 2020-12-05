@@ -1,8 +1,7 @@
-import { MainInfoStateForm } from '@/pages/instagram_profile';
 import { categories, Category, InstaUser, Metadata } from '@/types';
 import * as yup from 'yup';
 
-export const isCategory = (value: string) => categories.includes(value as Category); 
+export const isCategory = (value: string) => categories.includes(value as Category);
 
 export const isNumber = (string: string) => {
   if (!string) return false;
