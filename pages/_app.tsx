@@ -8,7 +8,6 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import '@/styles/main.scss';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
-  console.log("ENV", process.env);
   return (
     <>
       <ToastContainer
