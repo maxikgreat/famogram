@@ -12,7 +12,6 @@ import { Input } from '@/components/common';
 import { MainInfoStateForm } from '@/pages/instagram_profile';
 import {isMobile} from 'react-device-detect';
 
-// TODO SETTINGS CHANGE
 interface MainInfoProps {
   user: User,
   updateInfo: (data: MainInfoStateForm) => void,

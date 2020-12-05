@@ -24,7 +24,7 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
       </svg>
     </a>
     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
-      <Link href="/find_bloger">
+      <Link href="/find_blogger">
         <a className="nav-link">Find a blogger</a>
       </Link>
       <Link href="/instagram_profile">

@@ -51,7 +51,7 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
     <>
       {
         transitions.map(({ item, props }) => (
-          <animated.div className="container py-0 py-md-5" style={props}>
+          <animated.div key={item} className="container py-0 py-md-5" style={props}>
             <div className="pr-0 pt-0 pt-lg-3 pb-4 pb-md-5">
               <ul className="nav nav-tabs nav-tabs-md bg-transparent nav-tabs-line nav-justified first-enter-tabs">
                 <li className="nav-item" style={{zIndex: 10}}>

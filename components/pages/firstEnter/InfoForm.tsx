@@ -2,13 +2,8 @@ import { Dispatch, FC, SetStateAction } from 'react';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
+import { InfoValueForm } from '@/pages/first_enter';
 import { Input } from '@/components/common';
-
-interface InfoValueForm {
-  contactEmail: string,
-  whatsApp: string,
-  facebook: string,
-}
 
 interface PriceFormProps {
   info: InfoValueForm,
@@ -16,9 +11,9 @@ interface PriceFormProps {
   customEmailLabel: () => JSX.Element,
 }
 
-export const InfoForm: FC<PriceFormProps> = ({ 
+export const InfoForm: FC<PriceFormProps> = ({
   info,
-  setInfo, 
+  setInfo,
   customEmailLabel
 }) => {
   const onChange = (value: string, name: string) => {

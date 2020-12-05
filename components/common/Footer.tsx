@@ -26,7 +26,7 @@ export const Footer: VFC<FooterProps> = ({ user, loading }) => (
                   : user
                   ? (
                     <>
-                      <Link href="/find_bloger">
+                      <Link href="/find_blogger">
                         <a className="nav-link">Find a blogger</a>
                       </Link>
                       <Link href="/instagram_profile">

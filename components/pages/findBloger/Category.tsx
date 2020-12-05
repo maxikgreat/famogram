@@ -2,7 +2,7 @@
 import {Dispatch, memo, SetStateAction, VFC} from 'react';
 
 import { Category as CategoryType } from '@/types';
-import {ICategory} from '@/pages/find_bloger';
+import {ICategory} from '@/pages/find_blogger';
 
 interface CategoryProps {
   setActiveCategory: Dispatch<SetStateAction<ICategory[]>>
