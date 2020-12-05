@@ -24,10 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layouts/BaseLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layouts/BaseLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/_toast.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_toast.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +68,7 @@
       <workItem from="1606934503439" duration="3515000" />
       <workItem from="1606979665370" duration="43000" />
       <workItem from="1607015251160" duration="289000" />
-      <workItem from="1607098842329" duration="3041000" />
+      <workItem from="1607098842329" duration="4575000" />
     </task>
     <servers />
   </component>
@@ -94,6 +91,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="419" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607161193912">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="419" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1607161193912" />
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606940458931">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -106,10 +107,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1606674253636" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607157372884">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607162050366">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607157372884" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607162050366" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
   </component>
 </project>

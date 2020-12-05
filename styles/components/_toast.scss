@@ -1,39 +1,39 @@
 
 .Toastify__toast {
-  color: $primary;
-  border: 2px solid $primary;
-  background: $black;
+  color: $primary !important;
+  border: 2px solid $primary !important;
+  background: $black !important;
 }
 
 .Toastify__toast--success {
-  color: $success;
-  border: 2px solid $success;
+  color: $success !important;
+  border: 2px solid $success !important;
 }
 .Toastify__toast--warning {
-  color: $warning;
-  border: 2px solid $warning;
+  color: $warning !important;
+  border: 2px solid $warning !important;
 }
 .Toastify__toast--error {
-  color: $danger;
-  border: 2px solid $danger;
+  color: $danger !important;
+  border: 2px solid $danger !important;
 }
 
 .Toastify__toast-body {
-  color: $white;
+  color: $white !important;
 }
 
 .Toastify__progress-bar {
-  background: $primary;
+  background: $primary !important;
 }
 
 .Toastify__progress-bar--success {
-  background: $success;
+  background: $success !important;
 }
 
 .Toastify__progress-bar--warning {
-  background: $warning;
+  background: $warning !important;
 }
 
 .Toastify__progress-bar--error {
-  background: $danger;
+  background: $danger !important;
 }
