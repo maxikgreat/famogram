@@ -24,7 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/_toast.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_toast.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,7 @@
       <workItem from="1606934503439" duration="3515000" />
       <workItem from="1606979665370" duration="43000" />
       <workItem from="1607015251160" duration="289000" />
-      <workItem from="1607098842329" duration="4575000" />
+      <workItem from="1607098842329" duration="4899000" />
     </task>
     <servers />
   </component>

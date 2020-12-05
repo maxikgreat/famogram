@@ -6,5 +6,8 @@ module.exports = {
   webpack: config => {
     config.plugins.push(new DotenvWebpack({ silent: true }));
     return config;
-  }
+  },
+  sassOptions: {
+    outputStyle: 'expanded',
+  },
 }
