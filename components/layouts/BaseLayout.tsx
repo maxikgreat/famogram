@@ -17,7 +17,7 @@ export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
       <main id="main" className={className}>
         {children}
       </main>
-      <Footer />
+      <Footer user={user} loading={loading} />
     </>
   )
 }

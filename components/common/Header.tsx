@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { User } from '@/types';
+
 interface HeaderProps {
   user?: User,
   loading: boolean,
@@ -52,15 +53,6 @@ export const Header = ({ user, loading }: HeaderProps) => {
             <a className="navbar-brand logo">Hativi</a>
           </Link>
           <div className="navbar-collapse justify-content-end">
-            {/*{!user && (*/}
-            {/*  <ul className="navbar-nav ml-auto pr-3 pr-lg-0">*/}
-            {/*    <li className="nav-item">*/}
-            {/*      <Link href="/find_bloger">*/}
-            {/*        <a className="nav-link">Find bloger</a>*/}
-            {/*      </Link>*/}
-            {/*    </li>*/}
-            {/*  </ul>*/}
-            {/*)}*/}
             <div className="fabrx-header-links ml-0 ml-lg-5">
               {loading
                 ? <div className="spinner-border spinner-border-sm spinner-fill" />
