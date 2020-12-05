@@ -3,7 +3,6 @@ import { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar';
 import { ToastContainer } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
 import 'react-accessible-accordion/dist/fancy-example.css';
 import '@/styles/components/_toast.scss';
 import '@/styles/main.scss';
