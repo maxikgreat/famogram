@@ -51,7 +51,7 @@ export default function Profile({ user, token }: ProfileProps) {
       
       if (typeof window !== 'undefined') {
         toast('Data updated', {type: 'success'})
-        window.location.href = '/api/v1/login';
+        window.location.href = '/api/v1/login??redirectTo=/instagram_profile&prompt=true';
       }
     } catch (error) {
       toast(error, { type: 'error' });

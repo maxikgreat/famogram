@@ -5,14 +5,18 @@ import { auth0 } from '@/services/auth0';
 interface NextApiRequestWithRedirect extends  NextApiRequest {
   query: {
     redirectTo: string, // maybe can be undefined
+    prompt: string,
   }
 }
 
 export default async (req: NextApiRequestWithRedirect, res: NextApiResponse) => {
   try {
-    const {query: { redirectTo }} = req;
+    const {query: { redirectTo, prompt }} = req;
     console.log('redirectTo', redirectTo);
     await auth0.handleLogin(req, res, {
+      authParams: prompt === 'true' ? {
+        prompt: 'none'
+      } : undefined,
       redirectTo: redirectTo ? redirectTo : '/first_enter'
     });
   } catch (e) {

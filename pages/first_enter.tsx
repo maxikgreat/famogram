@@ -63,7 +63,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
     updateMetadata(data)
       .then(() => {
         // not handled correctly in auth0-nextjs library so thats the solution
-        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger';
+        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger&prompt=true';
       })
       .catch((error) => toast(error, { type: 'error' }));
   }

@@ -36,7 +36,7 @@ export default function Settings({ user, token }: SettingsProps) {
     }})
       .then(() => {
         toast('Contacts updated', {type: 'success'})
-        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/settings';
+        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/settings&prompt=true';
       })
       .catch((error) => toast(error, {type: 'error'}))
   }
@@ -46,7 +46,7 @@ export default function Settings({ user, token }: SettingsProps) {
     updateNewEmail({ userId: user.sub, newEmail })
       .then(() => {
         toast('Email updated', {type: 'success'})
-        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/settings';
+        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/settings&prompt=true';
       })
       .catch((error) => toast(error, {type: 'error'}))
   }

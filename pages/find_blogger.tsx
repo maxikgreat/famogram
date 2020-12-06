@@ -6,6 +6,7 @@ import {useGetBloggers} from '@/hooks';
 import {withAuth} from '@/services/auth0';
 import {toast} from 'react-toastify';
 import {CategoriesMobile} from '@pagesComponents/findBloger/CategoriesMobile';
+import {Redirect} from '@/components/common';
 
 interface WallProps {
   user: User,
@@ -36,6 +37,8 @@ export default function Wall({ user, token }: WallProps) {
     })
     return filtered;
   }
+  
+  if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
   
   return (
     <BaseLayout className="wall">
