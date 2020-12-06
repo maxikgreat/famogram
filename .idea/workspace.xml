@@ -23,23 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Categories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/CategoriesMobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/CategoriesMobile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Category.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/InfoForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/InfoForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/instagramProfile/Instagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/instagramProfile/Instagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/instagramProfile/MainInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/instagramProfile/MainInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/BloggerItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/BloggerItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/v1/callback.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/v1/callback.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/api/v1/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/v1/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/find_bloger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_blogger.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/first_enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/first_enter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/instagram_profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instagram_profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/pages/_wall.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/pages/_wall.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/_accordion.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_accordion.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +73,7 @@
       <workItem from="1606934503439" duration="3515000" />
       <workItem from="1606979665370" duration="43000" />
       <workItem from="1607015251160" duration="289000" />
-      <workItem from="1607098842329" duration="23904000" />
+      <workItem from="1607098842329" duration="38871000" />
     </task>
     <servers />
   </component>
@@ -122,10 +112,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="105" y="205" width="1335" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1607195121794" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607199134037">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607255026911">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607199134037" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607255026911" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
   </component>
 </project>

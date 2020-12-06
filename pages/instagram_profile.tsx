@@ -70,7 +70,7 @@ export default function Profile({ user, token }: ProfileProps) {
       await updateMetadata(data);
       if (typeof window !== 'undefined') {
         toast('Data updated', {type: 'success'})
-        window.location.href = '/api/v1/login?redirectTo=instagram_profile';
+        window.location.href = '/api/v1/login?redirectTo=/instagram_profile';
       }
     } catch (error) {
       toast(error, { type: 'error' });
