@@ -12,11 +12,8 @@ interface NextApiRequestWithRedirect extends  NextApiRequest {
 export default async (req: NextApiRequestWithRedirect, res: NextApiResponse) => {
   try {
     const {query: { redirectTo, prompt }} = req;
-    console.log('redirectTo', redirectTo);
     await auth0.handleLogin(req, res, {
-      authParams: prompt === 'true' ? {
-        prompt: 'none'
-      } : undefined,
+      authParams: prompt ? {prompt: 'none'} : undefined,
       redirectTo: redirectTo ? redirectTo : '/first_enter'
     });
   } catch (e) {

@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar';
 import { ToastContainer } from 'react-toastify';
+import Head from 'next/head';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-accessible-accordion/dist/fancy-example.css';
@@ -10,6 +11,9 @@ import '@/styles/main.scss';
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+      </Head>
       <ToastContainer
         draggable
         pauseOnHover
