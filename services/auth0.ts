@@ -21,6 +21,9 @@ export const auth0 = initAuth0({
     storeAccessToken: true,
     storeRefreshToken: true,
   },
+  oidcClient: {
+    httpTimeout: 10000,
+  },
 });
 
 export function withAuth(

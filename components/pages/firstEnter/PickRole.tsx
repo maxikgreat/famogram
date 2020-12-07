@@ -1,13 +1,18 @@
 import React, { Dispatch, SetStateAction, VFC } from "react";
 import { animated, useSpring, useTransition } from 'react-spring';
 import { isMobile } from 'react-device-detect';
+import {DeepMap, FieldError} from 'react-hook-form';
 
-import {InstagramMetadata, Role} from "@/types";
+import { InstagramMetadata, Role } from "@/types";
 import { InfoForm } from './';
-import { InfoValueForm } from "@/pages/first_enter";
+import { FirstEnterForm, InfoValueForm } from "@/pages/first_enter";
 import { isEmail } from '@/helpers';
 
+
 interface PickRoleProps {
+  register: any,
+  errors: DeepMap<FirstEnterForm, FieldError>,
+  handleSubmit: any,
   toggler: boolean,
   setToggler: Dispatch<SetStateAction<boolean>>,
   setRole: Dispatch<SetStateAction<Role | null>>,
@@ -17,7 +22,18 @@ interface PickRoleProps {
   finishHandler: (instaUserData?: InstagramMetadata) => void,
 }
 
-export const PickRole: VFC<PickRoleProps> = ({ toggler, setToggler, setRole, info, setInfo, customEmailLabel, finishHandler }) => {
+export const PickRole: VFC<PickRoleProps> = ({
+  register,
+  errors,
+  handleSubmit,
+  toggler,
+  setToggler,
+  setRole,
+  info,
+  setInfo,
+  customEmailLabel,
+  finishHandler
+}) => {
   const { transform, opacity } = useSpring({
     opacity: toggler ? 1 : 0,
     transform: `perspective(600px) rotateX(${toggler ? 180 : 0}deg)`,
@@ -43,9 +59,11 @@ export const PickRole: VFC<PickRoleProps> = ({ toggler, setToggler, setRole, inf
     <>
       {
         transitions.map(({ item, props }) => (
-          <animated.div key={item} className="container py-2 py-md-5" style={props}>
+          <animated.form onSubmit={handleSubmit(finishHandler)} key={item} className="container py-2 py-md-5" style={props}>
             <h5>Tell other's how they can contact with you</h5>
             <InfoForm
+              register={register}
+              errors={errors}
               info={info}
               setInfo={setInfo}
               customEmailLabel={customEmailLabel}
@@ -77,9 +95,9 @@ export const PickRole: VFC<PickRoleProps> = ({ toggler, setToggler, setRole, inf
                   <p>The carbon in our apple pies with pretty stories for which there's little good evidence </p>
                   <div className="pt-0 pt-md-1">
                     <button
+                      type="submit"
                       className={`btn btn-${isMobile ? 'md' : 'xl'} btn-block btn-accent`}
-                      disabled={!isEmail(info.contactEmail)}
-                      onClick={() => finishHandler()}
+                      // onClick={() => finishHandler()}
                     >
                       Discover bloggers
                     </button>
@@ -112,7 +130,7 @@ export const PickRole: VFC<PickRoleProps> = ({ toggler, setToggler, setRole, inf
                 </div>
               </animated.div>
             </div>
-          </animated.div>
+          </animated.form>
         ))
       }
     </>

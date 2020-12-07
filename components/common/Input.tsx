@@ -38,23 +38,23 @@ interface IconProps {
   icon: IconProp,
 }
 
-const IconMemo = memo(({ icon }: IconProps) => 
-  <FontAwesomeIcon 
-    icon={icon} 
+const IconMemo = memo(({ icon }: IconProps) =>
+  <FontAwesomeIcon
+    icon={icon}
     // @ts-expect-error
     style={icon.iconName === 'instagram' ? { marginRight: '1px', transform: 'scale(1.2)' } : {}}
   />
 );
 
-export const Input = ({ 
+export const Input = ({
   list,
   register,
   right = false,
-  name, 
-  icon, 
-  placeholder, 
-  onChange, 
-  value, 
+  name,
+  icon,
+  placeholder,
+  onChange,
+  value,
   className = 'form-control form-line-control',
   type = 'text',
   error,
@@ -71,7 +71,7 @@ export const Input = ({
       )}
       {textarea
         ? (
-          <textarea 
+          <textarea
             multiple={multiple}
             list={list}
             ref={register ? register : null}
@@ -80,9 +80,9 @@ export const Input = ({
             autoComplete="off"
             type={type}
             name={name}
-            placeholder={placeholder} 
-            className={className} 
-            id={name} 
+            placeholder={placeholder}
+            className={className}
+            id={name}
             value={value}
           />
         )
@@ -95,9 +95,9 @@ export const Input = ({
             autoComplete="off"
             type={type}
             name={name}
-            placeholder={placeholder} 
-            className={className} 
-            id={name} 
+            placeholder={placeholder}
+            className={className}
+            id={name}
             value={value}
           />
         )
@@ -107,12 +107,6 @@ export const Input = ({
           <IconMemo icon={icon} />
         </label>
       )}
-      {label 
-        ? typeof label === 'string' 
-          ? <small>{label}</small> 
-          : label()
-        : null
-      }
       {error && (
         <div className="invalid-feedback">
           <svg xmlns="http://www.w3.org/2000/svg" width="16.001" height="16" viewBox="0 0 16.001 16">
@@ -123,6 +117,12 @@ export const Input = ({
           <span>{typeof error === 'string' ? error : error.message}</span>
         </div>
       )}
+      {label
+        ? typeof label === 'string'
+          ? <small>{label}</small>
+          : label()
+        : null
+      }
     </div>
   )
 };
