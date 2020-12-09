@@ -107,6 +107,12 @@ export const Input = ({
           <IconMemo icon={icon} />
         </label>
       )}
+      {label
+        ? typeof label === 'string'
+          ? <small>{label}</small>
+          : label()
+        : null
+      }
       {error && (
         <div className="invalid-feedback">
           <svg xmlns="http://www.w3.org/2000/svg" width="16.001" height="16" viewBox="0 0 16.001 16">
@@ -117,12 +123,6 @@ export const Input = ({
           <span>{typeof error === 'string' ? error : error.message}</span>
         </div>
       )}
-      {label
-        ? typeof label === 'string'
-          ? <small>{label}</small>
-          : label()
-        : null
-      }
     </div>
   )
 };

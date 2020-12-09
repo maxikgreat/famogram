@@ -5,8 +5,13 @@ import { toast } from 'react-toastify';
 import { Input } from '@/components/common';
 import { InstaUser } from '@/types';
 import { InstagramValueForm } from './FirstInstagram';
+import {DeepMap, FieldError, FieldName} from 'react-hook-form';
+import {FirstEnterForm} from '@/pages/first_enter';
 
 interface UsernameFormProps {
+  register: any,
+  errors: DeepMap<FirstEnterForm, FieldError>,
+  trigger: (name?: FieldName<FirstEnterForm> | FieldName<FirstEnterForm>[] | undefined) => Promise<boolean>,
   instagramAccount: InstagramValueForm,
   setInstagramAccount: Dispatch<SetStateAction<InstagramValueForm>>,
   checkAccount: (data: string) => Promise<InstaUser>,
@@ -15,6 +20,9 @@ interface UsernameFormProps {
 }
 
 export const UsernameForm: FC<UsernameFormProps> = ({
+  register,
+  errors,
+  trigger,
   instagramAccount,
   setInstagramAccount,
   checkAccount,
@@ -23,7 +31,6 @@ export const UsernameForm: FC<UsernameFormProps> = ({
 }) => {
 
   const checkAccountHandler = () => {
-    console.log(process.env);
     checkAccount(instagramAccount.value)
       .then(user => {
         setInstagramAccount(prevState => ({ ...prevState, user }));
@@ -37,17 +44,17 @@ export const UsernameForm: FC<UsernameFormProps> = ({
       <div className="row hero-caption pt-4 d-flex justify-content-end">
         <div className="col-12">
           <Input
+            register={register}
             icon={faInstagram}
             name="instagramAccount"
             placeholder="Instagram account"
-            value={instagramAccount.value}
-            onChange={({ target: { value }}) => setInstagramAccount(prevState => ({ ...prevState, value }))}
-            label={() => <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae.</p>}
+            label="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae"
+            error={errors.socialMedia?.instagramAccount}
           />
         </div>
         <div className="d-flex justify-content-end">
           <button
-            className={`btn btn-link mt-2 mb-3 mb-md-0 ${(!instagramAccount.value) && 'disabled'}`}
+            className="btn btn-link mt-2 mb-3 mb-md-0"
             onClick={checkAccountHandler}
             style={{zIndex: 10}}
           >

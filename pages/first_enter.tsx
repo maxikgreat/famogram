@@ -17,13 +17,8 @@ export interface FirstEnterForm {
   contactEmail: string,
   whatsApp: string,
   facebook: string,
-  socialMedia?: {
-    instagramAccount: string,
-    desc: string,
-    category: CategoryType,
-    pricePerStory: string,
-    pricePerPost: string,
-  }
+  role: Role | null,
+  profile?: any,
 };
 
 export interface InfoValueForm {
@@ -37,72 +32,89 @@ interface FirstEnterProps {
   token: string,
 }
 
-const validationSchema = yup.object<FirstEnterForm>().shape({
-  // contact info
-  contactEmail: yup.string()
-    .email('Email isn\'t valid')
-    .required('Email is required'),
-  whatsApp: yup.string(),
-  facebook: yup.string()
-    .url('It doesn\'t look like a url'),
-  // instagram or tiktok info
-  // TODO TikTok fields
-  socialMedia: yup.lazy((value) => {
-    if (value === 'instagram') {
-      return yup.object().shape({
-        instagramAccount: yup.string()
-          .required('Account is required'),
-        desc: yup.string()
-          .min(30, 'Min. 30 characters required')
-          .required('Short information is required'),
-        category: yup.string()
-          .required('Category is required')
-          .oneOf(categories, 'Pick category from list'),
-        pricePerStory: yup.string()
-          .required('Price is required')
-          .matches(/^[0-9]+$/g, 'Price must be a number'),
-        pricePerPost: yup.string()
-          .required('Price is required')
-          .matches(/^[0-9]+$/g, 'Price must be a number'),
-      })
-    }
-    return yup.mixed().notRequired();
-  }),
-});
-
 export const getServerSideProps = withAuth();
 
 export default function FirstEnter({ user, token }: FirstEnterProps) {
+  const validationSchema = yup.object({
+    // contact info
+    contactEmail: yup.string()
+      .email('Email isn\'t valid')
+      .required('Email is required'),
+    whatsApp: yup.string(),
+    facebook: yup.string()
+      .url('It doesn\'t look like a url'),
+    // role: yup.string().oneOf(['influencer', 'instagram', 'tiktok']).notRequired(),
+    role: yup.string().oneOf(['influencer', 'instagram', 'tiktok']),
+    profile: yup.object()
+      .when('role', {
+        is: value => value === 'instagram',
+        then: yup.object({
+          instagramAccount: yup.string()
+            .required('Account is required'),
+          desc: yup.string()
+            .min(30, 'Min. 30 characters required')
+            .required('Short information is required'),
+          category: yup.string()
+            .required('Category is required')
+            .oneOf(categories, 'Pick category from list'),
+          pricePerStory: yup.string()
+            .required('Price is required')
+            .matches(/^[0-9]+$/g, 'Price must be a number'),
+          pricePerPost: yup.string()
+            .required('Price is required')
+            .matches(/^[0-9]+$/g, 'Price must be a number'),
+        })
+      })
+      .when('role', {
+        is: value => value === 'tiktok',
+        // TODO tiktok validation
+        then: yup.object().notRequired(),
+        otherwise: yup.object().notRequired(),
+      })
+  });
+  
   const [toggler, setToggler] = useState(false);
   const [role, setRole] = useState<Role | null>(null);
   
-  const [info, setInfo] = useState<InfoValueForm>({
-    contactEmail: '',
-    whatsApp: '',
-    facebook: '',
-  });
-  
-  const { register, getValues, errors, handleSubmit } = useForm<FirstEnterForm>({
+  const { register, getValues, errors, handleSubmit, setValue, trigger } = useForm<FirstEnterForm>({
     resolver: yupResolver(validationSchema),
   });
   
-
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
-
+  
+  // setValue('role', 'instagram');
+  
+  const setRoleHandler = (role: Role) => {
+    console.log('errors', errors);
+    console.log('values', getValues());
+    setValue('role', role);
+    setRole(role);
+    // trigger()
+    //   .then((res) => {
+    //     if (res) {
+    //       // setRole(role);
+    //       setValue('role', role);
+    //     }
+    //   })
+  };
+  
   // TODO remove email if undefined (facebook example)
   const customEmailLabel = () => (
-    <p>
+    <small>
       Enter <span className="text-primary">valid</span>  email address or&nbsp;
       <span
-        onClick={() => setInfo(prevState => ({ ...prevState, contactEmail: user.email }))}
+        onClick={() => setValue('contactEmail', user.email)}
         style={{textDecoration: 'underline', cursor: 'pointer'}}
       >set email from profile</span>
-    </p>
-  )
+    </small>
+  );
+  
+  // console.log('errors', errors);
+  // console.log('values', getValues());
 
-  const finishHandler = (instaUserData?: InstagramMetadata) => {
-    console.log(instaUserData);
+  const finishHandler = (data: InfoValueForm) => {
+    console.log('submited values', data);
     // const { contactEmail, whatsApp, facebook } = info;
     // const data: {userId: string, metadata: Metadata } = {
     //   userId: user.sub,
@@ -131,29 +143,39 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   return (
     <BaseLayout className="first-enter">
       <section className="fabrx-section bg-white mt-5 p-3 p-md-0">
-        {
-          !role
-          ? <PickRole
-              register={register}
-              errors={errors}
-              handleSubmit={handleSubmit}
-              toggler={toggler}
-              setToggler={setToggler}
-              setRole={setRole}
-              info={info}
-              setInfo={setInfo}
-              customEmailLabel={customEmailLabel}
-              finishHandler={finishHandler}
-            />
-          : role === 'instagram'
-            ? <FirstInstagram
-                checkAccount={checkAccount}
-                finishHandler={finishHandler}
-                checkAccountLoading={checkAccountState.loading}
-                updateMetadataLoading={updateMetadataState.loading}
-              />
-            : null
-        }
+        <form onSubmit={handleSubmit(finishHandler)}>
+        {/*{*/}
+        {/*  !role*/}
+        {/*  ? <PickRole*/}
+        {/*      register={register}*/}
+        {/*      errors={errors}*/}
+        {/*      toggler={toggler}*/}
+        {/*      trigger={trigger}*/}
+        {/*      setToggler={setToggler}*/}
+        {/*      setRoleHandler={setRoleHandler}*/}
+        {/*      customEmailLabel={customEmailLabel}*/}
+        {/*    />*/}
+        {/*  : role === 'instagram'*/}
+        {/*    ? <FirstInstagram*/}
+        {/*        register={register}*/}
+        {/*        errors={errors}*/}
+        {/*        trigger={trigger}*/}
+        {/*        checkAccount={checkAccount}*/}
+        {/*        checkAccountLoading={checkAccountState.loading}*/}
+        {/*        updateMetadataLoading={updateMetadataState.loading}*/}
+        {/*      />*/}
+        {/*    : null*/}
+        {/*}*/}
+          <PickRole
+            register={register}
+            errors={errors}
+            toggler={toggler}
+            trigger={trigger}
+            setToggler={setToggler}
+            setRoleHandler={setRoleHandler}
+            customEmailLabel={customEmailLabel}
+          />
+        </form>
       </section>
     </BaseLayout>
   )

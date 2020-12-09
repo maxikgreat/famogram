@@ -3,6 +3,8 @@ import { animated, useTransition } from 'react-spring';
 
 import { InstagramMetadata, InstaUser } from "@/types";
 import { UsernameForm, CategoryPriceForm } from './'
+import {DeepMap, FieldError, FieldName} from 'react-hook-form';
+import {FirstEnterForm} from '@/pages/first_enter';
 
 export interface InstagramValueForm {
   value: string,
@@ -10,16 +12,20 @@ export interface InstagramValueForm {
 }
 
 interface FirstInstagramProps {
+  register: any,
+  errors: DeepMap<FirstEnterForm, FieldError>,
+  trigger: (name?: FieldName<FirstEnterForm> | FieldName<FirstEnterForm>[] | undefined) => Promise<boolean>,
   checkAccount: (data: string) => Promise<InstaUser>,
   checkAccountLoading: boolean,
-  finishHandler: (data: InstagramMetadata) => void,
   updateMetadataLoading: boolean,
 }
 
 export const FirstInstagram: VFC<FirstInstagramProps> = ({
+  register,
+  errors,
+  trigger,
   checkAccount,
   checkAccountLoading,
-  finishHandler,
   updateMetadataLoading
 }) => {
   const navTabs =  useRef<NodeListOf<HTMLElement> | null>(null);
@@ -68,6 +74,9 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
                   src="./assets/images/vectors/vector-15.svg"
                 />
                 <UsernameForm
+                  register={register}
+                  errors={errors}
+                  trigger={trigger}
                   instagramAccount={instagramAccount}
                   setInstagramAccount={setInstagramAccount}
                   checkAccount={checkAccount}
@@ -75,8 +84,9 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
                   navTo={() => navTabs.current?.item(1).click()}
                 />
                 <CategoryPriceForm
+                  register={register}
+                  errors={errors}
                   instaUser={instagramAccount.user as InstaUser}
-                  finishHandler={finishHandler}
                   updateMetadataLoading={updateMetadataLoading}
                 />
               </div>

@@ -1,38 +1,31 @@
 import React, { Dispatch, SetStateAction, VFC } from "react";
 import { animated, useSpring, useTransition } from 'react-spring';
 import { isMobile } from 'react-device-detect';
-import {DeepMap, FieldError} from 'react-hook-form';
+import {DeepMap, FieldError, FieldName} from 'react-hook-form';
 
 import { InstagramMetadata, Role } from "@/types";
 import { InfoForm } from './';
 import { FirstEnterForm, InfoValueForm } from "@/pages/first_enter";
-import { isEmail } from '@/helpers';
 
 
 interface PickRoleProps {
   register: any,
   errors: DeepMap<FirstEnterForm, FieldError>,
-  handleSubmit: any,
   toggler: boolean,
+  trigger: (name?: FieldName<FirstEnterForm> | FieldName<FirstEnterForm>[] | undefined) => Promise<boolean>,
   setToggler: Dispatch<SetStateAction<boolean>>,
-  setRole: Dispatch<SetStateAction<Role | null>>,
-  info: InfoValueForm,
-  setInfo: Dispatch<SetStateAction<InfoValueForm>>,
+  setRoleHandler: (role: Role) => void,
   customEmailLabel: () => JSX.Element,
-  finishHandler: (instaUserData?: InstagramMetadata) => void,
 }
 
 export const PickRole: VFC<PickRoleProps> = ({
   register,
   errors,
-  handleSubmit,
   toggler,
+  trigger,
   setToggler,
-  setRole,
-  info,
-  setInfo,
+  setRoleHandler,
   customEmailLabel,
-  finishHandler
 }) => {
   const { transform, opacity } = useSpring({
     opacity: toggler ? 1 : 0,
@@ -59,13 +52,11 @@ export const PickRole: VFC<PickRoleProps> = ({
     <>
       {
         transitions.map(({ item, props }) => (
-          <animated.form onSubmit={handleSubmit(finishHandler)} key={item} className="container py-2 py-md-5" style={props}>
+          <animated.div key={item} className="container py-2 py-md-5" style={props}>
             <h5>Tell other's how they can contact with you</h5>
             <InfoForm
               register={register}
               errors={errors}
-              info={info}
-              setInfo={setInfo}
               customEmailLabel={customEmailLabel}
             />
             <h5 className="mb-4">Pick your role</h5>
@@ -74,7 +65,12 @@ export const PickRole: VFC<PickRoleProps> = ({
                 className={`mb-0 mr-2 text-${toggler ? 'secondary' : 'accent'}`}
                 onClick={() => setToggler(false)}
               >Influencer</h6>
-              <input type="checkbox" className="toggle" checked={toggler} onChange={() => setToggler(!toggler)} />
+              <input
+                type="checkbox"
+                className="toggle"
+                checked={toggler}
+                onChange={() => setToggler(!toggler)}
+              />
               <h6
                 className={`mb-0 ml-2 text-${toggler ? 'primary' : 'secondary'}`}
                 onClick={() => setToggler(true)}
@@ -95,9 +91,8 @@ export const PickRole: VFC<PickRoleProps> = ({
                   <p>The carbon in our apple pies with pretty stories for which there's little good evidence </p>
                   <div className="pt-0 pt-md-1">
                     <button
-                      type="submit"
+                      onClick={() => setRoleHandler('influencer')}
                       className={`btn btn-${isMobile ? 'md' : 'xl'} btn-block btn-accent`}
-                      // onClick={() => finishHandler()}
                     >
                       Discover bloggers
                     </button>
@@ -113,14 +108,13 @@ export const PickRole: VFC<PickRoleProps> = ({
                   zIndex: toggler ? 10 : -10,
                 }}
               >
-                <div className="card-body p-2 p-md-5 text-center">
+                <div className="card-body p-2 p-md-5 text-center" ref={register}>
                   <h3 className="mb-2 mb-md-4">Blogger</h3>
                   <p>The carbon in our apple pies with pretty stories for which there's little good evidence </p>
                   <div className="pt-0 pt-md-1 d-flex justify-content-around">
                     <button
                       className={`btn btn-${isMobile ? 'md' : 'xl'} btn-primary`}
-                      onClick={() => setRole('instagram')}
-                      disabled={!isEmail(info.contactEmail)}
+                      onClick={() => setRoleHandler('instagram')}
                     >Instagram</button>
                     <button
                       disabled
@@ -130,7 +124,12 @@ export const PickRole: VFC<PickRoleProps> = ({
                 </div>
               </animated.div>
             </div>
-          </animated.form>
+            <input
+              ref={register}
+              className="d-none"
+              name="role"
+            />
+          </animated.div>
         ))
       }
     </>
