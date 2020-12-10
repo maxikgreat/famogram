@@ -24,50 +24,18 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
   instaUser,
   updateMetadataLoading
 }) => {
-  const [desc, setDesc] = useState('');
-  const [category, setCategory] = useState('');
-  const [price, setPrice] = useState<PriceValueForm>({
-    story: '',
-    post: '',
-  });
-
-  const onChange = (value: string, name: 'post' | 'story') => {
-    let str = value;
-    if (str.includes(',')) str = str.replace(',', '.');
-    setPrice(prevState => ({
-      ...prevState,
-      [name]: str,
-    }));
-  }
-
-  const checkAllFieldsPassed = () =>
-    isCategory(category) && (isNumber(price.story) && isNumber(price.post)) && desc.length > 30
-
-  const charactersRemain = () => `${30 - desc.length} characters remain`;
-
   return (
     <div className={`tab-pane fade`} id="CategoryAndPrice" role="tabpanel">
-      <div className="row hero-caption pt-4">
+      <div className="row pt-4">
         <div className="col-12">
           <Input
             register={register}
             textarea={true}
-            name="desc"
+            name="profile.desc"
             placeholder="Short description"
             icon={faInfoCircle}
-            // onChange={({ target: { value }}) => setDesc(value)}
-            label={() => (
-              <small>Tell us a short story about your bla bla bla...
-                <span className="text-primary">
-                  {
-                    30 - desc.length > 0
-                      ? charactersRemain()
-                      : null
-                  }
-                </span>
-              </small>
-            )}
-            error={errors.socialMedia?.desc}
+            label="Tell us a short story about your bla bla bla... (min 30. characters)"
+            error={errors.profile?.desc}
           />
         </div>
         
@@ -78,48 +46,36 @@ export const CategoryPriceForm: FC<CategoryFormProps> = ({
           <Input
             register={register}
             list="categories"
-            name="category"
+            name="profile.category"
             placeholder="Category"
             icon={faList}
-            // onChange={({ target: { value }}) => setCategory(value)}
             label={() => <small>To continue, pick category from <span className="text-primary">existing one</span></small>}
-            error={errors.socialMedia?.category}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <Input
-            icon={faHandHoldingUsd}
-            name="pricePerStory"
-            placeholder="Price per story"
-            // value={price.story}
-            // onChange={({ target: { value }}) => onChange(value, 'story')}
-            error={errors.socialMedia?.pricePerStory}
+            error={errors.profile?.category}
           />
         </div>
         <div className="col-12 col-md-6">
           <Input
             register={register}
             icon={faHandHoldingUsd}
-            name="pricePerPost"
-            placeholder="Price per post"
-            // value={price.post}
-            // onChange={({ target: { value }}) => onChange(value, 'post')}
-            error={errors.socialMedia?.pricePerPost}
+            name="profile.pricePerStory"
+            placeholder="Price per story"
+            error={errors.profile?.pricePerStory}
           />
         </div>
-        <p style={{transform: 'translateY(-15px)'}}>Fill price fields <span className="text-primary">with digits.</span> All prices will be in dollars</p>
+        <div className="col-12 col-md-6">
+          <Input
+            register={register}
+            icon={faHandHoldingUsd}
+            name="profile.pricePerPost"
+            placeholder="Price per post"
+            error={errors.profile?.pricePerPost}
+          />
+        </div>
+        <small style={{transform: 'translateY(-5px)'}}>Fill price fields <span className="text-primary">with digits.</span> All prices will be in dollars</small>
         <div className="d-flex justify-content-end">
           <button
-            className={`btn btn-link mt-2 mb-3 mb-md-0 ${!checkAllFieldsPassed() && 'disabled'}`}
-            // onClick={() => finishHandler({
-            //   user: instaUser,
-            //   desc,
-            //   category: category as Category,
-            //   price: {
-            //     story: Number(price.story),
-            //     post: Number(price.post),
-            //   },
-            // })}
+            type="submit"
+            className="btn btn-link mt-2 mb-3 mb-md-0"
             style={{zIndex: 10}}
           >
             {

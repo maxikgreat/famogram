@@ -12,13 +12,25 @@ import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
 import { FirstInstagram } from '@/components/pages/firstEnter/FirstInstagram';
 
+export interface FirstInstagramForm {
+  instagramAccount: string,
+  desc: string,
+  category: CategoryType,
+  pricePerStory: string,
+  pricePerPost: string,
+}
+
+export interface FirstTikTokForm {
+  tiktokAccount: string,
+  desc: string,
+}
 
 export interface FirstEnterForm {
   contactEmail: string,
   whatsApp: string,
   facebook: string,
   role: Role | null,
-  profile?: any,
+  profile?: FirstInstagramForm
 };
 
 export interface InfoValueForm {
@@ -76,27 +88,19 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   const [toggler, setToggler] = useState(false);
   const [role, setRole] = useState<Role | null>(null);
   
-  const { register, getValues, errors, handleSubmit, setValue, trigger } = useForm<FirstEnterForm>({
+  const { register, getValues, errors, handleSubmit, setValue, trigger, clearErrors } = useForm<FirstEnterForm>({
     resolver: yupResolver(validationSchema),
   });
   
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
   
-  // setValue('role', 'instagram');
-  
-  const setRoleHandler = (role: Role) => {
-    console.log('errors', errors);
-    console.log('values', getValues());
-    setValue('role', role);
-    setRole(role);
-    // trigger()
-    //   .then((res) => {
-    //     if (res) {
-    //       // setRole(role);
-    //       setValue('role', role);
-    //     }
-    //   })
+  const setRoleHandler = async (role: Role) => {
+    const result = await trigger(['contactEmail', 'whatsApp', 'facebook']);
+    if (result) {
+      setRole(role);
+      setValue('role', role);
+    }
   };
   
   // TODO remove email if undefined (facebook example)
@@ -110,8 +114,8 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
     </small>
   );
   
-  // console.log('errors', errors);
-  // console.log('values', getValues());
+  console.log('errors', errors);
+  console.log('values', getValues());
 
   const finishHandler = (data: InfoValueForm) => {
     console.log('submited values', data);
@@ -143,37 +147,21 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   return (
     <BaseLayout className="first-enter">
       <section className="fabrx-section bg-white mt-5 p-3 p-md-0">
-        <form onSubmit={handleSubmit(finishHandler)}>
-        {/*{*/}
-        {/*  !role*/}
-        {/*  ? <PickRole*/}
-        {/*      register={register}*/}
-        {/*      errors={errors}*/}
-        {/*      toggler={toggler}*/}
-        {/*      trigger={trigger}*/}
-        {/*      setToggler={setToggler}*/}
-        {/*      setRoleHandler={setRoleHandler}*/}
-        {/*      customEmailLabel={customEmailLabel}*/}
-        {/*    />*/}
-        {/*  : role === 'instagram'*/}
-        {/*    ? <FirstInstagram*/}
-        {/*        register={register}*/}
-        {/*        errors={errors}*/}
-        {/*        trigger={trigger}*/}
-        {/*        checkAccount={checkAccount}*/}
-        {/*        checkAccountLoading={checkAccountState.loading}*/}
-        {/*        updateMetadataLoading={updateMetadataState.loading}*/}
-        {/*      />*/}
-        {/*    : null*/}
-        {/*}*/}
+        <form onSubmit={handleSubmit(finishHandler)} className="position-relative">
           <PickRole
             register={register}
             errors={errors}
             toggler={toggler}
-            trigger={trigger}
+            // trigger={trigger}
+            role={role}
             setToggler={setToggler}
             setRoleHandler={setRoleHandler}
             customEmailLabel={customEmailLabel}
+            getValues={getValues}
+            clearErrors={clearErrors}
+            checkAccount={checkAccount}
+            checkAccountLoading={checkAccountState.loading}
+            updateMetadataLoading={updateMetadataState.loading}
           />
         </form>
       </section>

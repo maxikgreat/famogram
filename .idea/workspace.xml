@@ -24,10 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Input.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/CategoryPriceForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/CategoryPriceForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/InfoForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/InfoForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/first_enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/first_enter.tsx" afterDir="false" />
@@ -77,7 +75,9 @@
       <workItem from="1607098842329" duration="52727000" />
       <workItem from="1607454746486" duration="946000" />
       <workItem from="1607502383543" duration="66000" />
-      <workItem from="1607531645527" duration="6699000" />
+      <workItem from="1607531645527" duration="7785000" />
+      <workItem from="1607616591283" duration="3145000" />
+      <workItem from="1607628330813" duration="6556000" />
     </task>
     <servers />
   </component>
@@ -112,6 +112,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606417351166" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1607619853869">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1607619853869" />
     <state x="105" y="205" width="1335" height="490" key="find.popup" timestamp="1607277795695">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -4,16 +4,16 @@ import { toast } from 'react-toastify';
 
 import { Input } from '@/components/common';
 import { InstaUser } from '@/types';
-import { InstagramValueForm } from './FirstInstagram';
 import {DeepMap, FieldError, FieldName} from 'react-hook-form';
-import {FirstEnterForm} from '@/pages/first_enter';
+import {FirstEnterForm, FirstInstagramForm} from '@/pages/first_enter';
 
 interface UsernameFormProps {
   register: any,
   errors: DeepMap<FirstEnterForm, FieldError>,
-  trigger: (name?: FieldName<FirstEnterForm> | FieldName<FirstEnterForm>[] | undefined) => Promise<boolean>,
-  instagramAccount: InstagramValueForm,
-  setInstagramAccount: Dispatch<SetStateAction<InstagramValueForm>>,
+  instagramInput: string,
+  clearErrors: (names?: string | string[]) => void,
+  instagramAccount: InstaUser | null,
+  setInstagramAccount: Dispatch<SetStateAction<InstaUser | null>>,
   checkAccount: (data: string) => Promise<InstaUser>,
   checkAccountLoading: boolean,
   navTo: () => void
@@ -22,34 +22,36 @@ interface UsernameFormProps {
 export const UsernameForm: FC<UsernameFormProps> = ({
   register,
   errors,
-  trigger,
+  instagramInput,
   instagramAccount,
+  clearErrors,
   setInstagramAccount,
   checkAccount,
   checkAccountLoading,
   navTo
 }) => {
-
   const checkAccountHandler = () => {
-    checkAccount(instagramAccount.value)
+    if (errors.profile?.instagramAccount) return;
+    checkAccount(instagramInput)
       .then(user => {
-        setInstagramAccount(prevState => ({ ...prevState, user }));
+        setInstagramAccount(user);
+        clearErrors();
         navTo();
       })
       .catch(error => toast(error, { type: 'error' }));
   };
 
   return (
-    <div className={`tab-pane fade ${!instagramAccount.user && 'active show'}`} id="Instagram" role="tabpanel">
-      <div className="row hero-caption pt-4 d-flex justify-content-end">
+    <div className={`tab-pane fade ${!instagramAccount && 'active show'}`} id="Instagram" role="tabpanel">
+      <div className="row pt-4 d-flex justify-content-end">
         <div className="col-12">
           <Input
             register={register}
             icon={faInstagram}
-            name="instagramAccount"
+            name="profile.instagramAccount"
             placeholder="Instagram account"
             label="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae"
-            error={errors.socialMedia?.instagramAccount}
+            error={errors.profile?.instagramAccount}
           />
         </div>
         <div className="d-flex justify-content-end">
