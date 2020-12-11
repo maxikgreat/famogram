@@ -1,15 +1,14 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { toast } from 'react-toastify';
-import { DeepMap, FieldError } from 'react-hook-form';
+import { FieldError } from 'react-hook-form';
 
 import { Input } from '@/components/common';
 import { InstaUser } from '@/types';
-import { FirstEnterForm } from '@/pages/first_enter';
 
 interface UsernameFormProps {
   register: any,
-  errors: DeepMap<FirstEnterForm, FieldError>,
+  instagramAccountError: FieldError | undefined,
   instagramInput: string,
   clearErrors: (names?: string | string[]) => void,
   instagramAccount: InstaUser | null,
@@ -21,7 +20,7 @@ interface UsernameFormProps {
 
 export const UsernameForm: FC<UsernameFormProps> = ({
   register,
-  errors,
+  instagramAccountError,
   instagramInput,
   instagramAccount,
   clearErrors,
@@ -31,7 +30,7 @@ export const UsernameForm: FC<UsernameFormProps> = ({
   navTo
 }) => {
   const checkAccountHandler = () => {
-    if (errors.profile?.instagramAccount) return;
+    if (instagramAccountError) return;
     if (instagramInput.trim() === '') return;
     checkAccount(instagramInput)
       .then(user => {
@@ -52,7 +51,7 @@ export const UsernameForm: FC<UsernameFormProps> = ({
             name="profile.instagramAccount"
             placeholder="Instagram account"
             label="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae"
-            error={errors.profile?.instagramAccount}
+            error={instagramAccountError}
           />
         </div>
         <div className="d-flex justify-content-end">

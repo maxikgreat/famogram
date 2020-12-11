@@ -28,7 +28,10 @@
       <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/PickRole.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/instagramProfile/MainInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/instagramProfile/MainInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/first_enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/first_enter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/instagram_profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instagram_profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +81,7 @@
       <workItem from="1607531645527" duration="7785000" />
       <workItem from="1607616591283" duration="3145000" />
       <workItem from="1607628330813" duration="6954000" />
-      <workItem from="1607704000440" duration="2614000" />
+      <workItem from="1607704000440" duration="7486000" />
     </task>
     <servers />
   </component>

@@ -46,6 +46,15 @@ export const PickRole: VFC<PickRoleProps> = ({
     transform: `perspective(600px) rotateX(${toggler ? 180 : 0}deg)`,
     config: { mass: 5, tension: 500, friction: 80 }
   });
+  
+  const dependedErrors = () => ({
+    instagramAccount: errors.profile?.instagramAccount,
+    categories: errors.profile?.category,
+    pricePerPost: errors.profile?.pricePerPost,
+    pricePerStory: errors.profile?.pricePerStory,
+    desc: errors.profile?.desc,
+  });
+  
   return (
     <div className="container py-2 py-md-5">
       <h5>Tell other's how they can contact with you</h5>
@@ -122,7 +131,7 @@ export const PickRole: VFC<PickRoleProps> = ({
       {role === 'instagram' && (
         <FirstInstagram
           register={register}
-          errors={errors}
+          errors={dependedErrors()}
           checkAccount={checkAccount}
           instagramInput={getValues('profile.instagramAccount')}
           instagramUser={instagramUser}

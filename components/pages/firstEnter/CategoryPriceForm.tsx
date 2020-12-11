@@ -1,11 +1,10 @@
 import { VFC } from 'react';
 import { faHandHoldingUsd, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
-import { DeepMap, FieldError } from 'react-hook-form';
+import { FieldError } from 'react-hook-form';
 
 import { categories } from '@/types';
 import { Input } from '@/components/common';
-import { FirstEnterForm } from '@/pages/first_enter';
 
 export interface PriceValueForm {
   story: string,
@@ -13,13 +12,18 @@ export interface PriceValueForm {
 }
 interface CategoryFormProps {
   register: any,
-  errors: DeepMap<FirstEnterForm, FieldError>,
+  categoryPriceErrors: {
+    categories: FieldError | undefined,
+    pricePerPost: FieldError | undefined,
+    pricePerStory: FieldError | undefined,
+    desc: FieldError | undefined,
+  }
   updateMetadataLoading: boolean,
 }
 
 export const CategoryPriceForm: VFC<CategoryFormProps> = ({
   register,
-  errors,
+  categoryPriceErrors,
   updateMetadataLoading
 }) => {
   return (
@@ -33,7 +37,7 @@ export const CategoryPriceForm: VFC<CategoryFormProps> = ({
             placeholder="Short description"
             icon={faInfoCircle}
             label="Tell us a short story about your bla bla bla... (min 30. characters)"
-            error={errors.profile?.desc}
+            error={categoryPriceErrors.desc}
           />
         </div>
         
@@ -48,7 +52,7 @@ export const CategoryPriceForm: VFC<CategoryFormProps> = ({
             placeholder="Category"
             icon={faList}
             label={() => <small>To continue, pick category from <span className="text-primary">existing one</span></small>}
-            error={errors.profile?.category}
+            error={categoryPriceErrors.categories}
           />
         </div>
         <div className="col-12 col-md-6">
@@ -57,7 +61,7 @@ export const CategoryPriceForm: VFC<CategoryFormProps> = ({
             icon={faHandHoldingUsd}
             name="profile.pricePerStory"
             placeholder="Price per story"
-            error={errors.profile?.pricePerStory}
+            error={categoryPriceErrors.pricePerStory}
           />
         </div>
         <div className="col-12 col-md-6">
@@ -66,7 +70,7 @@ export const CategoryPriceForm: VFC<CategoryFormProps> = ({
             icon={faHandHoldingUsd}
             name="profile.pricePerPost"
             placeholder="Price per post"
-            error={errors.profile?.pricePerPost}
+            error={categoryPriceErrors.pricePerPost}
           />
         </div>
         <small style={{transform: 'translateY(-5px)'}}>Fill price fields <span className="text-primary">with digits.</span> All prices will be in dollars</small>

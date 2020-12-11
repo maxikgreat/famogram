@@ -17,9 +17,6 @@ interface SettingsProps {
 export const getServerSideProps = withAuth();
 
 export default function Settings({ user, token }: SettingsProps) {
-
-  if (!user.user_metadata?.contactInfo) return <Redirect url='/first_enter' />
-
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
   const [updateNewEmail, updateEmailState] = useUpdateEmail(token);
   const [updatePassword, updatePasswordState] = useUpdatePassword(token);
@@ -63,7 +60,9 @@ export default function Settings({ user, token }: SettingsProps) {
       })
       .catch((error) => toast(error, {type: 'error'}))
   }
-
+  
+  if (!user.user_metadata?.contactInfo) return <Redirect url='/first_enter' />
+  
   return (
     <BaseLayout className="general">
      <section className="fabrx-section bg-white mt-0 mt-md-5">

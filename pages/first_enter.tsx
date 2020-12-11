@@ -30,61 +30,61 @@ export interface FirstEnterForm {
   facebook: string,
   role: Role | null,
   profile?: FirstInstagramForm
-};
+}
 
 interface FirstEnterProps {
   user: User,
   token: string,
 }
 
+const validationSchema = yup.object({
+  // contact info
+  contactEmail: yup.string()
+    .email('Email isn\'t valid')
+    .required('Email is required'),
+  whatsApp: yup.string(),
+  facebook: yup.string()
+    .url('It doesn\'t look like a url'),
+  role: yup.string().oneOf(['influencer', 'instagram', 'tiktok']),
+  profile: yup.object()
+    .when('role', {
+      is: value => value === 'instagram',
+      then: yup.object({
+        instagramAccount: yup.string()
+          .matches(/^[_A-z0-9]*((-|\s)*[_A-z0-9])*$/, 'No special characters required')
+          .required('Account is required'),
+        desc: yup.string()
+          .min(30, 'Min. 30 characters required')
+          .required('Short information is required'),
+        category: yup.string()
+          .required('Category is required')
+          .oneOf(categories, 'Pick category from list'),
+        pricePerStory: yup.string()
+          .required('Price is required')
+          .matches(/^[0-9]+$/g, 'Price must be a number'),
+        pricePerPost: yup.string()
+          .required('Price is required')
+          .matches(/^[0-9]+$/g, 'Price must be a number'),
+      })
+    })
+    .when('role', {
+      is: value => value === 'tiktok',
+      // TODO tiktok validation
+      then: yup.object().notRequired(),
+      otherwise: yup.object().notRequired(),
+    })
+});
+
 export const getServerSideProps = withAuth();
 
 export default function FirstEnter({ user, token }: FirstEnterProps) {
-  const validationSchema = yup.object({
-    // contact info
-    contactEmail: yup.string()
-      .email('Email isn\'t valid')
-      .required('Email is required'),
-    whatsApp: yup.string(),
-    facebook: yup.string()
-      .url('It doesn\'t look like a url'),
-    role: yup.string().oneOf(['influencer', 'instagram', 'tiktok']),
-    profile: yup.object()
-      .when('role', {
-        is: value => value === 'instagram',
-        then: yup.object({
-          instagramAccount: yup.string()
-            .matches(/^[_A-z0-9]*((-|\s)*[_A-z0-9])*$/, 'No special characters required')
-            .required('Account is required'),
-          desc: yup.string()
-            .min(30, 'Min. 30 characters required')
-            .required('Short information is required'),
-          category: yup.string()
-            .required('Category is required')
-            .oneOf(categories, 'Pick category from list'),
-          pricePerStory: yup.string()
-            .required('Price is required')
-            .matches(/^[0-9]+$/g, 'Price must be a number'),
-          pricePerPost: yup.string()
-            .required('Price is required')
-            .matches(/^[0-9]+$/g, 'Price must be a number'),
-        })
-      })
-      .when('role', {
-        is: value => value === 'tiktok',
-        // TODO tiktok validation
-        then: yup.object().notRequired(),
-        otherwise: yup.object().notRequired(),
-      })
+  const { register, getValues, errors, handleSubmit, setValue, trigger, clearErrors } = useForm<FirstEnterForm>({
+    resolver: yupResolver(validationSchema),
   });
   
   const [toggler, setToggler] = useState(false);
   const [role, setRole] = useState<Role | null>(null);
   const [instagramUser, setInstagramUser] = useState<InstaUser | null>(null);
-  
-  const { register, getValues, errors, handleSubmit, setValue, trigger, clearErrors } = useForm<FirstEnterForm>({
-    resolver: yupResolver(validationSchema),
-  });
   
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
@@ -100,44 +100,45 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   // TODO remove email if undefined (facebook example)
   const customEmailLabel = () => (
     <small>
-      Enter <span className="text-primary">valid</span>  email address or&nbsp;
+      Enter <span className="text-primary">valid</span>  email address
       <span
         onClick={() => setValue('contactEmail', user.email)}
         style={{textDecoration: 'underline', cursor: 'pointer'}}
-      >set email from profile</span>
+      >&nbsp; or set email from profile</span>
     </small>
   );
 
-  const finishHandler = (formData: FirstEnterForm) => {
+  const finishHandler = async (formData: FirstEnterForm) => {
     const { contactEmail, whatsApp, facebook, profile } = formData;
-    const data: {userId: string, metadata: Metadata } = {
-      userId: user.sub,
-      metadata: {
-        instagram: profile ? {
-          user: instagramUser as InstaUser,
-          desc: profile.desc,
-          category: profile.category,
-          price: {
-            post: Number(profile.pricePerPost),
-            story: Number(profile.pricePerStory)
-          }
-        } : undefined,
-        contactInfo: {
-          contactEmail,
-          messengers: {
-            whatsApp,
-            facebook
+    try {
+      const data: {userId: string, metadata: Metadata } = {
+        userId: user.sub,
+        metadata: {
+          instagram: profile ? {
+            user: instagramUser as InstaUser,
+            desc: profile.desc,
+            category: profile.category,
+            price: {
+              post: Number(profile.pricePerPost),
+              story: Number(profile.pricePerStory)
+            }
+          } : undefined,
+          contactInfo: {
+            contactEmail,
+            messengers: {
+              whatsApp,
+              facebook
+            }
           }
         }
-      }
-    };
-
-    updateMetadata(data)
-      .then(() => {
-        // not handled correctly in auth0-nextjs library so thats the solution
-        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger&prompt=true';
-      })
-      .catch((error) => toast(error, { type: 'error' }));
+      };
+  
+      await updateMetadata(data);
+      toast('Profile created!', { type: 'success' });
+      if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger&prompt=true';
+    } catch (error) {
+      toast(error, { type: 'error' });
+    }
   }
 
   if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />

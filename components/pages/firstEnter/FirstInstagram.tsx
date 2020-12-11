@@ -8,7 +8,13 @@ import { FirstEnterForm } from '@/pages/first_enter';
 
 interface FirstInstagramProps {
   register: any,
-  errors: DeepMap<FirstEnterForm, FieldError>,
+  errors: {
+    instagramAccount: FieldError | undefined,
+    categories: FieldError | undefined,
+    pricePerPost: FieldError | undefined,
+    pricePerStory: FieldError | undefined,
+    desc: FieldError | undefined,
+  },
   instagramUser: InstaUser | null,
   setInstagramUser: Dispatch<SetStateAction<InstaUser | null>>
   instagramInput: string,
@@ -36,8 +42,6 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
     }, 100);
     navTabs.current = document.querySelectorAll('.first-enter-tabs > .nav-item > .nav-link');
   }, []);
-
-  const [instagramAccount, setInstagramAccount] = useState<InstaUser | null>(null);
   
   const transitions = useTransition(1, item => item, {
     from: {
@@ -62,10 +66,10 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
             <div className="pr-0 pt-0 pt-lg-3 pb-4 pb-md-5">
               <ul className="nav nav-tabs nav-tabs-md bg-transparent nav-tabs-line nav-justified first-enter-tabs">
                 <li className="nav-item" style={{zIndex: 10}}>
-                  <a className={`nav-link ${!instagramAccount && 'active'} text-left px-0`} data-toggle="tab" href="#Instagram">1. Username</a>
+                  <a className={`nav-link ${!instagramUser && 'active'} text-left px-0`} data-toggle="tab" href="#Instagram">1. Username</a>
                 </li>
                 <li className="nav-item" style={{zIndex: 10}}>
-                  <a className={`nav-link ${!instagramAccount && 'disabled'} text-left px-0`} data-toggle="tab" href="#CategoryAndPrice">2. Category & Price</a>
+                  <a className={`nav-link ${!instagramUser && 'disabled'} text-left px-0`} data-toggle="tab" href="#CategoryAndPrice">2. Category & Price</a>
                 </li>
               </ul>
               <div className="tab-content position-relative" id="myTabContent">
@@ -76,18 +80,23 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
                 />
                 <UsernameForm
                   register={register}
-                  errors={errors}
+                  instagramAccountError={errors.instagramAccount}
                   clearErrors={clearErrors}
                   instagramInput={instagramInput}
-                  instagramAccount={instagramAccount}
-                  setInstagramAccount={setInstagramAccount}
+                  instagramAccount={instagramUser}
+                  setInstagramAccount={setInstagramUser}
                   checkAccount={checkAccount}
                   checkAccountLoading={checkAccountLoading}
                   navTo={() => navTabs.current?.item(1).click()}
                 />
                 <CategoryPriceForm
                   register={register}
-                  errors={errors}
+                  categoryPriceErrors={{
+                    categories: errors.categories,
+                    pricePerPost: errors.pricePerPost,
+                    pricePerStory: errors.pricePerStory,
+                    desc: errors.desc,
+                  }}
                   updateMetadataLoading={updateMetadataLoading}
                 />
               </div>
