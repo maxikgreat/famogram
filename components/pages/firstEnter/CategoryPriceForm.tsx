@@ -1,12 +1,12 @@
-import { FC, useState } from 'react';
+import { VFC } from 'react';
 import { faHandHoldingUsd, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-
-import { isCategory, isNumber } from '@/helpers';
-import { categories, Category, InstagramMetadata, InstaUser } from '@/types';
-import { Input } from '@/components/common';
 import { faList } from '@fortawesome/free-solid-svg-icons';
-import {DeepMap, FieldError} from 'react-hook-form';
-import {FirstEnterForm} from '@/pages/first_enter';
+import { DeepMap, FieldError } from 'react-hook-form';
+
+import { categories } from '@/types';
+import { Input } from '@/components/common';
+import { FirstEnterForm } from '@/pages/first_enter';
+
 export interface PriceValueForm {
   story: string,
   post: string,
@@ -14,14 +14,12 @@ export interface PriceValueForm {
 interface CategoryFormProps {
   register: any,
   errors: DeepMap<FirstEnterForm, FieldError>,
-  instaUser: InstaUser,
   updateMetadataLoading: boolean,
 }
 
-export const CategoryPriceForm: FC<CategoryFormProps> = ({
+export const CategoryPriceForm: VFC<CategoryFormProps> = ({
   register,
   errors,
-  instaUser,
   updateMetadataLoading
 }) => {
   return (

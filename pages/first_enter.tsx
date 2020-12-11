@@ -4,13 +4,12 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { categories, InstagramMetadata, Metadata, Role, User, Category as CategoryType } from '@/types'
+import { categories, Metadata, Role, User, Category as CategoryType, InstaUser } from '@/types'
 import { BaseLayout } from '@/components/layouts'
 import { Redirect } from '@/components/common';
 import { PickRole } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
-import { FirstInstagram } from '@/components/pages/firstEnter/FirstInstagram';
 
 export interface FirstInstagramForm {
   instagramAccount: string,
@@ -33,12 +32,6 @@ export interface FirstEnterForm {
   profile?: FirstInstagramForm
 };
 
-export interface InfoValueForm {
-  contactEmail: string,
-  whatsApp: string,
-  facebook: string,
-}
-
 interface FirstEnterProps {
   user: User,
   token: string,
@@ -55,13 +48,13 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
     whatsApp: yup.string(),
     facebook: yup.string()
       .url('It doesn\'t look like a url'),
-    // role: yup.string().oneOf(['influencer', 'instagram', 'tiktok']).notRequired(),
     role: yup.string().oneOf(['influencer', 'instagram', 'tiktok']),
     profile: yup.object()
       .when('role', {
         is: value => value === 'instagram',
         then: yup.object({
           instagramAccount: yup.string()
+            .matches(/^[_A-z0-9]*((-|\s)*[_A-z0-9])*$/, 'No special characters required')
             .required('Account is required'),
           desc: yup.string()
             .min(30, 'Min. 30 characters required')
@@ -87,6 +80,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   
   const [toggler, setToggler] = useState(false);
   const [role, setRole] = useState<Role | null>(null);
+  const [instagramUser, setInstagramUser] = useState<InstaUser | null>(null);
   
   const { register, getValues, errors, handleSubmit, setValue, trigger, clearErrors } = useForm<FirstEnterForm>({
     resolver: yupResolver(validationSchema),
@@ -113,33 +107,37 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
       >set email from profile</span>
     </small>
   );
-  
-  console.log('errors', errors);
-  console.log('values', getValues());
 
-  const finishHandler = (data: InfoValueForm) => {
-    console.log('submited values', data);
-    // const { contactEmail, whatsApp, facebook } = info;
-    // const data: {userId: string, metadata: Metadata } = {
-    //   userId: user.sub,
-    //   metadata: {
-    //     instagram: instaUserData,
-    //     contactInfo: {
-    //       contactEmail,
-    //       messengers: {
-    //         whatsApp,
-    //         facebook
-    //       }
-    //     }
-    //   }
-    // };
-    //
-    // updateMetadata(data)
-    //   .then(() => {
-    //     // not handled correctly in auth0-nextjs library so thats the solution
-    //     if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger&prompt=true';
-    //   })
-    //   .catch((error) => toast(error, { type: 'error' }));
+  const finishHandler = (formData: FirstEnterForm) => {
+    const { contactEmail, whatsApp, facebook, profile } = formData;
+    const data: {userId: string, metadata: Metadata } = {
+      userId: user.sub,
+      metadata: {
+        instagram: profile ? {
+          user: instagramUser as InstaUser,
+          desc: profile.desc,
+          category: profile.category,
+          price: {
+            post: Number(profile.pricePerPost),
+            story: Number(profile.pricePerStory)
+          }
+        } : undefined,
+        contactInfo: {
+          contactEmail,
+          messengers: {
+            whatsApp,
+            facebook
+          }
+        }
+      }
+    };
+
+    updateMetadata(data)
+      .then(() => {
+        // not handled correctly in auth0-nextjs library so thats the solution
+        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger&prompt=true';
+      })
+      .catch((error) => toast(error, { type: 'error' }));
   }
 
   if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
@@ -152,11 +150,12 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
             register={register}
             errors={errors}
             toggler={toggler}
-            // trigger={trigger}
             role={role}
             setToggler={setToggler}
             setRoleHandler={setRoleHandler}
             customEmailLabel={customEmailLabel}
+            instagramUser={instagramUser}
+            setInstagramUser={setInstagramUser}
             getValues={getValues}
             clearErrors={clearErrors}
             checkAccount={checkAccount}

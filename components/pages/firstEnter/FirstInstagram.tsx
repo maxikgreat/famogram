@@ -1,15 +1,16 @@
-import React, { VFC, useState, useEffect, useRef } from "react";
+import React, {VFC, useState, useEffect, useRef, Dispatch, SetStateAction} from "react";
 import { animated, useTransition } from 'react-spring';
+import { DeepMap, FieldError } from 'react-hook-form';
 
-import { InstagramMetadata, InstaUser } from "@/types";
+import { InstaUser } from "@/types";
 import { UsernameForm, CategoryPriceForm } from './'
-import {DeepMap, FieldError, FieldName} from 'react-hook-form';
-import {FirstEnterForm} from '@/pages/first_enter';
+import { FirstEnterForm } from '@/pages/first_enter';
 
 interface FirstInstagramProps {
   register: any,
   errors: DeepMap<FirstEnterForm, FieldError>,
-  // trigger: (name?: FieldName<FirstEnterForm> | FieldName<FirstEnterForm>[] | undefined) => Promise<boolean>,
+  instagramUser: InstaUser | null,
+  setInstagramUser: Dispatch<SetStateAction<InstaUser | null>>
   instagramInput: string,
   clearErrors: (names?: string | string[]) => void,
   checkAccount: (data: string) => Promise<InstaUser>,
@@ -20,7 +21,8 @@ interface FirstInstagramProps {
 export const FirstInstagram: VFC<FirstInstagramProps> = ({
   register,
   errors,
-  // trigger,
+  instagramUser,
+  setInstagramUser,
   clearErrors,
   instagramInput,
   checkAccount,
@@ -86,7 +88,6 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
                 <CategoryPriceForm
                   register={register}
                   errors={errors}
-                  instaUser={instagramAccount as InstaUser}
                   updateMetadataLoading={updateMetadataLoading}
                 />
               </div>

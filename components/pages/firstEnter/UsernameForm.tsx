@@ -1,11 +1,11 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { toast } from 'react-toastify';
+import { DeepMap, FieldError } from 'react-hook-form';
 
 import { Input } from '@/components/common';
 import { InstaUser } from '@/types';
-import {DeepMap, FieldError, FieldName} from 'react-hook-form';
-import {FirstEnterForm, FirstInstagramForm} from '@/pages/first_enter';
+import { FirstEnterForm } from '@/pages/first_enter';
 
 interface UsernameFormProps {
   register: any,
@@ -32,6 +32,7 @@ export const UsernameForm: FC<UsernameFormProps> = ({
 }) => {
   const checkAccountHandler = () => {
     if (errors.profile?.instagramAccount) return;
+    if (instagramInput.trim() === '') return;
     checkAccount(instagramInput)
       .then(user => {
         setInstagramAccount(user);

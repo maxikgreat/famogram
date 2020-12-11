@@ -1,11 +1,11 @@
 import React, { Dispatch, SetStateAction, VFC } from "react";
-import { animated, useSpring, useTransition } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 import { isMobile } from 'react-device-detect';
-import {DeepMap, FieldError, FieldName} from 'react-hook-form';
+import { DeepMap, FieldError } from 'react-hook-form';
 
-import {InstagramMetadata, InstaUser, Role} from "@/types";
+import { InstaUser, Role } from "@/types";
 import { InfoForm } from './';
-import { FirstEnterForm, InfoValueForm } from "@/pages/first_enter";
+import { FirstEnterForm } from "@/pages/first_enter";
 import { FirstInstagram } from '@pagesComponents/firstEnter/FirstInstagram';
 
 interface PickRoleProps {
@@ -15,6 +15,8 @@ interface PickRoleProps {
   role: Role | null,
   setToggler: Dispatch<SetStateAction<boolean>>,
   setRoleHandler: (role: Role) => void,
+  instagramUser: InstaUser | null,
+  setInstagramUser: Dispatch<SetStateAction<InstaUser | null>>
   customEmailLabel: () => JSX.Element,
   getValues: (names?: string | string[]) => any,
   clearErrors: (names?: string | string[]) => void,
@@ -29,6 +31,8 @@ export const PickRole: VFC<PickRoleProps> = ({
   toggler,
   role,
   setToggler,
+  instagramUser,
+  setInstagramUser,
   setRoleHandler,
   customEmailLabel,
   getValues,
@@ -121,6 +125,8 @@ export const PickRole: VFC<PickRoleProps> = ({
           errors={errors}
           checkAccount={checkAccount}
           instagramInput={getValues('profile.instagramAccount')}
+          instagramUser={instagramUser}
+          setInstagramUser={setInstagramUser}
           clearErrors={clearErrors}
           checkAccountLoading={checkAccountLoading}
           updateMetadataLoading={updateMetadataLoading}
