@@ -10,10 +10,12 @@ export interface PriceValueForm {
   story: string,
   post: string,
 }
+
 interface CategoryFormProps {
+  prefix?: string,
   register: any,
   categoryPriceErrors: {
-    categories: FieldError | undefined,
+    category: FieldError | undefined,
     pricePerPost: FieldError | undefined,
     pricePerStory: FieldError | undefined,
     desc: FieldError | undefined,
@@ -22,6 +24,7 @@ interface CategoryFormProps {
 }
 
 export const CategoryPriceForm: VFC<CategoryFormProps> = ({
+  prefix,
   register,
   categoryPriceErrors,
   updateMetadataLoading
@@ -33,7 +36,7 @@ export const CategoryPriceForm: VFC<CategoryFormProps> = ({
           <Input
             register={register}
             textarea={true}
-            name="profile.desc"
+            name={prefix ? `${prefix}.desc` : 'desc'}
             placeholder="Short description"
             icon={faInfoCircle}
             label="Tell us a short story about your bla bla bla... (min 30. characters)"
@@ -48,18 +51,18 @@ export const CategoryPriceForm: VFC<CategoryFormProps> = ({
           <Input
             register={register}
             list="categories"
-            name="profile.category"
+            name={prefix ? `${prefix}.category` : 'category'}
             placeholder="Category"
             icon={faList}
             label={() => <small>To continue, pick category from <span className="text-primary">existing one</span></small>}
-            error={categoryPriceErrors.categories}
+            error={categoryPriceErrors.category}
           />
         </div>
         <div className="col-12 col-md-6">
           <Input
             register={register}
             icon={faHandHoldingUsd}
-            name="profile.pricePerStory"
+            name={prefix ? `${prefix}.pricePerStory` : 'pricePerStory'}
             placeholder="Price per story"
             error={categoryPriceErrors.pricePerStory}
           />
@@ -68,7 +71,7 @@ export const CategoryPriceForm: VFC<CategoryFormProps> = ({
           <Input
             register={register}
             icon={faHandHoldingUsd}
-            name="profile.pricePerPost"
+            name={prefix ? `${prefix}.pricePerPost` : 'pricePerPost'}
             placeholder="Price per post"
             error={categoryPriceErrors.pricePerPost}
           />
@@ -86,7 +89,7 @@ export const CategoryPriceForm: VFC<CategoryFormProps> = ({
                 : <>
                     <span className="btn-text">Finish</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                      <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
+                      <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff" />
                     </svg>
                   </>
             }

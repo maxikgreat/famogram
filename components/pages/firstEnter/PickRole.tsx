@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, VFC } from "react";
+import React, {Dispatch, SetStateAction, useCallback, useMemo, VFC} from "react";
 import { animated, useSpring } from 'react-spring';
 import { isMobile } from 'react-device-detect';
 import { DeepMap, FieldError } from 'react-hook-form';
@@ -18,7 +18,7 @@ interface PickRoleProps {
   instagramUser: InstaUser | null,
   setInstagramUser: Dispatch<SetStateAction<InstaUser | null>>
   customEmailLabel: () => JSX.Element,
-  getValues: (names?: string | string[]) => any,
+  watch: (names?: string | string[]) => string,
   clearErrors: (names?: string | string[]) => void,
   checkAccount: (data: string) => Promise<InstaUser>,
   checkAccountLoading: boolean,
@@ -35,7 +35,7 @@ export const PickRole: VFC<PickRoleProps> = ({
   setInstagramUser,
   setRoleHandler,
   customEmailLabel,
-  getValues,
+  watch,
   clearErrors,
   checkAccount,
   checkAccountLoading,
@@ -47,13 +47,13 @@ export const PickRole: VFC<PickRoleProps> = ({
     config: { mass: 5, tension: 500, friction: 80 }
   });
   
-  const dependedErrors = () => ({
+  const dependedErrors = {
     instagramAccount: errors.profile?.instagramAccount,
-    categories: errors.profile?.category,
+    category: errors.profile?.category,
     pricePerPost: errors.profile?.pricePerPost,
     pricePerStory: errors.profile?.pricePerStory,
     desc: errors.profile?.desc,
-  });
+  };
   
   return (
     <div className="container py-2 py-md-5">
@@ -130,10 +130,11 @@ export const PickRole: VFC<PickRoleProps> = ({
       </div>
       {role === 'instagram' && (
         <FirstInstagram
+          prefix="profile"
           register={register}
-          errors={dependedErrors()}
+          errors={dependedErrors}
           checkAccount={checkAccount}
-          instagramInput={getValues('profile.instagramAccount')}
+          instagramInput={watch('profile.instagramAccount')}
           instagramUser={instagramUser}
           setInstagramUser={setInstagramUser}
           clearErrors={clearErrors}

@@ -78,7 +78,7 @@ const validationSchema = yup.object({
 export const getServerSideProps = withAuth();
 
 export default function FirstEnter({ user, token }: FirstEnterProps) {
-  const { register, getValues, errors, handleSubmit, setValue, trigger, clearErrors } = useForm<FirstEnterForm>({
+  const { register, watch, errors, handleSubmit, setValue, trigger, clearErrors } = useForm<FirstEnterForm>({
     resolver: yupResolver(validationSchema),
   });
   
@@ -140,7 +140,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
       toast(error, { type: 'error' });
     }
   }
-
+  
   if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
   
   return (
@@ -157,7 +157,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
             customEmailLabel={customEmailLabel}
             instagramUser={instagramUser}
             setInstagramUser={setInstagramUser}
-            getValues={getValues}
+            watch={watch}
             clearErrors={clearErrors}
             checkAccount={checkAccount}
             checkAccountLoading={checkAccountState.loading}

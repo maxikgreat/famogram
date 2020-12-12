@@ -20,7 +20,7 @@ type RegisterProps = React.DetailedHTMLProps<
 
 interface InputProps extends RegisterProps {
   list?: string,
-  name: string,
+  name?: string,
   icon?: IconProp,
   placeholder: string,
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void,

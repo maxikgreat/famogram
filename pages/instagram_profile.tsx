@@ -47,7 +47,7 @@ const validationSchema = yup.object<MainInfoStateForm>().shape({
 export const getServerSideProps = withAuth();
 
 export default function Profile({ user, token }: ProfileProps) {
-  const { register, handleSubmit, errors, watch, getValues, clearErrors } = useForm<MainInfoStateForm>({
+  const { register, handleSubmit, errors, watch, clearErrors } = useForm<MainInfoStateForm>({
     resolver: yupResolver(validationSchema),
     defaultValues: user.user_metadata?.instagram ? {
       instagramAccount: user.user_metadata.instagram.user.username,
@@ -92,13 +92,13 @@ export default function Profile({ user, token }: ProfileProps) {
     }
   };
   
-  const dependedErrors = () => ({
+  const dependedErrors = {
     instagramAccount: errors.instagramAccount,
-    categories: errors.category,
+    category: errors.category,
     pricePerPost: errors.pricePerPost,
     pricePerStory: errors.pricePerStory,
     desc: errors.desc,
-  });
+  };
   
   if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
 
@@ -130,10 +130,10 @@ export default function Profile({ user, token }: ProfileProps) {
                 ) : (
                   <FirstInstagram
                     register={register}
-                    errors={dependedErrors()}
+                    errors={dependedErrors}
                     checkAccount={checkAccount}
                     instagramUser={instagramUser}
-                    instagramInput={getValues('instagramAccount')}
+                    instagramInput={watch('instagramAccount')}
                     clearErrors={clearErrors as (names?: string | string[]) => void}
                     setInstagramUser={setInstagramUser}
                     checkAccountLoading={checkAccountState.loading}

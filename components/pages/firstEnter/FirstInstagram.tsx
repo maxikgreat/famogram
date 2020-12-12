@@ -1,16 +1,16 @@
-import React, {VFC, useState, useEffect, useRef, Dispatch, SetStateAction} from "react";
+import React, { VFC, useEffect, useRef, Dispatch, SetStateAction } from "react";
 import { animated, useTransition } from 'react-spring';
-import { DeepMap, FieldError } from 'react-hook-form';
+import { FieldError } from 'react-hook-form';
 
 import { InstaUser } from "@/types";
 import { UsernameForm, CategoryPriceForm } from './'
-import { FirstEnterForm } from '@/pages/first_enter';
 
 interface FirstInstagramProps {
+  prefix?: string,
   register: any,
   errors: {
     instagramAccount: FieldError | undefined,
-    categories: FieldError | undefined,
+    category: FieldError | undefined,
     pricePerPost: FieldError | undefined,
     pricePerStory: FieldError | undefined,
     desc: FieldError | undefined,
@@ -25,6 +25,7 @@ interface FirstInstagramProps {
 }
 
 export const FirstInstagram: VFC<FirstInstagramProps> = ({
+  prefix,
   register,
   errors,
   instagramUser,
@@ -38,7 +39,7 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
   const navTabs =  useRef<NodeListOf<HTMLElement> | null>(null);
   useEffect(() => {
     setTimeout(() => {
-      clearErrors('profile');
+      clearErrors();
     }, 100);
     navTabs.current = document.querySelectorAll('.first-enter-tabs > .nav-item > .nav-link');
   }, []);
@@ -79,6 +80,7 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
                   src="./assets/images/vectors/vector-15.svg"
                 />
                 <UsernameForm
+                  prefix={prefix}
                   register={register}
                   instagramAccountError={errors.instagramAccount}
                   clearErrors={clearErrors}
@@ -90,9 +92,10 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
                   navTo={() => navTabs.current?.item(1).click()}
                 />
                 <CategoryPriceForm
+                  prefix={prefix}
                   register={register}
                   categoryPriceErrors={{
-                    categories: errors.categories,
+                    category: errors.category,
                     pricePerPost: errors.pricePerPost,
                     pricePerStory: errors.pricePerStory,
                     desc: errors.desc,

@@ -7,7 +7,11 @@ import { withAuth } from '@/services/auth0';
 import { User } from '@/types';
 import { toast } from 'react-toastify';
 
-import { InfoValueForm } from './first_enter';
+interface  InfoValueForm {
+  contactEmail: string,
+  whatsApp: string,
+  facebook: string,
+}
 
 interface SettingsProps {
   user: User,

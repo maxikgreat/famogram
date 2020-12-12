@@ -7,6 +7,7 @@ import { Input } from '@/components/common';
 import { InstaUser } from '@/types';
 
 interface UsernameFormProps {
+  prefix?: string,
   register: any,
   instagramAccountError: FieldError | undefined,
   instagramInput: string,
@@ -19,6 +20,7 @@ interface UsernameFormProps {
 }
 
 export const UsernameForm: FC<UsernameFormProps> = ({
+  prefix,
   register,
   instagramAccountError,
   instagramInput,
@@ -48,7 +50,7 @@ export const UsernameForm: FC<UsernameFormProps> = ({
           <Input
             register={register}
             icon={faInstagram}
-            name="profile.instagramAccount"
+            name={prefix ? `${prefix}.instagramAccount` : 'instagramAccount'}
             placeholder="Instagram account"
             label="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, repudiandae"
             error={instagramAccountError}
@@ -66,7 +68,7 @@ export const UsernameForm: FC<UsernameFormProps> = ({
                 : <>
                     <span className="btn-text">Next</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                      <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff"></path>
+                      <path data-name="Icon Color" d="M10.909,5.818H0V2.909H10.909V0L16,4.243,10.909,8.485Z" transform="translate(0 4)" fill="#006eff" />
                     </svg>
                   </>
             }
