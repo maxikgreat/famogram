@@ -5,8 +5,7 @@ import equal from 'deep-equal';
 import { isMobile } from 'react-device-detect';
 import { DeepMap, FieldError } from 'react-hook-form';
 
-import { User } from '@/types';
-import { categories } from '@/types';
+import { User, categories } from '@/types';
 import { Input } from '@/components/common';
 import { MainInfoStateForm } from '@/pages/instagram_profile';
 

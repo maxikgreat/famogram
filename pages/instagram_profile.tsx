@@ -1,8 +1,8 @@
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
-import React, {useState} from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver}  from '@hookform/resolvers/yup';
+import React, { useState } from 'react';
 
 import { Instagram, MainInfo } from '@/components/pages/instagramProfile';
 import { BaseLayout } from "@/components/layouts";
