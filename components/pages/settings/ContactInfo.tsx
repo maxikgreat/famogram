@@ -8,8 +8,13 @@ import equal from 'deep-equal';
 import { isMobile } from 'react-device-detect';
 
 import { Input } from '@/components/common';
-import { InfoValueForm } from "@/pages/first_enter";
 import { ContactInfoMetadata, User } from "@/types";
+
+interface InfoValueForm {
+  contactEmail: string,
+  whatsApp: string,
+  facebook: string,
+}
 
 interface ContactInfoProps {
   user: User,
@@ -23,7 +28,8 @@ const validationSchema = yup.object<InfoValueForm>().shape({
     .email('Email isn\'t valid')
     .required('Contact email is required'),
   whatsApp: yup.string(),
-  facebook: yup.string(),
+  facebook: yup.string()
+    .url('It doesn\'t look like a url'),
 });
 
 export const ContactInfo: VFC<ContactInfoProps> = ({ user, contactInfo, updateContactInfo, loading }) => {
