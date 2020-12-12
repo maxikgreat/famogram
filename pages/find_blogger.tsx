@@ -20,7 +20,7 @@ export interface ICategory {
 
 export const getServerSideProps = withAuth();
 
-export default function Wall({ user, token }: WallProps) {
+export default function FindBlogger({ user, token }: WallProps) {
   const [getBloggers, getBloggersState] = useGetBloggers(token);
   useEffect(() => {
     getBloggers(undefined)
@@ -30,12 +30,8 @@ export default function Wall({ user, token }: WallProps) {
   
   const filterBloggers = () => {
     if (activeCategory.length === 0) return getBloggersState.data;
-    const filtered: User[] = [];
-    activeCategory.find(({ value: categoryValue }) => {
-      const finded = getBloggersState.data?.find((user) => categoryValue === user.user_metadata?.instagram?.category);
-      if (finded) filtered.push(finded);
-    })
-    return filtered;
+    return getBloggersState.data?.filter((user) =>
+      activeCategory.map(({ label }) => label).includes(user.user_metadata?.instagram?.category as Category))
   }
   
   if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
