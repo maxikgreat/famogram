@@ -135,7 +135,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   
       await updateMetadata(data);
       toast('Profile created!', { type: 'success' });
-      if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger&prompt=true';
+      if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger';
     } catch (error) {
       toast(error, { type: 'error' });
     }

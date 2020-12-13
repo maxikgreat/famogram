@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { initAuth0 } from '@auth0/nextjs-auth0';
 
 import { renameKeys } from '@/helpers';
+import Auth0Lock from "auth0-lock";
+import { axiosAuth0 } from '@/services/axios';
 
 interface NextReqRes {
   req: NextApiRequest,
@@ -12,7 +14,7 @@ export const auth0 = initAuth0({
   domain: process.env.AUTH0_DOMAIN,
   clientId: process.env.AUTH0_CLIENT_ID,
   clientSecret: process.env.AUTH0_CLIENT_SECRET,
-  scope: 'openid email profile',
+  scope: 'openid email profile offline_access',
   audience: process.env.AUTH0_AUDIENCE,
   redirectUri: process.env.AUTH0_REDIRECT_URI,
   postLogoutRedirectUri: process.env.AUTH0_POST_LOGOUT_REDIRECT_URI,

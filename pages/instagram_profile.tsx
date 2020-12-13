@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver}  from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
+import Router from 'next/router';
 
 import { Instagram, MainInfo } from '@/components/pages/instagramProfile';
 import { BaseLayout } from "@/components/layouts";
@@ -11,6 +12,8 @@ import { withAuth } from '@/services/auth0';
 import { Redirect } from '@/components/common';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { FirstInstagram } from '@pagesComponents/firstEnter/FirstInstagram';
+import { axiosAuth0 } from '@/services/axios';
+
 
 
 export interface MainInfoStateForm {
@@ -85,8 +88,8 @@ export default function Profile({ user, token }: ProfileProps) {
         }
       });
       
-      toast('Data updated', {type: 'success'})
-      if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/instagram_profile&prompt=true';
+      toast('Data updated', { type: 'success' });
+      Router.reload();
     } catch (error) {
       toast(error, { type: 'error' });
     }
