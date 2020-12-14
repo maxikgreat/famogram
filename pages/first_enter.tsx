@@ -3,13 +3,14 @@ import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Router from 'next/router';
 
 import { categories, Metadata, Role, User, Category as CategoryType, InstaUser } from '@/types'
 import { BaseLayout } from '@/components/layouts'
-import { Redirect } from '@/components/common';
 import { PickRole } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
+
 
 export interface FirstInstagramForm {
   instagramAccount: string,
@@ -111,37 +112,44 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   const finishHandler = async (formData: FirstEnterForm) => {
     const { contactEmail, whatsApp, facebook, profile } = formData;
     try {
+      const contactInfoMetadata = {
+        contactEmail,
+        messengers: {
+          whatsApp,
+          facebook
+        }
+      };
+      const instagramMetadata = profile ? {
+          user: instagramUser as InstaUser,
+          desc: profile.desc,
+          category: profile.category,
+          price: {
+            post: Number(profile.pricePerPost),
+            story: Number(profile.pricePerStory)
+          }
+        } : undefined;
       const data: {userId: string, metadata: Metadata } = {
         userId: user.sub,
         metadata: {
-          instagram: profile ? {
-            user: instagramUser as InstaUser,
-            desc: profile.desc,
-            category: profile.category,
-            price: {
-              post: Number(profile.pricePerPost),
-              story: Number(profile.pricePerStory)
-            }
-          } : undefined,
-          contactInfo: {
-            contactEmail,
-            messengers: {
-              whatsApp,
-              facebook
-            }
-          }
+          instagram: instagramMetadata,
+          contactInfo: contactInfoMetadata,
         }
       };
   
       await updateMetadata(data);
+      
+      await localStorage.setItem('contactInfo', JSON.stringify(contactInfoMetadata));
+      if (instagramMetadata) {
+        await localStorage.setItem('instagram', JSON.stringify(instagramMetadata))
+      }
       toast('Profile created!', { type: 'success' });
-      if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/find_blogger';
+      Router.push('/find_blogger');
     } catch (error) {
       toast(error, { type: 'error' });
     }
   }
   
-  if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
+  // if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
   
   return (
     <BaseLayout className="first-enter">

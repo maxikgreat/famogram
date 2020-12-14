@@ -1,11 +1,13 @@
 
+import { toast } from 'react-toastify';
+
 import { Redirect } from '@/components/common';
 import { BaseLayout } from '@/components/layouts';
 import { ContactInfo, ChangePassword, ChangeEmail } from '@/components/pages/settings';
 import { useUpdateEmail, useUpdateMetadata, useUpdatePassword } from '@/hooks';
 import { withAuth } from '@/services/auth0';
 import { User } from '@/types';
-import { toast } from 'react-toastify';
+
 
 interface  InfoValueForm {
   contactEmail: string,
@@ -25,29 +27,40 @@ export default function Settings({ user, token }: SettingsProps) {
   const [updateNewEmail, updateEmailState] = useUpdateEmail(token);
   const [updatePassword, updatePasswordState] = useUpdatePassword(token);
 
-  const updateContactInfo = (contactInfoData: InfoValueForm) => {
-    const { contactEmail, whatsApp, facebook } = contactInfoData;
-    updateMetadata({ userId: user.sub, metadata: {
-      contactInfo: {
+  const updateContactInfo = async (contactInfoData: InfoValueForm) => {
+    try {
+      const { contactEmail, whatsApp, facebook } = contactInfoData;
+      const contactInfoMetadata = {
         contactEmail,
         messengers: {
           whatsApp, facebook
         }
       }
-    }})
-      .then(() => {
-        toast('Contacts updated', {type: 'success'})
-        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/settings';
+      await updateMetadata({
+        userId: user.sub,
+        metadata: {
+          contactInfo: contactInfoMetadata
+        }
       })
-      .catch((error) => toast(error, {type: 'error'}))
+  
+      await localStorage.setItem('contactInfo', JSON.stringify(contactInfoMetadata));
+      
+      toast('Contacts updated', {type: 'success'});
+    } catch (error) {
+      toast(error, {type: 'error'})
+    }
   }
 
   const updateEmail = (emailData: {newEmail: string}) => {
     const { newEmail } = emailData;
     updateNewEmail({ userId: user.sub, newEmail })
       .then(() => {
-        toast('Email updated', {type: 'success'})
-        if (typeof window !== 'undefined') window.location.href = '/api/v1/login?redirectTo=/settings';
+        toast('Email updated! You will be redirected to login page', {type: 'success'})
+        if (typeof window !== 'undefined') {
+          setTimeout(() => {
+            window.location.href = '/api/v1/login?redirectTo=/settings';
+          }, 500)
+        }
       })
       .catch((error) => toast(error, {type: 'error'}))
   }

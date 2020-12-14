@@ -1,4 +1,4 @@
-import { VFC } from "react";
+import {useEffect, VFC} from "react";
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import * as yup from 'yup';
@@ -33,7 +33,15 @@ const validationSchema = yup.object<InfoValueForm>().shape({
 });
 
 export const ContactInfo: VFC<ContactInfoProps> = ({ user, contactInfo, updateContactInfo, loading }) => {
-  const { register, errors, handleSubmit, watch } = useForm<InfoValueForm>({
+  useEffect(() => {
+    const contactInfoMetadataJSON = localStorage.getItem('contactInfo');
+    if (!contactInfoMetadataJSON) return;
+    const { contactEmail, messengers: { whatsApp, facebook } }: ContactInfoMetadata = JSON.parse(contactInfoMetadataJSON);
+    setValue('contactEmail', contactEmail);
+    setValue('whatsApp', whatsApp);
+    setValue('facebook', facebook);
+  }, []);
+  const { register, errors, handleSubmit, watch, setValue } = useForm<InfoValueForm>({
     resolver: yupResolver(validationSchema),
     defaultValues: contactInfo ? {
       contactEmail: contactInfo.contactEmail,

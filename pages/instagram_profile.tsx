@@ -1,20 +1,17 @@
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
-import { yupResolver}  from '@hookform/resolvers/yup';
-import React, { useState } from 'react';
-import Router from 'next/router';
+import { yupResolver }  from '@hookform/resolvers/yup';
+import React, {useEffect, useState} from 'react';
+
 
 import { Instagram, MainInfo } from '@/components/pages/instagramProfile';
 import { BaseLayout } from "@/components/layouts";
-import { categories, Category, InstaUser, User } from '@/types';
+import { categories, Category, InstagramMetadata, InstaUser, User } from '@/types';
 import { withAuth } from '@/services/auth0';
 import { Redirect } from '@/components/common';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { FirstInstagram } from '@pagesComponents/firstEnter/FirstInstagram';
-import { axiosAuth0 } from '@/services/axios';
-
-
 
 export interface MainInfoStateForm {
   instagramAccount: string,
@@ -50,7 +47,19 @@ const validationSchema = yup.object<MainInfoStateForm>().shape({
 export const getServerSideProps = withAuth();
 
 export default function Profile({ user, token }: ProfileProps) {
-  const { register, handleSubmit, errors, watch, clearErrors } = useForm<MainInfoStateForm>({
+  useEffect(() => {
+    (async () => {
+      const instagramMetadataJSON = await localStorage.getItem('instagram');
+      if (!instagramMetadataJSON) return;
+      const { user, desc, price, category }: InstagramMetadata = JSON.parse(instagramMetadataJSON);
+      setValue('instagramAccount', user.username);
+      setValue('category', category);
+      setValue('pricePerPost', price.post)
+      setValue('pricePerStory', price.story)
+      setValue('desc', desc);
+    })();
+  }, []);
+  const { register, handleSubmit, errors, watch, clearErrors, setValue } = useForm<MainInfoStateForm>({
     resolver: yupResolver(validationSchema),
     defaultValues: user.user_metadata?.instagram ? {
       instagramAccount: user.user_metadata.instagram.user.username,
@@ -73,23 +82,27 @@ export default function Profile({ user, token }: ProfileProps) {
       if (instagramAccount !== user.user_metadata?.instagram?.user.username) {
         instaUser = await checkAccount(instagramAccount);
       }
+      
+      const instagramData: InstagramMetadata = {
+        user: instaUser,
+        category: category as Category,
+        desc,
+        price: {
+          story: Number(pricePerStory),
+          post: Number(pricePerPost),
+        },
+      };
+      
       await updateMetadata({
         userId: user.sub,
         metadata: {
-          instagram: {
-            user: instaUser,
-            category: category as Category,
-            desc,
-            price: {
-              story: Number(pricePerStory),
-              post: Number(pricePerPost),
-            },
-          }
+          instagram: instagramData,
         }
       });
       
+      await localStorage.setItem('instagram', JSON.stringify(instagramData));
+      
       toast('Data updated', { type: 'success' });
-      Router.reload();
     } catch (error) {
       toast(error, { type: 'error' });
     }
