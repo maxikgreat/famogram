@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { User } from '@/types';
+import { auth0new  } from '@/services/auth0';
 
 interface HeaderProps {
   user?: User,
@@ -20,7 +21,7 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
       </div>
       <span className="avatar-user mr-2">{name}</span>
       <svg data-name="Icon/Arrows/Chevron/Down" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24.091 24">
-        <path data-name="Icon Color" d="M-2.182,24,0,21.818-9.818,12,0,2.182-2.182,0l-12,12Z" transform="translate(0.091 4.909) rotate(-90)" fill="#3f3b3b"></path>
+        <path data-name="Icon Color" d="M-2.182,24,0,21.818-9.818,12,0,2.182-2.182,0l-12,12Z" transform="translate(0.091 4.909) rotate(-90)" fill="#3f3b3b" />
       </svg>
     </a>
     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
@@ -61,9 +62,7 @@ export const Header = ({ user, loading }: HeaderProps) => {
                       name={user.nickname}
                       photo={user.user_metadata?.instagram?.user.photoUrl ?? user.picture}
                     />
-                  : <Link href="/api/v1/login">
-                      <a className="btn btn-primary">Login</a>
-                    </Link>
+                  : <a className="btn btn-primary" href="#" onClick={() => auth0new.show()}>Login</a>
               }
             </div>
           </div>

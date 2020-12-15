@@ -23,14 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/store/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/settings/ContactInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/settings/ContactInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/me.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/v1/me.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/refresh.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/v1/refresh.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/first_enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/first_enter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/instagram_profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instagram_profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useApiHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useApiHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/v1/callback.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/v1/callback.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/v1/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/v1/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/find_blogger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_blogger.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth0.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth0.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,10 +132,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="105" y="205" width="1335" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1607970273991" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607970281736">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608065315509">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607970281736" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608065315509" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
   </component>
 </project>

@@ -20,7 +20,6 @@ export function useApiHandler<D, R>(apiCall: (data: D) => AxiosPromise<R>): [
       setRequestState({ error: '', loading: false, data: response.data });
       return Promise.resolve(response.data);
     } catch ({ response }) {
-      console.log(response);
       const error = response?.data?.message ?? 'Oooops, something went wrong'
       setRequestState({
         error,

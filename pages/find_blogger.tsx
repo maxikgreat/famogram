@@ -1,3 +1,5 @@
+import { useAuth } from 'use-auth0-hooks';
+
 import { BaseLayout } from '@/components/layouts';
 import { Categories, People } from '@/components/pages/findBloger';
 import {useState, useEffect} from 'react';
@@ -18,9 +20,16 @@ export interface ICategory {
   value :Category,
 }
 
-export const getServerSideProps = withAuth();
+// export const getServerSideProps = withAuth();
 
 export default function FindBlogger({ user, token }: WallProps) {
+  const { isAuthenticated, isLoading, accessToken } = useAuth({
+    audience: process.env.AUTH0_AUDIENCE,
+    scope: 'openid email profile offline_access'
+  });
+  
+  
+  
   const [getBloggers, getBloggersState] = useGetBloggers(token);
   useEffect(() => {
     getBloggers(undefined)
@@ -34,13 +43,16 @@ export default function FindBlogger({ user, token }: WallProps) {
       activeCategory.map(({ label }) => label).includes(user.user_metadata?.instagram?.category as Category))
   }
   
-  if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
+  // if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
   
   return (
     <BaseLayout className="wall">
       <section className="fabrx-section bg-white mt-5 picker-section">
         <div className="container">
           <div className="row py-0 p-3 p-md-0">
+            {console.log(isAuthenticated)}
+            {console.log(isLoading)}
+            {console.log(accessToken)}
             <Categories
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}

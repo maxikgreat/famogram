@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { auth0 } from '@/services/auth0';
+import { auth0, auth0new } from '@/services/auth0';
+
 
 interface NextApiRequestWithRedirect extends  NextApiRequest {
   query: {
@@ -10,13 +11,11 @@ interface NextApiRequestWithRedirect extends  NextApiRequest {
 }
 
 export default async (req: NextApiRequestWithRedirect, res: NextApiResponse) => {
-  try {
-    const {query: { redirectTo, prompt }} = req;
-    await auth0.handleLogin(req, res, {
-      authParams: prompt ? {prompt: 'none'} : undefined,
-      redirectTo: redirectTo ? redirectTo : '/first_enter'
-    });
-  } catch (e) {
-    res.status(e.status || 400).end(e.message);
-  }
+    // const {query: { redirectTo, prompt }} = req;
+    // await auth0.handleLogin(req, res, {
+    //   authParams: prompt ? {prompt: 'none'} : undefined,
+    //   redirectTo: redirectTo ? redirectTo : '/first_enter'
+    // });
+  console.log("BODY", req.body);
+  res.redirect('/first_enter');
 }

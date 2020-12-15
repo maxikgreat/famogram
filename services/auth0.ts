@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { initAuth0 } from '@auth0/nextjs-auth0';
+import Auth0Lock from 'auth0-lock'
 
 import { renameKeys } from '@/helpers';
-import Auth0Lock from "auth0-lock";
-import { axiosAuth0 } from '@/services/axios';
+
 
 interface NextReqRes {
   req: NextApiRequest,
@@ -52,3 +52,35 @@ export function withAuth(
     }
   }
 }
+
+let auth0new: Auth0LockStatic;
+
+if (typeof window !== 'undefined') {
+  auth0new = new Auth0Lock(
+    process.env.AUTH0_CLIENT_ID,
+    process.env.AUTH0_DOMAIN,
+    {
+      allowShowPassword: true,
+      rememberLastLogin: true,
+      autoclose: true,
+      loginAfterSignUp: true,
+      auth: {
+        redirect: true,
+        autoParseHash: true,
+        sso: true,
+        audience: process.env.AUTH0_AUDIENCE,
+        redirectUrl: process.env.AUTH0_REDIRECT_URI,
+        responseMode: 'form_post',
+        responseType: 'token',
+        params: {
+          scope: "openid profile email offline_access",
+        },
+      }
+    }
+  )
+}
+
+export { auth0new };
+
+
+
