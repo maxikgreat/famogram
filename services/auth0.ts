@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { initAuth0 } from '@auth0/nextjs-auth0';
 import Auth0Lock from 'auth0-lock'
+import { AuthenticationClient } from 'auth0';
 
 import { renameKeys } from '@/helpers';
 
@@ -45,7 +46,7 @@ export function withAuth(
     } catch (err) {
       return {
         redirect: {
-          destination: '/api/v1/login',
+          destination: '/pageApi/v1/login',
           permanent: false
         }
       };
@@ -53,10 +54,10 @@ export function withAuth(
   }
 }
 
-let auth0new: Auth0LockStatic;
+let auth0Client: Auth0LockStatic;
 
 if (typeof window !== 'undefined') {
-  auth0new = new Auth0Lock(
+  auth0Client = new Auth0Lock(
     process.env.AUTH0_CLIENT_ID,
     process.env.AUTH0_DOMAIN,
     {
@@ -80,7 +81,7 @@ if (typeof window !== 'undefined') {
   )
 }
 
-export { auth0new };
+export { auth0Client };
 
 
 

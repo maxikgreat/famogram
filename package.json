@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node --project tsconfig.server.json server.ts",
+    "dev": "cross-env NODE_ENV=development ts-node --project tsconfig.server.json server/index.ts",
     "build": "cross-env NODE_ENV=production next build",
     "start": "cross-env NODE_ENV=production next start"
   },
@@ -16,11 +16,14 @@
     "@hookform/resolvers": "^1.0.1",
     "@reduxjs/toolkit": "^1.5.0",
     "@zeit/next-sass": "^1.0.1",
+    "auth0": "^2.31.0",
+    "auth0-js": "^9.14.0",
     "auth0-lock": "^11.27.1",
     "axios": "^0.20.0",
     "cross-env": "^7.0.2",
     "deep-equal": "^2.0.4",
     "express": "^4.17.1",
+    "express-openid-connect": "^2.1.0",
     "formidable": "^1.2.2",
     "formidable-serverless": "^1.0.3",
     "next": "^10.0.0",
@@ -42,6 +45,7 @@
     "yup": "^0.29.3"
   },
   "devDependencies": {
+    "@types/auth0": "^2.20.11",
     "@types/auth0-lock": "^11.4.13",
     "@types/deep-equal": "^1.0.1",
     "@types/express": "^4.17.8",

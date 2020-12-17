@@ -1,0 +1,1 @@
+import { Request, Response, NextFunction } from 'express';export const withUser = async (req: Request, res: Response, next: NextFunction) => {	// @ts-ignore	const userInfo = await req.oidc.fetchUserInfo();	res.locals.user = userInfo;	next();}

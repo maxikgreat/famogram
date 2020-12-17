@@ -11,7 +11,7 @@ const fetcher = (url: string) => axios.get(url).then(res => {
 });
 
 export const useUser = () => {
-  const { data, error } = useSWR<User>('/api/v1/me', fetcher);
+  const { data, error } = useSWR<User>('/pageApi/v1/me', fetcher);
   return {
     user: data,
     loading: !data && !error,

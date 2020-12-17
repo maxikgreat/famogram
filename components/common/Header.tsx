@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { User } from '@/types';
-import { auth0new  } from '@/services/auth0';
+import { auth0Client  } from '@/services/auth0';
 
 interface HeaderProps {
   user?: User,
@@ -62,7 +62,7 @@ export const Header = ({ user, loading }: HeaderProps) => {
                       name={user.nickname}
                       photo={user.user_metadata?.instagram?.user.photoUrl ?? user.picture}
                     />
-                  : <a className="btn btn-primary" href="#" onClick={() => auth0new.show()}>Login</a>
+                  : <a className="btn btn-primary" href="#" onClick={() => auth0Client.show()}>Login</a>
               }
             </div>
           </div>

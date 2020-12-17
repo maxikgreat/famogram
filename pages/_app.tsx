@@ -4,7 +4,6 @@ import NextNprogress from 'nextjs-progressbar';
 import { ToastContainer } from 'react-toastify';
 import Head from 'next/head';
 
-import {wrapper} from '../store';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-accessible-accordion/dist/fancy-example.css';
 import '@/styles/main.scss';
@@ -40,4 +39,4 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   );
 }
 
-export default wrapper.withRedux(App);
+export default App;
