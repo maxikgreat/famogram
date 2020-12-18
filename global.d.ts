@@ -12,6 +12,7 @@ declare global {
       AUTH0_AUDIENCE: string,
       API_URL: string,
       BASE_URL: string,
+      ISSUER_BASE_URL: string,
     }
   }
 }

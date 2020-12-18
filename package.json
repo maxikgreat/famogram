@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node --project tsconfig.server.json server/index.ts",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --project ./tsconfig.server.json ./server/index.ts",
     "build": "cross-env NODE_ENV=production next build",
     "start": "cross-env NODE_ENV=production next start"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^0.16.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
@@ -16,9 +15,6 @@
     "@hookform/resolvers": "^1.0.1",
     "@reduxjs/toolkit": "^1.5.0",
     "@zeit/next-sass": "^1.0.1",
-    "auth0": "^2.31.0",
-    "auth0-js": "^9.14.0",
-    "auth0-lock": "^11.27.1",
     "axios": "^0.20.0",
     "cross-env": "^7.0.2",
     "deep-equal": "^2.0.4",
@@ -42,11 +38,10 @@
     "react-toastify": "^6.1.0",
     "sass": "^1.26.11",
     "swr": "^0.3.8",
+    "ts-node-dev": "^1.1.1",
     "yup": "^0.29.3"
   },
   "devDependencies": {
-    "@types/auth0": "^2.20.11",
-    "@types/auth0-lock": "^11.4.13",
     "@types/deep-equal": "^1.0.1",
     "@types/express": "^4.17.8",
     "@types/formidable": "^1.0.31",
