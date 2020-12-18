@@ -11,7 +11,6 @@ import { PickRole } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
 
-
 export interface FirstInstagramForm {
   instagramAccount: string,
   desc: string,
@@ -138,10 +137,6 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   
       await updateMetadata(data);
       
-      await localStorage.setItem('contactInfo', JSON.stringify(contactInfoMetadata));
-      if (instagramMetadata) {
-        await localStorage.setItem('instagram', JSON.stringify(instagramMetadata))
-      }
       toast('Profile created!', { type: 'success' });
       Router.push('/find_blogger');
     } catch (error) {

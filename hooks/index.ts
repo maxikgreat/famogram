@@ -18,11 +18,11 @@ interface NewPassword {
   userId: string,
 }
 
-const checkAccount = (nickname: string) => axiosApi.post('/pageApi/v1/insta/check', { nickname });
+const checkAccount = (nickname: string) => axiosApi.post('/api/v1/insta/check', { nickname });
 const updateMetadata = (data: ExtendedMetadata) => axiosApi.patch(`api/v1/auth0/user`, data);
 const updateEmail = (data: NewEmail) => axiosApi.patch(`api/v1/auth0/user/email`, data);
 const updatePassword = (data: NewPassword) => axiosApi.post(`api/v1/auth0/user/password`, data);
-const getBloggers = () => axiosApi.get('pageApi/v1/auth0/bloggers');
+const getBloggers = () => axiosApi.get('api/v1/auth0/bloggers');
 
 export const useCheckAccount = (token: string) => {
   axiosApi.defaults.headers.Authorization = token;

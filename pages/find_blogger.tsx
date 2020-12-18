@@ -6,11 +6,11 @@ import {useState, useEffect} from 'react';
 import {Category, User} from '@/types';
 import {useGetBloggers} from '@/hooks';
 import { useRouter } from 'next/router';
-import {withAuth} from '@/services/auth0';
 import {toast} from 'react-toastify';
 import {CategoriesMobile} from '@pagesComponents/findBloger/CategoriesMobile';
 import {Redirect} from '@/components/common';
 import {GetServerSideProps} from 'next';
+import {redirect} from 'next/dist/next-server/server/api-utils';
 
 interface WallProps {
   user: User,
@@ -23,16 +23,26 @@ export interface ICategory {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const { user, token } = query;
+  if (!user || !token) {
+    return {
+      // returns a redirect to an internal page `/another-page`
+      redirect: {
+        destination: '/login',
+        permanent: false
+      }
+    }
+  }
   return {
-    props: query
+    props: {
+      user: JSON.parse(user as string),
+      token,
+    }
   }
 }
 
-export default function FindBlogger(props) {
-  // const { query } = useRouter();
-  console.log(props);
-  // console.log(query);
-  const [getBloggers, getBloggersState] = useGetBloggers('1234');
+export default function FindBlogger({ user, token }: WallProps) {
+  const [getBloggers, getBloggersState] = useGetBloggers(token);
   useEffect(() => {
     getBloggers(undefined)
       .catch((error) => toast(error, { type: 'error' }))
@@ -45,7 +55,7 @@ export default function FindBlogger(props) {
       activeCategory.map(({ label }) => label).includes(user.user_metadata?.instagram?.category as Category))
   }
   
-  // if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
+  if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
   
   return (
     <BaseLayout className="wall">

@@ -1,12 +1,9 @@
 import express, { Request, Response } from 'express';
 import next from 'next';
-import {auth, RequestContext, requiresAuth, ResponseContext} from 'express-openid-connect';
+import { parse } from 'url';
+import { auth, RequestContext, ResponseContext } from 'express-openid-connect';
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const handle = app.getRequestHandler();
-
-const port = process.env.PORT || 3000;
+import routes from './routes';
 
 export interface RequestAuth0 extends Request {
   oidc: RequestContext
@@ -15,9 +12,15 @@ export interface ResponseAuth0 extends Response {
   oidc: ResponseContext
 }
 
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
+
+const port = process.env.PORT || 3000;
+
 (async () => {
   try {
-    // await app.prepare();
+    await app.prepare();
     const server = express();
     server.use(auth({
       authRequired: false,
@@ -35,36 +38,13 @@ export interface ResponseAuth0 extends Response {
     }));
     
     server.use(express.json());
-    
-    // server.get('/find_blogger', requiresAuth(), (req, res) => {
-    //   const parsedUrl = parse(req.url, true)
-    //   const { pathname, query } = parsedUrl;
-    //   // @ts-ignore
-    //   console.log('req', req)
-    //   // @ts-ignore
-    //   console.log('res', res);
-    //   app.render(req, res, '/find_blogger', { id: '123'});
-    // });
-    //
-    // server.all('*', (req, res) => {
-    //   // @ts-ignore
-    //   console.log(req.oidc)
-    //   // @ts-ignore
-    //   console.log(res.oidc);
-    //   const parsedUrl = parse(req.url, true);
-    //   handle(req, res, parsedUrl);
-    // });
-    
-    // @ts-ignore
-    server.get('/', (req: RequestAuth0, res: ResponseAuth0) => {
-      res.status(200).json(req.oidc.accessToken);
+    server.use(routes);
+
+    server.all('*', (req, res) => {
+      const parsedUrl = parse(req.url, true);
+      handle(req, res, parsedUrl);
     });
     
-    server.get('/secret', requiresAuth(), (req, res) => {
-      res.status(200).json({ message: 'hello'});
-    })
-    
-
     server.listen(port, (err?: any) => {
       if (err) throw err;
       console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`);
@@ -74,3 +54,5 @@ export interface ResponseAuth0 extends Response {
     process.exit(1);
   }
 })();
+
+export { app };

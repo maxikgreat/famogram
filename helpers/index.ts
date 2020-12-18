@@ -1,4 +1,4 @@
-import { categories, Category, InstaUser, Metadata } from '@/types';
+import { categories, Category } from '../types';
 import * as yup from 'yup';
 
 export const isCategory = (value: string) => categories.includes(value as Category);
@@ -14,11 +14,13 @@ export const isEmail = (value: string) => {
 }
 
 export const renameKeys = (obj: any) => {
-  for (let key in obj) {
+  const newObj = { ...obj };
+  for (let key in newObj) {
     if (key.includes('https://hativi.com/')) {
       const newKey = key.split('https://hativi.com/')[1]
-      obj[newKey] = obj[key];
-      delete obj[key];
+      newObj[newKey] = newObj[key];
+      delete newObj[key];
     }
   }
+  return newObj;
 }

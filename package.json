@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node-dev --project ./tsconfig.server.json ./server/index.ts",
+    "dev": "cross-env NODE_ENV=development ts-node --project tsconfig.server.json server/index.ts",
+    "dev:server": "cross-env NODE_ENV=development ts-node-dev --project ./tsconfig.server.json ./server/index.ts",
     "build": "cross-env NODE_ENV=production next build",
     "start": "cross-env NODE_ENV=production next start"
   },
