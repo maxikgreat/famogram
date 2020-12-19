@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { User } from '@/types';
+import {useRouter} from 'next/router';
 
 interface HeaderProps {
   user?: User,
@@ -12,36 +13,38 @@ interface AvatarDropdownProps {
   photo: string,
 }
 
-const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
-  <div className="dropdown">
-    <a href="#" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-      <div className="fabrx-avatar mr-2 mr-sm-0">
-        <img src={photo} alt="Avatar" />
+const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => {
+  const {push} = useRouter();
+  
+  return (
+    <div className="dropdown">
+      <a href="#" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        <div className="fabrx-avatar mr-2 mr-sm-0">
+          <img src={photo} alt="Avatar" />
+        </div>
+        <span className="avatar-user mr-2">{name}</span>
+        <svg data-name="Icon/Arrows/Chevron/Down" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24.091 24">
+          <path data-name="Icon Color" d="M-2.182,24,0,21.818-9.818,12,0,2.182-2.182,0l-12,12Z" transform="translate(0.091 4.909) rotate(-90)" fill="#3f3b3b" />
+        </svg>
+      </a>
+      <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
+        <Link href="/find_blogger">
+          <a className="nav-link">Find a blogger</a>
+        </Link>
+        <Link href="/instagram_profile">
+          <a className="nav-link">Instagram profile</a>
+        </Link>
+        <Link href="#">
+          <a className="nav-link disabled">Tiktok profile (soon)</a>
+        </Link>
+        <Link href="/settings">
+          <a className="nav-link">Settings</a>
+        </Link>
+        <a className="nav-link" href="/logout">Logout</a>
       </div>
-      <span className="avatar-user mr-2">{name}</span>
-      <svg data-name="Icon/Arrows/Chevron/Down" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24.091 24">
-        <path data-name="Icon Color" d="M-2.182,24,0,21.818-9.818,12,0,2.182-2.182,0l-12,12Z" transform="translate(0.091 4.909) rotate(-90)" fill="#3f3b3b" />
-      </svg>
-    </a>
-    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
-      <Link href="/find_blogger">
-        <a className="nav-link">Find a blogger</a>
-      </Link>
-      <Link href="/instagram_profile">
-        <a className="nav-link">Instagram profile</a>
-      </Link>
-      <Link href="#">
-        <a className="nav-link disabled">Tiktok profile (soon)</a>
-      </Link>
-      <Link href="/settings">
-        <a className="nav-link">Settings</a>
-      </Link>
-      <Link href="/api/v1/logout">
-        <a className="nav-link">Logout</a>
-      </Link>
     </div>
-  </div>
-)
+  )
+}
 
 export const Header = ({ user, loading }: HeaderProps) => {
   

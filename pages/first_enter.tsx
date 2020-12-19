@@ -10,6 +10,7 @@ import { BaseLayout } from '@/components/layouts'
 import { PickRole } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
+import { Redirect } from '@/components/common';
 
 export interface FirstInstagramForm {
   instagramAccount: string,
@@ -138,13 +139,13 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
       await updateMetadata(data);
       
       toast('Profile created!', { type: 'success' });
-      Router.push('/find_blogger');
+      Router.push('/find_blogger?refresh=true');
     } catch (error) {
       toast(error, { type: 'error' });
     }
   }
   
-  // if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
+  if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
   
   return (
     <BaseLayout className="first-enter">

@@ -1,16 +1,13 @@
-
+import {toast} from 'react-toastify';
 
 import { BaseLayout } from '@/components/layouts';
 import { Categories, People } from '@/components/pages/findBloger';
-import {useState, useEffect} from 'react';
-import {Category, User} from '@/types';
-import {useGetBloggers} from '@/hooks';
-import { useRouter } from 'next/router';
-import {toast} from 'react-toastify';
-import {CategoriesMobile} from '@pagesComponents/findBloger/CategoriesMobile';
-import {Redirect} from '@/components/common';
-import {GetServerSideProps} from 'next';
-import {redirect} from 'next/dist/next-server/server/api-utils';
+import { useState, useEffect } from 'react';
+import { Category, User } from '@/types';
+import { useGetBloggers } from '@/hooks';
+import { CategoriesMobile } from '@pagesComponents/findBloger/CategoriesMobile';
+import { Redirect } from '@/components/common';
+import { withAuth } from '@/services/auth0';
 
 interface WallProps {
   user: User,
@@ -22,24 +19,7 @@ export interface ICategory {
   value :Category,
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const { user, token } = query;
-  if (!user || !token) {
-    return {
-      // returns a redirect to an internal page `/another-page`
-      redirect: {
-        destination: '/login',
-        permanent: false
-      }
-    }
-  }
-  return {
-    props: {
-      user: JSON.parse(user as string),
-      token,
-    }
-  }
-}
+export const getServerSideProps = withAuth();
 
 export default function FindBlogger({ user, token }: WallProps) {
   const [getBloggers, getBloggersState] = useGetBloggers(token);

@@ -1,3 +1,5 @@
+import { OpenidRequest, OpenidResponse } from 'express-openid-connect'
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {

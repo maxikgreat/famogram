@@ -23,27 +23,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/controllers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth0.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hooks/useUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/callback.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/login.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/logout.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/me.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/refresh.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/find_blogger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_blogger.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/first_enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/first_enter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/instagram_profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instagram_profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middlewares/withToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/withToken.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middlewares/withUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/withUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/axios/axiosAuth0.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/axios/axiosAuth0.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/axios/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/axios/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middlewares/withToken.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middlewares/withUser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth0.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth0.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +96,7 @@
       <workItem from="1608104498137" duration="74000" />
       <workItem from="1608137642257" duration="12273000" />
       <workItem from="1608218614058" duration="2936000" />
-      <workItem from="1608304916998" duration="9670000" />
+      <workItem from="1608304916998" duration="17324000" />
     </task>
     <servers />
   </component>
@@ -146,18 +139,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1607619853869" />
-    <state x="105" y="205" width="1335" height="490" key="find.popup" timestamp="1608317542772">
+    <state x="105" y="205" width="1335" height="490" key="find.popup" timestamp="1608380183263">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="105" y="205" width="1335" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608317542772" />
+    <state x="105" y="205" width="1335" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608380183263" />
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1608239896153">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1608239896153" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608318006273">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608380293650">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608318006273" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608380293650" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
   </component>
 </project>

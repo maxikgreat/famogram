@@ -25,6 +25,7 @@ const port = process.env.PORT || 3000;
     server.use(auth({
       authRequired: false,
       auth0Logout: true,
+      attemptSilentLogin: true,
       secret: process.env.AUTH0_COOKIE_SECRET,
       clientID: process.env.AUTH0_CLIENT_ID,
       baseURL: process.env.BASE_URL,
@@ -34,6 +35,9 @@ const port = process.env.PORT || 3000;
         response_type: 'code',
         audience: process.env.AUTH0_AUDIENCE,
         scope: 'openid email profile offline_access',
+      },
+      routes: {
+        login: false,
       }
     }));
     

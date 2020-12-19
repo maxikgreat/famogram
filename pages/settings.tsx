@@ -1,12 +1,12 @@
-
+import Router from 'next/router';
 import { toast } from 'react-toastify';
 
 import { Redirect } from '@/components/common';
 import { BaseLayout } from '@/components/layouts';
 import { ContactInfo, ChangePassword, ChangeEmail } from '@/components/pages/settings';
 import { useUpdateEmail, useUpdateMetadata, useUpdatePassword } from '@/hooks';
-import { withAuth } from '@/services/auth0';
 import { User } from '@/types';
+import { withAuth } from '@/services/auth0';
 
 
 interface  InfoValueForm {
@@ -41,11 +41,10 @@ export default function Settings({ user, token }: SettingsProps) {
         metadata: {
           contactInfo: contactInfoMetadata
         }
-      })
-  
-      await localStorage.setItem('contactInfo', JSON.stringify(contactInfoMetadata));
+      });
       
       toast('Contacts updated', {type: 'success'});
+      Router.push('/settings?refresh=true');
     } catch (error) {
       toast(error, {type: 'error'})
     }
@@ -58,7 +57,7 @@ export default function Settings({ user, token }: SettingsProps) {
         toast('Email updated! You will be redirected to login page', {type: 'success'})
         if (typeof window !== 'undefined') {
           setTimeout(() => {
-            window.location.href = '/api/v1/login?redirectTo=/settings';
+            window.location.href = '/logout';
           }, 500)
         }
       })
