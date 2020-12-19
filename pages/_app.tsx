@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-accessible-accordion/dist/fancy-example.css';
 import '@/styles/main.scss';
 
+
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>

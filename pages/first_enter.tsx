@@ -10,7 +10,7 @@ import { BaseLayout } from '@/components/layouts'
 import { PickRole } from '@pagesComponents/firstEnter';
 import { useCheckAccount, useUpdateMetadata } from '@/hooks';
 import { withAuth } from '@/services/auth0';
-
+import { Redirect } from '@/components/common';
 
 export interface FirstInstagramForm {
   instagramAccount: string,
@@ -91,8 +91,8 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
   
   const setRoleHandler = async (role: Role) => {
-    const result = await trigger(['contactEmail', 'whatsApp', 'facebook']);
-    if (result) {
+    const isValid = await trigger(['contactEmail', 'whatsApp', 'facebook']);
+    if (isValid) {
       setRole(role);
       setValue('role', role);
     }
@@ -101,11 +101,11 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   // TODO remove email if undefined (facebook example)
   const customEmailLabel = () => (
     <small>
-      Enter <span className="text-primary">valid</span>  email address
+      Enter <span className="text-primary">valid</span>  email address&nbsp;
       <span
         onClick={() => setValue('contactEmail', user.email)}
         style={{textDecoration: 'underline', cursor: 'pointer'}}
-      >&nbsp; or set email from profile</span>
+      >or set email from profile</span>
     </small>
   );
 
@@ -138,21 +138,17 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   
       await updateMetadata(data);
       
-      await localStorage.setItem('contactInfo', JSON.stringify(contactInfoMetadata));
-      if (instagramMetadata) {
-        await localStorage.setItem('instagram', JSON.stringify(instagramMetadata))
-      }
-      toast('Profile created!', { type: 'success' });
-      Router.push('/find_blogger');
+      toast('Profile created', { type: 'success' });
+      Router.push('/find_blogger?refresh=true');
     } catch (error) {
       toast(error, { type: 'error' });
     }
   }
   
-  // if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
+  if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
   
   return (
-    <BaseLayout className="first-enter">
+    <BaseLayout className="first-enter" user={user}>
       <section className="fabrx-section bg-white mt-5 p-3 p-md-0">
         <form onSubmit={handleSubmit(finishHandler)} className="position-relative">
           <PickRole

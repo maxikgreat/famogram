@@ -1,54 +1,1 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { initAuth0 } from '@auth0/nextjs-auth0';
-
-import { renameKeys } from '@/helpers';
-import Auth0Lock from "auth0-lock";
-import { axiosAuth0 } from '@/services/axios';
-
-interface NextReqRes {
-  req: NextApiRequest,
-  res: NextApiResponse
-}
-
-export const auth0 = initAuth0({
-  domain: process.env.AUTH0_DOMAIN,
-  clientId: process.env.AUTH0_CLIENT_ID,
-  clientSecret: process.env.AUTH0_CLIENT_SECRET,
-  scope: 'openid email profile offline_access',
-  audience: process.env.AUTH0_AUDIENCE,
-  redirectUri: process.env.AUTH0_REDIRECT_URI,
-  postLogoutRedirectUri: process.env.AUTH0_POST_LOGOUT_REDIRECT_URI,
-  session: {
-    cookieSecret: process.env.AUTH0_COOKIE_SECRET,
-    storeAccessToken: true,
-    storeRefreshToken: true,
-  },
-  oidcClient: {
-    httpTimeout: 10000,
-  },
-});
-
-export function withAuth(
-  callback?: (...args: any) => any,
-) {
-  return async ({ req, res }: NextReqRes) => {
-    try {
-      const session = await auth0.getSession(req);
-      if (!session) throw new Error('Unauthenticated');
-      renameKeys(session.user);
-      return {
-        props: {
-          user: session.user,
-          token: session.accessToken,
-        }
-      }
-    } catch (err) {
-      return {
-        redirect: {
-          destination: '/api/v1/login',
-          permanent: false
-        }
-      };
-    }
-  }
-}
+import {NextPageContext} from 'next';import {IncomingMessage, ServerResponse} from 'http';import {AccessToken, RequestContext, ResponseContext} from 'express-openid-connect';import {ParsedUrlQuery} from 'querystring';import {renameKeys} from '@/helpers';interface Auth0Context extends NextPageContext {	req: IncomingMessage & { oidc: RequestContext },	res: ServerResponse & { oidc: ResponseContext },	query: ParsedUrlQuery & { refresh: boolean | undefined }}type ExtendedNextPageContext = NextPageContext & Auth0Context;export function withAuth(	callback?: (...args: any) => any,) {	return async ({ req, query: { refresh = false } }: ExtendedNextPageContext) => {		try {			let { isExpired, access_token, refresh: refreshToken, token_type } = req.oidc.accessToken as AccessToken;			if (isExpired() || refresh) {				({ access_token } = await refreshToken());			}						const	user = await req.oidc.fetchUserInfo();						if (!access_token || !user) {				return {					redirect: {						destination: '/login',						permanent: false					}				}			}						return {				props: {					user: renameKeys(user),					token: `${token_type} ${access_token}`,				}			}		} catch (err) {			console.log(err);			return {				redirect: {					destination: '/?error=err.error',					permanent: false				}			}		}	}}

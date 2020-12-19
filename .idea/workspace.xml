@@ -23,14 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/settings/ContactInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/settings/ContactInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/me.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/v1/me.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/v1/refresh.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/v1/refresh.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/first_enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/first_enter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/instagram_profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instagram_profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +46,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -82,6 +80,10 @@
       <workItem from="1607628330813" duration="6954000" />
       <workItem from="1607704000440" duration="47517000" />
       <workItem from="1607958906763" duration="4312000" />
+      <workItem from="1608104498137" duration="74000" />
+      <workItem from="1608137642257" duration="12273000" />
+      <workItem from="1608218614058" duration="2936000" />
+      <workItem from="1608304916998" duration="27533000" />
     </task>
     <servers />
   </component>
@@ -112,10 +114,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="419" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1607161193912" />
-    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606940458931">
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608317689939">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606940458931" />
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1608317689939" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1606417351166">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -124,14 +126,19 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1607619853869" />
-    <state x="105" y="205" width="1335" height="490" key="find.popup" timestamp="1607970273991">
+    <state x="105" y="205" width="1335" height="490" key="find.popup" timestamp="1608389415347">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="105" y="205" width="1335" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1607970273991" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607970281736">
+    <state x="105" y="205" width="1335" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608389415347" />
+    <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1608239896153">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607970281736" />
+    <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1608239896153" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608398484374">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608398484374" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.804@0.23.1440.804" timestamp="1608388697458" />
   </component>
 </project>

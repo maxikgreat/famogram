@@ -1,12 +1,12 @@
-
+import Router from 'next/router';
 import { toast } from 'react-toastify';
 
 import { Redirect } from '@/components/common';
 import { BaseLayout } from '@/components/layouts';
 import { ContactInfo, ChangePassword, ChangeEmail } from '@/components/pages/settings';
 import { useUpdateEmail, useUpdateMetadata, useUpdatePassword } from '@/hooks';
-import { withAuth } from '@/services/auth0';
 import { User } from '@/types';
+import { withAuth } from '@/services/auth0';
 
 
 interface  InfoValueForm {
@@ -41,11 +41,10 @@ export default function Settings({ user, token }: SettingsProps) {
         metadata: {
           contactInfo: contactInfoMetadata
         }
-      })
-  
-      await localStorage.setItem('contactInfo', JSON.stringify(contactInfoMetadata));
+      });
       
       toast('Contacts updated', {type: 'success'});
+      Router.push('/settings?refresh=true');
     } catch (error) {
       toast(error, {type: 'error'})
     }
@@ -55,11 +54,11 @@ export default function Settings({ user, token }: SettingsProps) {
     const { newEmail } = emailData;
     updateNewEmail({ userId: user.sub, newEmail })
       .then(() => {
-        toast('Email updated! You will be redirected to login page', {type: 'success'})
+        toast('Email updated! You will be redirected to home page', {type: 'success'})
         if (typeof window !== 'undefined') {
           setTimeout(() => {
-            window.location.href = '/api/v1/login?redirectTo=/settings';
-          }, 500)
+            window.location.href = '/logout';
+          }, 2000)
         }
       })
       .catch((error) => toast(error, {type: 'error'}))
@@ -81,7 +80,7 @@ export default function Settings({ user, token }: SettingsProps) {
   if (!user.user_metadata?.contactInfo) return <Redirect url='/first_enter' />
   
   return (
-    <BaseLayout className="general">
+    <BaseLayout className="general" user={user}>
      <section className="fabrx-section bg-white mt-0 mt-md-5">
         <div className="container">
           <div className="row align-items-flex-start position-relative p-3 p-md-0">

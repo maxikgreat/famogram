@@ -12,7 +12,7 @@ interface AvatarDropdownProps {
   photo: string,
 }
 
-const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
+const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) =>  (
   <div className="dropdown">
     <a href="#" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
       <div className="fabrx-avatar mr-2 mr-sm-0">
@@ -20,7 +20,7 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
       </div>
       <span className="avatar-user mr-2">{name}</span>
       <svg data-name="Icon/Arrows/Chevron/Down" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24.091 24">
-        <path data-name="Icon Color" d="M-2.182,24,0,21.818-9.818,12,0,2.182-2.182,0l-12,12Z" transform="translate(0.091 4.909) rotate(-90)" fill="#3f3b3b"></path>
+        <path data-name="Icon Color" d="M-2.182,24,0,21.818-9.818,12,0,2.182-2.182,0l-12,12Z" transform="translate(0.091 4.909) rotate(-90)" fill="#3f3b3b" />
       </svg>
     </a>
     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
@@ -36,39 +36,33 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => (
       <Link href="/settings">
         <a className="nav-link">Settings</a>
       </Link>
-      <Link href="/api/v1/logout">
-        <a className="nav-link">Logout</a>
-      </Link>
+      <a className="nav-link" href="/logout">Logout</a>
     </div>
   </div>
 )
 
-export const Header = ({ user, loading }: HeaderProps) => {
-  
-  return (
-    <header className="fabrx-header bg-white mt-md-5 sticky-top">
-      <div className="container">
-        <nav className="navbar navbar-expand has-header-inner align-items-center">
-          <Link href="/">
-            <a className="navbar-brand logo">Hativi</a>
-          </Link>
-          <div className="navbar-collapse justify-content-end">
-            <div className="fabrx-header-links ml-0 ml-lg-5">
-              {loading
-                ? <div className="spinner-border spinner-border-sm spinner-fill" />
-                : user
-                  ? <AvatarDropdown
-                      name={user.nickname}
-                      photo={user.user_metadata?.instagram?.user.photoUrl ?? user.picture}
-                    />
-                  : <Link href="/api/v1/login">
-                      <a className="btn btn-primary">Login</a>
-                    </Link>
-              }
-            </div>
+export const Header = ({ user, loading }: HeaderProps) => (
+  <header className="fabrx-header bg-white mt-md-5 sticky-top">
+    <div className="container">
+      <nav className="navbar navbar-expand has-header-inner align-items-center">
+        <Link href="/">
+          <a className="navbar-brand logo">Hativi</a>
+        </Link>
+        <div className="navbar-collapse justify-content-end">
+          <div className="fabrx-header-links ml-0 ml-lg-5">
+            {loading
+              ? <div className="spinner-border spinner-border-sm spinner-fill" />
+              : user && Object.keys(user).length !== 0
+                ? <AvatarDropdown
+                    name={user.nickname}
+                    photo={user.user_metadata?.instagram?.user.photoUrl ?? user.picture}
+                  />
+                : <a className="btn btn-primary" href="/login">Login</a>
+            }
           </div>
-        </nav>
-      </div>
-    </header>
-  )
-}
+        </div>
+      </nav>
+    </div>
+  </header>
+)
+
