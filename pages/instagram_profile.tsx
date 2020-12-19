@@ -26,10 +26,6 @@ interface ProfileProps {
   token: string,
 }
 
-export interface InstaUserIsCreating extends InstaUser {
-  isCreating: boolean
-}
-
 const validationSchema = yup.object<MainInfoStateForm>().shape({
   instagramAccount: yup.string()
     .matches(/^[._A-z0-9]*((-|\s)*[._A-z0-9])*$/, 'No special characters required')
@@ -52,8 +48,10 @@ export const getServerSideProps = withAuth();
 
 export default function Profile({ user, token }: ProfileProps) {
   useEffect(() => {
-    if (user.user_metadata?.instagram)
-    setInstagramUser({...user.user_metadata?.instagram.user, isCreating: false});
+    if (user.user_metadata?.instagram) {
+      setInstagramUser(user.user_metadata?.instagram.user);
+      setIsCreating(false);
+    }
   }, []);
   const { register, handleSubmit, errors, watch, clearErrors, setValue } = useForm<MainInfoStateForm>({
     resolver: yupResolver(validationSchema),
@@ -66,7 +64,8 @@ export default function Profile({ user, token }: ProfileProps) {
     } : undefined,
   });
   
-  const [instagramUser, setInstagramUser] = useState<InstaUserIsCreating | null>(null);
+  const [isCreating, setIsCreating] = useState(true);
+  const [instagramUser, setInstagramUser] = useState<InstaUser | null>(null);
   
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
@@ -77,7 +76,8 @@ export default function Profile({ user, token }: ProfileProps) {
       let instaUser = instagramUser as InstaUser;
       if (instagramAccount !== instaUser.username) {
         instaUser = await checkAccount(instagramAccount);
-      } else if (!instagramUser?.isCreating) {
+      }
+      if (isCreating) {
         instaUser = await checkAccount(instagramAccount);
       }
       

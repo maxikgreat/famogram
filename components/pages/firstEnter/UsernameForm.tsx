@@ -5,7 +5,6 @@ import { FieldError } from 'react-hook-form';
 
 import { Input } from '@/components/common';
 import { InstaUser } from '@/types';
-import {InstaUserIsCreating} from '@/pages/instagram_profile';
 
 interface UsernameFormProps {
   prefix?: string,
@@ -13,8 +12,8 @@ interface UsernameFormProps {
   instagramAccountError: FieldError | undefined,
   instagramInput: string,
   clearErrors: (names?: string | string[]) => void,
-  instagramAccount: InstaUserIsCreating | null,
-  setInstagramAccount: Dispatch<SetStateAction<InstaUserIsCreating | null>>,
+  instagramAccount: InstaUser | null,
+  setInstagramAccount: Dispatch<SetStateAction<InstaUser | null>>,
   checkAccount: (data: string) => Promise<InstaUser>,
   checkAccountLoading: boolean,
   navTo: () => void
@@ -37,7 +36,7 @@ export const UsernameForm: FC<UsernameFormProps> = ({
     if (instagramInput.trim() === '') return;
     checkAccount(instagramInput)
       .then(user => {
-        setInstagramAccount({...user, isCreating: true});
+        setInstagramAccount(user);
         clearErrors();
         navTo();
       })

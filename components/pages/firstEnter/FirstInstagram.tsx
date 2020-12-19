@@ -4,7 +4,6 @@ import { FieldError } from 'react-hook-form';
 
 import { InstaUser } from "@/types";
 import { UsernameForm, CategoryPriceForm } from './'
-import {InstaUserIsCreating} from '@/pages/instagram_profile';
 
 interface FirstInstagramProps {
   prefix?: string,
@@ -16,8 +15,8 @@ interface FirstInstagramProps {
     pricePerStory: FieldError | undefined,
     desc: FieldError | undefined,
   },
-  instagramUser: InstaUserIsCreating | null,
-  setInstagramUser: Dispatch<SetStateAction<InstaUserIsCreating | null>>
+  instagramUser: InstaUser | null,
+  setInstagramUser: Dispatch<SetStateAction<InstaUser | null>>
   instagramInput: string,
   clearErrors: (names?: string | string[]) => void,
   checkAccount: (data: string) => Promise<InstaUser>,

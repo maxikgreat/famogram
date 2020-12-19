@@ -7,7 +7,7 @@ import { User } from '@/types';
 interface BaseLayoutProps {
   children: ReactNode,
   className: string,
-  user: User | undefined
+  user?: User | undefined
 }
 
 export const BaseLayout = ({ children, className, user }: BaseLayoutProps) => {

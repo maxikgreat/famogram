@@ -23,7 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layouts/BaseLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layouts/BaseLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/instagram_profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instagram_profile.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,18 +130,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1607619853869" />
-    <state x="105" y="205" width="1335" height="490" key="find.popup" timestamp="1608389415347">
+    <state x="105" y="205" width="1335" height="490" key="find.popup" timestamp="1608400722241">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="105" y="205" width="1335" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608389415347" />
+    <state x="105" y="205" width="1335" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608400722241" />
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1608239896153">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1608239896153" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608398484374">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608400437749">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608398484374" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608400437749" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.804@0.23.1440.804" timestamp="1608388697458" />
   </component>
