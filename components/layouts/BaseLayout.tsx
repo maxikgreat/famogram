@@ -2,14 +2,16 @@ import { ReactNode } from 'react';
 
 import { Header, Footer } from '../common'
 import { useUser } from '@/hooks/useUser';
+import { User } from '@/types';
 
 interface BaseLayoutProps {
   children: ReactNode,
   className: string,
+  user: User | undefined
 }
 
-export const BaseLayout = ({ children, className }: BaseLayoutProps) => {
-  const { user, loading } = useUser();
+export const BaseLayout = ({ children, className, user }: BaseLayoutProps) => {
+  const { loading } = useUser();
   
   return (
     <>

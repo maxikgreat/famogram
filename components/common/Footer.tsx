@@ -38,9 +38,7 @@ export const Footer: VFC<FooterProps> = ({ user, loading }) => (
                       <Link href="/settings">
                         <a className="nav-link">Settings</a>
                       </Link>
-                      <Link href="/api/v1/logout">
-                        <a className="nav-link">Logout</a>
-                      </Link>
+                      <a className="nav-link" href="/logout">Logout</a>
                     </>
                   ) : null
               }

@@ -4,6 +4,7 @@ import { FieldError } from 'react-hook-form';
 
 import { InstaUser } from "@/types";
 import { UsernameForm, CategoryPriceForm } from './'
+import {InstaUserIsCreating} from '@/pages/instagram_profile';
 
 interface FirstInstagramProps {
   prefix?: string,
@@ -15,8 +16,8 @@ interface FirstInstagramProps {
     pricePerStory: FieldError | undefined,
     desc: FieldError | undefined,
   },
-  instagramUser: InstaUser | null,
-  setInstagramUser: Dispatch<SetStateAction<InstaUser | null>>
+  instagramUser: InstaUserIsCreating | null,
+  setInstagramUser: Dispatch<SetStateAction<InstaUserIsCreating | null>>
   instagramInput: string,
   clearErrors: (names?: string | string[]) => void,
   checkAccount: (data: string) => Promise<InstaUser>,
@@ -36,7 +37,7 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
   checkAccountLoading,
   updateMetadataLoading
 }) => {
-  const navTabs =  useRef<NodeListOf<HTMLElement> | null>(null);
+  const navTabs = useRef<NodeListOf<HTMLElement> | null>(null);
   useEffect(() => {
     setTimeout(() => {
       clearErrors();

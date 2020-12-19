@@ -38,7 +38,7 @@ export default function FindBlogger({ user, token }: WallProps) {
   if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
   
   return (
-    <BaseLayout className="wall">
+    <BaseLayout className="wall" user={user}>
       <section className="fabrx-section bg-white mt-5 picker-section">
         <div className="container">
           <div className="row py-0 p-3 p-md-0">

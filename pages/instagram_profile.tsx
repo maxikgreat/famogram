@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -26,9 +26,13 @@ interface ProfileProps {
   token: string,
 }
 
+export interface InstaUserIsCreating extends InstaUser {
+  isCreating: boolean
+}
+
 const validationSchema = yup.object<MainInfoStateForm>().shape({
   instagramAccount: yup.string()
-    .matches(/^[_A-z0-9]*((-|\s)*[_A-z0-9])*$/, 'No special characters required')
+    .matches(/^[._A-z0-9]*((-|\s)*[._A-z0-9])*$/, 'No special characters required')
     .required('Account is required'),
   category: yup.string()
     .required('Category is required')
@@ -47,7 +51,11 @@ const validationSchema = yup.object<MainInfoStateForm>().shape({
 export const getServerSideProps = withAuth();
 
 export default function Profile({ user, token }: ProfileProps) {
-  const { register, handleSubmit, errors, watch, clearErrors } = useForm<MainInfoStateForm>({
+  useEffect(() => {
+    if (user.user_metadata?.instagram)
+    setInstagramUser({...user.user_metadata?.instagram.user, isCreating: false});
+  }, []);
+  const { register, handleSubmit, errors, watch, clearErrors, setValue } = useForm<MainInfoStateForm>({
     resolver: yupResolver(validationSchema),
     defaultValues: user.user_metadata?.instagram ? {
       instagramAccount: user.user_metadata.instagram.user.username,
@@ -58,7 +66,7 @@ export default function Profile({ user, token }: ProfileProps) {
     } : undefined,
   });
   
-  const [instagramUser, setInstagramUser] = useState<InstaUser | null>(null);
+  const [instagramUser, setInstagramUser] = useState<InstaUserIsCreating | null>(null);
   
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
@@ -66,8 +74,10 @@ export default function Profile({ user, token }: ProfileProps) {
   const updateInfo = async (formData: MainInfoStateForm) => {
     const { category, desc, pricePerStory, pricePerPost, instagramAccount } = formData;
     try {
-      let instaUser = user.user_metadata?.instagram?.user as InstaUser;
-      if (instagramAccount !== user.user_metadata?.instagram?.user.username) {
+      let instaUser = instagramUser as InstaUser;
+      if (instagramAccount !== instaUser.username) {
+        instaUser = await checkAccount(instagramAccount);
+      } else if (!instagramUser?.isCreating) {
         instaUser = await checkAccount(instagramAccount);
       }
       
@@ -90,6 +100,13 @@ export default function Profile({ user, token }: ProfileProps) {
       
       toast('Data updated', { type: 'success' });
       Router.push('/instagram_profile?refresh=true')
+        .then(() => {
+          setValue('instagramAccount', instagramAccount);
+          setValue('category', category);
+          setValue('pricePerStory', pricePerStory);
+          setValue('pricePerPost', pricePerPost);
+          setValue('desc', desc);
+        });
     } catch (error) {
       toast(error, { type: 'error' });
     }
@@ -106,7 +123,7 @@ export default function Profile({ user, token }: ProfileProps) {
   if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
 
   return (
-    <BaseLayout className="profile">
+    <BaseLayout className="profile" user={user}>
       <section className="fabrx-section bg-white mt-0 mt-md-3">
         <div className="container">
           <form onSubmit={handleSubmit(updateInfo)} className="row align-items-flex-start position-relative p-3 p-md-0">

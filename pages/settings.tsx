@@ -54,11 +54,11 @@ export default function Settings({ user, token }: SettingsProps) {
     const { newEmail } = emailData;
     updateNewEmail({ userId: user.sub, newEmail })
       .then(() => {
-        toast('Email updated! You will be redirected to login page', {type: 'success'})
+        toast('Email updated! You will be redirected to home page', {type: 'success'})
         if (typeof window !== 'undefined') {
           setTimeout(() => {
             window.location.href = '/logout';
-          }, 500)
+          }, 2000)
         }
       })
       .catch((error) => toast(error, {type: 'error'}))
@@ -80,7 +80,7 @@ export default function Settings({ user, token }: SettingsProps) {
   if (!user.user_metadata?.contactInfo) return <Redirect url='/first_enter' />
   
   return (
-    <BaseLayout className="general">
+    <BaseLayout className="general" user={user}>
      <section className="fabrx-section bg-white mt-0 mt-md-5">
         <div className="container">
           <div className="row align-items-flex-start position-relative p-3 p-md-0">

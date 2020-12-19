@@ -12,7 +12,7 @@ const fetcher = (url: string) => axiosAuth0.get(url).then(res => {
 
 export const useUser = () => {
   const { data, error } = useSWR<User>('/me', fetcher, {
-    revalidateOnReconnect: true
+    revalidateOnReconnect: true,
   });
   return {
     user: data,
