@@ -23,20 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layouts/BaseLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layouts/BaseLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/FirstInstagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/firstEnter/UsernameForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/find_blogger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_blogger.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/first_enter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/first_enter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/instagram_profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instagram_profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth0.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth0.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +83,7 @@
       <workItem from="1608104498137" duration="74000" />
       <workItem from="1608137642257" duration="12273000" />
       <workItem from="1608218614058" duration="2936000" />
-      <workItem from="1608304916998" duration="27367000" />
+      <workItem from="1608304916998" duration="27533000" />
     </task>
     <servers />
   </component>
