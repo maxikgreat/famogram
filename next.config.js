@@ -13,4 +13,5 @@ module.exports = {
   sassOptions: {
     outputStyle: 'expanded',
   },
+  distDir: 'build',
 }
