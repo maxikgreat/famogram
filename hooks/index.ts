@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import { useApiHandler } from './useApiHandler';
 import { axiosApi } from '@/services/axios';
 import { InstaUser, Metadata, User } from '@/types';

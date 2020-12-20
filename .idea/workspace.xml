@@ -24,10 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useApiHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useApiHandler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/axios/axiosApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/axios/axiosApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,10 +163,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1607619853869" />
-    <state x="105" y="205" width="1335" height="554" key="find.popup" timestamp="1608464103630">
+    <state x="105" y="205" width="1335" height="554" key="find.popup" timestamp="1608466454652">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="105" y="205" width="1335" height="554" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608464103630" />
+    <state x="105" y="205" width="1335" height="554" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608466454652" />
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1608239896153">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

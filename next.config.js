@@ -7,6 +7,7 @@ module.exports = {
     config.plugins.push(new DotenvWebpack({
       silent: true,
       path: process.env.NODE_ENV === 'production' ? './.env.production' : './.env',
+      systemvars: process.env.NODE_ENV === 'production'
     }));
     return config;
   },

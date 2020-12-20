@@ -1,6 +1,5 @@
 import axiosGlobal from 'axios';
 
-console.log("API URL", process.env.API_URL);
 const axiosApi = axiosGlobal.create({
   baseURL: process.env.API_URL,
   responseType: 'json',
