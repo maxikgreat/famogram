@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { AxiosPromise, AxiosResponse } from 'axios';
-
-// import { axiosApi } from '@/services/axios';
+import { AxiosPromise } from 'axios';
 
 export function useApiHandler<D, R>(apiCall: (data: D) => AxiosPromise<R>): [
   (data: D) => Promise<R>,
