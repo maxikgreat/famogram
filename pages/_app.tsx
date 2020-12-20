@@ -10,6 +10,7 @@ import '@/styles/main.scss';
 
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
+  console.log(process.env);
   return (
     <>
       <Head>
