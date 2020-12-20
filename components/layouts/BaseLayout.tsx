@@ -11,11 +11,11 @@ interface BaseLayoutProps {
 }
 
 export const BaseLayout = ({ children, className, user }: BaseLayoutProps) => {
-  const { loading } = useUser();
+  const { user: userHook, loading } = useUser();
   
   return (
     <>
-      <Header user={user} loading={loading} />
+      <Header user={user || userHook} loading={loading} />
       <main id="main" className={className}>
         {children}
       </main>
