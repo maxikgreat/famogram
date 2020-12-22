@@ -19,7 +19,7 @@ export const BaseLayout = ({ children, className, user }: BaseLayoutProps) => {
       <main id="main" className={className}>
         {children}
       </main>
-      <Footer user={user} loading={loading} />
+      <Footer user={user || userHook} loading={loading} />
     </>
   )
 }
