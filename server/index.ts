@@ -34,6 +34,7 @@ const port = process.env.PORT || 3000;
         response_type: 'code',
         audience: process.env.AUTH0_AUDIENCE,
         scope: 'openid email profile offline_access',
+        prompt: 'none',
       },
       routes: {
         login: false,
