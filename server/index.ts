@@ -36,6 +36,7 @@ const port = process.env.PORT || 3000;
         scope: 'openid email profile offline_access',
       },
       routes: {
+        login: false,
         callback: '/callback',
       }
     }));
