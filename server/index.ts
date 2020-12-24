@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import next from 'next';
 import { parse } from 'url';
 import { auth, RequestContext, ResponseContext } from 'express-openid-connect';
+import sslRedirect from 'heroku-ssl-redirect';
 
 import routes from './routes';
 
@@ -42,6 +43,8 @@ const port = process.env.PORT || 3000;
     }));
     
     server.use(express.json());
+  
+    server.use(sslRedirect());
     server.use(routes);
 
     server.all('*', (req, res) => {
