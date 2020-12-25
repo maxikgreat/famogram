@@ -1,54 +1,49 @@
-.logo {
-  cursor: pointer;
-  background: linear-gradient(270deg, $accent 30%, $primary 70%);
-  background-size: 600% 600%;
-
-  -webkit-animation: gradient 5s ease infinite;
-  -moz-animation: gradient 5s ease infinite;
-  animation: gradient 5s ease infinite;
-
-  color: #000;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  padding: 10px;
-
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-@-webkit-keyframes gradient {
-  0%{
-    background-position: 0% 50%;
-  }
-  50%{
-    background-position: 100% 50%;
-  }
-  100%{
-    background-position: 0% 50%;
+@media only screen and (max-width: 767px) {
+  .logo-header {
+    left: -110px;
   }
 }
-@-moz-keyframes gradient {
-  0%{
-    background-position:0% 50%;
+
+svg#logo {
+  path.title {
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i / 3}s;
+      }
+    }
+    animation: colorChange 3s infinite;
   }
-  50%{
-    background-position:100% 50%;
+
+  path.slug {
+    fill: $secondary;
+    animation: fadeIn 3s;
   }
-  100%{
-    background-position:0% 50%;
+
+  path.back-star {
+    fill: $primary;
+    animation: fadeIn 3s;
+  }
+
+  path.front-star, polygon.front-star {
+    animation: colorChange 3s infinite;
+    animation-delay: 3s;
   }
 }
-@keyframes gradient {
-  0%{
-    background-position:0% 50%;
-  }
-  50%{
-    background-position:100% 50%;
-  }
-  100%{
-    background-position:0% 50%;
-  }
+
+@keyframes colorChange {
+  0%{fill: $accent}
+  50%{fill: $primary}
+  100%{fill: $accent}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0}
+  90% {opacity: 0}
+  100% {opacity: 1}
+}
+
+@keyframes fadeInFast {
+  0% {opacity: 0}
+  99% {opacity: 0}
+  100% {opacity: 1}
 }

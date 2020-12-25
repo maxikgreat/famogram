@@ -1,5 +1,7 @@
 import {VFC} from 'react';
 import Link from 'next/link';
+
+import {Logo} from '../common'
 import {User} from '@/types';
 
 interface FooterProps {
@@ -11,10 +13,8 @@ export const Footer: VFC<FooterProps> = ({ user, loading }) => (
   <footer className="fabrx-footer py-5 mt-5">
     <div className="container">
       <div className={`row align-items-${!user ? 'center' : 'start' }`}>
-        <div className="col-lg-3 col-sm-3 mt-0 mb-3 text-center text-sm-left">
-          <Link href="/">
-            <a className="navbar-brand logo m-0 mr-sm-4">Hativi</a>
-          </Link>
+        <div className="col-lg-3 col-sm-3 mt-0 mb-3 text-center text-sm-left position-relative">
+          <Logo type="text" />
         </div>
         <div className="col-lg-6 col-sm-9">
           <div className="row">
