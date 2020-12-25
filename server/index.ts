@@ -43,8 +43,9 @@ const port = process.env.PORT || 3000;
     }));
     
     server.use(express.json());
-  
-    server.use(sslRedirect());
+    if (process.env.NODE_ENV === 'production') {
+      server.use(sslRedirect());
+    }
     server.use(routes);
 
     server.all('*', (req, res) => {

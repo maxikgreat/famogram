@@ -24,17 +24,9 @@
 @import './pages/wall';
 @import './pages/profile';
 
-
-body {
-
-}
-
-main {
-  // if you want parallax move header && footer to main
-  // height: 100vh;
-  // overflow-x: hidden;
-  // overflow-y: auto;
-  // perspective: 2px;
+header {
+  padding: 20px 0 20px 0 !important;
+  margin-top: 5.5rem !important;
 }
 
 section {

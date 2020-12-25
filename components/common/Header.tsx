@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { Logo } from '../common'
 import { User } from '@/types';
 
 interface HeaderProps {
@@ -42,12 +43,12 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) =>  (
 )
 
 export const Header = ({ user, loading }: HeaderProps) => (
-  <header className="fabrx-header bg-white mt-md-5 sticky-top">
+  <header className="fabrx-header bg-white sticky-top">
     <div className="container">
-      <nav className="navbar navbar-expand has-header-inner align-items-center">
-        <Link href="/">
-          <a className="navbar-brand logo">Hativi</a>
-        </Link>
+      <nav className="navbar navbar-expand has-header-inner align-items-center position-relative">
+        <div className="position-absolute logo-header" style={{top: -97}}>
+          <Logo />
+        </div>
         <div className="navbar-collapse justify-content-end">
           <div className="fabrx-header-links ml-0 ml-lg-5">
             {loading

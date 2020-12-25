@@ -23,10 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/components/common/Logo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/components/_logo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_logo.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,12 +54,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets/images/logo" />
+      <recent name="$PROJECT_DIR$/public/assets/images" />
+      <recent name="$PROJECT_DIR$/logo" />
       <recent name="$PROJECT_DIR$/server" />
     </key>
   </component>
@@ -109,6 +116,9 @@
       <workItem from="1608218614058" duration="2936000" />
       <workItem from="1608304916998" duration="27533000" />
       <workItem from="1608654652802" duration="3883000" />
+      <workItem from="1608893787318" duration="150000" />
+      <workItem from="1608900003603" duration="17463000" />
+      <workItem from="1608923173853" duration="3776000" />
     </task>
     <servers />
   </component>
@@ -139,50 +149,50 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1607968373016" />
-    <state x="419" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607161193912">
+    <state x="419" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608913329680">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="419" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1607161193912" />
+    <state x="419" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1608913329680" />
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608317689939">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1608317689939" />
-    <state width="1419" height="245" key="GridCell.Tab.0.bottom" timestamp="1608409176547">
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom" timestamp="1608923168516">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608409176547" />
-    <state width="1419" height="245" key="GridCell.Tab.0.center" timestamp="1608409176546">
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608923168516" />
+    <state width="1419" height="245" key="GridCell.Tab.0.center" timestamp="1608923168514">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608409176546" />
-    <state width="1419" height="245" key="GridCell.Tab.0.left" timestamp="1608409176544">
+    <state width="1419" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608923168514" />
+    <state width="1419" height="245" key="GridCell.Tab.0.left" timestamp="1608923168512">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608409176544" />
-    <state width="1419" height="245" key="GridCell.Tab.0.right" timestamp="1608409176547">
+    <state width="1419" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608923168512" />
+    <state width="1419" height="245" key="GridCell.Tab.0.right" timestamp="1608923168515">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608409176547" />
-    <state x="221" y="89" key="SettingsEditor" timestamp="1606417351166">
+    <state width="1419" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608923168515" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1608901702203">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606417351166" />
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608901702203" />
     <state width="500" height="445" key="SwitcherDM" timestamp="1607619853869">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1607619853869" />
-    <state x="105" y="205" width="1335" height="554" key="find.popup" timestamp="1608636832474">
+    <state x="105" y="205" width="1335" height="554" key="find.popup" timestamp="1608926747522">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="105" y="205" width="1335" height="554" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608636832474" />
+    <state x="105" y="205" width="1335" height="554" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608926747522" />
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1608239896153">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1608239896153" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608838187672">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608925138154">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608838187672" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608925138154" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.804@0.23.1440.804" timestamp="1608388697458" />
   </component>
