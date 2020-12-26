@@ -23,14 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/common/Logo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/common/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/_logo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_logo.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/common/Logo.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +112,7 @@
       <workItem from="1608654652802" duration="3883000" />
       <workItem from="1608893787318" duration="150000" />
       <workItem from="1608900003603" duration="17463000" />
-      <workItem from="1608923173853" duration="3776000" />
+      <workItem from="1608923173853" duration="5261000" />
     </task>
     <servers />
   </component>
@@ -189,10 +183,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1608239896153" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608925138154">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608988204969">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608925138154" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608988204969" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.804@0.23.1440.804" timestamp="1608388697458" />
   </component>
