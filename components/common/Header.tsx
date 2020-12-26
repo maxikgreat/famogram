@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
-import { Logo } from '../common'
-import { User } from '@/types';
+import {Logo} from '../common';
+import {User} from '@/types';
+import {useEffect, useState} from 'react';
 
 interface HeaderProps {
   user?: User,
@@ -42,28 +43,44 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) =>  (
   </div>
 )
 
-export const Header = ({ user, loading }: HeaderProps) => (
-  <header className="fabrx-header bg-white sticky-top">
-    <div className="container">
-      <nav className="navbar navbar-expand has-header-inner align-items-center position-relative">
-        <div className="position-absolute logo-header" style={{top: -97}}>
-          <Logo />
-        </div>
-        <div className="navbar-collapse justify-content-end">
-          <div className="fabrx-header-links ml-0 ml-lg-5">
-            {loading
-              ? <div className="spinner-border spinner-border-sm spinner-fill" />
-              : user && Object.keys(user).length !== 0
-                ? <AvatarDropdown
+export const Header = ({ user, loading }: HeaderProps) => {
+  useEffect(() => {
+    const resizeHandler = () => {
+      if (window.innerWidth < 767) {
+        return setMobile(true);
+      }
+      setMobile(false);
+    };
+    resizeHandler();
+    window.addEventListener('resize', resizeHandler);
+    return () => window.removeEventListener('resize', resizeHandler);
+  },[]);
+  
+  const [isMobile, setMobile] = useState(false);
+  
+  return (
+    <header className="fabrx-header bg-white sticky-top">
+      <div className="container">
+        <nav className="navbar navbar-expand has-header-inner align-items-center position-relative">
+          <div className="position-absolute logo-header" style={{top: isMobile ? -35 : -97}}>
+            <Logo isMobile={isMobile} />
+          </div>
+          <div className="navbar-collapse justify-content-end">
+            <div className="fabrx-header-links ml-0 ml-lg-5">
+              {loading
+                ? <div className="spinner-border spinner-border-sm spinner-fill" />
+                : user && Object.keys(user).length !== 0
+                  ? <AvatarDropdown
                     name={user.nickname}
                     photo={user.user_metadata?.instagram?.user.photoUrl ?? user.picture}
                   />
-                : <a className="btn btn-primary" href="/login">Login</a>
-            }
+                  : <a className="btn btn-primary" href="/login">Login</a>
+              }
+            </div>
           </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-)
+        </nav>
+      </div>
+    </header>
+  )
+}
 

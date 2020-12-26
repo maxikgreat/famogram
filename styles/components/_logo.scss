@@ -1,9 +1,3 @@
-@media only screen and (max-width: 767px) {
-  .logo-header {
-    left: -110px;
-  }
-}
-
 svg#logo {
   path.title {
     @for $i from 1 through 6 {
