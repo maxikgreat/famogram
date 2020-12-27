@@ -1,8 +1,9 @@
 // dotenv-webpack v3.0 doesn't work correctly with next
 
 const DotenvWebpack = require('dotenv-webpack');
+const nextTranslate = require('next-translate');
 
-module.exports = {
+module.exports = nextTranslate({
   webpack: config => {
     config.plugins.push(new DotenvWebpack({
       silent: true,
@@ -15,4 +16,4 @@ module.exports = {
     outputStyle: 'expanded',
   },
   distDir: 'build',
-}
+})

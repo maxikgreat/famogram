@@ -29,6 +29,7 @@
     "http-proxy-middleware": "^1.0.6",
     "next": "^10.0.0",
     "next-redux-wrapper": "^6.0.2",
+    "next-translate": "^1.0.1",
     "nextjs-progressbar": "0.0.6",
     "react": "^17.0.1",
     "react-accessible-accordion": "^3.3.3",

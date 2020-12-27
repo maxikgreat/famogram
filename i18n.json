@@ -1,0 +1,1 @@
+{  "locales": ["en", "pl"],  "defaultLocale": "en",  "pages": {    "*": ["common"],    "/": ["home"],    "/find_blogger": ["find_blogger"]  }}

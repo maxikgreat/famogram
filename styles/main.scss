@@ -43,4 +43,17 @@ section {
   @include ddd($accent);
 }
 
+.langs {
+  left: 25px;
+  border: 1px solid $primary;
+  padding: 5px;
+  li, span, ul {
+    text-transform: uppercase;
+  }
+  ul {
+    min-width: 40px !important;
+    max-width: 40px !important;
+  }
+}
+
 @import 'respo';
