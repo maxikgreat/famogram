@@ -42,7 +42,6 @@ export default function FindBlogger({ user, token }: WallProps) {
       <section className="fabrx-section bg-white mt-5 picker-section">
         <div className="container">
           <div className="row py-0 p-3 p-md-0">
-            
             <Categories
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}

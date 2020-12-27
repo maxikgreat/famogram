@@ -2,6 +2,11 @@ import { useApiHandler } from './useApiHandler';
 import { axiosApi } from '@/services/axios';
 import { InstaUser, Metadata, User } from '@/types';
 
+export interface CheckInstagram {
+  nickname: string,
+  forceCheck?: boolean
+}
+
 interface ExtendedMetadata {
   userId: string,
   metadata: Metadata,
@@ -16,7 +21,8 @@ interface NewPassword {
   userId: string,
 }
 
-const checkAccount = (nickname: string) => axiosApi.post('/api/v1/insta/check', { nickname });
+
+const checkAccount = ({nickname,  forceCheck}: CheckInstagram) => axiosApi.post('/api/v1/insta/check', {nickname, forceCheck});
 const updateMetadata = (data: ExtendedMetadata) => axiosApi.patch(`api/v1/auth0/user`, data);
 const updateEmail = (data: NewEmail) => axiosApi.patch(`api/v1/auth0/user/email`, data);
 const updatePassword = (data: NewPassword) => axiosApi.post(`api/v1/auth0/user/password`, data);
@@ -24,7 +30,7 @@ const getBloggers = () => axiosApi.get('api/v1/auth0/bloggers');
 
 export const useCheckAccount = (token: string) => {
   axiosApi.defaults.headers.Authorization = token;
-  return useApiHandler<string, InstaUser>(checkAccount);
+  return useApiHandler<CheckInstagram, InstaUser>(checkAccount);
 }
 
 export const useUpdateMetadata = (token: string) => {
