@@ -39,7 +39,7 @@ const port = process.env.PORT || 3000;
       routes: {
         login: false,
         callback: '/callback',
-      }
+      },
     }));
     
     server.use(express.json());

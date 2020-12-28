@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver }  from '@hookform/resolvers/yup';
 import Router from 'next/router';
+import moment from 'moment';
 
 import { Instagram, MainInfo } from '@/components/pages/instagramProfile';
 import { BaseLayout } from "@/components/layouts";
@@ -19,11 +20,13 @@ export interface MainInfoStateForm {
   pricePerStory: string,
   pricePerPost: string,
   desc: string,
+  forceCheckAccount?: boolean
 }
 
 interface ProfileProps {
   user: User,
   token: string,
+  token2: string
 }
 
 const validationSchema = yup.object<MainInfoStateForm>().shape({
@@ -48,10 +51,22 @@ export const getServerSideProps = withAuth();
 
 export default function Profile({ user, token }: ProfileProps) {
   useEffect(() => {
-    if (user.user_metadata?.instagram) {
-      setInstagramUser(user.user_metadata?.instagram.user);
-      setIsCreating(false);
-    }
+    (async () => {
+      if (user.user_metadata?.instagram) {
+        if (moment().diff(moment(user.updated_at), 'days') >= 3) {
+          await updateInfo({
+            instagramAccount: user.user_metadata.instagram.user.username,
+            category: user.user_metadata.instagram.category,
+            desc: user.user_metadata.instagram.desc,
+            pricePerPost: user.user_metadata.instagram.price.post.toString(),
+            pricePerStory: user.user_metadata.instagram.price.story.toString(),
+            forceCheckAccount: true,
+          });
+        }
+        setInstagramUser(user.user_metadata?.instagram.user);
+        setAccountChecked(true);
+      }
+    })();
   }, []);
   const { register, handleSubmit, errors, watch, clearErrors, setValue } = useForm<MainInfoStateForm>({
     resolver: yupResolver(validationSchema),
@@ -64,21 +79,18 @@ export default function Profile({ user, token }: ProfileProps) {
     } : undefined,
   });
   
-  const [isCreating, setIsCreating] = useState(true);
+  const [accountChecked, setAccountChecked] = useState(false);
   const [instagramUser, setInstagramUser] = useState<InstaUser | null>(null);
   
   const [checkAccount, checkAccountState] = useCheckAccount(token);
   const [updateMetadata, updateMetadataState] = useUpdateMetadata(token);
   
   const updateInfo = async (formData: MainInfoStateForm) => {
-    const { category, desc, pricePerStory, pricePerPost, instagramAccount } = formData;
+    const { category, desc, pricePerStory, pricePerPost, instagramAccount, forceCheckAccount } = formData;
     try {
       let instaUser = instagramUser as InstaUser;
-      if (instagramAccount !== instaUser.username) {
-        instaUser = await checkAccount(instagramAccount);
-      }
-      if (isCreating) {
-        instaUser = await checkAccount(instagramAccount);
+      if (instagramAccount !== instaUser.username || !accountChecked || forceCheckAccount) {
+        instaUser = await checkAccount({nickname: instagramAccount, forceCheck: forceCheckAccount});
       }
       
       const instagramData: InstagramMetadata = {
@@ -149,6 +161,7 @@ export default function Profile({ user, token }: ProfileProps) {
                   </>
                 ) : (
                   <FirstInstagram
+                    setAccountChecked={setAccountChecked}
                     register={register}
                     errors={dependedErrors}
                     checkAccount={checkAccount}

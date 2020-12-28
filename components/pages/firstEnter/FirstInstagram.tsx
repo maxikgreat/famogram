@@ -4,8 +4,10 @@ import { FieldError } from 'react-hook-form';
 
 import { InstaUser } from "@/types";
 import { UsernameForm, CategoryPriceForm } from './'
+import { CheckInstagram } from '@/hooks';
 
 interface FirstInstagramProps {
+  setAccountChecked?: Dispatch<SetStateAction<boolean>>
   prefix?: string,
   register: any,
   errors: {
@@ -19,12 +21,13 @@ interface FirstInstagramProps {
   setInstagramUser: Dispatch<SetStateAction<InstaUser | null>>
   instagramInput: string,
   clearErrors: (names?: string | string[]) => void,
-  checkAccount: (data: string) => Promise<InstaUser>,
+  checkAccount: (data: CheckInstagram) => Promise<InstaUser>,
   checkAccountLoading: boolean,
   updateMetadataLoading: boolean,
 }
 
 export const FirstInstagram: VFC<FirstInstagramProps> = ({
+  setAccountChecked,
   prefix,
   register,
   errors,
@@ -80,6 +83,7 @@ export const FirstInstagram: VFC<FirstInstagramProps> = ({
                   src="./assets/images/vectors/vector-15.svg"
                 />
                 <UsernameForm
+                  setAccountChecked={setAccountChecked}
                   prefix={prefix}
                   register={register}
                   instagramAccountError={errors.instagramAccount}

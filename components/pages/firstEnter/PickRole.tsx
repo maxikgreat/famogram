@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useCallback, useMemo, VFC} from "react";
+import React, {Dispatch, SetStateAction, VFC} from "react";
 import { animated, useSpring } from 'react-spring';
 import { isMobile } from 'react-device-detect';
 import { DeepMap, FieldError } from 'react-hook-form';
@@ -7,6 +7,7 @@ import { InstaUser, Role } from "@/types";
 import { InfoForm } from './';
 import { FirstEnterForm } from "@/pages/first_enter";
 import { FirstInstagram } from '@pagesComponents/firstEnter/FirstInstagram';
+import {CheckInstagram} from '@/hooks';
 
 interface PickRoleProps {
   register: any,
@@ -20,7 +21,7 @@ interface PickRoleProps {
   customEmailLabel: () => JSX.Element,
   watch: (names?: string | string[]) => string,
   clearErrors: (names?: string | string[]) => void,
-  checkAccount: (data: string) => Promise<InstaUser>,
+  checkAccount: (data: CheckInstagram) => Promise<InstaUser>,
   checkAccountLoading: boolean,
   updateMetadataLoading: boolean,
 }
@@ -98,7 +99,11 @@ export const PickRole: VFC<PickRoleProps> = ({
                 onClick={() => setRoleHandler('influencer')}
                 className={`btn btn-${isMobile ? 'md' : 'xl'} btn-block btn-accent`}
               >
-                Discover bloggers
+                {
+                  updateMetadataLoading
+                    ? <div className="spinner-border spinner-border-sm spinner-fill" />
+                    : 'Discover bloggers'
+                }
               </button>
             </div>
           </div>

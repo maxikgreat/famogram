@@ -5,8 +5,10 @@ import { FieldError } from 'react-hook-form';
 
 import { Input } from '@/components/common';
 import { InstaUser } from '@/types';
+import {CheckInstagram} from '@/hooks';
 
 interface UsernameFormProps {
+  setAccountChecked?: Dispatch<SetStateAction<boolean>> | undefined,
   prefix?: string,
   register: any,
   instagramAccountError: FieldError | undefined,
@@ -14,12 +16,13 @@ interface UsernameFormProps {
   clearErrors: (names?: string | string[]) => void,
   instagramAccount: InstaUser | null,
   setInstagramAccount: Dispatch<SetStateAction<InstaUser | null>>,
-  checkAccount: (data: string) => Promise<InstaUser>,
+  checkAccount: (data: CheckInstagram) => Promise<InstaUser>,
   checkAccountLoading: boolean,
   navTo: () => void
 }
 
 export const UsernameForm: FC<UsernameFormProps> = ({
+  setAccountChecked,
   prefix,
   register,
   instagramAccountError,
@@ -34,11 +37,14 @@ export const UsernameForm: FC<UsernameFormProps> = ({
   const checkAccountHandler = () => {
     if (instagramAccountError) return;
     if (instagramInput.trim() === '') return;
-    checkAccount(instagramInput)
+    checkAccount({nickname: instagramInput})
       .then(user => {
         setInstagramAccount(user);
         clearErrors();
         navTo();
+        if (setAccountChecked) {
+          setAccountChecked(true);
+        }
       })
       .catch(error => toast(error, { type: 'error' }));
   };
