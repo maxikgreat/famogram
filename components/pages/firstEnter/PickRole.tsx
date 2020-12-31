@@ -7,7 +7,7 @@ import { InstaUser, Role } from "@/types";
 import { InfoForm } from './';
 import { FirstEnterForm } from "@/pages/first_enter";
 import { FirstInstagram } from '@pagesComponents/firstEnter/FirstInstagram';
-import {CheckInstagram} from '@/hooks';
+import { CheckInstagram } from '@/hooks';
 
 interface PickRoleProps {
   register: any,
