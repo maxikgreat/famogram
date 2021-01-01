@@ -30,7 +30,7 @@ export default function FindBlogger({ user, token }: WallProps) {
   }, []);
   
   const [activeCategory, setActiveCategory] = useState<ICategory[]>([]);
-  const [showDetails, setShowDetails] = useState(false);
+  const [activeBlogger, setActiveBlogger] = useState<User | null>(null);
   
   const filterBloggers = () => {
     if (activeCategory.length === 0) return getBloggersState.data;
@@ -42,7 +42,7 @@ export default function FindBlogger({ user, token }: WallProps) {
   
   return (
     <>
-      <Details show={showDetails} setShow={setShowDetails} />
+      <Details activeBlogger={activeBlogger} setActiveBlogger={setActiveBlogger} />
       <BaseLayout className="wall" user={user}>
         <section className="fabrx-section bg-white mt-5 picker-section">
           <div className="container">
@@ -60,7 +60,7 @@ export default function FindBlogger({ user, token }: WallProps) {
                 loading={getBloggersState.loading}
                 error={getBloggersState.error}
                 bloggers={filterBloggers()}
-                setShowDetails={setShowDetails}
+                setActiveBlogger={setActiveBlogger}
               />
             </div>
           </div>

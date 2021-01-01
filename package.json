@@ -33,19 +33,16 @@
     "next-translate": "^1.0.1",
     "nextjs-progressbar": "0.0.6",
     "react": "^17.0.1",
-    "react-accessible-accordion": "^3.3.3",
     "react-device-detect": "^1.14.0",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.11.0",
     "react-loading-skeleton": "^2.1.1",
     "react-redux": "^7.2.2",
-    "react-responsive-masonry": "^2.1.0",
     "react-select": "^3.1.1",
     "react-spring": "^8.0.27",
     "react-toastify": "^6.1.0",
     "sass": "^1.26.11",
     "swr": "^0.3.8",
-    "ts-node-dev": "^1.1.1",
     "yup": "^0.29.3"
   },
   "devDependencies": {
@@ -59,6 +56,7 @@
     "dotenv-webpack": "^2.0.0",
     "nodemon": "^2.0.4",
     "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.1.1",
     "typescript": "^4.0.3"
   },
   "author": "Maksym Vasylenko <maximvasylenko228322@gmail.com>"
