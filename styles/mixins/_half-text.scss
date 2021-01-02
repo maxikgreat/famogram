@@ -1,0 +1,1 @@
+@mixin half-color($color1, $color2) {  position: relative;  display: inline-block;  color: $color2;  &:before {    content: attr(data-letter);    color: $color1;    position:absolute;    top: 0;    left: 0;    height: 50%;    overflow: hidden;  }}

@@ -8,6 +8,7 @@
 @import './mixins/text-shadow';
 @import './mixins/float';
 @import './mixins/ddd';
+@import './mixins/half-text';
 
 // components
 @import './components/logo';
@@ -23,6 +24,11 @@
 @import './pages/index';
 @import './pages/wall';
 @import './pages/profile';
+
+body.modal-open {
+  height: 100vh;
+  overflow-y: hidden;
+}
 
 header {
   padding: 20px 0 20px 0 !important;
