@@ -23,34 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/images/details.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/BloggerItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/BloggerItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/People.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/find_blogger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/find_blogger.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/advantages-background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/advertising.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/chose-background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/chose-bloger.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/chose-finder.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/next-background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/parallax-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/wall-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/wall.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome-background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/welcome.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/_respo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/_respo.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/components/_details.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_details.scss" afterDir="false" />
     </list>
@@ -148,7 +122,7 @@
       <workItem from="1609087370219" duration="5863000" />
       <workItem from="1609348260968" duration="3835000" />
       <workItem from="1609399707785" duration="2527000" />
-      <workItem from="1609496103634" duration="18404000" />
+      <workItem from="1609496103634" duration="25564000" />
     </task>
     <servers />
   </component>
