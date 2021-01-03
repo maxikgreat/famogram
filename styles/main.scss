@@ -30,6 +30,10 @@ body.modal-open {
   overflow-y: hidden;
 }
 
+.scroll-list.modal-open {
+  overflow-y: hidden !important;
+}
+
 header {
   padding: 20px 0 20px 0 !important;
   padding-top: 5.5rem !important;

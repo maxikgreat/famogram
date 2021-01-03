@@ -25,8 +25,6 @@
     <list default="true" id="0dc422d9-c707-4b75-af9a-e4b0b86ccc86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pages/findBloger/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/findBloger/Details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/components/_details.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/components/_details.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +121,7 @@
       <workItem from="1609087370219" duration="5863000" />
       <workItem from="1609348260968" duration="3835000" />
       <workItem from="1609399707785" duration="2527000" />
-      <workItem from="1609496103634" duration="32561000" />
+      <workItem from="1609496103634" duration="35557000" />
     </task>
     <servers />
   </component>
@@ -178,10 +176,12 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1419" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608923168515" />
-    <state x="499" y="159" key="RollbackChangesDialog" timestamp="1609182178253">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="402" y="-868" key="RollbackChangesDialog" timestamp="1609681028423">
+      <screen x="-263" y="-1055" width="1920" height="1055" />
     </state>
+    <state x="402" y="-889" key="RollbackChangesDialog/0.0.1440.900/-263.-1080.1920.1080@-263.-1080.1920.1080" timestamp="1609617596907" />
     <state x="499" y="159" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1609182178252" />
+    <state x="402" y="-868" key="RollbackChangesDialog/0.25.1440.796/-263.-1055.1920.1055@-263.-1055.1920.1055" timestamp="1609681028423" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1608901702203">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -199,15 +199,15 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1608239896153" />
-    <state x="250" y="-845" width="894" height="812" key="search.everywhere.popup" timestamp="1609616664973">
-      <screen x="-263" y="-1080" width="1920" height="1080" />
+    <state x="250" y="-825" width="894" height="793" key="search.everywhere.popup" timestamp="1609681635798">
+      <screen x="-263" y="-1055" width="1920" height="1055" />
     </state>
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/-184.-1080.1920.1080@0.0.1440.900" timestamp="1609401381541" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/-1920.-114.1920.1080@0.0.1440.900" timestamp="1609400326227" />
-    <state x="250" y="-845" width="894" height="812" key="search.everywhere.popup/0.0.1440.900/-263.-1080.1920.1080@-263.-1080.1920.1080" timestamp="1609616664973" />
+    <state x="250" y="-845" width="894" height="812" key="search.everywhere.popup/0.0.1440.900/-263.-1080.1920.1080@-263.-1080.1920.1080" timestamp="1609662768927" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1609534279917" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.799@0.23.1440.799" timestamp="1606418380607" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.804@0.23.1440.804" timestamp="1608388697458" />
-    <state x="250" y="-825" width="894" height="793" key="search.everywhere.popup/0.25.1440.796/-263.-1055.1920.1055@-263.-1055.1920.1055" timestamp="1609612906438" />
+    <state x="250" y="-825" width="894" height="793" key="search.everywhere.popup/0.25.1440.796/-263.-1055.1920.1055@-263.-1055.1920.1055" timestamp="1609681635798" />
   </component>
 </project>
