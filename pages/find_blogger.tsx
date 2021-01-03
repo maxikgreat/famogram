@@ -43,7 +43,7 @@ export default function FindBlogger({ user, token }: WallProps) {
   return (
     <>
       <Details activeBlogger={activeBlogger} setActiveBlogger={setActiveBlogger} />
-      <BaseLayout className="wall" user={user}>
+      <BaseLayout className="wall" user={user} title="Find blogger">
         <section className="fabrx-section bg-white mt-5 picker-section">
           <div className="container">
             <div className="row py-0 p-3 p-md-0">

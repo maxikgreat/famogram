@@ -80,7 +80,7 @@ export default function Settings({ user, token }: SettingsProps) {
   if (!user.user_metadata?.contactInfo) return <Redirect url='/first_enter' />
   
   return (
-    <BaseLayout className="general" user={user}>
+    <BaseLayout className="general" user={user} title="Settings">
      <section className="fabrx-section bg-white mt-0 mt-md-5">
         <div className="container">
           <div className="row align-items-flex-start position-relative p-3 p-md-0">

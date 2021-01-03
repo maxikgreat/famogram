@@ -148,7 +148,7 @@ export default function FirstEnter({ user, token }: FirstEnterProps) {
   if (user.user_metadata?.contactInfo) return <Redirect url="/find_blogger" />
   
   return (
-    <BaseLayout className="first-enter" user={user}>
+    <BaseLayout className="first-enter" user={user} title="Welcome">
       <section className="fabrx-section bg-white mt-5 p-3 p-md-0">
         <form onSubmit={handleSubmit(finishHandler)} className="position-relative">
           <PickRole

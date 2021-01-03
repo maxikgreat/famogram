@@ -135,7 +135,7 @@ export default function Profile({ user, token }: ProfileProps) {
   if (!user.user_metadata?.contactInfo) return <Redirect url="/first_enter" />;
 
   return (
-    <BaseLayout className="profile" user={user}>
+    <BaseLayout className="profile" user={user} title="Instagram">
       <section className="fabrx-section bg-white mt-0 mt-md-3">
         <div className="container">
           <form onSubmit={handleSubmit(updateInfo)} className="row align-items-flex-start position-relative p-3 p-md-0">
