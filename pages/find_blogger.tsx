@@ -3,7 +3,7 @@ import {toast} from 'react-toastify';
 import { BaseLayout } from '@/components/layouts';
 import {Categories, Details, People} from '@/components/pages/findBloger';
 import { useState, useEffect } from 'react';
-import { Category, User } from '@/types';
+import {Category, ExtendedUser, User} from '@/types';
 import { useGetBloggers } from '@/hooks';
 import { CategoriesMobile } from '@pagesComponents/findBloger/CategoriesMobile';
 import { Redirect } from '@/components/common';
@@ -16,7 +16,7 @@ interface WallProps {
 
 export interface ICategory {
   label: Category,
-  value :Category,
+  value: Category,
 }
 
 export const getServerSideProps = withAuth();
@@ -30,7 +30,7 @@ export default function FindBlogger({ user, token }: WallProps) {
   }, []);
   
   const [activeCategory, setActiveCategory] = useState<ICategory[]>([]);
-  const [activeBlogger, setActiveBlogger] = useState<User | null>(null);
+  const [activeBlogger, setActiveBlogger] = useState<ExtendedUser | null>(null);
   
   const filterBloggers = () => {
     if (activeCategory.length === 0) return getBloggersState.data;

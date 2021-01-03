@@ -12,6 +12,11 @@ export interface User {
   user_metadata: Metadata | null,
 }
 
+export interface ExtendedUser extends User {
+  // see auth api management (api/v2/users) docs to add more info
+  created_at: string,
+}
+
 export const categories = [
   'Marketing',
   'Agriculture',

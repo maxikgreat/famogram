@@ -6,6 +6,7 @@ import Head from 'next/head';
 
 import 'react-toastify/dist/ReactToastify.css';
 import '@/styles/main.scss';
+import {SkeletonTheme} from 'react-loading-skeleton';
 
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
@@ -33,7 +34,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         height={4}
         options={{ showSpinner: false }}
       />
-      <Component {...pageProps} />
+      <SkeletonTheme color="#202020" highlightColor="#444">
+        <Component {...pageProps} />
+      </SkeletonTheme>
     </>
   );
 }

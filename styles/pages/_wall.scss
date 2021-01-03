@@ -8,10 +8,15 @@ main.wall {
     .nav-link {
       cursor: pointer;
     }
-  }
-  @include media-breakpoint-down(lg) {
-    section.picker-section {
-      height: auto;
+
+    .params {
+      svg, .fabrx-chip {
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+      }
+      .input-hld {
+        width: 90%;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 import { useApiHandler } from './useApiHandler';
 import { axiosApi } from '@/services/axios';
-import { InstaUser, Metadata, User } from '@/types';
+import {ExtendedUser, InstaUser, Metadata} from '@/types';
 
 export interface CheckInstagram {
   nickname: string,
@@ -50,5 +50,5 @@ export const useUpdatePassword = (token: string) => {
 
 export const useGetBloggers = (token: string) => {
   axiosApi.defaults.headers.Authorization = token;
-  return useApiHandler<undefined, User[]>(getBloggers);
+  return useApiHandler<undefined, ExtendedUser[]>(getBloggers);
 }

@@ -34,7 +34,7 @@ const port = process.env.PORT || 3000;
       authorizationParams: {
         response_type: 'code',
         audience: process.env.AUTH0_AUDIENCE,
-        scope: 'openid email profile offline_access',
+        scope: 'openid email profile offline_access read:users',
       },
       routes: {
         login: false,
@@ -55,7 +55,7 @@ const port = process.env.PORT || 3000;
     
     server.listen(port, (err?: any) => {
       if (err) throw err;
-      console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`);
+      console.log(`> Ready on ${process.env.BASE_URL}:${port} - env ${process.env.NODE_ENV}`);
     })
   } catch (e) {
     console.log(e);
