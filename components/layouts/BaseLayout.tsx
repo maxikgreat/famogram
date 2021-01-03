@@ -18,7 +18,7 @@ export const BaseLayout = ({ children, className, user, title }: BaseLayoutProps
   return (
     <>
       <Head>
-        <title>{title ? `${title} | Hativi` : 'Hativi'}</title>
+        <title>{title ? `${title} | Hativi | Simplyfind your co-star` : 'Hativi | Simplyfind your co-star'}</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         <meta name="description" content="Easy-find and collaborate with blogger that you really need or offer your candidature to advertise influencers' interests. Eventually do it all concurrently" />
