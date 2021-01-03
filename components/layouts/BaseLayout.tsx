@@ -24,7 +24,6 @@ export const BaseLayout = ({ children, className, user, title }: BaseLayoutProps
         <meta name="description" content="Easy-find and collaborate with blogger that you really need or offer your candidature to advertise influencers' interests. Eventually do it all concurrently" />
       </Head>
       <Header user={user || userHook} loading={loading} />
-      <Header user={user || userHook} loading={loading} />
       <main id="main" className={className}>
         {children}
       </main>
