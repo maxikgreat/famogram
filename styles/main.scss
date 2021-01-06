@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap');
+
 // ui kit
 @import './uikit/main.scss';
 
@@ -24,6 +26,10 @@
 @import './pages/index';
 @import './pages/wall';
 @import './pages/profile';
+
+html, body {
+  font-family: 'Hind Siliguri';
+}
 
 body.modal-open {
   min-height: 100vh;
