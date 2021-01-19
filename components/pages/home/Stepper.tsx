@@ -112,8 +112,8 @@ export const Stepper = () => {
                     </div>
                     <div className="col-lg-5">
                       <div className="hero-caption p-4 p-xl-5">
-                        <h4 className="mb-3">Awesome Feature</h4>
-                        <p className="h6 text-secondary">Realm of the galaxies across the centuries the carbon in our apple pies vanquish the impossible another world venture. Dream of the mind's eye muse about the only home we've ever known the only home we've ever known.</p>
+                        <h4 className="mb-3">{t('stepper.easyRegistrationHeader')}</h4>
+                        <p className="h6 text-secondary">{t('stepper.easyRegistrationDesc')}</p>
                       </div>
                     </div>
                   </div>
@@ -127,8 +127,8 @@ export const Stepper = () => {
                     </div>
                     <div className="col-lg-5">
                       <div className="hero-caption p-4 p-xl-5">
-                        <h4 className="mb-3">Awesome Feature</h4>
-                        <p className="h6 text-secondary">Realm of the galaxies across the centuries the carbon in our apple pies vanquish the impossible another world venture. Dream of the mind's eye muse about the only home we've ever known the only home we've ever known.</p>
+                        <h4 className="mb-3">{t('stepper.lookingForABloggerHeader')}</h4>
+                        <p className="h6 text-secondary">{t('stepper.lookingForABloggerDesc')}</p>
                       </div>
                     </div>
                   </div>
@@ -142,8 +142,8 @@ export const Stepper = () => {
                     </div>
                     <div className="col-lg-5">
                       <div className="hero-caption p-4 p-xl-5">
-                        <h4 className="mb-3">Awesome Feature</h4>
-                        <p className="h6 text-secondary">Realm of the galaxies across the centuries the carbon in our apple pies vanquish the impossible another world venture. Dream of the mind's eye muse about the only home we've ever known the only home we've ever known.</p>
+                        <h4 className="mb-3">{t('stepper.finishHeader')}</h4>
+                        <p className="h6 text-secondary">{t('stepper.finishDesc')}</p>
                       </div>
                     </div>
                   </div>
