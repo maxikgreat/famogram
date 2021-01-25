@@ -6,7 +6,7 @@ export default function Home() {
     <BaseLayout className="home">
       <Hero />
       <Stepper />
-      <Price />
+      {/*<Price />*/}
       <Testimonials />
     </BaseLayout>
   )

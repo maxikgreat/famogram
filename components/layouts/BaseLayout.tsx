@@ -21,7 +21,7 @@ export const BaseLayout = ({ children, className, user, title }: BaseLayoutProps
         <title>{title ? `${title} | Hativi | Simplyfind your co-star` : 'Hativi | Simplyfind your co-star'}</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-        <meta name="description" content="Easy-find and collaborate with blogger that you really need or offer your candidature to advertise influencers' interests. Eventually do it all concurrently" />
+        <meta name="description" content="Simplify your way of advertising. Find your ideal influencer by specific category you need and advertise your product or service through the unlimited possibilities of Hativi" />
       </Head>
       <Header user={user || userHook} loading={loading} />
       <main id="main" className={className}>
