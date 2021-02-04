@@ -16,7 +16,7 @@ export const Testimonials: VFC = () => {
       <div className="container">
         <div className="row justify-content-center">
           {feedbacks.map(({anim, name, city, body}, index) => (
-            <div className={`col-lg-4 col-md-6 my-3 wow ${anim}`}>
+            <div className={`col-lg-4 col-md-6 my-3 wow ${anim}`} key={`testimonial-${index}`}>
               <div className="card rounded-6 shadow-40">
                 <div className="card-body text-center pt-0">
                   <div className="testimonial-author stack">

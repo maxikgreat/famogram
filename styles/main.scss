@@ -28,6 +28,13 @@
 @import './pages/profile';
 
 html, body {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
   font-family: 'Hind Siliguri';
 }
 
@@ -43,6 +50,11 @@ body.modal-open {
 header {
   padding: 20px 0 20px 0 !important;
   padding-top: 5.5rem !important;
+  transition: all .2s ease-in-out;
+}
+
+header.scrolled {
+  padding-top: 1rem !important;
 }
 
 section {

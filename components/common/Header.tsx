@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import useTranslation from 'next-translate/useTranslation';
 
 import {Logo} from '../common';
@@ -48,6 +48,9 @@ const AvatarDropdown = ({ name, photo }: AvatarDropdownProps) => {
 };
 
 export const Header = ({ user, loading }: HeaderProps) => {
+  
+  const headerRef = useRef<HTMLDivElement>(null!);
+  
   useEffect(() => {
     const resizeHandler = () => {
       if (window.innerWidth < 767) {
@@ -55,9 +58,20 @@ export const Header = ({ user, loading }: HeaderProps) => {
       }
       setMobile(false);
     };
+    
+    const scrollHandler = () => {
+      if (window.scrollY > 100) {
+        return headerRef.current.classList.add('scrolled');
+      }
+      headerRef.current.classList.remove('scrolled');
+    }
     resizeHandler();
     window.addEventListener('resize', resizeHandler);
-    return () => window.removeEventListener('resize', resizeHandler);
+    window.addEventListener('scroll', scrollHandler);
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('scroll', scrollHandler);
+    }
   },[]);
   
   const [isMobile, setMobile] = useState(false);
@@ -65,7 +79,7 @@ export const Header = ({ user, loading }: HeaderProps) => {
   const {t} = useTranslation('common');
   
   return (
-    <header className="fabrx-header bg-white sticky-top">
+    <header ref={headerRef} className="fabrx-header bg-white sticky-top">
       <div className="container">
         <nav className="navbar navbar-expand has-header-inner align-items-center position-relative">
           <div className="position-absolute logo-header" style={{top: isMobile ? -35 : -97}}>
