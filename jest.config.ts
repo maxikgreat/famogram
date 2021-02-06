@@ -23,15 +23,15 @@ export default {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: [
-    "/node_modules/"
+    '/node_modules/'
   ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "babel",
+  coverageProvider: 'babel',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -81,7 +81,12 @@ export default {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/$1',
+    '@api/(.*)': '<rootDir>/pages/api',
+    '@pagesComponents/(.*)': '<rootDir>/components/pages',
+    '@store/(.*)': '<rootDir>/store',
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -137,7 +142,7 @@ export default {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "node",
+  testEnvironment: 'jsdom',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -147,13 +152,13 @@ export default {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)"
+    '**/__tests__/**/*.[jt]s?(x)',
+    '**/?(*.)+(spec|test).[tj]s?(x)'
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
-    "/node_modules/"
+    '/node_modules/'
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -176,8 +181,8 @@ export default {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    "/node_modules/",
-    "\\.pnp\\.[^\\/]+$"
+    '/node_modules/',
+    '\\.pnp\\.[^\\/]+$'
   ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them

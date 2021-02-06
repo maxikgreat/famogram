@@ -3,7 +3,7 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 
 import { User } from '@/types';
-import { Locale, Logo } from '../common';
+import { Locale, Logo } from '@/components/common';
 
 interface FooterProps {
   user?: User,

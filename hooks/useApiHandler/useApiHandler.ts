@@ -18,7 +18,7 @@ export function useApiHandler<D, R>(apiCall: (data: D) => AxiosPromise<R>): [
       setRequestState({ error: '', loading: false, data: response.data });
       return Promise.resolve(response.data);
     } catch ({ response }) {
-      const error = response?.data?.message ?? 'Oooops, something went wrong'
+      const error = response?.data?.message ?? 'Oooops, something went wrong';
       setRequestState({
         error,
         loading: false,
@@ -26,6 +26,7 @@ export function useApiHandler<D, R>(apiCall: (data: D) => AxiosPromise<R>): [
       });
       return Promise.reject(error);
     }
-  }
+  };
+  
   return [handler, {...requestState}];
 }

@@ -18,5 +18,5 @@ export const useUser = () => {
     user: data,
     loading: !data && !error,
     error,
-  }
-}
+  };
+};

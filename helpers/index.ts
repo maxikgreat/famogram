@@ -14,12 +14,11 @@ export const isEmail = (value: string) => {
 };
 
 export const renameKeys = (obj: any)=> {
-  if (!obj) return null;
+  if (!obj || !Object.keys(obj).length) return null;
   const newObj = { ...obj };
-  // eslint-disable-next-line
-  for (const key of newObj) {
+  for (const key in newObj) {
     if (key.includes('https://hativi.com/')) {
-      const newKey = key.split('https://hativi.com/')[1]
+      const newKey = key.split('https://hativi.com/')[1];
       newObj[newKey] = newObj[key];
       delete newObj[key];
     }

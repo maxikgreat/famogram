@@ -19,7 +19,7 @@ module.exports = {
     'react',
     '@typescript-eslint'
   ],
-  'ignorePatterns': ['build/*', 'public/*'],
+  'ignorePatterns': ['build/*', 'public/*', '*.test.*'],
   'rules': {
     'semi': ['error', 'always'],
     'quotes': ['error', 'single']

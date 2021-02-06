@@ -102,7 +102,7 @@
 		 4. 5. Fabrx Aside Five CSS
 		 4. 7. Fabrx Header CSS
 		 4. 7. 1. Fabrx Header Four CSS
-		 4. 8. Fabrx Footer CSS
+		 4. 8. Fabrx Index CSS
 		 4. 9. Fabrx Hero CSS
 		 4. 10. Fabrx Features CSS
 		 4. 10. 1. Fabrx Item Boxes CSS
@@ -3122,12 +3122,12 @@ select {
 .progress-bar {
   width: 0;
   animation: progress 1.5s ease-in-out forwards;
-  
+
   .title {
     opacity: 0;
     animation: show 0.35s forwards ease-in-out 0.5s;
   }
-} 
+}
 
 @keyframes progress {
   from {
@@ -3136,7 +3136,7 @@ select {
   to {
     width: 100%;
   }
-} 
+}
 @keyframes show  {
   from {
     opacity: 0;
@@ -5137,7 +5137,7 @@ hr {
   font-size: 16px;
   padding-left: 10px;
 }
-/* 4. 8. Fabrx Footer CSS  */
+/* 4. 8. Fabrx Index CSS  */
 .fabrx-footer {
   background-color: $white;
   border-top: 1px solid $secondary-300;
@@ -5868,7 +5868,7 @@ hr {
       width: 39%;
     }
   }
-  /* Fabrx Footer CSS */
+  /* Fabrx Index CSS */
   .fabrx-footer-contnet p br {
     display: none;
   }
@@ -5961,7 +5961,7 @@ hr {
       }
     }
   }
-  
+
   /* Fabrx Datepicker CSS */
   .flatpickr-days, .flatpickr-innerContainer {
     overflow: visible;
@@ -5993,7 +5993,7 @@ hr {
   .fabrx-tech .mobile-color .fabrx-header-links .avatar-user {
     color: $dark;
   }
-  /* Fabrx Footer CSS */
+  /* Fabrx Index CSS */
   .fabrx-footer {
     .navbar-nav {
       flex-direction: row;
@@ -6017,7 +6017,7 @@ hr {
     width: 690px;
     float: none;
     margin: auto;
-  }  
+  }
   .fabrx-min-height {
     height: auto;
     justify-content: flex-start;
@@ -6222,7 +6222,7 @@ hr {
   .media .media-body {
     overflow: visible;
   }
-  /* Fabrx Footer CSS */
+  /* Fabrx Index CSS */
   .fabrx-footer .navbar-expand-lg .navbar-nav .nav-item .nav-link {
     padding: 8px 15px;
   }
