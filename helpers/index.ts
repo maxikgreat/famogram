@@ -13,10 +13,12 @@ export const isEmail = (value: string) => {
   return email.isValidSync(value)
 }
 
-export const renameKeys = (obj: any) => {
+export const renameKeys = (obj: any)=> {
+  if (!obj) return null;
   const newObj = { ...obj };
   for (let key in newObj) {
     if (key.includes('https://hativi.com/')) {
+      console.log('ey', key);
       const newKey = key.split('https://hativi.com/')[1]
       newObj[newKey] = newObj[key];
       delete newObj[key];
