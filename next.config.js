@@ -16,4 +16,4 @@ module.exports = nextTranslate({
     outputStyle: 'expanded',
   },
   distDir: 'build',
-})
+});
