@@ -1,9 +1,9 @@
-import { VFC } from 'react';
+import {VFC} from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 
-import { User } from '@/types';
-import { Locale, Logo } from '@/components/common';
+import {Locale, Logo} from './';
+import {User} from '@/types';
 
 interface FooterProps {
   user?: User,
@@ -11,11 +11,11 @@ interface FooterProps {
 }
 
 export const Footer: VFC<FooterProps> = ({ user, loading }) => {
-  const { t } = useTranslation('common');
+  const {t} = useTranslation('common');
   return (
     <footer className="fabrx-footer py-5 mt-5">
       <div className="container">
-        <div className={`row align-items-${!user ? 'center' : 'start'}`}>
+        <div className={`row align-items-${!user ? 'center' : 'start' }`}>
           <div className="col-lg-3 col-sm-3 mt-0 mb-3 text-center text-sm-left position-relative">
             <Logo type="text" />
           </div>
@@ -26,36 +26,33 @@ export const Footer: VFC<FooterProps> = ({ user, loading }) => {
                   loading
                     ? <div className="mt-4 spinner-border spinner-border-sm spinner-fill" />
                     : user && Object.keys(user).length > 0
-                      ? (
-                        <>
-                          <Link href="/find_blogger">
-                            <a className="nav-link">{t('nav.findBlogger')}</a>
-                          </Link>
-                          <Link href="/instagram_profile">
-                            <a className="nav-link">{t('nav.profile', { social: 'Instagram' })}</a>
-                          </Link>
-                          <Link href="#">
-                            <a className="nav-link disabled">{t('nav.profile', { social: 'TikTok' })}</a>
-                          </Link>
-                          <Link href="/settings">
-                            <a className="nav-link">{t('nav.settings')}</a>
-                          </Link>
-                          <a className="nav-link" href="/logout">{t('nav.logout')}</a>
-                        </>
-                      ) : null
+                    ? (
+                      <>
+                        <Link href="/find_blogger">
+                          <a className="nav-link">{t('nav.findBlogger')}</a>
+                        </Link>
+                        <Link href="/instagram_profile">
+                          <a className="nav-link">{t('nav.profile', {social: 'Instagram'})}</a>
+                        </Link>
+                        <Link href="#">
+                          <a className="nav-link disabled">{t('nav.profile', {social: 'TikTok'})}</a>
+                        </Link>
+                        <Link href="/settings">
+                          <a className="nav-link">{t('nav.settings')}</a>
+                        </Link>
+                        <a className="nav-link" href="/logout">{t('nav.logout')}</a>
+                      </>
+                    ) : null
                 }
               </div>
               <div className={`col-12 col-sm-${!user ? '12' : '6'} mb-4 mb-sm-0 text-center text-sm-${!user ? 'center' : 'left'} px-4 p-sm-0`}>
-                <span>
-                  Faced with some issues or have a proposal to improve?
-                  <br />
-                  <a
-                    href="mailto:maximvasylenko228322@gmail.com"
-                    style={{ textDecoration: 'underline', fontWeight: 'bold' }}
-                  >
-                    Send an email!
-                  </a>
-                </span>
+              <span>
+                Faced with some issues or have a proposal to improve?<br/>
+                <a
+                  href="mailto:maximvasylenko228322@gmail.com"
+                  style={{ textDecoration: 'underline', fontWeight: 'bold' }}
+                >Send an email!</a>
+              </span>
               </div>
             </div>
           </div>
