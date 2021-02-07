@@ -7,10 +7,10 @@ import sslRedirect from 'heroku-ssl-redirect';
 import routes from './routes';
 
 export interface RequestAuth0 extends Request {
-  oidc: RequestContext
+  oidc: RequestContext,
 }
 export interface ResponseAuth0 extends Response {
-  oidc: ResponseContext
+  oidc: ResponseContext,
 }
 
 const dev = process.env.NODE_ENV !== 'production';
