@@ -22,7 +22,9 @@ module.exports = {
   'ignorePatterns': ['build/*', 'public/*', '*.test.*'],
   'rules': {
     'semi': ['error', 'always'],
-    'quotes': ['error', 'single']
+    'quotes': ['error', 'single'],
+    'no-undef': 0,
+    'no-unused-vars': 0,
   }
 };
 

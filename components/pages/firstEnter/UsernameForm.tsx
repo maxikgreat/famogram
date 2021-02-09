@@ -82,5 +82,5 @@ export const UsernameForm: FC<UsernameFormProps> = ({
         </div>
       </div>
     </div>
-  )
+  );
 };

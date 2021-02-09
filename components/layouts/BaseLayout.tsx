@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import Head from 'next/head';
 
-import { Header, Index } from '../common'
+import { Header, Footer } from '../common';
 import { useUser } from '@/hooks/useUser';
 import { User } from '@/types';
 
@@ -27,7 +27,7 @@ export const BaseLayout = ({ children, className, user, title }: BaseLayoutProps
       <main id="main" className={className}>
         {children}
       </main>
-      <Index user={user || userHook} loading={loading} />
+      <Footer user={user || userHook} loading={loading} />
     </>
-  )
-}
+  );
+};

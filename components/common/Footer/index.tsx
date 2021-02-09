@@ -2,7 +2,7 @@ import {VFC} from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 
-import {Locale, Logo} from './';
+import {Locale, Logo} from '..';
 import {User} from '@/types';
 
 interface FooterProps {
